@@ -1,24 +1,21 @@
 //
-//  ViewController.swift
+//  HomePageVC.swift
 //  EcoSeoul
 //
-//  Created by 이충신 on 2018. 9. 4..
+//  Created by 이충신 on 2018. 9. 11..
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
 import UIKit
 
-
-class ViewController: UIViewController {
+class HomePageVC: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("test!")
-        print("test!!")
     }
 
-
+  
+ 
 
 }
-
