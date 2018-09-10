@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */; };
+		50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */; };
+		50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */; };
+		50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */; };
 		50D04849213EA82300380CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D04848213EA82300380CFE /* AppDelegate.swift */; };
 		50D0484B213EA82300380CFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D0484A213EA82300380CFE /* ViewController.swift */; };
 		50D0484E213EA82300380CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484C213EA82300380CFE /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		50D04845213EA82300380CFE /* EcoSeoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoSeoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D04848213EA82300380CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D0484A213EA82300380CFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				50D0484F213EA82500380CFE /* Assets.xcassets */,
+				50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */,
+				50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */,
+				50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */,
+				50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,8 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */,
-				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
 				50D0484E213EA82300380CFE /* Main.storyboard in Resources */,
+				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
+				50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */,
+				50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */,
+				50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */,
+				50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +404,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E3WW2RPPH;
 				INFOPLIST_FILE = EcoSeoul/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sopt.EcoSeoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -404,7 +423,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E3WW2RPPH;
 				INFOPLIST_FILE = EcoSeoul/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sopt.EcoSeoul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
