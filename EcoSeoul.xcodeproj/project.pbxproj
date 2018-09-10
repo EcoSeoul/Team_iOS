@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A548F682146768700E47773 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A548F672146768700E47773 /* test.storyboard */; };
 		50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */; };
 		50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */; };
 		50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A548F672146768700E47773 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
 		50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				50D0484C213EA82300380CFE /* Main.storyboard */,
 				50D04851213EA82500380CFE /* LaunchScreen.storyboard */,
+				3A548F672146768700E47773 /* test.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */,
 				50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */,
+				3A548F682146768700E47773 /* test.storyboard in Resources */,
 				50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -421,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
