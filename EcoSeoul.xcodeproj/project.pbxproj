@@ -82,7 +82,6 @@
 				50D0484A213EA82300380CFE /* ViewController.swift */,
 				508BC665213F845B00486A89 /* Storyboard */,
 				50D0485A213EECBF00380CFE /* Resources */,
-				50D04854213EA82500380CFE /* Info.plist */,
 			);
 			path = EcoSeoul;
 			sourceTree = "<group>";
@@ -91,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				50D0484F213EA82500380CFE /* Assets.xcassets */,
+				50D04854213EA82500380CFE /* Info.plist */,
 				50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */,
 				50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */,
 				50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */,
@@ -403,7 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E3WW2RPPH;
-				INFOPLIST_FILE = EcoSeoul/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,7 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E3WW2RPPH;
-				INFOPLIST_FILE = EcoSeoul/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
