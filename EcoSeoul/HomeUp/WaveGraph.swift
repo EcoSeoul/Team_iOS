@@ -19,6 +19,8 @@ class WaveGraph{
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
     
+    let waveAnimation = CABasicAnimation(keyPath: "waveStrokeEnd")
+    
     init(_ parentView: UIView,_ prePercent: Double, _ curPercent: Double){
         
         self.parentView = parentView
@@ -33,7 +35,7 @@ class WaveGraph{
         let grayCenterY = (self.parentView?.frame.height)! * CGFloat(1 - prePercent!)
         let colorCenterY = (self.parentView?.frame.height)! * CGFloat(1 - curPercent!)
         
-        let graysteps = 90
+        let graysteps = 62
         let graystepX = (self.parentView?.frame.width)! / CGFloat(graysteps)
         
         let colorsteps = 53
@@ -42,42 +44,35 @@ class WaveGraph{
         let grayLayerPath = UIBezierPath()
         let colorLayerPath = UIBezierPath()
         
-        //gray Layer
+        ////////////////gray Layer////////////////
         grayLayerPath.move(to: CGPoint(x: 0, y: (self.parentView?.frame.height)!))
         grayLayerPath.addLine(to: CGPoint(x: 0, y: grayCenterY))
-    
-            print(cos(Double(Double.pi/2)))
-            print(cos(Double(Double.pi)))
-        
+
         for i in 0...graysteps {
             let x = CGFloat(i) * graystepX 
-            let y = (0.65*cos(Double(graysteps-i) * 0.1) * 40) + Double(grayCenterY)
-
-            //cos 0 = 1
-            //cos pi/2 = 0
+            let y = (0.65*cos(Double(i+graysteps*3/2) * 0.1) * 40) + Double(grayCenterY)
             grayLayerPath.addLine(to: CGPoint(x: x, y: CGFloat(y)))
         }
         
-        grayLayerPath.addLine(to: CGPoint(x: (self.parentView?.frame.width)!, y: (self.parentView?.frame.height)!) )  // Draw down to the lower right
+        grayLayerPath.addLine(to: CGPoint(x: (self.parentView?.frame.width)!, y: (self.parentView?.frame.height)!) )
         grayLayerPath.close()
+        
         grayLayer.path = grayLayerPath.cgPath
-        
         grayLayer.fillColor = CGColor.color(from: "C7C7CC")
-        
         parentView?.layer.addSublayer(grayLayer)
+        //////////////////////////////////////////
         
-        //color Layer
+        //////////////color Layer////////////////
         colorLayerPath.move(to: CGPoint(x: 0, y: (self.parentView?.frame.height)!))
         colorLayerPath.addLine(to: CGPoint(x: 0, y: colorCenterY))
-        
+
         for i in 0...colorsteps {
             let x = CGFloat(i) * colorstepX
             let y = (0.75 * sin(Double(colorsteps-i) * 0.1) * 40) + Double(colorCenterY)
-            
             colorLayerPath.addLine(to: CGPoint(x: x, y: CGFloat(y)))
         }
         
-        colorLayerPath.addLine(to: CGPoint(x: (self.parentView?.frame.width)!, y: (self.parentView?.frame.height)!) )  // Draw down to the lower right
+        colorLayerPath.addLine(to: CGPoint(x: (self.parentView?.frame.width)!, y: (self.parentView?.frame.height)!) )
         colorLayerPath.close()
         colorLayer.path = colorLayerPath.cgPath
         
@@ -94,20 +89,16 @@ class WaveGraph{
        
         colorLayer.strokeStart = 0
         colorLayer.strokeEnd = 0
-        
         parentView?.layer.addSublayer(colorLayer)
-        
-        
+        //////////////////////////////////////////
     }
     
-    
-    
     func animateWave(){
-        let waveAnimation = CABasicAnimation(keyPath: "strokeEnd")
+    
         waveAnimation.fromValue = 0
         waveAnimation.toValue = 1
         waveAnimation.duration = 3
-        colorLayer.add(waveAnimation, forKey: "strokeEnd")
+        colorLayer.add(waveAnimation, forKey: "waveStrokeEnd")
         
     }
     

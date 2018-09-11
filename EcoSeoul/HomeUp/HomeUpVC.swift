@@ -11,9 +11,9 @@ import UIKit
 class HomeUpVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    
     var pageControl = UIPageControl(frame: CGRect(x: 146, y: 50, width: 84, height: 12))
     
+    //총 4개의 뷰(0:탄소,1:전기,2:수도,3:가스)
     lazy var viewArray: [UIView] = {
         let width = self.scrollView.frame.width
         var arr: [UIView] = []
@@ -36,10 +36,11 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self;
-
+        
+        configurePageControl()
         makeCircleView()
         makeWaveView()
-        configurePageControl()
+        
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
     }
     
@@ -52,14 +53,12 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(pageControl)
     }
     
-    @objc
-    func changePage(sender: AnyObject) -> () {
+    @objc func changePage(sender: AnyObject) -> () {
         let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
