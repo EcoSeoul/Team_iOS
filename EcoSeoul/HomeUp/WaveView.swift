@@ -6,8 +6,11 @@
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
-import Foundation
 import UIKit
+
+//WaveGraph가 있는 뷰
+//monthLabel, titleLabel, dataLbel, updownImage, percentLbel, 작년대비Label, WaveGraph, contentLabel로 구성
+//Animation: updownImage(Hovering)
 
 class WaveView: UIView{
     

@@ -5,12 +5,11 @@
 //  Created by 이충신 on 2018. 9. 11..
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
-// 1) Progress Circular Graph 만드는 법
-// https://www.youtube.com/watch?v=O3ltwjDJaMk
-// 2) 빡빡이가 알려주는 그래프 애니메이션을 감지하여 Label 수치도 같이 움직이게 하는 법
-// https://stackoverflow.com/questions/50423624/how-to-set-the-label-to-count-to-the-given-percentage-on-custom-progress-bar
 
 import UIKit
+
+//WaveLayer(grayLayer,colorLayer로 구성) 
+//Animation: WaveLayer(grayLayer,colorLayer) - 물결흐르는 에니메이션 + 밑에서 위로 올라가는 에니메이션(예정)
 
 class WaveGraph{
     
@@ -63,7 +62,7 @@ class WaveGraph{
         grayLayerPath.close()
         
         grayLayer.path = grayLayerPath.cgPath
-        grayLayer.fillColor = CGColor.color(from: "C7C7CC")
+        grayLayer.fillColor = CGColor.color(hexString: "#C7C7CC")
         parentView?.layer.addSublayer(grayLayer)
         //////////////////////////////////////////
         
@@ -83,13 +82,13 @@ class WaveGraph{
         
         //Identify views
         if parentView?.accessibilityIdentifier == "electricity"{
-            colorLayer.fillColor = CGColor.color(from: "FFF471")
+            colorLayer.fillColor = CGColor.color(hexString: "#FFF471")
         }
         if parentView?.accessibilityIdentifier == "water"{
-             colorLayer.fillColor = CGColor.color(from: "71D9FF")
+            colorLayer.fillColor = CGColor.color(hexString: "#71D9FF")
         }
         if parentView?.accessibilityIdentifier == "gas"{
-             colorLayer.fillColor = CGColor.color(from: "FF9D60")
+            colorLayer.fillColor = CGColor.color(hexString:"#FF9D60")
         }
        
         colorLayer.strokeStart = 0

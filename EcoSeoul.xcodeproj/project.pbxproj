@@ -76,8 +76,8 @@
 			children = (
 				50C6208B2146D44D0018550B /* HomeUpVC.swift */,
 				5023DB372147BB4E00A59B48 /* CircleView.swift */,
-				5023DB392147BB6100A59B48 /* WaveView.swift */,
 				50C6208E2146DD8E0018550B /* CircleGraph.swift */,
+				5023DB392147BB6100A59B48 /* WaveView.swift */,
 				50C620902146DD9D0018550B /* WaveGraph.swift */,
 			);
 			path = HomeUp;

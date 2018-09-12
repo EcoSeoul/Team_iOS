@@ -12,13 +12,18 @@
 
 import UIKit
 
+//CircleGraph의 클래스
+//CircleLayer(grayLayer,colorLayer로 구성), durationLabel, co2ValueLabel로 구성
+//Animation: CircleLayer, co2ValueLabel
+
 class CircleGraph{
     
     //이니셜라이저 변수
     var parentView: UIView?
     var percentage: Double?
     
-    var loadingDisplayLink: CADisplayLink?//감시자역할(원형의 로딩에 따라 퍼센트레이블 증가)
+    //감시자역할(원형의 로딩에 따라 퍼센트레이블 증가)
+    var loadingDisplayLink: CADisplayLink?
     
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
@@ -67,7 +72,7 @@ class CircleGraph{
         
         //1)create loading b.g. layer(color gray)
         grayLayer.path = circularPath.cgPath
-        grayLayer.strokeColor = CGColor.color(from: "C7C7CC")
+        grayLayer.strokeColor = CGColor.color(hexString: "#C7C7CC")
         grayLayer.lineWidth = 10
         grayLayer.fillColor = UIColor.clear.cgColor
         grayLayer.lineCap = kCALineCapRound //바가 조금더 라운디드 하게 만들어줌
@@ -118,15 +123,15 @@ class CircleGraph{
         percentageLabel.text = String(format: "% .fkgCO2%", percent * 100)
         
         if percent <= 0.25 {
-            colorLayer.strokeColor = CGColor.color(from: "FF9D60")
+            colorLayer.strokeColor = CGColor.color(hexString: "#FF9D60")
         }
             
         else if percent <= 0.5 {
-            colorLayer.strokeColor = CGColor.color(from: "71D9FF")
+            colorLayer.strokeColor = CGColor.color(hexString: "#71D9FF")
         }
             
         else if percent >= 0.75 {
-            colorLayer.strokeColor = CGColor.color(from: "FFF471")
+            colorLayer.strokeColor = CGColor.color(hexString: "#FFF471")
         }
         
         if percent > 1 {

@@ -6,12 +6,11 @@
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-//CircleGraph가 있는 뷰의 요소들
-//titleLabel, co2Label, durationLabel, percentageLabel, bottomLabel
-//updownImage, downButton, homeAllButton
+//CircleGraph가 있는 뷰
+//titleLabel, circleGraph, contentLabel, downBtn 으로 구성
+//Animation: downBtn(Hovering)
 
 class CircleView: UIView {
     
@@ -19,6 +18,17 @@ class CircleView: UIView {
     var percentage: Double?
     
     var circleGraph: CircleGraph?
+    
+//    var titleLabel: UILabel = {
+//        let label = UILabel()
+//        guard let customFont = UIFont(name: "NotoSansCJKkr-Regular", size: UIFont.systemFontSize) else
+//        {
+//            fatalError("error!!!")
+//        }
+//        label.font = UIFontMetrics.default.scaledFont(for: customFont)
+//        label.adjustsFontForContentSizeCategory = true
+//        return label
+//    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,16 +52,7 @@ class CircleView: UIView {
         circleGraph?.animateCircle()
     }
     
-        var titleLabel: UILabel = {
-            let label = UILabel()
-            guard let customFont = UIFont(name: "NotoSansCJKkr-Regular", size: UIFont.systemFontSize) else
-            {
-                fatalError("error!!!")
-            }
-            label.font = UIFontMetrics.default.scaledFont(for: customFont)
-            label.adjustsFontForContentSizeCategory = true
-            return label
-        }()
+    
  
 }
 

@@ -11,11 +11,9 @@ import UIKit
 extension UIColor {
     public convenience init?(hexString: String) {
         let r, g, b, a: CGFloat
-        
         if hexString.hasPrefix("#") {
             let start = hexString.index(hexString.startIndex, offsetBy: 1)
             let hexColor = String(hexString[start...])
-            
             if hexColor.count == 8 {
                 let scanner = Scanner(string: hexColor)
                 var hexNumber: UInt64 = 0
@@ -31,23 +29,44 @@ extension UIColor {
                 }
             }
         }
-        
         return nil
     }
 }
 
 extension CGColor {
-
-static func color(from hexString : String) -> CGColor
-{
-    if let rgbValue = UInt(hexString, radix: 16) {
-        let red   =  CGFloat((rgbValue >> 16) & 0xff) / 255
-        let green =  CGFloat((rgbValue >>  8) & 0xff) / 255
-        let blue  =  CGFloat((rgbValue      ) & 0xff) / 255
-        return UIColor(red: red, green: green, blue: blue, alpha: 1.0).cgColor
-    } else {
-        return UIColor.black.cgColor
+    
+    static func color(hexString : String) -> CGColor{
+        let r, g, b: CGFloat
+        if hexString.hasPrefix("#") {
+            let start = hexString.index(hexString.startIndex, offsetBy: 1)
+            let hexColor = String(hexString[start...])
+            
+            if let rgbValue = UInt(hexColor, radix: 16) {
+                r =  CGFloat((rgbValue >> 16) & 0xff) / 255
+                g =  CGFloat((rgbValue >>  8) & 0xff) / 255
+                b =  CGFloat((rgbValue      ) & 0xff) / 255
+                return UIColor(red: r, green: g, blue: b, alpha: 1.0).cgColor
+            }
+        }
+        return UIColor.blue.cgColor
     }
+    
 }
 
-}
+//extension CGColor {
+//    static func color(from hexString : String) -> CGColor{
+//        let r, g, b: CGFloat
+//        if let rgbValue = UInt(hexString, radix: 16) {
+//            r =  CGFloat((rgbValue >> 16) & 0xff) / 255
+//            g =  CGFloat((rgbValue >>  8) & 0xff) / 255
+//            b =  CGFloat((rgbValue      ) & 0xff) / 255
+//            return UIColor(red: r, green: g, blue: b, alpha: 1.0).cgColor
+//        } else {
+//            return UIColor.black.cgColor
+//        }
+//    }
+//}
+
+
+
+

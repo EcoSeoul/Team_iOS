@@ -8,6 +8,10 @@
 
 import UIKit
 
+//ScrollView로 횡단 스크롤이 가능
+//자식뷰로 CircleView(Index:0),WaveView(Index:1~3)을 추가
+//pageControl과 HomeAllBtn 필요 
+
 class HomeUpVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -18,8 +22,9 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     
     var pageControl = UIPageControl(frame: CGRect(x: 146, y: 50, width: 84, height: 12))
     
-    //총 4개의 뷰 배열(0:탄소,1:전기,2:수도,3:가스)
+    //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
     lazy var viewArray: [UIView] = {
+        
         let width = self.scrollView.frame.width
         var arr: [UIView] = []
         for i in 0..<4 {
@@ -59,9 +64,9 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     func configurePageControl(){
         self.pageControl.numberOfPages = viewArray.count
         self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor(hexString: "#DBDCDB")
-        self.pageControl.pageIndicatorTintColor = UIColor(hexString: "#DBDCDB")
-        self.pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#A3A3A3")
+        self.pageControl.tintColor = UIColor.lightGray
+        self.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
     }
     
