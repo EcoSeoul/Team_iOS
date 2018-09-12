@@ -36,8 +36,8 @@ class CircleGraph{
     var percentageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.textColor = UIColor.lightGray
+        label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 38)
+        label.textColor = UIColor(hexString: "#343434")
         return label
     }()
     
@@ -54,7 +54,7 @@ class CircleGraph{
     //퍼센트 레이블 만들기
     func makePercentageLabel(){
         parentView?.addSubview(percentageLabel)
-        percentageLabel.frame = CGRect(x:0, y:0, width:150, height: 100)
+        percentageLabel.frame = CGRect(x:0, y:0, width:196, height: 64)
         percentageLabel.center = CGPoint(x:(parentView?.layer.bounds.midX)!, y:(parentView?.layer.bounds.midY)!)
         
     }
@@ -131,7 +131,7 @@ class CircleGraph{
         }
             
         else if percent >= 0.75 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#FFF471")
+            colorLayer.strokeColor = CGColor.color(hexString: "#00D693")
         }
         
         if percent > 1 {
