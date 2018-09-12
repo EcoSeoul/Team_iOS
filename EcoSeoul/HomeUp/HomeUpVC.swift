@@ -21,6 +21,7 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     var curVlaue: [Double] = [0.5, 0.6, 0.45]   //올해 데이터(전기,수도,가스)
     
     var pageControl = UIPageControl(frame: CGRect(x: 146, y: 50, width: 84, height: 12))
+
     
     //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
     lazy var viewArray: [UIView] = {

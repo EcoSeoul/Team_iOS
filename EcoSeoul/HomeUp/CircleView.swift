@@ -18,17 +18,30 @@ class CircleView: UIView {
     var percentage: Double?
     
     var circleGraph: CircleGraph?
+
+    var titleLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 94, y: 72, width: 187, height: 41))
+        label.textAlignment = .center
+        label.text = "전체 탄소배출량"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        return label
+    }()
     
-//    var titleLabel: UILabel = {
-//        let label = UILabel()
-//        guard let customFont = UIFont(name: "NotoSansCJKkr-Regular", size: UIFont.systemFontSize) else
-//        {
-//            fatalError("error!!!")
-//        }
-//        label.font = UIFontMetrics.default.scaledFont(for: customFont)
-//        label.adjustsFontForContentSizeCategory = true
-//        return label
-//    }()
+    var contentLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 38, y: 458, width: 287, height: 41))
+        label.textAlignment = .left
+        label.text = "작년보다 20%나 절약!!"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        return label
+    }()
+    
+    var contentLabel2: UILabel = {
+        let label = UILabel(frame: CGRect(x: 38, y: 500, width: 287, height: 41))
+        label.textAlignment = .left
+        label.text = "스고이 데스요. ~_~"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        return label
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,9 +55,11 @@ class CircleView: UIView {
         super.init(frame: parentView.frame)
         self.parentView = parentView
         self.percentage = percentage
-    
+        parentView.subviews.last?.addSubview(titleLabel)
+        parentView.subviews.last?.addSubview(contentLabel)
+        parentView.subviews.last?.addSubview(contentLabel2)
         makeCircleGraph()
-    
+
     }
     
     func makeCircleGraph() {

@@ -53,20 +53,5 @@ extension CGColor {
     
 }
 
-//extension CGColor {
-//    static func color(from hexString : String) -> CGColor{
-//        let r, g, b: CGFloat
-//        if let rgbValue = UInt(hexString, radix: 16) {
-//            r =  CGFloat((rgbValue >> 16) & 0xff) / 255
-//            g =  CGFloat((rgbValue >>  8) & 0xff) / 255
-//            b =  CGFloat((rgbValue      ) & 0xff) / 255
-//            return UIColor(red: r, green: g, blue: b, alpha: 1.0).cgColor
-//        } else {
-//            return UIColor.black.cgColor
-//        }
-//    }
-//}
-
-
 
 

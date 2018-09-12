@@ -82,13 +82,13 @@ class WaveGraph{
         
         //Identify views
         if parentView?.accessibilityIdentifier == "electricity"{
-            colorLayer.fillColor = CGColor.color(hexString: "#FFF471")
+            colorLayer.fillColor = CGColor.color(hexString: "#FADE43")
         }
         if parentView?.accessibilityIdentifier == "water"{
-            colorLayer.fillColor = CGColor.color(hexString: "#71D9FF")
+            colorLayer.fillColor = CGColor.color(hexString: "#4486F0")
         }
         if parentView?.accessibilityIdentifier == "gas"{
-            colorLayer.fillColor = CGColor.color(hexString:"#FF9D60")
+            colorLayer.fillColor = CGColor.color(hexString:"#D5B1FF")
         }
        
         colorLayer.strokeStart = 0
