@@ -5,6 +5,10 @@
 //  Created by 이충신 on 2018. 9. 11..
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
+// 1) Progress Circular Graph 만드는 법
+// https://www.youtube.com/watch?v=O3ltwjDJaMk
+// 2) 빡빡이가 알려주는 그래프 애니메이션을 감지하여 Label 수치도 같이 움직이게 하는 법
+// https://stackoverflow.com/questions/50423624/how-to-set-the-label-to-count-to-the-given-percentage-on-custom-progress-bar
 
 import UIKit
 
@@ -19,7 +23,8 @@ class WaveGraph{
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
     
-    let waveAnimation = CABasicAnimation(keyPath: "waveStrokeEnd")
+    //에니메이션 변수(아직 미적용)
+    let waveAnimation = CABasicAnimation(keyPath: "StrokeEnd")
     
     init(_ parentView: UIView,_ prePercent: Double, _ curPercent: Double){
         
@@ -98,7 +103,7 @@ class WaveGraph{
         waveAnimation.fromValue = 0
         waveAnimation.toValue = 1
         waveAnimation.duration = 3
-        colorLayer.add(waveAnimation, forKey: "waveStrokeEnd")
+        colorLayer.add(waveAnimation, forKey: "strokeEnd")
         
     }
     
