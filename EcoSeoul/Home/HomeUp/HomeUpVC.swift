@@ -20,7 +20,7 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     var preValue: [Double] = [0.7, 0.8, 0.65]   //작년 데이터(전기,수도,가스)
     var curVlaue: [Double] = [0.5, 0.6, 0.45]   //올해 데이터(전기,수도,가스)
     
-    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 20))
+    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
     
     @IBOutlet weak var homeAllBtn: UIButton!
     
@@ -69,6 +69,7 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         self.pageControl.tintColor = UIColor.lightGray
         self.pageControl.pageIndicatorTintColor = UIColor.lightGray
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         self.view.addSubview(pageControl)
     }
     
@@ -83,7 +84,7 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     }
     
     
-    //모아보기 버튼 클릭
+    //홈 모아보기 버튼 클릭
     @IBAction func homeAllPressed(_ sender: Any) {
         let homeSubStoryboard = UIStoryboard.init(name: "HomeSub", bundle: nil)
         let homeallVC = homeSubStoryboard.instantiateViewController(withIdentifier: "HomeAllVC") as? HomeAllVC
