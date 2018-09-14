@@ -28,7 +28,7 @@ class CircleView: UIView {
     }()
     
     var contentLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 38, y: 458, width: 287, height: 41))
+        let label = UILabel(frame: CGRect(x: 38, y: 508, width: 287, height: 41))
         label.textAlignment = .left
         label.text = "작년보다 20%나 절약!!"
         label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
@@ -36,7 +36,7 @@ class CircleView: UIView {
     }()
     
     var contentLabel2: UILabel = {
-        let label = UILabel(frame: CGRect(x: 38, y: 500, width: 287, height: 41))
+        let label = UILabel(frame: CGRect(x: 38, y: 550, width: 287, height: 41))
         label.textAlignment = .left
         label.text = "스고이 데스요. ~_~"
         label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)

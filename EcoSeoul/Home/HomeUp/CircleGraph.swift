@@ -66,7 +66,7 @@ class CircleGraph{
     
     func makeCircleLayer(){
         
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 142, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 132.5, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         let centerPoint =  CGPoint(x:(parentView?.layer.bounds.midX)!, y:(parentView?.layer.bounds.midY)!)
         
         
