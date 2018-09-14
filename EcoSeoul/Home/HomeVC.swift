@@ -68,6 +68,7 @@ class HomeVC: UIViewController {
                 // constrain v2 bottomAnchor to bottomAnchor of scrollView
                 v2.bottomAnchor.constraint(equalTo: verticalScroll.bottomAnchor, constant: 0),
                 ])
+            
             homeUpVC = vc1
             homeDownVC = vc2
         }
