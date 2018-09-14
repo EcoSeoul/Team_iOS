@@ -92,30 +92,27 @@
                                     <color key="backgroundColor" red="0.89669215425531912" green="0.89669215425531912" blue="0.89669215425531912" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </scrollView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Tup-1e-gO5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PointTVC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PointTVC" rowHeight="100" id="Tup-1e-gO5" customClass="PointTVC" customModule="EcoSeoul" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="243" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tup-1e-gO5" id="xus-sv-eN9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO5-OP-58g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO5-OP-58g">
                                                     <rect key="frame" x="23" y="11" width="39" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                     <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPq-pf-bcL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPq-pf-bcL">
                                                     <rect key="frame" x="23" y="39" width="44" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                                     <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bof-x8-cM5">
-                                                    <rect key="frame" x="23" y="70" width="29" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bof-x8-cM5">
+                                                    <rect key="frame" x="23" y="70" width="285" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="11"/>
                                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -129,30 +126,40 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="MPq-pf-bcL" firstAttribute="top" secondItem="NO5-OP-58g" secondAttribute="bottom" constant="5" id="07L-hc-VVd"/>
+                                                <constraint firstItem="MPq-pf-bcL" firstAttribute="leading" secondItem="NO5-OP-58g" secondAttribute="leading" id="1WG-VG-O8N"/>
                                                 <constraint firstAttribute="trailing" secondItem="srk-tw-gpo" secondAttribute="trailing" id="4Be-k2-ewZ"/>
                                                 <constraint firstItem="srk-tw-gpo" firstAttribute="top" secondItem="xus-sv-eN9" secondAttribute="top" id="BD4-7b-T1b"/>
+                                                <constraint firstItem="NO5-OP-58g" firstAttribute="top" secondItem="xus-sv-eN9" secondAttribute="top" constant="11" id="DNj-b0-vF0"/>
+                                                <constraint firstItem="bof-x8-cM5" firstAttribute="top" secondItem="MPq-pf-bcL" secondAttribute="bottom" constant="5" id="H33-YF-n9r"/>
+                                                <constraint firstAttribute="trailing" secondItem="bof-x8-cM5" secondAttribute="trailing" constant="67" id="b2D-hv-4jx"/>
                                                 <constraint firstAttribute="bottom" secondItem="srk-tw-gpo" secondAttribute="bottom" id="cDD-ph-cjg"/>
+                                                <constraint firstItem="NO5-OP-58g" firstAttribute="leading" secondItem="xus-sv-eN9" secondAttribute="leading" constant="23" id="fxu-x4-yaH"/>
+                                                <constraint firstItem="bof-x8-cM5" firstAttribute="leading" secondItem="MPq-pf-bcL" secondAttribute="leading" id="sfT-GQ-Jpj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="categoryLB" destination="NO5-OP-58g" id="KRB-dy-0KW"/>
+                                            <outlet property="explainLB" destination="bof-x8-cM5" id="zbp-no-qtv"/>
+                                            <outlet property="titleLB" destination="MPq-pf-bcL" id="4bT-nT-nVh"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="60p-JQ-Nt1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MenuTVC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuTVC" rowHeight="100" id="60p-JQ-Nt1" customClass="MenuTVC" customModule="EcoSeoul" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="343" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60p-JQ-Nt1" id="wS9-2z-FQe">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-3t-p1l">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-3t-p1l">
                                                     <rect key="frame" x="23" y="27" width="48" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="18"/>
                                                     <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-w8-sth">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-w8-sth">
                                                     <rect key="frame" x="23" y="55" width="34" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                                     <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -169,9 +176,17 @@
                                                 <constraint firstAttribute="trailing" secondItem="BAm-Lj-Wsh" secondAttribute="trailing" id="Cg0-ER-7JM"/>
                                                 <constraint firstAttribute="bottom" secondItem="BAm-Lj-Wsh" secondAttribute="bottom" id="Smp-Xd-jaI"/>
                                                 <constraint firstItem="BAm-Lj-Wsh" firstAttribute="top" secondItem="wS9-2z-FQe" secondAttribute="top" id="dGA-IR-ge5"/>
+                                                <constraint firstItem="FCp-w8-sth" firstAttribute="top" secondItem="wiv-3t-p1l" secondAttribute="bottom" constant="1" id="j09-Lo-uY3"/>
+                                                <constraint firstItem="wiv-3t-p1l" firstAttribute="leading" secondItem="wS9-2z-FQe" secondAttribute="leading" constant="23" id="jCN-OY-SYR"/>
+                                                <constraint firstItem="FCp-w8-sth" firstAttribute="leading" secondItem="wiv-3t-p1l" secondAttribute="leading" id="yyd-Qr-7hm"/>
+                                                <constraint firstItem="wiv-3t-p1l" firstAttribute="top" secondItem="wS9-2z-FQe" secondAttribute="top" constant="27" id="ztt-t3-S89"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="explainLB" destination="FCp-w8-sth" id="UvW-R0-S54"/>
+                                            <outlet property="titleLB" destination="wiv-3t-p1l" id="7XR-eJ-dVu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -199,6 +214,7 @@
                         <viewLayoutGuide key="safeArea" id="P66-os-46u"/>
                     </view>
                     <connections>
+                        <outlet property="Tableview" destination="S67-4a-GmX" id="lmc-8o-jnG"/>
                         <outlet property="barcodeBtn" destination="w7n-ht-QEt" id="FY8-hY-Hi2"/>
                         <outlet property="barcodeView" destination="J5w-J2-lsB" id="Rco-lk-hZM"/>
                     </connections>
