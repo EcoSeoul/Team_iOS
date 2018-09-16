@@ -28,6 +28,9 @@ class CircleGraph{
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
+    let small1 = CAShapeLayer()
+    let small2 = CAShapeLayer()
+    let small3 = CAShapeLayer()
     
     //에니메이션 변수
     let circleAnimation = CABasicAnimation(keyPath: "strokeEnd")
@@ -83,7 +86,7 @@ class CircleGraph{
         
         //1)create loading b.g. layer(color gray)
         grayLayer.path = circularPath.cgPath
-        grayLayer.strokeColor = CGColor.color(hexString: "#C7C7CC")
+        grayLayer.strokeColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
         grayLayer.lineWidth = 5
         grayLayer.fillColor = UIColor.clear.cgColor
         grayLayer.lineCap = kCALineCapRound //바가 조금더 라운디드 하게 만들어줌
@@ -94,7 +97,6 @@ class CircleGraph{
         
         //2)create loading layer(color red)
         colorLayer.path = circularPath.cgPath
-        colorLayer.strokeColor = UIColor.red.cgColor
         colorLayer.lineWidth = 5
         colorLayer.fillColor = UIColor.clear.cgColor
         colorLayer.lineCap = kCALineCapRound
@@ -105,6 +107,26 @@ class CircleGraph{
         colorLayer.strokeEnd = 0
         
         parentView?.layer.addSublayer(colorLayer)
+        
+        //3)create small circles
+    
+        small1.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small1.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small2.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small2.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small3.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small3.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small1.position = CGPoint(x:56.5 , y: 271.5)
+        small2.position = CGPoint(x:187.5 , y:404)
+        small3.position = CGPoint(x:318.5, y:271.5)
+        
+        parentView?.layer.addSublayer(small1)
+        parentView?.layer.addSublayer(small2)
+        parentView?.layer.addSublayer(small3)
+        
     }
     
     
@@ -133,17 +155,22 @@ class CircleGraph{
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
         percentageLabel.text = String(format: "% .fkgCO2%", percent * 100)
         
-        if percent <= 0.25 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#FF9D60")
-        }
-            
-        else if percent <= 0.5 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#71D9FF")
-        }
-            
-        else if percent >= 0.75 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#00D693")
-        }
+            colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
+         if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+         if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+         if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+        
+//        if percent <= 0.25 {
+//            colorLayer.strokeColor = #colorLiteral(red: 1, green: 0.6156862745, blue: 0.3764705882, alpha: 1)
+//        }
+//
+//        else if percent <= 0.5 {
+//            colorLayer.strokeColor = #colorLiteral(red: 0.4431372549, green: 0.8509803922, blue: 1, alpha: 1)
+//        }
+//
+//        else if percent >= 0.75 {
+//            colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
+//        }
         
         if percent > 1 {
             displayLink.invalidate()

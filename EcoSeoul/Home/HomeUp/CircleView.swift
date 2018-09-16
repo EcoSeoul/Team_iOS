@@ -62,6 +62,10 @@ class CircleView: UIView {
         circleGraph?.animateCircle()
     }
     
+    func animateView() {
+        circleGraph?.animateCircle()
+    }
+    
     
  
 }
