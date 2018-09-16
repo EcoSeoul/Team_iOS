@@ -23,8 +23,6 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
     
     @IBOutlet weak var homeAllBtn: UIButton!
-    @IBOutlet weak var downBtn: UIButton!
-    @IBOutlet weak var downBtnConstraint: NSLayoutConstraint!
     
     //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
     lazy var viewArray: [UIView] = {
@@ -50,18 +48,11 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         configurePageControl()
         
         self.view.addSubview(homeAllBtn)
-        self.view.addSubview(downBtn)
         
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
    
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        downBtnAnimate()
-    }
-    
-
     //홈 모아보기 버튼 클릭
     @IBAction func homeAllPressed(_ sender: Any) {
         let homeSubStoryboard = UIStoryboard.init(name: "HomeSub", bundle: nil)
@@ -69,22 +60,6 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         self.present(homeallVC!, animated: true, completion: nil)
     }
     
-    //다운 버튼 클릭
-    @IBAction func downPressed(_ sender: Any) {
-        print("downPressed!!")
-        //이곳에서 하단으로 내려가게 하는 기능 구현
-        
-    }
-    
-    //다운 버튼 애니메이션
-    func downBtnAnimate(){
-        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .repeat, .allowUserInteraction], animations: {
-            self.downBtnConstraint.constant += 15
-            self.view.layoutIfNeeded()
-        }, completion:nil)
-        
-    }
-
 
 }
 
@@ -144,7 +119,7 @@ extension HomeUpVC {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
-        print("현재 페이지 인덱스 = \(pageControl.currentPage)")
+        print("현재 Horizontal 인덱스 = \(pageControl.currentPage)")
     }
     /////////////////////////////////////
     

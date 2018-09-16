@@ -9,7 +9,7 @@
 import UIKit
 
 //CircleGraph가 있는 뷰
-//titleLabel, circleGraph, contentLabel, downBtn 으로 구성
+//titleLabel, circleGraph, contentLabel 으로 구성
 //Animation: downBtn(Hovering)
 
 class CircleView: UIView {

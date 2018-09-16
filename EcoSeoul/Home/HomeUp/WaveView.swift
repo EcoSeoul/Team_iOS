@@ -20,7 +20,7 @@ class WaveView: UIView{
     var curPercent: Double? //이번년도 퍼센트(색상물결)
     
     var waveGraph: WaveGraph?
-
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,7 +37,6 @@ class WaveView: UIView{
         self.prePercent = prePercent
         self.curPercent = curPercent
 
-        
         makeWaveGraph()
     
     }

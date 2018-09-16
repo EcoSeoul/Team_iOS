@@ -28,33 +28,59 @@ class CircleGraph{
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
-    let small1 = CAShapeLayer()
-    let small2 = CAShapeLayer()
-    let small3 = CAShapeLayer()
+   
     
     //에니메이션 변수
     let circleAnimation = CABasicAnimation(keyPath: "strokeEnd")
     
     //기간 레이블
     var durationLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
+        let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 74))
         label.textAlignment = .center
         label.text = "4월 ~ 8월"
         label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
-        label.textColor = UIColor(hexString: "#55595D")
+        label.textColor = #colorLiteral(red: 0.3333333333, green: 0.3490196078, blue: 0.3647058824, alpha: 1)
         return label
     }()
     
 
-    //퍼센트 레이블
-    var percentageLabel: UILabel = {
+    //CO2 감소량 레이블
+    var co2Label: UILabel = {
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
         label.textAlignment = .center
         label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 38)
-        label.textColor = UIColor(hexString: "#343434")
+        label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()
     
+//    //업다운 이미지
+//    var updownImage: UIImage = {
+//
+//
+//
+//    }()
+//
+//    //
+    
+    //퍼센트 레이블
+    var percentLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:158, height: 320))
+        label.textAlignment = .center
+        label.text = "10%"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
+        return label
+    }()
+    
+    //작년대비 레이블
+    var nothingLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:55, height: 22))
+        label.textAlignment = .center
+        label.text = "작년대비"
+        label.font = UIFont(name: "NotoSansCJKkr-Light", size: 15)
+        label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
+        return label
+    }()
     
     
     init(_  parentView: UIView, _ percentage: Double){
@@ -65,10 +91,14 @@ class CircleGraph{
         makeCircleLayer()
         
         durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 211.5)
-        percentageLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
+        co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
+        percentLabel.center = CGPoint(x: 178.5, y: 326)
+        nothingLabel.center = CGPoint(x: 203.5, y: 328)
         
         parentView.addSubview(durationLabel)
-        parentView.addSubview(percentageLabel)
+        parentView.addSubview(co2Label)
+        parentView.addSubview(percentLabel)
+        parentView.addSubview(nothingLabel)
         
     }
     
@@ -150,10 +180,14 @@ class CircleGraph{
     }
     
     
+    let small1 = CAShapeLayer()
+    let small2 = CAShapeLayer()
+    let small3 = CAShapeLayer()
+    
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
-        percentageLabel.text = String(format: "% .fkgCO2%", percent * 100)
+        co2Label.text = String(format: "% .fkgCO2%", percent * 100)
         
             colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
          if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}

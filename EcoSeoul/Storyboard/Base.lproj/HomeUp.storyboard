@@ -59,34 +59,19 @@
                                             <action selector="homeAllPressed:" destination="fSI-vi-YpQ" eventType="touchUpInside" id="Pit-5P-whR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdr-GK-Nrx">
-                                        <rect key="frame" x="162" y="512" width="50" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
-                                        <state key="normal" title="V">
-                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="downPressed:" destination="fSI-vi-YpQ" eventType="touchUpInside" id="xfn-DN-8CA"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jdr-GK-Nrx" firstAttribute="top" secondItem="K3Z-GS-Ze5" secondAttribute="top" constant="512" id="EqD-JG-Fhh"/>
-                            <constraint firstItem="jdr-GK-Nrx" firstAttribute="leading" secondItem="K3Z-GS-Ze5" secondAttribute="leading" constant="162" id="HP7-rS-ft3"/>
                             <constraint firstItem="83T-El-BDy" firstAttribute="leading" secondItem="K3Z-GS-Ze5" secondAttribute="leading" id="h94-b1-3da"/>
                             <constraint firstItem="K3Z-GS-Ze5" firstAttribute="bottom" secondItem="83T-El-BDy" secondAttribute="bottom" id="iKX-Nx-Vaf"/>
                             <constraint firstItem="83T-El-BDy" firstAttribute="top" secondItem="K3Z-GS-Ze5" secondAttribute="top" id="iRR-pJ-cUL"/>
-                            <constraint firstItem="K3Z-GS-Ze5" firstAttribute="trailing" secondItem="jdr-GK-Nrx" secondAttribute="trailing" constant="163" id="oc1-TZ-ski"/>
                             <constraint firstItem="K3Z-GS-Ze5" firstAttribute="trailing" secondItem="83T-El-BDy" secondAttribute="trailing" id="yl7-3W-Foh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K3Z-GS-Ze5"/>
                     </view>
                     <connections>
-                        <outlet property="downBtn" destination="jdr-GK-Nrx" id="uz3-eV-Zet"/>
-                        <outlet property="downBtnConstraint" destination="EqD-JG-Fhh" id="OtN-c4-biW"/>
                         <outlet property="homeAllBtn" destination="Y8T-oK-Ny0" id="JPd-No-tu1"/>
                         <outlet property="horizontalScroll" destination="83T-El-BDy" id="y6k-PD-n4O"/>
                     </connections>
