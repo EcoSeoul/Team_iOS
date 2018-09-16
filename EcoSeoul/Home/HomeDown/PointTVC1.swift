@@ -8,9 +8,8 @@
 
 import UIKit
 
-class PointTVC: UITableViewCell {
+class PointTVC1: UITableViewCell {
 
-    @IBOutlet weak var categoryLB: UILabel!
     @IBOutlet weak var titleLB: UILabel!
     @IBOutlet weak var explainLB: UILabel!
     
