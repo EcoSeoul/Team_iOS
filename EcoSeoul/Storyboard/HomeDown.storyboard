@@ -13,7 +13,6 @@
         <!--Home DownVC-->
         <scene sceneID="bQq-8H-h7R">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o6E-X1-EuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="HomeDownVC" storyboardIdentifier="HomeDownVC" id="mp0-Tq-5D6" customClass="HomeDownVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="znH-AH-my8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -57,6 +56,7 @@
                         <outlet property="barcodeView" destination="J5w-J2-lsB" id="Rco-lk-hZM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6E-X1-EuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86" y="-252"/>
         </scene>
