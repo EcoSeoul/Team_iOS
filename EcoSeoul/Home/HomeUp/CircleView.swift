@@ -10,7 +10,7 @@ import UIKit
 
 //CircleGraph가 있는 뷰
 //titleLabel, circleGraph, contentLabel 으로 구성
-//Animation: downBtn(Hovering)
+
 
 class CircleView: UIView {
     
@@ -35,6 +35,7 @@ class CircleView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.clipsToBounds = true
         label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 27)
+        label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return label
     }()
     
@@ -65,8 +66,6 @@ class CircleView: UIView {
     func animateView() {
         circleGraph?.animateCircle()
     }
-    
-    
  
 }
 

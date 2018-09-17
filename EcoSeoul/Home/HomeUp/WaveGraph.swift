@@ -9,7 +9,7 @@
 import UIKit
 
 //WaveLayer(grayLayer,colorLayer로 구성) 
-//Animation: WaveLayer(grayLayer,colorLayer) - 물결흐르는 에니메이션 + 밑에서 위로 올라가는 에니메이션(예정)
+//Animation: WaveLayer(grayLayer,colorLayer) - 밑에서 위로 fill-up 에니메이션(예정)
 
 class WaveGraph{
     
@@ -22,8 +22,9 @@ class WaveGraph{
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
     
-    //에니메이션 변수(아직 미적용)
-    let waveAnimation = CABasicAnimation(keyPath: "StrokeEnd")
+    //두 레이어의 베지어 곡선
+    let grayLayerPath = UIBezierPath()
+    let colorLayerPath = UIBezierPath()
     
     init(_ parentView: UIView,_ prePercent: Double, _ curPercent: Double){
         
@@ -32,6 +33,7 @@ class WaveGraph{
         self.curPercent = curPercent
         
         makeWaveLayer()
+        
     }
     
     func makeWaveLayer(){
@@ -44,9 +46,6 @@ class WaveGraph{
         
         let colorsteps = 53
         let colorstepX = (self.parentView?.frame.width)! / CGFloat(colorsteps)
-        
-        let grayLayerPath = UIBezierPath()
-        let colorLayerPath = UIBezierPath()
         
         ////////////////gray Layer////////////////
         grayLayerPath.move(to: CGPoint(x: 0, y: (self.parentView?.frame.height)!))
@@ -62,7 +61,7 @@ class WaveGraph{
         grayLayerPath.close()
         
         grayLayer.path = grayLayerPath.cgPath
-        grayLayer.fillColor = CGColor.color(hexString: "#C7C7CC")
+        grayLayer.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
         parentView?.layer.addSublayer(grayLayer)
         //////////////////////////////////////////
         
@@ -78,9 +77,10 @@ class WaveGraph{
         
         colorLayerPath.addLine(to: CGPoint(x: (self.parentView?.frame.width)!, y: (self.parentView?.frame.height)!) )
         colorLayerPath.close()
+        
         colorLayer.path = colorLayerPath.cgPath
         
-        //Identify views
+        //Set fillColor by identifying views
         if parentView?.accessibilityIdentifier == "electricity"{
             colorLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.8705882353, blue: 0.262745098, alpha: 1)
         }
@@ -91,18 +91,34 @@ class WaveGraph{
             colorLayer.fillColor = #colorLiteral(red: 0.8352941176, green: 0.6941176471, blue: 1, alpha: 1)
         }
        
-        colorLayer.strokeStart = 0
-        colorLayer.strokeEnd = 0
-        parentView?.layer.addSublayer(colorLayer)
+         parentView?.layer.addSublayer(colorLayer)
+        
         //////////////////////////////////////////
+     
     }
     
     func animateWave(){
-    
-        waveAnimation.fromValue = 0
-        waveAnimation.toValue = 1
-        waveAnimation.duration = 3
-        colorLayer.add(waveAnimation, forKey: "strokeEnd")
+
+        ////*****테스트용*****
+//        let rectangleLayer = CAShapeLayer()
+//        let startPath = UIBezierPath(rect: CGRect(x: 0, y: (parentView?.frame.size.height)!-67, width: (parentView?.frame.size.width)!, height: 67))
+//        let endPath = UIBezierPath(rect: CGRect(x: 0, y: 0,width: (parentView?.frame.size.width)!, height: (parentView?.frame.size.height)!))
+//        
+//        rectangleLayer.path = startPath.cgPath
+//        rectangleLayer.fillColor = #colorLiteral(red: 0.9803921569, green: 0.8705882353, blue: 0.262745098, alpha: 1)
+//        rectangleLayer.strokeColor = #colorLiteral(red: 0.9803921569, green: 0.8705882353, blue: 0.262745098, alpha: 1)
+//        parentView?.layer.addSublayer(rectangleLayer)
+//        
+//        let zoomAnimation = CABasicAnimation()
+//        zoomAnimation.keyPath = "key"
+//        zoomAnimation.duration = 10.0
+//        zoomAnimation.toValue = endPath.cgPath
+//        zoomAnimation.fillMode = kCAFillModeBoth
+//        zoomAnimation.isRemovedOnCompletion = false
+//        
+//        rectangleLayer.add(zoomAnimation, forKey: "zoom")
+        
+     
         
     }
     

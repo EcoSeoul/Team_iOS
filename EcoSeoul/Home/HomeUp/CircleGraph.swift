@@ -13,7 +13,8 @@
 import UIKit
 
 //CircleGraph의 클래스
-//CircleLayer(grayLayer,colorLayer로 구성), durationLabel, percentageLabel, co2ValueLabel로 구성
+//CircleLayer(grayLayer,colorLayer로 구성)
+//durationLabel, percentageLabel, co2ValueLabel로 구성
 //Animation: CircleLayer, co2ValueLabel
 
 class CircleGraph{
@@ -43,7 +44,6 @@ class CircleGraph{
         return label
     }()
     
-
     //CO2 감소량 레이블
     var co2Label: UILabel = {
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
@@ -74,7 +74,7 @@ class CircleGraph{
     
     //작년대비 레이블
     var nothingLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x:0, y:0, width:55, height: 22))
+        let label = UILabel(frame: CGRect(x:0, y:0, width:60, height: 22))
         label.textAlignment = .center
         label.text = "작년대비"
         label.font = UIFont(name: "NotoSansCJKkr-Light", size: 15)
@@ -90,10 +90,10 @@ class CircleGraph{
         
         makeCircleLayer()
         
-        durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 211.5)
+        durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 217)
         co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
-        percentLabel.center = CGPoint(x: 178.5, y: 326)
-        nothingLabel.center = CGPoint(x: 203.5, y: 328)
+        percentLabel.center = CGPoint(x: 178.5 - 10, y: 326)
+        nothingLabel.center = CGPoint(x: 230 - 10, y: 328)
         
         parentView.addSubview(durationLabel)
         parentView.addSubview(co2Label)
@@ -193,18 +193,6 @@ class CircleGraph{
          if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
          if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
          if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
-        
-//        if percent <= 0.25 {
-//            colorLayer.strokeColor = #colorLiteral(red: 1, green: 0.6156862745, blue: 0.3764705882, alpha: 1)
-//        }
-//
-//        else if percent <= 0.5 {
-//            colorLayer.strokeColor = #colorLiteral(red: 0.4431372549, green: 0.8509803922, blue: 1, alpha: 1)
-//        }
-//
-//        else if percent >= 0.75 {
-//            colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
-//        }
         
         if percent > 1 {
             displayLink.invalidate()

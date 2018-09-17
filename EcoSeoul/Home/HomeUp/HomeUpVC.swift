@@ -16,9 +16,10 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var horizontalScroll: UIScrollView!
     
+    //서버에서 받아와서 값 대입할것!!!!
     var co2Value: Double = 0.85                 //탄소배출 저감률
-    var preValue: [Double] = [0.7, 0.8, 0.65]   //작년 데이터(전기,수도,가스)
-    var curVlaue: [Double] = [0.5, 0.6, 0.45]   //올해 데이터(전기,수도,가스)
+    var preValue: [Double] = [0.55, 0.6, 0.7]   //작년 데이터(전기,수도,가스)
+    var curVlaue: [Double] = [0.47, 0.5, 0.45]  //올해 데이터(전기,수도,가스)
     
     var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
     
@@ -45,12 +46,11 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         horizontalScroll.delegate = self;
         makeCircleView()
         makeWaveView()
-        configurePageControl()
-        
-        self.view.addSubview(homeAllBtn)
+        makePageControl()
         
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
-   
+        self.view.addSubview(homeAllBtn)
+        
     }
     
     //홈 모아보기 버튼 클릭
@@ -62,6 +62,8 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     
 
 }
+
+
 
 //1. 뷰 구성(원형그래프 뷰 + 웨이브 뷰)
 extension HomeUpVC {
@@ -100,7 +102,7 @@ extension HomeUpVC {
 extension HomeUpVC {
     
     ////Page Control (위에 인덱싱 표시) 구현부 ////
-    func configurePageControl(){
+    func makePageControl(){
         self.pageControl.numberOfPages = 4
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)

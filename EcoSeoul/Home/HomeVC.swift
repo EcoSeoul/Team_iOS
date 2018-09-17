@@ -2,19 +2,12 @@
 //  HomeVC.swift
 //  EcoSeoul
 //
-//  Created by 이충신 on 2018. 9. 14..
-//  Copyright © 2018년 GGOMMI. All rights reserved.
-//
-//
-//  HomePageVC.swift
-//  EcoSeoul
-//
 //  Created by 이충신 on 2018. 9. 11..
 //  Copyright © 2018년 GGOMMI. All rights reserved.
-//
 
-//HomeUpVC 와 HomeDownVC 를 관리하는 ScrollView
-//DownBtn을 이곳에서 추가(VC2로 내려가야하는 제어를 해야해서)
+//HomeUpVC 와 HomeDownVC 를 관리하는 ScrollView(Vertical)
+//downBtn을 이곳에서 추가(VC1에서 VC2로 내려가는 제어가 필요해서)
+//Animation: downBtn(Hovering)
 
 import UIKit
 
@@ -36,8 +29,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         verticalScroll.delegate = self;
+        
         setVC()
         self.view.subviews[0].addSubview(downBtn)
     }
@@ -47,16 +40,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
          donwnBtnAnimate()
     }
 
-    //다운버튼 클릭시 화면전환
+    //다운버튼 클릭시 화면전환(Paging 효과로)
     @objc func downBtnTapped() {
-        
         var contentOffset = verticalScroll.contentOffset
         contentOffset.y = self.view.bounds.height - 87
         verticalScroll.setContentOffset(contentOffset, animated: true)
-        
     }
     
-    //다운버튼의 AutoLayOut & Hovering 효과
+    //다운버튼의 AutoLayOut & Hovering(위아래움직임) 효과
     func donwnBtnAnimate(){
         let v1 = self.view.subviews[0]
         downBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -108,21 +99,15 @@ extension HomeVC {
                 v1.topAnchor.constraint(equalTo: verticalScroll.topAnchor, constant: 0),
                 v1.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),
                 v1.trailingAnchor.constraint(equalTo: verticalScroll.trailingAnchor, constant: 0),
-                
-                // constrain v1 width to width of scrollView
                 v1.widthAnchor.constraint(equalTo: verticalScroll.widthAnchor, constant: 0),
                 // constrain v1 height to height of scrollView MINUS 67 (the height of your barcode view in v2)
                 v1.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: -67),
                 
-                // constrain v2 topAnchor to BOTTOM of v1
                 v2.topAnchor.constraint(equalTo: v1.bottomAnchor, constant: 0),
-                // constrain v2 leading and trailing to leading and trailing of scrollView
                 v2.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),
                 v2.trailingAnchor.constraint(equalTo: verticalScroll.trailingAnchor, constant: 0),
-                // constrain v2 height and width to height and width of scrollView
                 v2.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: 0),
                 v2.widthAnchor.constraint(equalTo: verticalScroll.widthAnchor, constant: 0),
-                // constrain v2 bottomAnchor to bottomAnchor of scrollView
                 v2.bottomAnchor.constraint(equalTo: verticalScroll.bottomAnchor, constant: 0),
                 ])
             
