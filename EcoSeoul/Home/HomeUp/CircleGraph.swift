@@ -13,7 +13,8 @@
 import UIKit
 
 //CircleGraph의 클래스
-//CircleLayer(grayLayer,colorLayer로 구성), durationLabel, co2ValueLabel로 구성
+//CircleLayer(grayLayer,colorLayer로 구성)
+//durationLabel, percentageLabel, co2ValueLabel로 구성
 //Animation: CircleLayer, co2ValueLabel
 
 class CircleGraph{
@@ -28,36 +29,79 @@ class CircleGraph{
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
+   
     
     //에니메이션 변수
     let circleAnimation = CABasicAnimation(keyPath: "strokeEnd")
     
-    //퍼센트 레이블
-    var percentageLabel: UILabel = {
-        let label = UILabel()
+    //기간 레이블
+    var durationLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 74))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 38)
-        label.textColor = UIColor(hexString: "#343434")
+        label.text = "4월 ~ 8월"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.textColor = #colorLiteral(red: 0.3333333333, green: 0.3490196078, blue: 0.3647058824, alpha: 1)
         return label
     }()
+    
+    //CO2 감소량 레이블
+    var co2Label: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
+        label.textAlignment = .center
+        label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 38)
+        label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
+        return label
+    }()
+    
+//    //업다운 이미지
+//    var updownImage: UIImage = {
+//
+//
+//
+//    }()
+//
+//    //
+    
+    //퍼센트 레이블
+    var percentLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:158, height: 320))
+        label.textAlignment = .center
+        label.text = "10%"
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
+        return label
+    }()
+    
+    //작년대비 레이블
+    var nothingLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:60, height: 22))
+        label.textAlignment = .center
+        label.text = "작년대비"
+        label.font = UIFont(name: "NotoSansCJKkr-Light", size: 15)
+        label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
+        return label
+    }()
+    
     
     init(_  parentView: UIView, _ percentage: Double){
         
         self.parentView = parentView;
         self.percentage = percentage;
         
-        makePercentageLabel()
         makeCircleLayer()
+        
+        durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 217)
+        co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
+        percentLabel.center = CGPoint(x: 178.5 - 10, y: 326)
+        nothingLabel.center = CGPoint(x: 230 - 10, y: 328)
+        
+        parentView.addSubview(durationLabel)
+        parentView.addSubview(co2Label)
+        parentView.addSubview(percentLabel)
+        parentView.addSubview(nothingLabel)
         
     }
     
-    //퍼센트 레이블 만들기
-    func makePercentageLabel(){
-        parentView?.addSubview(percentageLabel)
-        percentageLabel.frame = CGRect(x:0, y:0, width:196, height: 64)
-        percentageLabel.center = CGPoint(x:(parentView?.layer.bounds.midX)!, y:(parentView?.layer.bounds.midY)!)
-        
-    }
     
     func updateValue(_ percent: Double){
         self.percentage = percent
@@ -67,13 +111,13 @@ class CircleGraph{
     func makeCircleLayer(){
         
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 132.5, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        let centerPoint =  CGPoint(x:(parentView?.layer.bounds.midX)!, y:(parentView?.layer.bounds.midY)!)
+        let centerPoint =  CGPoint(x:(parentView?.layer.bounds.midX)!, y: 269.5)
         
         
         //1)create loading b.g. layer(color gray)
         grayLayer.path = circularPath.cgPath
-        grayLayer.strokeColor = CGColor.color(hexString: "#C7C7CC")
-        grayLayer.lineWidth = 10
+        grayLayer.strokeColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        grayLayer.lineWidth = 5
         grayLayer.fillColor = UIColor.clear.cgColor
         grayLayer.lineCap = kCALineCapRound //바가 조금더 라운디드 하게 만들어줌
         
@@ -83,8 +127,7 @@ class CircleGraph{
         
         //2)create loading layer(color red)
         colorLayer.path = circularPath.cgPath
-        colorLayer.strokeColor = UIColor.red.cgColor
-        colorLayer.lineWidth = 10
+        colorLayer.lineWidth = 5
         colorLayer.fillColor = UIColor.clear.cgColor
         colorLayer.lineCap = kCALineCapRound
         colorLayer.transform = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
@@ -94,6 +137,26 @@ class CircleGraph{
         colorLayer.strokeEnd = 0
         
         parentView?.layer.addSublayer(colorLayer)
+        
+        //3)create small circles
+    
+        small1.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small1.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small2.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small2.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small3.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
+        small3.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        
+        small1.position = CGPoint(x:56.5 , y: 271.5)
+        small2.position = CGPoint(x:187.5 , y:404)
+        small3.position = CGPoint(x:318.5, y:271.5)
+        
+        parentView?.layer.addSublayer(small1)
+        parentView?.layer.addSublayer(small2)
+        parentView?.layer.addSublayer(small3)
+        
     }
     
     
@@ -117,22 +180,19 @@ class CircleGraph{
     }
     
     
+    let small1 = CAShapeLayer()
+    let small2 = CAShapeLayer()
+    let small3 = CAShapeLayer()
+    
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
-        percentageLabel.text = String(format: "% .fkgCO2%", percent * 100)
+        co2Label.text = String(format: "% .fkgCO2%", percent * 100)
         
-        if percent <= 0.25 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#FF9D60")
-        }
-            
-        else if percent <= 0.5 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#71D9FF")
-        }
-            
-        else if percent >= 0.75 {
-            colorLayer.strokeColor = CGColor.color(hexString: "#00D693")
-        }
+            colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
+         if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+         if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+         if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
         
         if percent > 1 {
             displayLink.invalidate()

@@ -9,8 +9,8 @@
 import UIKit
 
 //CircleGraph가 있는 뷰
-//titleLabel, circleGraph, contentLabel, downBtn 으로 구성
-//Animation: downBtn(Hovering)
+//titleLabel, circleGraph, contentLabel 으로 구성
+
 
 class CircleView: UIView {
     
@@ -20,7 +20,7 @@ class CircleView: UIView {
     var circleGraph: CircleGraph?
 
     var titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 94, y: 72, width: 187, height: 41))
+        let label = UILabel(frame: CGRect(x: 94, y: 78, width: 187, height: 41))
         label.textAlignment = .center
         label.text = "전체 탄소배출량"
         label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
@@ -28,20 +28,17 @@ class CircleView: UIView {
     }()
     
     var contentLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 38, y: 508, width: 287, height: 41))
+        let label = UILabel(frame: CGRect(x: 23, y: 430, width: 287, height: 82))
         label.textAlignment = .left
-        label.text = "작년보다 20%나 절약!!"
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        label.text = "작년보다 10%를 \n절약한 당신! 최고에요!"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.clipsToBounds = true
+        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 27)
+        label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return label
     }()
     
-    var contentLabel2: UILabel = {
-        let label = UILabel(frame: CGRect(x: 38, y: 550, width: 287, height: 41))
-        label.textAlignment = .left
-        label.text = "스고이 데스요. ~_~"
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
-        return label
-    }()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,7 +54,6 @@ class CircleView: UIView {
         self.percentage = percentage
         parentView.subviews.last?.addSubview(titleLabel)
         parentView.subviews.last?.addSubview(contentLabel)
-        parentView.subviews.last?.addSubview(contentLabel2)
         makeCircleGraph()
 
     }
@@ -67,7 +63,9 @@ class CircleView: UIView {
         circleGraph?.animateCircle()
     }
     
-    
+    func animateView() {
+        circleGraph?.animateCircle()
+    }
  
 }
 
