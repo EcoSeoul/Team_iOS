@@ -17,6 +17,7 @@ class HomeDownVC: UIViewController {
     
     @IBOutlet weak var barcodeBtn: UIButton!
     
+    var expandCol : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,6 @@ class HomeDownVC: UIViewController {
 }
 
 extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
@@ -121,33 +121,32 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        self.Tableview.beginUpdates()
+
+        self.Tableview.beginUpdates()
+                let indexSet = NSMutableIndexSet()
+        indexSet.add(indexPath.section + 1)
+        indexSet.add(indexPath.section + 2)
         
-//        let indexSet = NSMutableIndexSet()
-//        indexSet.add(indexPath.section + 1)
-//        indexSet.add(indexPath.section + 2)
-        
-//        if indexPath.section == 0 {
-//            var expandCol : Bool = true
-//            if expandCol == true {
-//
-//                self.Tableview.deleteSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-//                self.Tableview.deleteSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
-//                expandCol = false
-//
-//            }else {
-//                self.Tableview.insertSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-//                self.Tableview.insertSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
-//                expandCol = true
-//            }
-//
-//        }
-//        self.Tableview.endUpdates()
-        if indexPath.section == 0{
-            let button = UIButton(type: .system)
-            button.setTitle("ggggggggg", for: .normal)
-            button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+        if indexPath.section == 0 {
+            if expandCol == true {
+
+                self.Tableview.deleteSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
+                self.Tableview.deleteSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
+                expandCol = false
+
+            }else {
+                self.Tableview.insertSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
+                self.Tableview.insertSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
+                expandCol = true
+            }
+
         }
+        self.Tableview.endUpdates()
+//        if indexPath.section == 0{
+//            let button = UIButton(type: .system)
+//            button.setTitle("ggggggggg", for: .normal)
+//            button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+//        }
     }
     
     @objc func handleExpandClose(){
