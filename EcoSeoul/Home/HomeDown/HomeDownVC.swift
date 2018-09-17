@@ -68,7 +68,7 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         if (section == 2){
             return 2
         }else if(section == 3){
-            return 4
+            return 5
         }else {
             return 1
         }
@@ -123,35 +123,32 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         
 
         self.Tableview.beginUpdates()
-                let indexSet = NSMutableIndexSet()
+        
+        let indexSet = NSMutableIndexSet()
         indexSet.add(indexPath.section + 1)
         indexSet.add(indexPath.section + 2)
-        
+        print("000")
         if indexPath.section == 0 {
             if expandCol == true {
-
-                self.Tableview.deleteSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-                self.Tableview.deleteSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
                 expandCol = false
+                self.Tableview.deleteSections(indexSet as IndexSet, with: UITableViewRowAnimation.automatic)
+                print("111")
 
             }else {
-                self.Tableview.insertSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-                self.Tableview.insertSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
+                print("222")
+//                self.Tableview.insertSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
+//                self.Tableview.insertSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
                 expandCol = true
+                self.Tableview.insertSections(indexSet as IndexSet, with: UITableViewRowAnimation.automatic)
             }
 
         }
+//        self.Tableview.reloadSections(indexSet as IndexSet, with: UITableViewRowAnimation.automatic)
+        self.Tableview.reloadData()
         self.Tableview.endUpdates()
-//        if indexPath.section == 0{
-//            let button = UIButton(type: .system)
-//            button.setTitle("ggggggggg", for: .normal)
-//            button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-//        }
+        print("333 ")
     }
     
-    @objc func handleExpandClose(){
-        print("ggg")
-    }
 
     ////////////////header 관련////////////////
     
