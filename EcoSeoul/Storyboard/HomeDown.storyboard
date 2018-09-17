@@ -22,7 +22,7 @@
         <!--HomeDownVC-->
         <scene sceneID="bQq-8H-h7R">
             <objects>
-                <viewController restorationIdentifier="HomeDownVC" storyboardIdentifier="HomeDownVC" title="HomeDownVC" id="mp0-Tq-5D6" customClass="HomeDownVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeDownVC" title="HomeDownVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mp0-Tq-5D6" customClass="HomeDownVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="znH-AH-my8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
