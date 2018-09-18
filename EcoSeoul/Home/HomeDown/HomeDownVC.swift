@@ -8,26 +8,53 @@
 
 import UIKit
 
+//UILabel(BarcodeBar) + ScrollView + TableView로 구성.
+
 class HomeDownVC: UIViewController {
     
-
-    @IBOutlet weak var barcodeView: UILabel!
-    
-    @IBOutlet weak var Tableview: UITableView!
-    
+    @IBOutlet weak var barcodeBar: UILabel!
     @IBOutlet weak var barcodeBtn: UIButton!
     
-    var expandCol : Bool = true
+    @IBOutlet weak var horizontalScroll: UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    //총 3개의 이미지뷰 배열 생성 (배너광고)
+    lazy var bannerArray: [UIImageView] = {
+        let width = self.horizontalScroll.frame.width
+        var arr: [UIImageView] = []
+        for i in 0..<3 {
+            arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
+        }
+        return arr
+    }()
+    
+    //인덱싱을 저장하기 위한 공간
+    let userDefault = UserDefaults.standard
+    
+    //TableView Expand/Collapse Flag
+    var expandCol : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = generateBarcodeFromString(string: "lcs921125")
-        barcodeBtn.setImage(image, for: .normal)
+        horizontalScroll.delegate = self;
+        tableView.dataSource = self;
+        tableView.delegate = self;
         
-        self.Tableview.dataSource = self
-        self.Tableview.delegate = self
-
+        if let image = generateBarcodeFromString(string: "8 0101254 257810"){
+            barcodeBtn.setBackgroundImage(image, for: .normal)
+        }
+       
+        makeBannerView()
+    }
+    
+    func makeBannerView(){
+        for i in 0..<bannerArray.count {
+            horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
+            if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
+            else { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-99")}
+            horizontalScroll.addSubview(bannerArray[i])
+        }
     }
     
     
@@ -50,15 +77,40 @@ class HomeDownVC: UIViewController {
 
     //바코드 버튼 클릭
     @IBAction func barcodePressed(_ sender: Any) {
-        let homeSubStoryboard = UIStoryboard.init(name: "HomeSub", bundle: nil)
-        let barcodeVC = homeSubStoryboard.instantiateViewController(withIdentifier: "BarcodeVC") as? BarcodeVC
-        self.present(barcodeVC!, animated: true, completion: nil)
+        let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
+        
+        self.addChildViewController(barcodeVC)
+        
+        //HomeVC에서 가져온 값
+        let n = userDefault.integer(forKey: "verticalIdx")
+        
+        if n == 0{
+            barcodeVC.view.frame = CGRect(x: 0, y: -592, width: self.view.frame.width, height: self.view.frame.height)
+        }
+        else{
+            barcodeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }
+        
+        self.view.addSubview(barcodeVC.view)
+        barcodeVC.didMove(toParentViewController: self)
     }
     
     
 }
 
+//Horizontal ScrollView를 구성하는 작업
+extension HomeDownVC: UIScrollViewDelegate{
+    
+    private func viewInstance(xPostion: CGFloat) -> UIImageView {
+        let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
+        return UIImageView(frame: scrollframe)
+    }
+    
+}
+
+//TableView를 구성하는 작업
 extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if expandCol { return 4 }
         else { return 2 }
@@ -75,6 +127,25 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             if section == 0 { return 1 }
             else { return 5 }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            self.tableView.beginUpdates()
+            if expandCol == true {
+                self.tableView.deleteSections([1, 2], with: .bottom)
+            }
+            else{
+                self.tableView.insertSections([1, 2], with: .automatic)
+            }
+            expandCol = !expandCol
+            
+            self.tableView.endUpdates()
+            self.tableView.reloadData()
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,7 +181,8 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                 }
                 
                 return cell
-            }else {
+            }
+            else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
                 if indexPath.row == 0 {
                     cell.titleLB.text = "가맹점 찾기"
@@ -189,40 +261,17 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-
-        if indexPath.section == 0 {
-            self.Tableview.beginUpdates()
-            if expandCol == true {
-                self.Tableview.deleteSections([1, 2], with: .bottom)
-            }
-            else{
-                self.Tableview.insertSections([1, 2], with: .automatic)
-            }
-            expandCol = !expandCol
-            
-            self.Tableview.endUpdates()
-            self.Tableview.reloadData()
-            
-        }
-        
-        
-    
-    }
-    
-
     ////////////////header 관련////////////////
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.init(hexString: "EFEFEF")
+        headerView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         
         let headerLabel = UILabel(frame: CGRect(x: 20, y: 5, width:
             tableView.bounds.size.width, height: tableView.bounds.size.height))
-        headerLabel.font = UIFont(name: "Noto Sans CJK KR", size: 15)
-        headerLabel.textColor = UIColor.init(hexString: "343434")
+        headerLabel.font = UIFont(name: notoSansFont.Medium.rawValue, size: 15)
+        headerLabel.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         
         if section == 1 {
             
@@ -257,5 +306,7 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         }else { return 0.1 }
         
     }
+    
+    ////////////////////////////////////////
     
 }
