@@ -43,7 +43,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     //다운버튼 클릭시 화면전환(Paging 효과로)
     @objc func downBtnTapped() {
         var contentOffset = verticalScroll.contentOffset
-        contentOffset.y = self.view.bounds.height - 87
+        contentOffset.y = self.view.bounds.height - 75
         verticalScroll.setContentOffset(contentOffset, animated: true)
     }
     
@@ -100,8 +100,8 @@ extension HomeVC {
                 v1.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),
                 v1.trailingAnchor.constraint(equalTo: verticalScroll.trailingAnchor, constant: 0),
                 v1.widthAnchor.constraint(equalTo: verticalScroll.widthAnchor, constant: 0),
-                // constrain v1 height to height of scrollView MINUS 67 (the height of your barcode view in v2)
-                v1.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: -67),
+                // constrain v1 height to height of scrollView MINUS 55 (the height of your barcode view in v2)
+                v1.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: -55),
                 
                 v2.topAnchor.constraint(equalTo: v1.bottomAnchor, constant: 0),
                 v2.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),

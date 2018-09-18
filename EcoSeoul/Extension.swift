@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum notoSansFont: String {
+    case Bold = "NotoSansCJKkr-Bold"
+    case Light = "NotoSansCJKkr-Light"
+    case Medium = "NotoSansCJKkr-Medium"
+    case Regular = "NotoSansCJKkr-Regular"
+}
+
 extension UIColor {
     public convenience init?(hexString: String) {
         let r, g, b, a: CGFloat
