@@ -39,7 +39,7 @@ class CircleGraph{
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 74))
         label.textAlignment = .center
         label.text = "4월 ~ 8월"
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         label.textColor = #colorLiteral(red: 0.3333333333, green: 0.3490196078, blue: 0.3647058824, alpha: 1)
         return label
     }()
@@ -48,7 +48,7 @@ class CircleGraph{
     var co2Label: UILabel = {
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 38)
+        label.font = UIFont(name: notoSansFont.Medium.rawValue, size: 38)
         label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()
@@ -67,7 +67,7 @@ class CircleGraph{
         let label = UILabel(frame: CGRect(x:0, y:0, width:158, height: 320))
         label.textAlignment = .center
         label.text = "10%"
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
         return label
     }()
@@ -77,7 +77,7 @@ class CircleGraph{
         let label = UILabel(frame: CGRect(x:0, y:0, width:60, height: 22))
         label.textAlignment = .center
         label.text = "작년대비"
-        label.font = UIFont(name: "NotoSansCJKkr-Light", size: 15)
+        label.font = UIFont(name: notoSansFont.Light.rawValue, size: 15)
         label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()

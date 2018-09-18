@@ -23,7 +23,7 @@ class CircleView: UIView {
         let label = UILabel(frame: CGRect(x: 94, y: 78, width: 187, height: 41))
         label.textAlignment = .center
         label.text = "전체 탄소배출량"
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 28)
         return label
     }()
     
@@ -34,7 +34,7 @@ class CircleView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.clipsToBounds = true
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 27)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 27)
         label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return label
     }()

@@ -28,7 +28,7 @@ class WaveView: UIView{
     var monthLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 173, y: 92, width: 40, height: 29))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         return label
     }()
     
@@ -36,7 +36,7 @@ class WaveView: UIView{
     var titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 120, y: 128, width: 136, height: 41))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 28)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 28)
         
         return label
     }()
@@ -45,7 +45,7 @@ class WaveView: UIView{
     var dataLbel: UILabel = {
         let label = UILabel(frame: CGRect(x: 101, y: 164, width: 180, height: 59))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Medium", size: 40)
+        label.font = UIFont(name: notoSansFont.Medium.rawValue, size: 40)
         
         return label
     }()
@@ -63,7 +63,7 @@ class WaveView: UIView{
     var percentLabel: UILabel = {
         let label = UILabel(frame: CGRect(x:152, y:232, width:41, height: 29))
         label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
         return label
     }()
@@ -73,7 +73,7 @@ class WaveView: UIView{
         let label = UILabel(frame: CGRect(x:197, y:238, width:70, height: 22))
         label.textAlignment = .center
         label.text = "작년대비"
-        label.font = UIFont(name: "NotoSansCJKkr-Light", size: 15)
+        label.font = UIFont(name: notoSansFont.Light.rawValue, size: 15)
         label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()
@@ -85,7 +85,7 @@ class WaveView: UIView{
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.clipsToBounds = true
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 27)
+        label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 27)
         label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return label
     }()

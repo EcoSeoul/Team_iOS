@@ -20,19 +20,20 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     
     var downBtn: UIButton = {
         let button = UIButton(frame: CGRect(x: 162, y: 512, width: 50 , height: 50))
-        button.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Regular", size: 25)
-        button.setTitle("V", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setImage(#imageLiteral(resourceName: "arrow-down-black"), for: .normal)
         button.addTarget(self, action: #selector(downBtnTapped), for: .touchUpInside)
         return button
     }()
     
+    //to identify vertical Index
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
-        
         setVC()
         self.view.subviews[0].addSubview(downBtn)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +44,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     //다운버튼 클릭시 화면전환(Paging 효과로)
     @objc func downBtnTapped() {
         var contentOffset = verticalScroll.contentOffset
-        contentOffset.y = self.view.bounds.height - 87
+        contentOffset.y = self.view.bounds.height - 75
         verticalScroll.setContentOffset(contentOffset, animated: true)
     }
     
@@ -60,7 +61,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
         ])
         
         UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .repeat, .allowUserInteraction], animations: {
-                buttonConstraint.constant += 10
+                buttonConstraint.constant += 30
                 self.view.layoutIfNeeded()
                 }, completion:nil)
 
@@ -69,6 +70,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.y / scrollView.frame.size.height)
         print("현재 Vertical 인덱스 = \(Int(pageNumber))")
+        //현재의 인덱스를 저장하여 다른VC에서 판별용도
+        userDefault.set(Int(pageNumber), forKey: "verticalIdx")
     }
 
 }
@@ -100,8 +103,8 @@ extension HomeVC {
                 v1.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),
                 v1.trailingAnchor.constraint(equalTo: verticalScroll.trailingAnchor, constant: 0),
                 v1.widthAnchor.constraint(equalTo: verticalScroll.widthAnchor, constant: 0),
-                // constrain v1 height to height of scrollView MINUS 67 (the height of your barcode view in v2)
-                v1.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: -67),
+                // constrain v1 height to height of scrollView MINUS 55 (the height of your barcode view in v2)
+                v1.heightAnchor.constraint(equalTo: verticalScroll.heightAnchor, constant: -55),
                 
                 v2.topAnchor.constraint(equalTo: v1.bottomAnchor, constant: 0),
                 v2.leadingAnchor.constraint(equalTo: verticalScroll.leadingAnchor, constant: 0),
