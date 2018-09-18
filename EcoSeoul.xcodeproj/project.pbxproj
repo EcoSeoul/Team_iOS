@@ -11,6 +11,7 @@
 		3A97AB41214C143200507A9F /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB40214C143200507A9F /* MenuTVC.swift */; };
 		3A97AB43214E5F2B00507A9F /* PointTVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB42214E5F2B00507A9F /* PointTVC2.swift */; };
 		3A97AB45214E875500507A9F /* PointHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB44214E875500507A9F /* PointHeaderTVC.swift */; };
+		3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB462151358300507A9F /* HomeAllTVC.swift */; };
 		5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB372147BB4E00A59B48 /* CircleView.swift */; };
 		5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB392147BB6100A59B48 /* WaveView.swift */; };
 		505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EB214BBA8F000D2130 /* LogIn.storyboard */; };
@@ -41,6 +42,7 @@
 		3A97AB40214C143200507A9F /* MenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTVC.swift; sourceTree = "<group>"; };
 		3A97AB42214E5F2B00507A9F /* PointTVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTVC2.swift; sourceTree = "<group>"; };
 		3A97AB44214E875500507A9F /* PointHeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointHeaderTVC.swift; sourceTree = "<group>"; };
+		3A97AB462151358300507A9F /* HomeAllTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAllTVC.swift; sourceTree = "<group>"; };
 		5023DB372147BB4E00A59B48 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		5023DB392147BB6100A59B48 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		505549EB214BBA8F000D2130 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				505549F1214BCB16000D2130 /* BarcodeVC.swift */,
 				505549F3214BCB23000D2130 /* HomeAllVC.swift */,
+				3A97AB462151358300507A9F /* HomeAllTVC.swift */,
 			);
 			path = HomeSub;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */,
+				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
 				505549F9214BCC98000D2130 /* LoginVC.swift in Sources */,
 				505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */,
@@ -510,7 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -529,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

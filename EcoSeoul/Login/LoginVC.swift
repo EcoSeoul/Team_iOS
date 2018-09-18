@@ -10,11 +10,29 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var idTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
+    let userId : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
  
+    @IBAction func loginBtn(_ sender: Any) {
+        enterHome()
+    }
+    @IBAction func signupBtn(_ sender: Any) {
+        
+    }
 
+    func enterHome() {
+        
+        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
+        
+        self.present(homeVC, animated: true, completion: nil)
+        
+    }
 }

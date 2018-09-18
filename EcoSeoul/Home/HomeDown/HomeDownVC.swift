@@ -60,51 +60,121 @@ class HomeDownVC: UIViewController {
 
 extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        if expandCol { return 4 }
+        else { return 2 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (section == 2){
-            return 2
-        }else if(section == 3){
-            return 4
-        }else {
-            return 1
+        if expandCol {
+            if section == 2 { return 2 }
+            else if section == 3{ return 5 }
+            else { return 1 }
+        }
+        else {
+            if section == 0 { return 1 }
+            else { return 5 }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
-            
-            let cell = Tableview.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
-            cell.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
-            
-            return cell
-            
-        }else if indexPath.section == 1{
-            
-            let cell = Tableview.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
-            cell.titleLB.text = "TOP쇼핑"
-            cell.explainLB.text = "*에코머니 포인트로 결제하실 때는 \n 결제화면에서 에코머니 비밀번호를 입력하셔야 합니다."
-            
-            return cell
-            
-            
-        }else if indexPath.section == 2{
-            
-            let cell = Tableview.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
-            cell.titleLB.text = "엔진닥터큐(엘더블유티㈜)"
-            
-            return cell
-        }else {
-            let cell = Tableview.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
-            cell.titleLB.text = "가맹점 찾기"
-            cell.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
-            return cell
+        if expandCol{
+            if indexPath.section == 0 {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
+                cell.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
+                
+                return cell
+                
+            }else if indexPath.section == 1{
+                
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
+                cell.titleLB.text = "TOP쇼핑"
+                cell.explainLB.text = "*에코머니 포인트로 결제하실 때는 \n 결제화면에서 에코머니 비밀번호를 입력하셔야 합니다."
+                
+                return cell
+                
+                
+            }else if indexPath.section == 2{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
+                
+                
+                if indexPath.row == 0{
+                    cell.titleLB.text = "엔진닥터큐(엘더블유티㈜)"
+                }
+                else{
+                    cell.titleLB.text = "정직한친구들"
+                }
+                
+                return cell
+            }else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
+                if indexPath.row == 0 {
+                    cell.titleLB.text = "가맹점 찾기"
+                    cell.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
+                }
+                if indexPath.row == 1 {
+                    cell.titleLB.text = "친환경 상품 신청하기"
+                    cell.explainLB.text = "온라인으로 상품을 신청해보세요"
+                }
+                if indexPath.row == 2 {
+                    cell.titleLB.text = "에코마일리지 기부하기"
+                    cell.explainLB.text = "에코마일리지로 기부해보세요"
+                }
+                if indexPath.row == 3 {
+                    cell.titleLB.text = "커뮤니티"
+                    cell.explainLB.text = "꿀팁 공유"
+                }
+                if indexPath.row == 4 {
+                    cell.titleLB.text = "에코마일리지란?"
+                    cell.explainLB.text = "에코마일리지를 알려드립니다!"
+                }
+                
+                return cell
+            }
         }
+        else {
+            if indexPath.section == 0 {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
+                cell.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
+                
+                return cell
+            }else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
+                if indexPath.row == 0 {
+                    cell.titleLB.text = "가맹점 찾기"
+                    cell.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
+                }
+                if indexPath.row == 1 {
+                    cell.titleLB.text = "친환경 상품 신청하기"
+                    cell.explainLB.text = "온라인으로 상품을 신청해보세요"
+                }
+                if indexPath.row == 2 {
+                    cell.titleLB.text = "에코마일리지 기부하기"
+                    cell.explainLB.text = "에코마일리지로 기부해보세요"
+                }
+                if indexPath.row == 3 {
+                    cell.titleLB.text = "커뮤니티"
+                    cell.explainLB.text = "꿀팁 공유"
+                }
+                if indexPath.row == 4 {
+                    cell.titleLB.text = "에코마일리지란?"
+                    cell.explainLB.text = "에코마일리지를 알려드립니다!"
+                }
+                
+                return cell
+                
+            }
+            
+            
+        }
+
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
@@ -122,48 +192,37 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 
-        self.Tableview.beginUpdates()
-                let indexSet = NSMutableIndexSet()
-        indexSet.add(indexPath.section + 1)
-        indexSet.add(indexPath.section + 2)
-        
         if indexPath.section == 0 {
+            self.Tableview.beginUpdates()
             if expandCol == true {
-
-                self.Tableview.deleteSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-                self.Tableview.deleteSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
-                expandCol = false
-
-            }else {
-                self.Tableview.insertSections(NSIndexSet(index: 1) as IndexSet, with: UITableViewRowAnimation.automatic)
-                self.Tableview.insertSections(NSIndexSet(index: 2) as IndexSet, with: UITableViewRowAnimation.automatic)
-                expandCol = true
+                self.Tableview.deleteSections([1, 2], with: .bottom)
             }
-
+            else{
+                self.Tableview.insertSections([1, 2], with: .automatic)
+            }
+            expandCol = !expandCol
+            
+            self.Tableview.endUpdates()
+            self.Tableview.reloadData()
+            
         }
-        self.Tableview.endUpdates()
-//        if indexPath.section == 0{
-//            let button = UIButton(type: .system)
-//            button.setTitle("ggggggggg", for: .normal)
-//            button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-//        }
+        
+        
+    
     }
     
-    @objc func handleExpandClose(){
-        print("ggg")
-    }
 
     ////////////////header 관련////////////////
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        //headerView.backgroundColor = UIColor.init(red: 239.0, green: 239.0, blue: 239.0, alpha: 1.0)
+        headerView.backgroundColor = UIColor.init(hexString: "EFEFEF")
         
         let headerLabel = UILabel(frame: CGRect(x: 20, y: 5, width:
             tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.font = UIFont(name: "Noto Sans CJK KR", size: 15)
-        //headerLabel.textColor = UIColor.init(red: 52.0, green: 52.0, blue: 52.0, alpha: 1.0)
+        headerLabel.textColor = UIColor.init(hexString: "343434")
         
         if section == 1 {
             
@@ -187,11 +246,16 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 1) || (section == 2) {
-            return 30
-        }else {
-            return 0.1
-        }
+        if expandCol {
+            
+            if (section == 1) || (section == 2) {
+                return 30
+            }else {
+                return 0.1
+            }
+
+        }else { return 0.1 }
+        
     }
     
 }
