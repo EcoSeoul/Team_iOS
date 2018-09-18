@@ -28,11 +28,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5w-J2-lsB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="J5w-J2-lsB" secondAttribute="height" multiplier="75:11" id="Fh6-QM-N1a"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,9 +64,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S67-4a-GmX">
                                 <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="592" id="CM4-9h-Px5"/>
-                                </constraints>
                                 <scrollView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="UfE-rI-eU0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -227,27 +221,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="J5w-J2-lsB" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" id="1b3-pU-A0A"/>
-                            <constraint firstItem="J5w-J2-lsB" firstAttribute="leading" secondItem="gWV-X3-Ygl" secondAttribute="trailing" constant="-106" id="3gU-Sd-jYw"/>
-                            <constraint firstItem="w7n-ht-QEt" firstAttribute="leading" secondItem="dAs-gA-Pp6" secondAttribute="trailing" constant="99" id="EUk-SD-7eu"/>
-                            <constraint firstItem="gWV-X3-Ygl" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" constant="-34" id="Ep8-EQ-IMU"/>
-                            <constraint firstItem="J5w-J2-lsB" firstAttribute="width" secondItem="znH-AH-my8" secondAttribute="width" id="Pw3-NA-ihv"/>
-                            <constraint firstItem="8oJ-uw-obD" firstAttribute="leading" secondItem="J5w-J2-lsB" secondAttribute="trailing" constant="-41" id="VeR-7B-RZI"/>
-                            <constraint firstItem="8oJ-uw-obD" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" constant="-36" id="YCq-gF-X2X"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="width" secondItem="J5w-J2-lsB" secondAttribute="width" id="YjA-nE-lUx"/>
+                            <constraint firstItem="8oJ-uw-obD" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" constant="19" id="3Em-mz-cDH"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="leading" secondItem="znH-AH-my8" secondAttribute="leading" id="4bA-I2-VWm"/>
+                            <constraint firstItem="dAs-gA-Pp6" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" constant="22" id="4cT-az-HY1"/>
+                            <constraint firstItem="gWV-X3-Ygl" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" constant="21" id="6gO-gC-N70"/>
+                            <constraint firstItem="gWV-X3-Ygl" firstAttribute="leading" secondItem="P66-os-46u" secondAttribute="leading" constant="23" id="Ff5-gg-ff4"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="bottom" secondItem="P66-os-46u" secondAttribute="bottom" id="HLK-BK-Lvx"/>
+                            <constraint firstAttribute="trailing" secondItem="S67-4a-GmX" secondAttribute="trailing" id="MhZ-Sg-vVD"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="leading" secondItem="J5w-J2-lsB" secondAttribute="leading" id="Nfb-um-tYN"/>
+                            <constraint firstItem="w7n-ht-QEt" firstAttribute="leading" secondItem="dAs-gA-Pp6" secondAttribute="trailing" constant="99" id="bpx-73-xbN"/>
                             <constraint firstItem="dAs-gA-Pp6" firstAttribute="leading" secondItem="I4j-SY-0bK" secondAttribute="trailing" constant="5" id="cRQ-h2-viU"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" id="eWs-fu-wrj"/>
-                            <constraint firstItem="I4j-SY-0bK" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" constant="-33" id="fEE-Kd-zh5"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="trailing" secondItem="J5w-J2-lsB" secondAttribute="trailing" id="fJM-f7-kQg"/>
-                            <constraint firstItem="P66-os-46u" firstAttribute="trailing" secondItem="J5w-J2-lsB" secondAttribute="trailing" id="geG-uv-XK7"/>
-                            <constraint firstItem="J5w-J2-lsB" firstAttribute="leading" secondItem="P66-os-46u" secondAttribute="leading" id="hXu-MS-wnm"/>
-                            <constraint firstItem="dAs-gA-Pp6" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" constant="-33" id="ifr-A7-Zva"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="width" secondItem="J5w-J2-lsB" secondAttribute="height" multiplier="75:11" id="mrO-zL-UbB"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="width" secondItem="znH-AH-my8" secondAttribute="width" id="r6o-pK-XBb"/>
+                            <constraint firstItem="P66-os-46u" firstAttribute="trailing" secondItem="8oJ-uw-obD" secondAttribute="trailing" constant="11" id="dNS-wt-npb"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="top" secondItem="gWV-X3-Ygl" secondAttribute="bottom" constant="11" id="f4e-pf-wtd"/>
+                            <constraint firstItem="I4j-SY-0bK" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" constant="22" id="qNA-D3-SPV"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="trailing" secondItem="J5w-J2-lsB" secondAttribute="trailing" id="r5M-Rj-ura"/>
                             <constraint firstItem="8oJ-uw-obD" firstAttribute="leading" secondItem="w7n-ht-QEt" secondAttribute="trailing" constant="8" id="sM4-ao-SCh"/>
-                            <constraint firstItem="S67-4a-GmX" firstAttribute="leading" secondItem="J5w-J2-lsB" secondAttribute="leading" id="txC-0u-bxv"/>
-                            <constraint firstItem="w7n-ht-QEt" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" constant="-37" id="udQ-eO-Kke"/>
-                            <constraint firstItem="J5w-J2-lsB" firstAttribute="width" secondItem="znH-AH-my8" secondAttribute="height" multiplier="375:667" id="yWQ-IS-9uK"/>
+                            <constraint firstItem="w7n-ht-QEt" firstAttribute="top" secondItem="P66-os-46u" secondAttribute="top" constant="18" id="vcC-m3-GbU"/>
+                            <constraint firstItem="S67-4a-GmX" firstAttribute="top" secondItem="J5w-J2-lsB" secondAttribute="bottom" id="wlZ-cm-kiB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P66-os-46u"/>
                     </view>
