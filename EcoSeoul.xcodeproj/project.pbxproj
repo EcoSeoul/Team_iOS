@@ -14,6 +14,13 @@
 		3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB462151358300507A9F /* HomeAllTVC.swift */; };
 		5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB372147BB4E00A59B48 /* CircleView.swift */; };
 		5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB392147BB6100A59B48 /* WaveView.swift */; };
+		502A245C2151670300421F9F /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A245B2151670300421F9F /* MyPageVC.swift */; };
+		502A245E2151677B00421F9F /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A245D2151677B00421F9F /* Pay.storyboard */; };
+		502A246121516A7500421F9F /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246021516A7500421F9F /* CardVC.swift */; };
+		502A246321516AC000421F9F /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246221516AC000421F9F /* ExchangeVC.swift */; };
+		502A246521516B7400421F9F /* Affiiation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A246421516B7400421F9F /* Affiiation.storyboard */; };
+		502A246821516BB200421F9F /* AffiliationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246721516BB200421F9F /* AffiliationVC.swift */; };
+		502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246921516BD100421F9F /* AffiliationDetailVC.swift */; };
 		505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EB214BBA8F000D2130 /* LogIn.storyboard */; };
 		505549EE214BC1F3000D2130 /* HomeSub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549ED214BC1F3000D2130 /* HomeSub.storyboard */; };
 		505549F0214BCA5B000D2130 /* HomeDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EF214BCA5B000D2130 /* HomeDown.storyboard */; };
@@ -45,6 +52,13 @@
 		3A97AB462151358300507A9F /* HomeAllTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAllTVC.swift; sourceTree = "<group>"; };
 		5023DB372147BB4E00A59B48 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		5023DB392147BB6100A59B48 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		502A245B2151670300421F9F /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		502A245D2151677B00421F9F /* Pay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
+		502A246021516A7500421F9F /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
+		502A246221516AC000421F9F /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
+		502A246421516B7400421F9F /* Affiiation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Affiiation.storyboard; sourceTree = "<group>"; };
+		502A246721516BB200421F9F /* AffiliationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationVC.swift; sourceTree = "<group>"; };
+		502A246921516BD100421F9F /* AffiliationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationDetailVC.swift; sourceTree = "<group>"; };
 		505549EB214BBA8F000D2130 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		505549ED214BC1F3000D2130 /* HomeSub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSub.storyboard; sourceTree = "<group>"; };
 		505549EF214BCA5B000D2130 /* HomeDown.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeDown.storyboard; sourceTree = "<group>"; };
@@ -84,12 +98,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		502A245F21516A4A00421F9F /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				502A246021516A7500421F9F /* CardVC.swift */,
+				502A246221516AC000421F9F /* ExchangeVC.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		502A246621516B9A00421F9F /* Affiliation */ = {
+			isa = PBXGroup;
+			children = (
+				502A246721516BB200421F9F /* AffiliationVC.swift */,
+				502A246921516BD100421F9F /* AffiliationDetailVC.swift */,
+			);
+			path = Affiliation;
+			sourceTree = "<group>";
+		};
 		505549F7214BCBBD000D2130 /* HomeSub */ = {
 			isa = PBXGroup;
 			children = (
 				505549F1214BCB16000D2130 /* BarcodeVC.swift */,
 				505549F3214BCB23000D2130 /* HomeAllVC.swift */,
 				3A97AB462151358300507A9F /* HomeAllTVC.swift */,
+				502A245B2151670300421F9F /* MyPageVC.swift */,
 			);
 			path = HomeSub;
 			sourceTree = "<group>";
@@ -110,6 +143,8 @@
 				50D0484C213EA82300380CFE /* HomeUp.storyboard */,
 				505549EF214BCA5B000D2130 /* HomeDown.storyboard */,
 				505549ED214BC1F3000D2130 /* HomeSub.storyboard */,
+				502A246421516B7400421F9F /* Affiiation.storyboard */,
+				502A245D2151677B00421F9F /* Pay.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -174,6 +209,8 @@
 				508BC665213F845B00486A89 /* Storyboard */,
 				505549FA214BCF11000D2130 /* Login */,
 				50C620932146DE4C0018550B /* Home */,
+				502A246621516B9A00421F9F /* Affiliation */,
+				502A245F21516A4A00421F9F /* Pay */,
 				50D0485A213EECBF00380CFE /* Resources */,
 				50C620942146E8A10018550B /* Extension.swift */,
 			);
@@ -273,10 +310,12 @@
 			files = (
 				505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */,
 				50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */,
+				502A246521516B7400421F9F /* Affiiation.storyboard in Resources */,
 				50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */,
 				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
 				50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */,
 				50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */,
+				502A245E2151677B00421F9F /* Pay.storyboard in Resources */,
 				505549EE214BC1F3000D2130 /* HomeSub.storyboard in Resources */,
 				50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */,
 				50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */,
@@ -355,16 +394,21 @@
 				5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */,
 				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
+				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
 				505549F9214BCC98000D2130 /* LoginVC.swift in Sources */,
 				505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */,
+				502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
 				50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */,
+				502A246821516BB200421F9F /* AffiliationVC.swift in Sources */,
 				50C620952146E8A10018550B /* Extension.swift in Sources */,
 				3A97AB43214E5F2B00507A9F /* PointTVC2.swift in Sources */,
 				50C6208F2146DD8E0018550B /* CircleGraph.swift in Sources */,
 				3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */,
 				50D04849213EA82300380CFE /* AppDelegate.swift in Sources */,
+				502A246121516A7500421F9F /* CardVC.swift in Sources */,
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
+				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
 				505549F6214BCB81000D2130 /* HomeVC.swift in Sources */,
 				3A97AB41214C143200507A9F /* MenuTVC.swift in Sources */,
 				50C620912146DD9D0018550B /* WaveGraph.swift in Sources */,
