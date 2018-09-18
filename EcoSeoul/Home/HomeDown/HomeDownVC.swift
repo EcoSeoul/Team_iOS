@@ -217,12 +217,12 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        //headerView.backgroundColor = UIColor.init(red: 239.0, green: 239.0, blue: 239.0, alpha: 1.0)
+        headerView.backgroundColor = UIColor.init(hexString: "EFEFEF")
         
         let headerLabel = UILabel(frame: CGRect(x: 20, y: 5, width:
             tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.font = UIFont(name: "Noto Sans CJK KR", size: 15)
-        //headerLabel.textColor = UIColor.init(red: 52.0, green: 52.0, blue: 52.0, alpha: 1.0)
+        headerLabel.textColor = UIColor.init(hexString: "343434")
         
         if section == 1 {
             
@@ -246,11 +246,16 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 1) || (section == 2) {
-            return 30
-        }else {
-            return 0.1
-        }
+        if expandCol {
+            
+            if (section == 1) || (section == 2) {
+                return 30
+            }else {
+                return 0.1
+            }
+
+        }else { return 0.1 }
+        
     }
     
 }
