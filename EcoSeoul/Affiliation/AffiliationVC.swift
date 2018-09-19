@@ -12,12 +12,17 @@ import UIKit
 
 class AffiliationVC: UIViewController {
 
+    @IBOutlet weak var seoulMap: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
   
-
+    @IBAction func pressed0(_ sender: Any) {
+        seoulMap.image = #imageLiteral(resourceName: "a-gangseo")
+    }
+    
 
 }
