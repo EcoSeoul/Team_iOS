@@ -48,6 +48,9 @@
                                 <state key="normal" image="ic-mypage">
                                     <color key="titleColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="mypagePressed:" destination="mp0-Tq-5D6" eventType="touchUpInside" id="5Ru-Tt-vxW"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S67-4a-GmX">
                                 <rect key="frame" x="0.0" y="75" width="375" height="592"/>

@@ -48,6 +48,12 @@ class HomeDownVC: UIViewController {
         makeBannerView()
     }
     
+    @IBAction func mypagePressed(_ sender: Any) {
+        let homeSubStoryboard = UIStoryboard.init(name: "HomeSub", bundle: nil)
+        let myPageVC = homeSubStoryboard.instantiateViewController(withIdentifier: "MyPageVC") as? MyPageVC
+        self.present(myPageVC!, animated: true, completion: nil)
+    }
+    
     func makeBannerView(){
         for i in 0..<bannerArray.count {
             horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
