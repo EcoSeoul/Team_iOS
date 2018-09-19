@@ -39,6 +39,7 @@ extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
         pickerTextField.inputAccessoryView = bar
         pickerTextField.inputView = pickerview
     }
+    
     @objc func selectedPicker(){
         let row = pickerview.selectedRow(inComponent: 0)
         

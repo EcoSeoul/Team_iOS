@@ -24,7 +24,7 @@
         <!--CardVC-->
         <scene sceneID="hnZ-ok-i4n">
             <objects>
-                <viewController restorationIdentifier="CardVC" storyboardIdentifier="CardVC" id="X7D-c7-h16" customClass="CardVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CardVC" storyboardIdentifier="CardVC" title="CardVC" id="X7D-c7-h16" customClass="CardVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u8k-FB-6JL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,14 +81,6 @@
                                     <color key="titleColor" red="0.14901960784313725" green="0.81568627450980391" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ze-I4-7q3">
-                                <rect key="frame" x="223" y="622" width="110" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="12"/>
-                                <state key="normal" title="지금 바로 신청하세요!">
-                                    <color key="titleColor" red="0.63921568627450975" green="0.63921568627450975" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카드번호가 없으신가요?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOr-g2-EO1">
                                 <rect key="frame" x="213" y="606" width="120" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,11 +102,27 @@
                                 <rect key="frame" x="285" y="274" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ze-I4-7q3">
+                                <rect key="frame" x="223" y="622" width="110" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="지금 바로 신청하세요!">
+                                            <attributes>
+                                                <color key="NSColor" red="0.63921568627450975" green="0.63921568627450975" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Light"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rKe-3p-AXc"/>
                     </view>
                     <connections>
+                        <outlet property="pickerTextField" destination="bhj-QO-0lL" id="dPt-MO-HFn"/>
                         <outlet property="pickerview" destination="bhj-QO-0lL" id="9lj-Pc-wA6"/>
                     </connections>
                 </viewController>

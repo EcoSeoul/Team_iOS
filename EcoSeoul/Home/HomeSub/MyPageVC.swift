@@ -23,6 +23,8 @@ class MyPageVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+
+    
 }
 
 extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
@@ -46,6 +48,22 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
             break
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        switch indexPath.row {
+//        case 0:
+//        case 3:
+//            guard let cardVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "CardVC") as? CardVC else { return }
+//            self.navigationController?.pushViewController(cardVC, animated: true)
+//        default:
+//            break
+//        }
+        if indexPath.row == 3 {
+            guard let cardVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "CardVC") as? CardVC else { return }
+            self.navigationController?.pushViewController(cardVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
