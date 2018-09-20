@@ -24,7 +24,13 @@ class MyPageVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func mileageDetailBtn(_ sender: Any) { let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+        self.present(mileageVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func moneyDetailBtn(_ sender: Any) { let moneyVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+        self.present(moneyVC, animated: true, completion: nil)
+    }
     
 }
 
@@ -43,13 +49,17 @@ extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
         if section == 0 {
             switch row {
                 case 0:
-                    //신청내역으로 present
+                    let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
+                    self.present(listVC, animated: true, completion: nil)
+                    
                     break
                 case 1:
-                    //기부내역으로 present
+                    let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
+                    self.present(listVC, animated: true, completion: nil)
                     break
                 case 2:
-                    //내가 쓴 글로 present
+                    let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
+                    self.present(listVC, animated: true, completion: nil)
                     break
                 case 3:
                     let cardVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "CardVC") as! CardVC

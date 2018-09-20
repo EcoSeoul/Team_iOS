@@ -105,27 +105,26 @@
                                             <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GnP-P3-Yfo">
-                                            <rect key="frame" x="56" y="128" width="15" height="8"/>
-                                            <color key="backgroundColor" red="0.86860039889999996" green="0.86860039889999996" blue="0.86860039889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="percentage-down" translatesAutoresizingMaskIntoConstraints="NO" id="GnP-P3-Yfo">
+                                            <rect key="frame" x="56" y="128" width="15" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="15" id="mjj-cU-dSV"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZz-Zw-HlN">
-                                            <rect key="frame" x="81" y="120" width="10" height="23"/>
+                                            <rect key="frame" x="81" y="120" width="10" height="35"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작년대비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPU-YY-Pdk">
-                                            <rect key="frame" x="109" y="120" width="56" height="23"/>
+                                            <rect key="frame" x="109" y="132" width="56" height="23"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="15"/>
                                             <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShY-Zw-fsR">
-                                            <rect key="frame" x="93" y="120" width="14" height="23"/>
+                                            <rect key="frame" x="93" y="132" width="14" height="23"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -489,6 +488,9 @@
                                             <state key="normal" title="상세보기">
                                                 <color key="titleColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="mileageDetailBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="SYj-hB-bWs"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="에코 머니" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-6u-Eun">
                                             <rect key="frame" x="35" y="327" width="99" height="37"/>
@@ -518,6 +520,9 @@
                                             <state key="normal" title="상세보기">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="moneyDetailBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="wOo-OL-7lf"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-L0-Jl5">
                                             <rect key="frame" x="34" y="255" width="105" height="28"/>
@@ -626,5 +631,6 @@
         <image name="ic-close" width="48" height="48"/>
         <image name="mypage-exchange" width="28" height="28"/>
         <image name="mypage-question" width="16" height="16"/>
+        <image name="percentage-down" width="20" height="20"/>
     </resources>
 </document>

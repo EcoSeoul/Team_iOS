@@ -7,5 +7,6 @@ target 'EcoSeoul' do
   pod 'GooglePlaces'
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'XLPagerTabStrip'
   
 end
