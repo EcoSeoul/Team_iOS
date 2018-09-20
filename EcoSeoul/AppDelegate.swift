@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //구글맵 API키 등록
         GMSServices.provideAPIKey("AIzaSyCs_CQRYNDqJRpOTg9PYfLD1vZCsOgbO7E")
-        
+    
         return true
     }
 

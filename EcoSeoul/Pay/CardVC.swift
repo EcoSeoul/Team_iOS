@@ -17,10 +17,13 @@ class CardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initPicker()
 
     }
 
+    @IBAction func dismissBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 
