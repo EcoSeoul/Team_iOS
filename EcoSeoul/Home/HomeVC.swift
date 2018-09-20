@@ -80,11 +80,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
 
 //HomeVC의 HomeUpVC & HomeDownVC 통합
 extension HomeVC {
+
     
     ///상단 Navigation Bar 숨기기///
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+       
         
     }
     
