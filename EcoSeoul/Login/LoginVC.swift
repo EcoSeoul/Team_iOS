@@ -19,7 +19,20 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    ///상단 Navigation Bar 숨기기///
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+    }
+    ///////////////////////////
  
     @IBAction func loginBtn(_ sender: Any) {
         enterHome()
@@ -32,7 +45,7 @@ class LoginVC: UIViewController {
         
         guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
         
-        self.present(homeVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(homeVC, animated: true)
         
     }
 }

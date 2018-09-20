@@ -24,7 +24,7 @@
         <!--CardVC-->
         <scene sceneID="hnZ-ok-i4n">
             <objects>
-                <viewController restorationIdentifier="CardVC" storyboardIdentifier="CardVC" title="CardVC" id="X7D-c7-h16" customClass="CardVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardVC" title="CardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X7D-c7-h16" customClass="CardVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u8k-FB-6JL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,9 +94,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="changedTextField:" destination="X7D-c7-h16" eventType="editingDidEnd" id="dlm-i2-DFq"/>
-                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-down-black" translatesAutoresizingMaskIntoConstraints="NO" id="XUc-sk-oJ9">
                                 <rect key="frame" x="285" y="274" width="48" height="48"/>
@@ -117,18 +114,28 @@
                                     </attributedString>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-KU-wWr">
+                                <rect key="frame" x="311" y="20" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ic-close"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="X7D-c7-h16" eventType="touchUpInside" id="JhB-6g-zzn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rKe-3p-AXc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="H8g-op-1Zn">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow-left-black" style="plain" id="eu4-Py-UnG"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="pickerTextField" destination="bhj-QO-0lL" id="dPt-MO-HFn"/>
-                        <outlet property="pickerview" destination="bhj-QO-0lL" id="9lj-Pc-wA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWO-Nk-Lru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127.2" y="210.94452773613196"/>
+            <point key="canvasLocation" x="2690.4000000000001" y="210.94452773613196"/>
         </scene>
         <!--ExchangeVC-->
         <scene sceneID="IeF-ND-rCd">
@@ -151,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dif-Ml-lJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="211"/>
+            <point key="canvasLocation" x="3634.4000000000001" y="210.94452773613196"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Iri-LN-tpM">
@@ -186,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wca-21-W8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="1094"/>
+            <point key="canvasLocation" x="788" y="1049"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="chM-o3-0i1">
@@ -221,11 +228,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnC-qc-rIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="1095"/>
+            <point key="canvasLocation" x="1804" y="1039"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow-down-black" width="48" height="48"/>
+        <image name="arrow-left-black" width="48" height="48"/>
+        <image name="ic-close" width="48" height="48"/>
         <image name="registration-card" width="164" height="113"/>
         <image name="registration-next" width="34" height="44"/>
     </resources>

@@ -48,11 +48,6 @@ class HomeDownVC: UIViewController {
         makeBannerView()
     }
     
-    @IBAction func mypagePressed(_ sender: Any) {
-        let homeSubStoryboard = UIStoryboard.init(name: "HomeSub", bundle: nil)
-        let myPageVC = homeSubStoryboard.instantiateViewController(withIdentifier: "MyPageVC") as? MyPageVC
-        self.present(myPageVC!, animated: true, completion: nil)
-    }
     
     func makeBannerView(){
         for i in 0..<bannerArray.count {
@@ -63,23 +58,12 @@ class HomeDownVC: UIViewController {
         }
     }
     
-    
-    func generateBarcodeFromString(string: String)-> UIImage?{
-        
-        let data = string.data(using: String.Encoding.ascii)
-        let filter = CIFilter(name: "CICode128BarcodeGenerator")
-        
-        filter?.setValue(data, forKey: "inputMessage")
-        
-        let transform = CGAffineTransform.init(scaleX: 10, y: 10)
-        let output = filter?.outputImage?.transformed(by: transform)
-        
-        if(output != nil){
-            return UIImage(ciImage: output!)
-        }
-        return nil
-        
+    //마이페이지 버튼 클릭
+    @IBAction func mypagePressed(_ sender: Any) {
+        let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
+        self.present(myPageVC, animated: true, completion: nil)
     }
+    
 
     //바코드 버튼 클릭
     @IBAction func barcodePressed(_ sender: Any) {
@@ -100,6 +84,24 @@ class HomeDownVC: UIViewController {
         self.view.addSubview(barcodeVC.view)
         barcodeVC.didMove(toParentViewController: self)
     }
+    
+    func generateBarcodeFromString(string: String)-> UIImage?{
+        
+        let data = string.data(using: String.Encoding.ascii)
+        let filter = CIFilter(name: "CICode128BarcodeGenerator")
+        
+        filter?.setValue(data, forKey: "inputMessage")
+        
+        let transform = CGAffineTransform.init(scaleX: 10, y: 10)
+        let output = filter?.outputImage?.transformed(by: transform)
+        
+        if(output != nil){
+            return UIImage(ciImage: output!)
+        }
+        return nil
+        
+    }
+
     
     
 }
@@ -137,7 +139,12 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        
+        if section == 0 {
+            
             self.tableView.beginUpdates()
             if expandCol == true {
                 self.tableView.deleteSections([1, 2], with: .bottom)
@@ -152,106 +159,156 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             
         }
         
+        //1)Section이 펼쳐진 경우
+        if expandCol{
+            
+            if section == 1{
+                //포인트 전환/결제 관련 뷰 전환 구현부
+            }
+            
+            else if section == 2{
+                //포인트 적립/할인 관련 뷰 전환 구현부
+            }
+
+            else if section == 3{
+                
+                switch row {
+                    case 0:
+                        let AffiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(AffiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        break
+                    default: break
+                }
+                
+            }
+            
+        }
+        
+            
+        //2)Section이 닫혀진 경우
+        else {
+            
+            if section == 1 {
+                switch row {
+                    case 0:
+                        let AffiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(AffiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        break
+                    default: break
+                }
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        let cell0 = tableView.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
+        
+        //1)Section이 펼쳐진 경우
         if expandCol{
-            if indexPath.section == 0 {
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
-                cell.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
-                
-                return cell
-                
-            }else if indexPath.section == 1{
-                
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
-                cell.titleLB.text = "TOP쇼핑"
-                cell.explainLB.text = "*에코머니 포인트로 결제하실 때는 \n 결제화면에서 에코머니 비밀번호를 입력하셔야 합니다."
-                
-                return cell
-                
-                
-            }else if indexPath.section == 2{
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
-                
-                
-                if indexPath.row == 0{
-                    cell.titleLB.text = "엔진닥터큐(엘더블유티㈜)"
+            if section == 0 {
+                cell0.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
+                return cell0
+            }
+            else if section == 1{
+                cell1.titleLB.text = "TOP쇼핑"
+                cell1.explainLB.text = "*에코머니 포인트로 결제하실 때는 \n 결제화면에서 에코머니 비밀번호를 입력하셔야 합니다."
+                return cell1
+            }
+            else if section == 2{
+                if row == 0{
+                    cell2.titleLB.text = "엔진닥터큐(엘더블유티㈜)"
                 }
                 else{
-                    cell.titleLB.text = "정직한친구들"
+                    cell2.titleLB.text = "정직한친구들"
                 }
-                
-                return cell
+                return cell2
+            }
+            else{
+                switch row {
+                    case 0 :
+                        cell3.titleLB.text = "가맹점 찾기"
+                        cell3.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
+                    case 1:
+                        cell3.titleLB.text = "친환경 상품 신청하기"
+                        cell3.explainLB.text = "온라인으로 상품을 신청해보세요"
+                    case 2:
+                        cell3.titleLB.text = "에코마일리지 기부하기"
+                        cell3.explainLB.text = "에코마일리지로 기부해보세요"
+                    case 3:
+                        cell3.titleLB.text = "커뮤니티"
+                        cell3.explainLB.text = "꿀팁 공유"
+                    case 4:
+                        cell3.titleLB.text = "에코마일리지란?"
+                        cell3.explainLB.text = "에코마일리지를 알려드립니다!"
+                    default: break
+                }
+                return cell3
+            }
+        }
+            
+        //2)Section이 닫혀진 경우
+        else {
+            if section == 0 {
+                cell0.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
+                return cell0
             }
             else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
-                if indexPath.row == 0 {
-                    cell.titleLB.text = "가맹점 찾기"
-                    cell.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
-                }
-                if indexPath.row == 1 {
-                    cell.titleLB.text = "친환경 상품 신청하기"
-                    cell.explainLB.text = "온라인으로 상품을 신청해보세요"
-                }
-                if indexPath.row == 2 {
-                    cell.titleLB.text = "에코마일리지 기부하기"
-                    cell.explainLB.text = "에코마일리지로 기부해보세요"
-                }
-                if indexPath.row == 3 {
-                    cell.titleLB.text = "커뮤니티"
-                    cell.explainLB.text = "꿀팁 공유"
-                }
-                if indexPath.row == 4 {
-                    cell.titleLB.text = "에코마일리지란?"
-                    cell.explainLB.text = "에코마일리지를 알려드립니다!"
+            
+            switch row {
+                case 0 :
+                    cell3.titleLB.text = "가맹점 찾기"
+                    cell3.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
+                case 1:
+                    cell3.titleLB.text = "친환경 상품 신청하기"
+                    cell3.explainLB.text = "온라인으로 상품을 신청해보세요"
+                case 2:
+                    cell3.titleLB.text = "에코마일리지 기부하기"
+                    cell3.explainLB.text = "에코마일리지로 기부해보세요"
+                case 3:
+                    cell3.titleLB.text = "커뮤니티"
+                    cell3.explainLB.text = "꿀팁 공유"
+                case 4:
+                    cell3.titleLB.text = "에코마일리지란?"
+                    cell3.explainLB.text = "에코마일리지를 알려드립니다!"
+                default: break
                 }
                 
-                return cell
+                return cell3
             }
         }
-        else {
-            if indexPath.section == 0 {
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PointHeaderTVC") as! PointHeaderTVC
-                cell.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
-                
-                return cell
-            }else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
-                if indexPath.row == 0 {
-                    cell.titleLB.text = "가맹점 찾기"
-                    cell.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
-                }
-                if indexPath.row == 1 {
-                    cell.titleLB.text = "친환경 상품 신청하기"
-                    cell.explainLB.text = "온라인으로 상품을 신청해보세요"
-                }
-                if indexPath.row == 2 {
-                    cell.titleLB.text = "에코마일리지 기부하기"
-                    cell.explainLB.text = "에코마일리지로 기부해보세요"
-                }
-                if indexPath.row == 3 {
-                    cell.titleLB.text = "커뮤니티"
-                    cell.explainLB.text = "꿀팁 공유"
-                }
-                if indexPath.row == 4 {
-                    cell.titleLB.text = "에코마일리지란?"
-                    cell.explainLB.text = "에코마일리지를 알려드립니다!"
-                }
-                
-                return cell
-                
-            }
-            
-            
-        }
-
     }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

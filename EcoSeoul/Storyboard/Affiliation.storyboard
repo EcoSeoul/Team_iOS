@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1qw-aH-poq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Light.otf">
+            <string>NotoSansCJKkr-Light</string>
+        </array>
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--AffiliationVC-->
+        <scene sceneID="3TN-ng-FLW">
+            <objects>
+                <viewController storyboardIdentifier="AffiliationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1qw-aH-poq" customClass="AffiliationVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clF-B0-Zxp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="affiliate-map" translatesAutoresizingMaskIntoConstraints="NO" id="F4p-ag-Hjs">
+                                <rect key="frame" x="16" y="170" width="342" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="n2B-P4-wjQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가맹점 찾기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5L-g3-eWs">
+                                <rect key="frame" x="23" y="20" width="167" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="8NG-QC-2Zj"/>
+                                    <constraint firstAttribute="height" constant="50" id="Za3-Wr-p0N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="affiliate-marker" translatesAutoresizingMaskIntoConstraints="NO" id="mri-Mx-MzZ">
+                                <rect key="frame" x="277" y="20" width="70" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="Rx0-wB-ktQ"/>
+                                    <constraint firstAttribute="width" constant="70" id="bHj-do-jWU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서울 지도에서 더 자세하게 에코 가맹점을 찾아보세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-yd-jET">
+                                <rect key="frame" x="23" y="78" width="167" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="H5p-Dn-1Ty"/>
+                                    <constraint firstAttribute="width" constant="167" id="ig5-wm-BMD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="15"/>
+                                <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역을 선택해주세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6F-mr-s0h">
+                                <rect key="frame" x="91" y="545" width="194" height="79"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUH-yk-vUK">
+                                <rect key="frame" x="47" y="344" width="24" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="강서">
+                                    <color key="titleColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchDown" id="eVm-mv-MQr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Y0-tD-f2z">
+                                <rect key="frame" x="120" y="340" width="24" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="마포">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="jmi-SD-bpv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4v-5x-e65">
+                                <rect key="frame" x="133" y="284" width="24" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="은평">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="BOO-d4-6PU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="18" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hx3-lb-cf4">
+                                <rect key="frame" x="203" y="291" width="24" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="성북">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="jhH-yy-S9x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-BV-t18">
+                                <rect key="frame" x="275" y="304" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="중랑">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="Rue-DT-PWS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMe-8g-gD6">
+                                <rect key="frame" x="269" y="249" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="노원">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="gOJ-67-vFY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pl-f3-lM4">
+                                <rect key="frame" x="274" y="351" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="광진">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="b3W-kV-MRS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhj-ru-dyU">
+                                <rect key="frame" x="226" y="353" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="성동">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="QWx-XC-bG4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="17" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-Vb-5GC">
+                                <rect key="frame" x="235" y="317" width="35" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="동대문">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="22E-ZF-ri3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bb-gj-SaD">
+                                <rect key="frame" x="289" y="396" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="송파">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="R46-Lj-0RC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2O-Cl-uNh">
+                                <rect key="frame" x="243" y="403" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="강남">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="Got-zz-plC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-dg-CwY">
+                                <rect key="frame" x="203" y="422" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="서초">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="DyK-0G-ytH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7i-GP-4oN">
+                                <rect key="frame" x="152" y="406" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="동작">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="4TF-3b-qt1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYA-1G-e1Z">
+                                <rect key="frame" x="104" y="381" width="35" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="영등포">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="qCS-rW-zAD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ww9-UL-zP1">
+                                <rect key="frame" x="128" y="433" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="금천관악">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="pZp-aJ-pZU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-ql-zQD">
+                                <rect key="frame" x="59" y="394" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="양천구로">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="9FK-sp-C6f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4Tm-ut-6P0">
+                                <rect key="frame" x="212" y="238" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="강북도봉">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="xie-6U-8KF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="19" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="X0A-Ea-xKf">
+                                <rect key="frame" x="152" y="304" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="  종로서대문">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="yTB-Ev-Ihb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHO-5x-cND">
+                                <rect key="frame" x="320" y="359" width="26" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="강동">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="5TY-ag-3Kh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rQg-Sp-Oew">
+                                <rect key="frame" x="172" y="353" width="35" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                <state key="normal" title="중구용산">
+                                    <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBtn:" destination="1qw-aH-poq" eventType="touchUpInside" id="Svj-HV-Vun"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3cd-yd-jET" firstAttribute="top" secondItem="H5L-g3-eWs" secondAttribute="bottom" constant="8" id="46f-HG-9bJ"/>
+                            <constraint firstItem="H5L-g3-eWs" firstAttribute="leading" secondItem="wbH-XL-8lc" secondAttribute="leading" constant="23" id="6qo-sV-WQT"/>
+                            <constraint firstItem="b6F-mr-s0h" firstAttribute="top" secondItem="F4p-ag-Hjs" secondAttribute="bottom" constant="119" id="IBN-U7-oMl"/>
+                            <constraint firstItem="3cd-yd-jET" firstAttribute="leading" secondItem="wbH-XL-8lc" secondAttribute="leading" constant="23" id="OsO-jV-c6X"/>
+                            <constraint firstItem="wbH-XL-8lc" firstAttribute="bottom" secondItem="b6F-mr-s0h" secondAttribute="bottom" constant="43" id="QIj-bf-h6D"/>
+                            <constraint firstItem="b6F-mr-s0h" firstAttribute="leading" secondItem="wbH-XL-8lc" secondAttribute="leading" constant="91" id="ZSb-j1-mqv"/>
+                            <constraint firstItem="wbH-XL-8lc" firstAttribute="trailing" secondItem="mri-Mx-MzZ" secondAttribute="trailing" constant="28" id="e7B-PX-ycV"/>
+                            <constraint firstItem="H5L-g3-eWs" firstAttribute="top" secondItem="wbH-XL-8lc" secondAttribute="top" id="i9D-wg-cJg"/>
+                            <constraint firstItem="wbH-XL-8lc" firstAttribute="trailing" secondItem="b6F-mr-s0h" secondAttribute="trailing" constant="90" id="iJ9-Pg-OyX"/>
+                            <constraint firstItem="F4p-ag-Hjs" firstAttribute="top" secondItem="wbH-XL-8lc" secondAttribute="top" constant="150" id="igc-6T-DQS"/>
+                            <constraint firstItem="mri-Mx-MzZ" firstAttribute="top" secondItem="wbH-XL-8lc" secondAttribute="top" id="krZ-zi-l40"/>
+                            <constraint firstItem="wbH-XL-8lc" firstAttribute="trailing" secondItem="F4p-ag-Hjs" secondAttribute="trailing" constant="17" id="lbM-7R-p3j"/>
+                            <constraint firstItem="F4p-ag-Hjs" firstAttribute="leading" secondItem="wbH-XL-8lc" secondAttribute="leading" constant="16" id="w27-0Y-pPq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wbH-XL-8lc"/>
+                    </view>
+                    <connections>
+                        <outlet property="seoulMap" destination="F4p-ag-Hjs" id="xbT-uk-H0A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ERw-aT-U1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.40000000000001" y="158.77061469265368"/>
+        </scene>
+        <!--Affiliation DetailVC-->
+        <scene sceneID="tOj-vS-QqE">
+            <objects>
+                <viewController storyboardIdentifier="AffiliationDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P5t-5g-5dh" customClass="AffiliationDetailVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FMq-sv-l3p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htS-3o-eMu" userLabel="mapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9z-5I-adg">
+                                        <rect key="frame" x="121" y="229" width="112" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="test:" destination="P5t-5g-5dh" eventType="touchUpInside" id="xza-4e-WUd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHo-Lc-QVW" userLabel="topView">
+                                <rect key="frame" x="0.0" y="50" width="375" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiB-dS-YUf">
+                                        <rect key="frame" x="-6" y="-5" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="arrow-left-black"/>
+                                        <connections>
+                                            <action selector="popBtn:" destination="P5t-5g-5dh" eventType="touchUpInside" id="djk-yk-oXi"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가맹점 찾기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OR2-T9-Rfg">
+                                        <rect key="frame" x="66" y="8" width="243" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uk5-ZW-hdE" userLabel="bottomView">
+                                <rect key="frame" x="0.0" y="566" width="375" height="101"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQ7-gd-jAm">
+                                        <rect key="frame" x="303" y="29" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1ST-ia-MRN"/>
+                                            <constraint firstAttribute="width" constant="44" id="Q45-Cs-bn8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GS25 서울극장점" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F35-c7-hSX">
+                                        <rect key="frame" x="20" y="15" width="243" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="dSk-Q7-YqM"/>
+                                            <constraint firstAttribute="width" constant="243" id="njS-Mr-tFS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="편의점" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6b-ki-sBR">
+                                        <rect key="frame" x="20" y="43" width="243" height="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서울 종로구 돈화문로 11-1 대동빌딩" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwj-ZK-5aP">
+                                        <rect key="frame" x="20" y="61" width="243" height="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02-2272-7283" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-Fm-Qyd">
+                                        <rect key="frame" x="20" y="79" width="243" height="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wFk-Fm-Qyd" firstAttribute="width" secondItem="qwj-ZK-5aP" secondAttribute="width" id="1wD-K5-ZHB"/>
+                                    <constraint firstItem="qwj-ZK-5aP" firstAttribute="width" secondItem="O6b-ki-sBR" secondAttribute="width" id="40a-FY-V4H"/>
+                                    <constraint firstItem="O6b-ki-sBR" firstAttribute="top" secondItem="F35-c7-hSX" secondAttribute="bottom" id="5zN-i3-Di9"/>
+                                    <constraint firstAttribute="height" constant="101" id="IxW-b2-VKQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="OQ7-gd-jAm" secondAttribute="trailing" constant="28" id="LYh-Uz-EUT"/>
+                                    <constraint firstItem="O6b-ki-sBR" firstAttribute="leading" secondItem="uk5-ZW-hdE" secondAttribute="leading" constant="20" id="R81-Mo-aw7"/>
+                                    <constraint firstItem="qwj-ZK-5aP" firstAttribute="top" secondItem="O6b-ki-sBR" secondAttribute="bottom" constant="4" id="VOp-DC-8HX"/>
+                                    <constraint firstItem="F35-c7-hSX" firstAttribute="leading" secondItem="uk5-ZW-hdE" secondAttribute="leading" constant="20" id="XzD-Hi-U8o"/>
+                                    <constraint firstItem="F35-c7-hSX" firstAttribute="top" secondItem="uk5-ZW-hdE" secondAttribute="top" constant="15" id="gv7-pC-5ov"/>
+                                    <constraint firstItem="qwj-ZK-5aP" firstAttribute="leading" secondItem="uk5-ZW-hdE" secondAttribute="leading" constant="20" id="ioW-ak-hhT"/>
+                                    <constraint firstItem="O6b-ki-sBR" firstAttribute="width" secondItem="F35-c7-hSX" secondAttribute="width" id="jN8-fn-r4z"/>
+                                    <constraint firstItem="wFk-Fm-Qyd" firstAttribute="top" secondItem="qwj-ZK-5aP" secondAttribute="bottom" constant="4" id="jbs-h6-7Sw"/>
+                                    <constraint firstItem="OQ7-gd-jAm" firstAttribute="top" secondItem="uk5-ZW-hdE" secondAttribute="top" constant="29" id="nx9-xs-OiP"/>
+                                    <constraint firstAttribute="width" constant="375" id="sYt-6C-zLF"/>
+                                    <constraint firstItem="wFk-Fm-Qyd" firstAttribute="leading" secondItem="uk5-ZW-hdE" secondAttribute="leading" constant="20" id="vH9-TX-Lx4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="htS-3o-eMu" firstAttribute="trailing" secondItem="fbi-Ki-gCw" secondAttribute="trailing" id="2FY-Bv-xhJ"/>
+                            <constraint firstItem="fbi-Ki-gCw" firstAttribute="trailing" secondItem="uk5-ZW-hdE" secondAttribute="trailing" id="3iJ-9k-KaB"/>
+                            <constraint firstItem="htS-3o-eMu" firstAttribute="bottom" secondItem="fbi-Ki-gCw" secondAttribute="bottom" id="UI3-NZ-jyp"/>
+                            <constraint firstItem="fbi-Ki-gCw" firstAttribute="bottom" secondItem="uk5-ZW-hdE" secondAttribute="bottom" id="VR3-FV-9IL"/>
+                            <constraint firstItem="uk5-ZW-hdE" firstAttribute="leading" secondItem="fbi-Ki-gCw" secondAttribute="leading" id="Xh9-ey-QSe"/>
+                            <constraint firstItem="htS-3o-eMu" firstAttribute="leading" secondItem="fbi-Ki-gCw" secondAttribute="leading" id="gjM-ec-sLP"/>
+                            <constraint firstItem="uk5-ZW-hdE" firstAttribute="top" secondItem="fbi-Ki-gCw" secondAttribute="top" constant="546" id="lVX-8n-Ggy"/>
+                            <constraint firstItem="htS-3o-eMu" firstAttribute="top" secondItem="fbi-Ki-gCw" secondAttribute="top" id="xsc-0N-IDe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fbi-Ki-gCw"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomViewConstraint" destination="lVX-8n-Ggy" id="fMC-h8-6jc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-ac-lFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="158.77061469265368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="affiliate-map" width="343" height="257"/>
+        <image name="affiliate-marker" width="70" height="105"/>
+        <image name="arrow-left-black" width="48" height="48"/>
+    </resources>
+</document>

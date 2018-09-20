@@ -19,7 +19,7 @@
 		502A245E2151677B00421F9F /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A245D2151677B00421F9F /* Pay.storyboard */; };
 		502A246121516A7500421F9F /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246021516A7500421F9F /* CardVC.swift */; };
 		502A246321516AC000421F9F /* ExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246221516AC000421F9F /* ExchangeVC.swift */; };
-		502A246521516B7400421F9F /* Affiiation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A246421516B7400421F9F /* Affiiation.storyboard */; };
+		502A246521516B7400421F9F /* Affiliation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A246421516B7400421F9F /* Affiliation.storyboard */; };
 		502A246821516BB200421F9F /* AffiliationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246721516BB200421F9F /* AffiliationVC.swift */; };
 		502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246921516BD100421F9F /* AffiliationDetailVC.swift */; };
 		505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EB214BBA8F000D2130 /* LogIn.storyboard */; };
@@ -58,7 +58,7 @@
 		502A245D2151677B00421F9F /* Pay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
 		502A246021516A7500421F9F /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
 		502A246221516AC000421F9F /* ExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeVC.swift; sourceTree = "<group>"; };
-		502A246421516B7400421F9F /* Affiiation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Affiiation.storyboard; sourceTree = "<group>"; };
+		502A246421516B7400421F9F /* Affiliation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Affiliation.storyboard; sourceTree = "<group>"; };
 		502A246721516BB200421F9F /* AffiliationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationVC.swift; sourceTree = "<group>"; };
 		502A246921516BD100421F9F /* AffiliationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationDetailVC.swift; sourceTree = "<group>"; };
 		505549EB214BBA8F000D2130 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				50D0484C213EA82300380CFE /* HomeUp.storyboard */,
 				505549EF214BCA5B000D2130 /* HomeDown.storyboard */,
 				505549ED214BC1F3000D2130 /* HomeSub.storyboard */,
-				502A246421516B7400421F9F /* Affiiation.storyboard */,
+				502A246421516B7400421F9F /* Affiliation.storyboard */,
 				502A245D2151677B00421F9F /* Pay.storyboard */,
 			);
 			path = Storyboard;
@@ -313,7 +313,7 @@
 			files = (
 				505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */,
 				50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */,
-				502A246521516B7400421F9F /* Affiiation.storyboard in Resources */,
+				502A246521516B7400421F9F /* Affiliation.storyboard in Resources */,
 				50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */,
 				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
 				50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */,

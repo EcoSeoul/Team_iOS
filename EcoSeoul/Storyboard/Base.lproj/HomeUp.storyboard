@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L3c-EM-3aP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,13 +31,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7pg-aM-FFK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9Kj-Pg-mck"/>
                     <connections>
                         <outlet property="verticalScroll" destination="CLQ-LG-o7L" id="bIE-Xp-loo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L74-pB-BCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-845" y="-223"/>
+            <point key="canvasLocation" x="93.599999999999994" y="-223.53823088455775"/>
         </scene>
         <!--Home UpVC-->
         <scene sceneID="EbS-DL-YgN">
@@ -82,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sui-10-Lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="-224"/>
+            <point key="canvasLocation" x="1040.8" y="-224.4377811094453"/>
         </scene>
     </scenes>
     <resources>
