@@ -35,6 +35,9 @@
 		502A246521516B7400421F9F /* Affiliation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A246421516B7400421F9F /* Affiliation.storyboard */; };
 		502A246821516BB200421F9F /* AffiliationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246721516BB200421F9F /* AffiliationVC.swift */; };
 		502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246921516BD100421F9F /* AffiliationDetailVC.swift */; };
+		5048ED092157C09A007A220C /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED082157C09A007A220C /* FAQVC.swift */; };
+		5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED0A2157CA12007A220C /* FAQTVC1.swift */; };
+		5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED0C2157DC65007A220C /* FAQTVC2.swift */; };
 		505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EB214BBA8F000D2130 /* LogIn.storyboard */; };
 		505549EE214BC1F3000D2130 /* HomeSub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549ED214BC1F3000D2130 /* HomeSub.storyboard */; };
 		505549F0214BCA5B000D2130 /* HomeDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EF214BCA5B000D2130 /* HomeDown.storyboard */; };
@@ -87,6 +90,9 @@
 		502A246421516B7400421F9F /* Affiliation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Affiliation.storyboard; sourceTree = "<group>"; };
 		502A246721516BB200421F9F /* AffiliationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationVC.swift; sourceTree = "<group>"; };
 		502A246921516BD100421F9F /* AffiliationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffiliationDetailVC.swift; sourceTree = "<group>"; };
+		5048ED082157C09A007A220C /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
+		5048ED0A2157CA12007A220C /* FAQTVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTVC1.swift; sourceTree = "<group>"; };
+		5048ED0C2157DC65007A220C /* FAQTVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTVC2.swift; sourceTree = "<group>"; };
 		505549EB214BBA8F000D2130 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		505549ED214BC1F3000D2130 /* HomeSub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSub.storyboard; sourceTree = "<group>"; };
 		505549EF214BCA5B000D2130 /* HomeDown.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeDown.storyboard; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 		3A58377B215421880074BCA9 /* ListTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5048ED082157C09A007A220C /* FAQVC.swift */,
+				5048ED0A2157CA12007A220C /* FAQTVC1.swift */,
+				5048ED0C2157DC65007A220C /* FAQTVC2.swift */,
 				3A58377C215421A20074BCA9 /* ListVC.swift */,
 				3A58377E215421C20074BCA9 /* RequestListTVC.swift */,
 				3A5837842154227E0074BCA9 /* RequestListTVCell.swift */,
@@ -455,6 +464,7 @@
 				5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */,
 				3A583787215422890074BCA9 /* DonationListTVCell.swift in Sources */,
 				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
+				5048ED092157C09A007A220C /* FAQVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
@@ -463,6 +473,8 @@
 				502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */,
 				3A5837852154227E0074BCA9 /* RequestListTVCell.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
+				5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */,
+				5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */,
 				50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */,
 				3A58377A2154217C0074BCA9 /* MoneyTVCell.swift in Sources */,
 				502A246821516BB200421F9F /* AffiliationVC.swift in Sources */,
