@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dlB-9x-pjm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--ShopCVC-->
+        <scene sceneID="i2H-Ps-us1">
+            <objects>
+                <collectionViewController storyboardIdentifier="ShopCVC" title="ShopCVC" id="hmF-iQ-mFT" customClass="ShopCVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="es1-Rh-sT8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v6L-gz-njJ">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="ShopCVCell" reuseIdentifier="ShopCVCell" id="mnC-mm-rfm" customClass="ShopCVCell" customModule="EcoSeoul" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-WN-HAY">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="187"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOL-vX-fFJ">
+                                            <rect key="frame" x="0.0" y="187" width="180" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsi-HJ-46o">
+                                                    <rect key="frame" x="75" y="6" width="31" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <size key="customSize" width="180" height="218"/>
+                                <connections>
+                                    <outlet property="shopIMG" destination="jkr-WN-HAY" id="lL1-AH-8c2"/>
+                                    <outlet property="shopLB" destination="fsi-HJ-46o" id="oPc-Q3-H0m"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="hmF-iQ-mFT" id="DPN-wS-3Ny"/>
+                            <outlet property="delegate" destination="hmF-iQ-mFT" id="Vfx-fL-HeI"/>
+                        </connections>
+                    </collectionView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQG-qL-Aev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="118.29085457271366"/>
+        </scene>
+        <!--ShopDetailVC-->
+        <scene sceneID="CGE-Sl-UUy">
+            <objects>
+                <viewController storyboardIdentifier="ShopDetailVC" title="ShopDetailVC" id="dlB-9x-pjm" customClass="ShopDetailVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Kv-7e-4ap">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMY-h9-ovC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="티머니(교통카드) 충전권" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8g-iC-Gxb">
+                                        <rect key="frame" x="86" y="56" width="203" height="30"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(주)티모넷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-ut-UDU">
+                                        <rect key="frame" x="152" y="87" width="71" height="24"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                        <color key="textColor" red="0.14901960784313725" green="0.81568627450980391" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 상품은 1,000원부터 1,000원 단위로 90,000원까지 신청이 가능합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKU-PN-LWA">
+                                        <rect key="frame" x="30" y="483.5" width="314" height="44.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="314" id="csy-c9-bau"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-Yb-ydh">
+                                        <rect key="frame" x="37" y="145" width="300" height="310.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLm-qD-H18">
+                                        <rect key="frame" x="30" y="574" width="300" height="629"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="629" id="2eM-yF-1IS"/>
+                                        </constraints>
+                                        <string key="text">1. 이 T-coin은, 선불교통카드에 T-money를 충전하실 수 있는 쿠폰으로 휴대전화 문자메시지로 전송됩니다. 2. 이 T-coin은 교통카드 충전결제앱 또는 모바일 T- money, GS25(편의점)에서 충전하실 수 있습니다. [티머니카드 충전] ▶ 교통카드 충전결재 앱 설치 → 충전 → 티코인 선택 → 충전권 번호 입력 → 충전 ▶ GS25(편의점) 방문 → 메시지 화면과 티머니카드 제시 → 충전 [모바일티머니 충전] ▶ 모바일 T-money → 충전하기 → T-coin → 인증번호 (숫자12자리)입력 → 충전 3. 이 T-coin을 통해 충전한 T-money는 대중교통(지하철, 버스,택시)은 물론 T-money 온/오프라인 가맹점에서 사용하실 수 있습니다. 4. 이 T-coin은 현금으로 교환되지 않으며, 유효기간이 경과하면 사용하실 수 없습니다. ※ 충전 관련 문의는 1899-2823번으로 전화주시기 바랍니다. 5. 배송일(문자전송일) - 매월 1~10일 신청 : 18일 전송 - 매월 11~20일 신청 : 28일 전송 - 매월 21~말일 신청 : 익월 8일 전송 ※ 신청기간(10일) 동안 1회의 신청만 가능합니다.</string>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-XF-srI">
+                                        <rect key="frame" x="0.0" y="558" width="375" height="8"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xLm-XF-srI" secondAttribute="bottom" constant="934" id="2nf-k1-xrG"/>
+                                    <constraint firstItem="OKU-PN-LWA" firstAttribute="top" secondItem="yqh-Yb-ydh" secondAttribute="bottom" constant="28" id="56b-kf-U1H"/>
+                                    <constraint firstItem="xLm-XF-srI" firstAttribute="leading" secondItem="eMY-h9-ovC" secondAttribute="leading" id="8lI-O7-7WK"/>
+                                    <constraint firstItem="xLm-XF-srI" firstAttribute="top" secondItem="eMY-h9-ovC" secondAttribute="top" constant="558" id="CtB-V9-dIY"/>
+                                    <constraint firstItem="zLm-qD-H18" firstAttribute="leading" secondItem="OKU-PN-LWA" secondAttribute="leading" id="Ofr-mq-vQ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="zLm-qD-H18" secondAttribute="trailing" constant="45" id="R0U-QX-20W"/>
+                                    <constraint firstAttribute="bottom" secondItem="zLm-qD-H18" secondAttribute="bottom" constant="297" id="css-8F-E1S"/>
+                                    <constraint firstItem="OKU-PN-LWA" firstAttribute="leading" secondItem="eMY-h9-ovC" secondAttribute="leading" constant="30" id="dQr-iz-eoF"/>
+                                    <constraint firstItem="R8g-iC-Gxb" firstAttribute="top" secondItem="eMY-h9-ovC" secondAttribute="top" constant="56" id="ffo-EJ-kPI"/>
+                                    <constraint firstItem="Cpu-ut-UDU" firstAttribute="top" secondItem="R8g-iC-Gxb" secondAttribute="bottom" constant="1" id="gMH-jU-hgj"/>
+                                    <constraint firstItem="R8g-iC-Gxb" firstAttribute="leading" secondItem="eMY-h9-ovC" secondAttribute="leading" constant="86" id="jxi-GE-qLx"/>
+                                    <constraint firstItem="zLm-qD-H18" firstAttribute="top" secondItem="xLm-XF-srI" secondAttribute="bottom" constant="8" symbolic="YES" id="lkl-cF-idK"/>
+                                    <constraint firstItem="xLm-XF-srI" firstAttribute="centerX" secondItem="OKU-PN-LWA" secondAttribute="centerX" id="lrK-RQ-9Mh"/>
+                                    <constraint firstItem="yqh-Yb-ydh" firstAttribute="top" secondItem="Cpu-ut-UDU" secondAttribute="bottom" constant="34" id="oSz-Cm-LbM"/>
+                                    <constraint firstItem="Cpu-ut-UDU" firstAttribute="leading" secondItem="eMY-h9-ovC" secondAttribute="leading" constant="152" id="oXB-xW-diB"/>
+                                    <constraint firstAttribute="trailing" secondItem="OKU-PN-LWA" secondAttribute="trailing" constant="31" id="qXk-9o-0Ag"/>
+                                    <constraint firstItem="xLm-XF-srI" firstAttribute="top" secondItem="OKU-PN-LWA" secondAttribute="bottom" constant="30" id="tD3-lD-zMU"/>
+                                    <constraint firstAttribute="trailing" secondItem="yqh-Yb-ydh" secondAttribute="trailing" constant="38" id="wCg-o9-ehX"/>
+                                    <constraint firstItem="yqh-Yb-ydh" firstAttribute="leading" secondItem="eMY-h9-ovC" secondAttribute="leading" constant="37" id="yfL-GH-rUy"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBy-br-MD1">
+                                <rect key="frame" x="0.0" y="1440" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.81568627450980391" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JBy-br-MD1" secondAttribute="height" multiplier="25:4" id="fR7-Ug-dfv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="20"/>
+                                <state key="normal" title="신청하기">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="height" secondItem="0Kv-7e-4ap" secondAttribute="height" priority="250" id="4u8-ee-WfD"/>
+                            <constraint firstItem="Un9-3f-Tfh" firstAttribute="trailing" secondItem="JBy-br-MD1" secondAttribute="trailing" id="GpA-fd-ZQG"/>
+                            <constraint firstItem="Un9-3f-Tfh" firstAttribute="bottom" secondItem="JBy-br-MD1" secondAttribute="bottom" id="HB9-a2-CCc"/>
+                            <constraint firstItem="JBy-br-MD1" firstAttribute="width" secondItem="0Kv-7e-4ap" secondAttribute="height" multiplier="1:4" id="LAl-ce-FKA"/>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="top" secondItem="0Kv-7e-4ap" secondAttribute="top" id="S1Z-fL-cet"/>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="width" secondItem="0Kv-7e-4ap" secondAttribute="width" id="Yl3-3H-mjV"/>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="trailing" secondItem="Un9-3f-Tfh" secondAttribute="trailing" id="cw4-UN-87Y"/>
+                            <constraint firstItem="JBy-br-MD1" firstAttribute="leading" secondItem="Un9-3f-Tfh" secondAttribute="leading" id="iEf-8W-oCo"/>
+                            <constraint firstItem="JBy-br-MD1" firstAttribute="width" secondItem="0Kv-7e-4ap" secondAttribute="width" id="p6V-bI-2SO"/>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="leading" secondItem="Un9-3f-Tfh" secondAttribute="leading" id="sHh-Ju-eM1"/>
+                            <constraint firstItem="eMY-h9-ovC" firstAttribute="bottom" secondItem="Un9-3f-Tfh" secondAttribute="bottom" id="uGz-Xd-Uuz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Un9-3f-Tfh"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="1500"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99H-Cf-NL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.60000000000002" y="116.94152923538232"/>
+        </scene>
+    </scenes>
+</document>

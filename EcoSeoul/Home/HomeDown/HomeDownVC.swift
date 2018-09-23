@@ -178,13 +178,15 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         self.navigationController?.pushViewController(AffiliationVC, animated: true)
                     case 1:
                         //친환경 상품신청하기 push 작업 구현부
-                        break
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
                     case 2:
                         //에코마일리지 기부하기 push 작업 구현부
                         break
                     case 3:
                         //커뮤니티 push 작업 구현부
-                        break
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
                     case 4:
                         //에코마일리지란? push 작업 구현부
                         break
@@ -206,13 +208,15 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         self.navigationController?.pushViewController(AffiliationVC, animated: true)
                     case 1:
                         //친환경 상품신청하기 push 작업 구현부
-                        break
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
                     case 2:
                         //에코마일리지 기부하기 push 작업 구현부
                         break
                     case 3:
                         //커뮤니티 push 작업 구현부
-                        break
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
                     case 4:
                         //에코마일리지란? push 작업 구현부
                         break
