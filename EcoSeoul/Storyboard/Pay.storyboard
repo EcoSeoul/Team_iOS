@@ -137,29 +137,6 @@
             </objects>
             <point key="canvasLocation" x="2690.4000000000001" y="210.94452773613196"/>
         </scene>
-        <!--ExchangeVC-->
-        <scene sceneID="IeF-ND-rCd">
-            <objects>
-                <viewController restorationIdentifier="ExchangeVC" storyboardIdentifier="ExchangeVC" id="t3F-ru-Bho" customClass="ExchangeVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wac-3y-8ug">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ExchangeVC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgR-sP-cyi">
-                                <rect key="frame" x="68" y="284" width="238" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="e8Q-SS-c5K"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dif-Ml-lJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3634.4000000000001" y="210.94452773613196"/>
-        </scene>
         <!--PayVC-->
         <scene sceneID="siv-TJ-P2Y">
             <objects>
@@ -454,10 +431,154 @@
             </objects>
             <point key="canvasLocation" x="4274" y="999"/>
         </scene>
+        <!--ExchangeVC-->
+        <scene sceneID="UmT-OF-UqW">
+            <objects>
+                <viewController restorationIdentifier="ExchangeVC" storyboardIdentifier="ExchangeVC" id="55u-NR-1ca" customClass="ExchangeVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8QX-nE-bdd" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Lt-Ij-cZg" userLabel="ExchangeView" customClass="UIControl">
+                                <rect key="frame" x="43" y="91" width="290" height="385"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마일리지" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLv-Xt-hag">
+                                        <rect key="frame" x="153" y="177" width="74" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="74" id="GRs-Ij-vjh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZQ-x7-yjW">
+                                        <rect key="frame" x="84" y="177" width="66" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="NFV-0T-sUU"/>
+                                            <constraint firstAttribute="height" constant="29" id="vVP-8z-yyX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <color key="textColor" red="0.14901960784313725" green="0.81568627450980391" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최윤정님" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cg-eE-r0a">
+                                        <rect key="frame" x="113" y="140" width="63" height="26"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-mileage" translatesAutoresizingMaskIntoConstraints="NO" id="0tj-uj-F93">
+                                        <rect key="frame" x="63" y="181" width="18" height="18"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-down-black" translatesAutoresizingMaskIntoConstraints="NO" id="Nij-gV-GAW">
+                                        <rect key="frame" x="121" y="201" width="48" height="48"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange-character" translatesAutoresizingMaskIntoConstraints="NO" id="NrM-2k-BdX">
+                                        <rect key="frame" x="113" y="43" width="65" height="86"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="bBm-8P-JhY"/>
+                                            <constraint firstAttribute="height" constant="86" id="llj-yf-eqk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex) 50000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h6U-X2-ybL">
+                                        <rect key="frame" x="59" y="249" width="122" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="122" id="7cA-HQ-rQg"/>
+                                            <constraint firstAttribute="height" constant="30" id="WEJ-XV-M7L"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x8-ec-V3y">
+                                        <rect key="frame" x="85" y="313" width="121" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="4qb-Co-dVP"/>
+                                            <constraint firstAttribute="width" constant="121" id="VRP-3s-aMM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
+                                        <state key="normal" title="에코머니로 전환">
+                                            <color key="titleColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chnageBtnPressed:" destination="55u-NR-1ca" eventType="touchUpInside" id="xh3-3B-G5n"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrR-qf-aMb">
+                                        <rect key="frame" x="191" y="248" width="41" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="2O2-9A-Sgu"/>
+                                            <constraint firstAttribute="width" constant="41" id="IdA-7P-Qjm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
+                                        <state key="normal" title="전액">
+                                            <color key="titleColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="totalBtnPressed:" destination="55u-NR-1ca" eventType="touchUpInside" id="DZu-dG-f04"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PrR-qf-aMb" firstAttribute="leading" secondItem="h6U-X2-ybL" secondAttribute="trailing" constant="10" id="4Xd-FF-GF7"/>
+                                    <constraint firstItem="0x8-ec-V3y" firstAttribute="top" secondItem="PrR-qf-aMb" secondAttribute="bottom" constant="31.5" id="4h5-3N-7Aj"/>
+                                    <constraint firstAttribute="trailing" secondItem="TLv-Xt-hag" secondAttribute="trailing" constant="63.5" id="59a-wB-ttc"/>
+                                    <constraint firstItem="1Cg-eE-r0a" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="113" id="5ep-0S-ckb"/>
+                                    <constraint firstAttribute="width" constant="290" id="6sK-So-ukR"/>
+                                    <constraint firstAttribute="height" constant="385" id="7li-8k-9At"/>
+                                    <constraint firstItem="Nij-gV-GAW" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="121" id="FOq-Tc-446"/>
+                                    <constraint firstItem="TLv-Xt-hag" firstAttribute="top" secondItem="1Cg-eE-r0a" secondAttribute="bottom" constant="11" id="G4a-wD-OJA"/>
+                                    <constraint firstItem="1Cg-eE-r0a" firstAttribute="top" secondItem="NrM-2k-BdX" secondAttribute="bottom" constant="11.06" id="KbL-FI-iIO"/>
+                                    <constraint firstAttribute="trailing" secondItem="0x8-ec-V3y" secondAttribute="trailing" constant="84" id="Olr-xp-cF6"/>
+                                    <constraint firstItem="Nij-gV-GAW" firstAttribute="centerX" secondItem="1Cg-eE-r0a" secondAttribute="centerX" id="Q8S-jq-hSc"/>
+                                    <constraint firstItem="1Cg-eE-r0a" firstAttribute="centerX" secondItem="6Lt-Ij-cZg" secondAttribute="centerX" id="QZn-Kq-DzB"/>
+                                    <constraint firstItem="NrM-2k-BdX" firstAttribute="top" secondItem="6Lt-Ij-cZg" secondAttribute="top" constant="43" id="TAt-0y-Tc6"/>
+                                    <constraint firstItem="0x8-ec-V3y" firstAttribute="centerX" secondItem="6Lt-Ij-cZg" secondAttribute="centerX" id="TD5-RI-JXD"/>
+                                    <constraint firstItem="0tj-uj-F93" firstAttribute="top" secondItem="6Lt-Ij-cZg" secondAttribute="top" constant="181" id="W2f-TX-kNR"/>
+                                    <constraint firstItem="0x8-ec-V3y" firstAttribute="top" secondItem="h6U-X2-ybL" secondAttribute="bottom" constant="33.5" id="XVX-j9-TSa"/>
+                                    <constraint firstAttribute="bottom" secondItem="0x8-ec-V3y" secondAttribute="bottom" constant="41.609999999999999" id="Z63-ed-ghU"/>
+                                    <constraint firstItem="h6U-X2-ybL" firstAttribute="top" secondItem="Nij-gV-GAW" secondAttribute="bottom" id="Zhg-tY-nHj"/>
+                                    <constraint firstItem="Nij-gV-GAW" firstAttribute="top" secondItem="DZQ-x7-yjW" secondAttribute="bottom" constant="-5" id="c72-0M-H2G"/>
+                                    <constraint firstItem="NrM-2k-BdX" firstAttribute="centerX" secondItem="6Lt-Ij-cZg" secondAttribute="centerX" id="cUg-NJ-B80"/>
+                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="top" secondItem="1Cg-eE-r0a" secondAttribute="bottom" constant="11" id="cjQ-Hr-9f3"/>
+                                    <constraint firstItem="0tj-uj-F93" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="62.5" id="jUP-3a-P0n"/>
+                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="leading" secondItem="0tj-uj-F93" secondAttribute="trailing" constant="3" id="jmy-Q4-srA"/>
+                                    <constraint firstItem="TLv-Xt-hag" firstAttribute="leading" secondItem="DZQ-x7-yjW" secondAttribute="trailing" constant="3" id="ny0-Sj-ixZ"/>
+                                    <constraint firstItem="TLv-Xt-hag" firstAttribute="height" secondItem="DZQ-x7-yjW" secondAttribute="height" id="ofy-kz-Kh8"/>
+                                    <constraint firstItem="PrR-qf-aMb" firstAttribute="leading" secondItem="h6U-X2-ybL" secondAttribute="trailing" constant="10" id="pd1-ry-Sgu"/>
+                                    <constraint firstItem="h6U-X2-ybL" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="59" id="puH-Wd-4PB"/>
+                                    <constraint firstItem="NrM-2k-BdX" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="113" id="sEX-V1-o23"/>
+                                    <constraint firstItem="0x8-ec-V3y" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="85" id="tti-GG-E5N"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tGN-lU-SDe" firstAttribute="trailing" secondItem="6Lt-Ij-cZg" secondAttribute="trailing" constant="42" id="3I1-Dc-hdM"/>
+                            <constraint firstItem="6Lt-Ij-cZg" firstAttribute="leading" secondItem="tGN-lU-SDe" secondAttribute="leading" constant="43" id="CX7-zg-UDC"/>
+                            <constraint firstItem="6Lt-Ij-cZg" firstAttribute="top" secondItem="tGN-lU-SDe" secondAttribute="top" constant="71" id="QIb-Eb-zW7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tGN-lU-SDe"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeBtn" destination="0x8-ec-V3y" id="KB3-5W-Q4I"/>
+                        <outlet property="exchangeView" destination="6Lt-Ij-cZg" id="7wn-kD-L8q"/>
+                        <outlet property="mileageLabel" destination="DZQ-x7-yjW" id="b7s-4e-xxk"/>
+                        <outlet property="superView" destination="8QX-nE-bdd" id="S7w-x2-Mzv"/>
+                        <outlet property="totalBtn" destination="PrR-qf-aMb" id="7iH-MN-CTe"/>
+                        <outlet property="userNameLabel" destination="1Cg-eE-r0a" id="ioD-Ao-7Vg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATO-uc-Y7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3712.8000000000002" y="210.94452773613196"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow-down-black" width="48" height="48"/>
         <image name="arrow-left-black" width="48" height="48"/>
+        <image name="exchange-character" width="73" height="89"/>
+        <image name="home-mileage" width="18" height="18"/>
         <image name="ic-close" width="48" height="48"/>
         <image name="my-mileage-save" width="25" height="25"/>
         <image name="my-mileage-use" width="25" height="25"/>

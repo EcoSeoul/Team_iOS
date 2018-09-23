@@ -10,6 +10,8 @@ import UIKit
 
 class BarcodeVC: UIViewController {
     
+    //최상위 부모뷰
+    @IBOutlet var superView: UIControl!
     
     @IBOutlet weak var barcodeView: UIControl!
     @IBOutlet weak var barcodeImage: UIImageView!
@@ -17,8 +19,7 @@ class BarcodeVC: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet var superView: UIControl!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         makeBarcodeView()

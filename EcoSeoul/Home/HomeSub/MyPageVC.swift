@@ -32,6 +32,21 @@ class MyPageVC: UIViewController {
         self.present(moneyVC, animated: true, completion: nil)
     }
     
+    @IBAction func exchangeBtn(_ sender: Any) {
+        
+        let exchangeVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "ExchangeVC")as! ExchangeVC
+        
+        self.addChildViewController(exchangeVC)
+        
+       exchangeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+    
+        
+        self.view.addSubview(exchangeVC.view)
+        exchangeVC.didMove(toParentViewController: self)
+    }
+    
+    
+    
 }
 
 extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
