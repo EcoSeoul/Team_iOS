@@ -323,9 +323,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htS-3o-eMu" userLabel="mapView" customClass="GMSMapView" customModule="EcoSeoul">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htS-3o-eMu" userLabel="displayView" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHo-Lc-QVW" userLabel="topView">
                                 <rect key="frame" x="0.0" y="50" width="375" height="37"/>
@@ -423,12 +422,14 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="qwj-ZK-5aP" id="JLH-HU-Eqg"/>
+                        <outlet property="bottomVIew" destination="uk5-ZW-hdE" id="uAJ-T7-Rgf"/>
                         <outlet property="bottomViewConstraint" destination="lVX-8n-Ggy" id="fMC-h8-6jc"/>
                         <outlet property="categoryLabel" destination="O6b-ki-sBR" id="n35-Wu-pEf"/>
-                        <outlet property="mapView" destination="htS-3o-eMu" id="89t-30-Xuf"/>
+                        <outlet property="displayView" destination="htS-3o-eMu" id="mpM-FH-7nk"/>
                         <outlet property="nameLabel" destination="F35-c7-hSX" id="GUx-A4-Jpo"/>
                         <outlet property="phoneLabel" destination="wFk-Fm-Qyd" id="Hc7-I0-r8B"/>
                         <outlet property="salesPercent" destination="OQ7-gd-jAm" id="e7K-go-u9H"/>
+                        <outlet property="topVIew" destination="GHo-Lc-QVW" id="6rK-FP-bpr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-ac-lFn" userLabel="First Responder" sceneMemberID="firstResponder"/>

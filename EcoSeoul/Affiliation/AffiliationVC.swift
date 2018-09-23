@@ -101,7 +101,7 @@ class AffiliationVC: UIViewController {
         }
         
         let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
-        affiliationDetailVC.districtTag = tag
+        affiliationDetailVC.guIdx = tag
         self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
         }
         
