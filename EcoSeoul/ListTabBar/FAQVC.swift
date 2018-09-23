@@ -15,9 +15,10 @@ class FAQVC: UIViewController {
     //TableView Expand/Collapse Flag
     var expandCol: Bool = false
     var selectedIndx = -1
+    var selectTag: Int?
     
     var sections = ["에코머니는 무엇인가요?", "기획자의 이름은 무엇인가요?", "디자이너는 몇 명 인가요?",
-                    "개발은 파트가 어떻게 나뉘어져있나요?","iOS파트의 장단점은 무엇인가요?",
+                    "개발은 파트가 어떻게?","iOS파트의 장단점은 무엇인가요?",
                     "안드로이드의 장단점은 무엇인가요?",  "서버의 장단점은 무엇인가요?"]
     
     var cells = ["에코머니는 무엇인가요? 음 제생에는 에코와 머니가 합쳐진거 같아요~_~", "기획자의 이름은 무엇인가요? 김주희입니다. 별명은 희카소고요 기획파트원입니다. 23살ㅇ?일거에요 ㅎㅎ", "디자이너는 몇 명 인가요? 2명입니다. 배선영과 최윤정입니다. 둘은 갓자이너입니다 ^&^",
@@ -46,58 +47,69 @@ extension FAQVC: UITableViewDelegate,UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
-        
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 48
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == selectedIndx && expandCol{
-            return 104
-        }else{
-            return 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if expandCol == true {
+            return 2
+        }
+        else {
+            return 1
+            
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTVC1") as! FAQTVC1
-        cell.questionLabel.text = sections[section]
 
-        return cell
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == selectedIndx && expandCol{
+            if indexPath.row == 0 { return 48 }
+            else {return 104}
+        }else{
+            if indexPath.row == 0 { return 48 }
+            else {return 0}
+        }
     }
-    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableview.dequeueReusableCell(withIdentifier: "FAQTVC1") as! FAQTVC1
+            cell.questionLabel.text = sections[indexPath.section]
+            return cell
+        }
+        else{
+            let cell = tableview.dequeueReusableCell(withIdentifier: "FAQTVC2") as! FAQTVC2
+            cell.answerLabel.text = cells[indexPath.section]
+           return cell
+        }
         
-        let cell = tableview.dequeueReusableCell(withIdentifier: "FAQTVC2") as! FAQTVC2
-        cell.answerLabel.text = cells[indexPath.section]
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: indexPath.section)) as! FAQTVC1
+  
         if selectedIndx != indexPath.section{
             expandCol = true
             selectedIndx = indexPath.section
-//            cell.showBtn.rotate(.pi)
-//            cell.questionLabel.textColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+            cell.questionLabel.textColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+            cell.showBtn.image = #imageLiteral(resourceName: "arrow-up-black")
+
         }
-        else {
+            
+        else{
             expandCol = false
             selectedIndx = -1
-//            cell.showBtn.rotate(0)
-//            cell.questionLabel.textColor = #colorLiteral(red: 0.2651461363, green: 0.2651531994, blue: 0.2651493847, alpha: 1)
+            cell.questionLabel.textColor = #colorLiteral(red: 0.2651461363, green: 0.2651531994, blue: 0.2651493847, alpha: 1)
+            cell.showBtn.image = #imageLiteral(resourceName: "arrow-down-black")
+
         }
         tableview.reloadData()
-    }
 
+    }
+    
 }
 
 
@@ -112,8 +124,8 @@ extension UIView {
         
     }
 }
-    
-   
+
+
 
 
 

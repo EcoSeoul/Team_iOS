@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-g2-dSf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-g2-dSf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="t49-CD-MX9">
@@ -103,37 +102,47 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQTVC1" rowHeight="50" id="jBH-4h-ybC" customClass="FAQTVC1" customModule="EcoSeoul" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQTVC1" rowHeight="48" id="7Qf-sl-wlb" customClass="FAQTVC1" customModule="EcoSeoul" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="117" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jBH-4h-ybC" id="URo-Il-Mt8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Qf-sl-wlb" id="7fH-9n-D5h">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이곳은 자주묻는 질문 입니다?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEA-oa-HR6">
-                                                    <rect key="frame" x="31" y="11" width="222.5" height="27"/>
+                                                    <rect key="frame" x="35" y="10" width="282" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="EvX-d4-noo"/>
+                                                        <constraint firstAttribute="width" constant="282" id="sgP-Ps-b9k"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="18"/>
                                                     <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-down-black" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-JZ-jhu">
-                                                    <rect key="frame" x="323" y="0.0" width="48" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-down-black" translatesAutoresizingMaskIntoConstraints="NO" id="IhH-JZ-jhu">
+                                                    <rect key="frame" x="318" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="FQe-6k-Zj2"/>
+                                                        <constraint firstAttribute="height" constant="48" id="Q0s-K1-dfm"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="leading" secondItem="URo-Il-Mt8" secondAttribute="leadingMargin" constant="16" id="1SI-sW-Y2p"/>
-                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="top" secondItem="URo-Il-Mt8" secondAttribute="topMargin" id="iLH-SR-mHh"/>
-                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="centerY" secondItem="URo-Il-Mt8" secondAttribute="centerY" id="jXG-OZ-AcW"/>
+                                                <constraint firstAttribute="trailing" secondItem="IhH-JZ-jhu" secondAttribute="trailing" constant="9" id="1Jj-9m-Gp7"/>
+                                                <constraint firstItem="IhH-JZ-jhu" firstAttribute="centerY" secondItem="eEA-oa-HR6" secondAttribute="centerY" id="GF8-bt-z3d"/>
+                                                <constraint firstItem="IhH-JZ-jhu" firstAttribute="top" secondItem="7fH-9n-D5h" secondAttribute="top" id="SAT-hF-USm"/>
+                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="centerY" secondItem="7fH-9n-D5h" secondAttribute="centerY" id="T2L-ba-RDd"/>
+                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="leading" secondItem="7fH-9n-D5h" secondAttribute="leading" constant="35" id="fyV-Dw-iBK"/>
+                                                <constraint firstItem="eEA-oa-HR6" firstAttribute="top" secondItem="7fH-9n-D5h" secondAttribute="top" constant="10" id="gKM-bb-n1I"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="questionLabel" destination="eEA-oa-HR6" id="FLD-un-aKO"/>
-                                            <outlet property="showBtn" destination="IhH-JZ-jhu" id="sb4-xp-FaW"/>
+                                            <outlet property="questionLabel" destination="eEA-oa-HR6" id="u5w-6E-W8u"/>
+                                            <outlet property="showBtn" destination="IhH-JZ-jhu" id="Ifg-fH-u2G"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQTVC2" rowHeight="104" id="9ph-Cn-xBu" customClass="FAQTVC2" customModule="EcoSeoul" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="194" width="375" height="104"/>
+                                        <rect key="frame" x="0.0" y="165" width="375" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ph-Cn-xBu" id="UKz-Ek-Sxs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
