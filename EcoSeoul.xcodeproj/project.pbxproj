@@ -58,6 +58,8 @@
 		50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484C213EA82300380CFE /* HomeUp.storyboard */; };
 		50D04850213EA82500380CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484F213EA82500380CFE /* Assets.xcassets */; };
 		50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D04851213EA82500380CFE /* LaunchScreen.storyboard */; };
+		50D8889C21581498006524B5 /* Donation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8889B21581498006524B5 /* Donation.storyboard */; };
+		50D888A2215815AF006524B5 /* DonationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D888A1215815AF006524B5 /* DonationVC.swift */; };
 		DDC879EB7E4AAE3700B6B66F /* Pods_EcoSeoul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,8 @@
 		50D0484F213EA82500380CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D04852213EA82500380CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50D04854213EA82500380CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50D8889B21581498006524B5 /* Donation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Donation.storyboard; sourceTree = "<group>"; };
+		50D888A1215815AF006524B5 /* DonationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationVC.swift; sourceTree = "<group>"; };
 		53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoSeoul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC25BC8BF5B845E45453C3AE /* Pods-EcoSeoul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8101C0A24BADA8B98BC9D1 /* Pods-EcoSeoul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,21 +148,15 @@
 			path = PayTabBar;
 			sourceTree = "<group>";
 		};
-		3A58377B215421880074BCA9 /* ListTabBar */ = {
+		3A58377B215421880074BCA9 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				5048ED082157C09A007A220C /* FAQVC.swift */,
 				5048ED0A2157CA12007A220C /* FAQTVC1.swift */,
 				5048ED0C2157DC65007A220C /* FAQTVC2.swift */,
-				3A58377C215421A20074BCA9 /* ListVC.swift */,
-				3A58377E215421C20074BCA9 /* RequestListTVC.swift */,
-				3A5837842154227E0074BCA9 /* RequestListTVCell.swift */,
-				3A583780215422300074BCA9 /* DonationListTVC.swift */,
-				3A583786215422890074BCA9 /* DonationListTVCell.swift */,
-				3A583782215422650074BCA9 /* PostListTVC.swift */,
-				3A583788215422970074BCA9 /* PostListTVCell.swift */,
+				50D8889E215814F7006524B5 /* ListTabBar */,
 			);
-			path = ListTabBar;
+			path = List;
 			sourceTree = "<group>";
 		};
 		502A245F21516A4A00421F9F /* Pay */ = {
@@ -211,6 +209,7 @@
 				502A246421516B7400421F9F /* Affiliation.storyboard */,
 				502A245D2151677B00421F9F /* Pay.storyboard */,
 				3A58376E21541FE90074BCA9 /* List.storyboard */,
+				50D8889B21581498006524B5 /* Donation.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -277,7 +276,8 @@
 				50C620932146DE4C0018550B /* Home */,
 				502A246621516B9A00421F9F /* Affiliation */,
 				502A245F21516A4A00421F9F /* Pay */,
-				3A58377B215421880074BCA9 /* ListTabBar */,
+				3A58377B215421880074BCA9 /* List */,
+				50D8889D215814D1006524B5 /* Donation */,
 				50D0485A213EECBF00380CFE /* Resources */,
 				50C620942146E8A10018550B /* Extension.swift */,
 			);
@@ -295,6 +295,28 @@
 				50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		50D8889D215814D1006524B5 /* Donation */ = {
+			isa = PBXGroup;
+			children = (
+				50D888A1215815AF006524B5 /* DonationVC.swift */,
+			);
+			path = Donation;
+			sourceTree = "<group>";
+		};
+		50D8889E215814F7006524B5 /* ListTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3A58377C215421A20074BCA9 /* ListVC.swift */,
+				3A58377E215421C20074BCA9 /* RequestListTVC.swift */,
+				3A5837842154227E0074BCA9 /* RequestListTVCell.swift */,
+				3A583780215422300074BCA9 /* DonationListTVC.swift */,
+				3A583786215422890074BCA9 /* DonationListTVCell.swift */,
+				3A583782215422650074BCA9 /* PostListTVC.swift */,
+				3A583788215422970074BCA9 /* PostListTVCell.swift */,
+			);
+			path = ListTabBar;
 			sourceTree = "<group>";
 		};
 		9E22B91FC8E8D910DD8E5BFE /* Pods */ = {
@@ -385,6 +407,7 @@
 				50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				502A245E2151677B00421F9F /* Pay.storyboard in Resources */,
 				505549EE214BC1F3000D2130 /* HomeSub.storyboard in Resources */,
+				50D8889C21581498006524B5 /* Donation.storyboard in Resources */,
 				50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */,
 				50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */,
 				505549F0214BCA5B000D2130 /* HomeDown.storyboard in Resources */,
@@ -465,6 +488,7 @@
 				3A583787215422890074BCA9 /* DonationListTVCell.swift in Sources */,
 				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
 				5048ED092157C09A007A220C /* FAQVC.swift in Sources */,
+				50D888A2215815AF006524B5 /* DonationVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
