@@ -24,27 +24,32 @@ class MyPageVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func mileageDetailBtn(_ sender: Any) { let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+    @IBAction func mileageDetailBtn(_ sender: Any) {
+        let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
         self.present(mileageVC, animated: true, completion: nil)
     }
     
-    @IBAction func moneyDetailBtn(_ sender: Any) { let moneyVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+    @IBAction func moneyDetailBtn(_ sender: Any) {
+        let moneyVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
         self.present(moneyVC, animated: true, completion: nil)
     }
     
     @IBAction func exchangeBtn(_ sender: Any) {
-        
         let exchangeVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "ExchangeVC")as! ExchangeVC
-        
         self.addChildViewController(exchangeVC)
         
        exchangeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-    
-        
+
         self.view.addSubview(exchangeVC.view)
         exchangeVC.didMove(toParentViewController: self)
     }
     
+    @IBAction func faqBtn(_ sender: Any) {
+        let faqVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "FAQVC") as! FAQVC
+        self.present(faqVC, animated: true, completion: nil)
+        
+        
+    }
     
     
 }

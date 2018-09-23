@@ -565,6 +565,9 @@
                                             <state key="normal" title="자주 묻는 질문">
                                                 <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="faqBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="aBs-Bh-5RQ"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIq-et-RbL">
                                             <rect key="frame" x="304" y="3" width="63" height="38"/>
