@@ -30,6 +30,13 @@ class DonationVC: UIViewController {
         btn.action = #selector(popSelf)
         return btn
     }()
+    var myPageBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "ic-mypage")
+        btn.tintColor = .black
+        btn.action = #selector(goMyPageVC)
+        return btn
+    }()
     
     @IBOutlet weak var test1: UIButton!
     
@@ -65,20 +72,36 @@ class DonationVC: UIViewController {
 extension DonationVC{
     
     ////////////Navigation Bar 관련////////////
- 
+    
     @objc func popSelf() {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func goMyPageVC(){
+        let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
+        self.present(myPageVC, animated: true, completion: nil)
+    }
+    
+    
     func setNaviBar(){
         backBtn.target = self
+        myPageBtn.target = self
         let bar: UINavigationBar! =  self.navigationController?.navigationBar
         let item: UINavigationItem = self.navigationItem
         
         item.leftBarButtonItem = backBtn
         item.leftBarButtonItem?.imageInsets.left = -15
-        bar.setBackgroundImage(UIImage(), for: .default)
+        item.rightBarButtonItem = myPageBtn
+        item.rightBarButtonItem?.imageInsets.right = -15
+        item.title = "기부하기"
+        
+        bar.backgroundColor = .white
         bar.shadowImage = UIImage()
+    }
+    
+    //상태 표시줄 흰색 만들기
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     ///////////////////////////////////////
 }
