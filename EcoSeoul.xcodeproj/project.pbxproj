@@ -61,6 +61,7 @@
 		50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */; };
 		50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */; };
 		50B0CB0121463D9900CDA7C9 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */; };
+		50B94A5F21595D5C00DB3FDA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B94A5E21595D5C00DB3FDA /* APIService.swift */; };
 		50C5E30D2158C2EA00E29C59 /* Donation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C5E30C2158C2EA00E29C59 /* Donation.storyboard */; };
 		50C5E3152158C9D100E29C59 /* DonationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C5E3142158C9D100E29C59 /* DonationVC.swift */; };
 		50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C620892146D36B0018550B /* HomeDownVC.swift */; };
@@ -131,6 +132,7 @@
 		50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
 		50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		50B94A5E21595D5C00DB3FDA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50C5E30C2158C2EA00E29C59 /* Donation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donation.storyboard; sourceTree = "<group>"; };
 		50C5E3142158C9D100E29C59 /* DonationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationVC.swift; sourceTree = "<group>"; };
 		50C620892146D36B0018550B /* HomeDownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDownVC.swift; sourceTree = "<group>"; };
@@ -273,6 +275,31 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		50B94A5D21595D2C00DB3FDA /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				505549FA214BCF11000D2130 /* Login */,
+				50C620932146DE4C0018550B /* Home */,
+				5050A83C215907C60066C433 /* Web */,
+				502A246621516B9A00421F9F /* Affiliation */,
+				3A5837A021577DCD0074BCA9 /* Shop */,
+				50C5E3132158C97800E29C59 /* Donation */,
+				3A00FC152157EB6D009CD296 /* Community */,
+				502A245F21516A4A00421F9F /* Pay */,
+				3A58377B215421880074BCA9 /* List */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		50B94A6021595D6A00DB3FDA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				50C620942146E8A10018550B /* Extension.swift */,
+				50B94A5E21595D5C00DB3FDA /* APIService.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		50C5E3132158C97800E29C59 /* Donation */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,17 +367,9 @@
 			children = (
 				50D04848213EA82300380CFE /* AppDelegate.swift */,
 				508BC665213F845B00486A89 /* Storyboard */,
-				505549FA214BCF11000D2130 /* Login */,
-				50C620932146DE4C0018550B /* Home */,
-				5050A83C215907C60066C433 /* Web */,
-				502A246621516B9A00421F9F /* Affiliation */,
-				3A5837A021577DCD0074BCA9 /* Shop */,
-				50C5E3132158C97800E29C59 /* Donation */,
-				3A00FC152157EB6D009CD296 /* Community */,
-				502A245F21516A4A00421F9F /* Pay */,
-				3A58377B215421880074BCA9 /* List */,
+				50B94A5D21595D2C00DB3FDA /* VC */,
+				50B94A6021595D6A00DB3FDA /* Util */,
 				50D0485A213EECBF00380CFE /* Resources */,
-				50C620942146E8A10018550B /* Extension.swift */,
 			);
 			path = EcoSeoul;
 			sourceTree = "<group>";
@@ -576,6 +595,7 @@
 				3A583781215422300074BCA9 /* DonationListTVC.swift in Sources */,
 				3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */,
 				3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */,
+				50B94A5F21595D5C00DB3FDA /* APIService.swift in Sources */,
 				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
 				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,
