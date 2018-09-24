@@ -316,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDi-xZ-Jwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="260"/>
+            <point key="canvasLocation" x="606" y="339"/>
         </scene>
         <!--BarcodeVC-->
         <scene sceneID="XyS-DJ-HVs">
