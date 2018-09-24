@@ -19,59 +19,54 @@ class BarcodeVC: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var barcodeSerial: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeBarcodeView()
         //make background blurred.
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
+        
+        makeBarcodeView()
+        
     }
     
     func makeBarcodeView(){
+        
         //make corner rounded.
         self.barcodeView.layer.cornerRadius = 20;
         self.barcodeView.layer.masksToBounds = true;
         
-        //********이 부분을 수정예상********
+        //********이 부분을 수정예상********(모든곳이 터치가 안되는 근원)
         self.superView.addTarget(self, action: #selector(subViewTapped), for: .allTouchEvents)
+        self.saveBarcodeData()
         
-        if let image = generateBarcodeFromString(string: "8 0101254 257810") {
+    }
+    
+
+    func saveBarcodeData(){
+        
+        guard let serial = barcodeSerial else {return}
+        if let image = generateBarcodeFromString(string: serial) {
             barcodeImage.image = image
-            barcodeNumber.text = "8 0101254 257810"
-            titleLabel.text = "최윤정님 에코머니"
+            barcodeNumber.text = serial
+            titleLabel.text = "이충신님 에코머니"
             moneyLabel.text = "56000"
         }
+        
     }
+    
+    
+    
+}
+extension BarcodeVC {
     
     @objc func subViewTapped(){
         self.removeAnimate()
         self.view.removeFromSuperview()
     }
     
-    
-    func generateBarcodeFromString(string: String)-> UIImage?{
-        
-        let data = string.data(using: String.Encoding.ascii)
-        let filter = CIFilter(name: "CICode128BarcodeGenerator")
-        
-        filter?.setValue(data, forKey: "inputMessage")
-        
-        let transform = CGAffineTransform.init(scaleX: 10, y: 10)
-        let output = filter?.outputImage?.transformed(by: transform)
-        
-        if(output != nil){
-            return UIImage(ciImage: output!)
-        }
-        return nil
-        
-    }
-    
-    
-    
-    
-}
-extension BarcodeVC {
     
     func showAnimate()
     {
