@@ -73,6 +73,7 @@
 		50D04850213EA82500380CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484F213EA82500380CFE /* Assets.xcassets */; };
 		50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D04851213EA82500380CFE /* LaunchScreen.storyboard */; };
 		50D470DD2158D482007712CB /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D470DC2158D482007712CB /* DonationView.swift */; };
+		50F2360121593F370005CD20 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F2360021593F370005CD20 /* APIService.swift */; };
 		DDC879EB7E4AAE3700B6B66F /* Pods_EcoSeoul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,7 @@
 		50D04852213EA82500380CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50D04854213EA82500380CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50D470DC2158D482007712CB /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
+		50F2360021593F370005CD20 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoSeoul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC25BC8BF5B845E45453C3AE /* Pods-EcoSeoul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8101C0A24BADA8B98BC9D1 /* Pods-EcoSeoul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.release.xcconfig"; sourceTree = "<group>"; };
@@ -340,17 +342,9 @@
 			children = (
 				50D04848213EA82300380CFE /* AppDelegate.swift */,
 				508BC665213F845B00486A89 /* Storyboard */,
-				505549FA214BCF11000D2130 /* Login */,
-				50C620932146DE4C0018550B /* Home */,
-				5050A83C215907C60066C433 /* Web */,
-				502A246621516B9A00421F9F /* Affiliation */,
-				3A5837A021577DCD0074BCA9 /* Shop */,
-				50C5E3132158C97800E29C59 /* Donation */,
-				3A00FC152157EB6D009CD296 /* Community */,
-				502A245F21516A4A00421F9F /* Pay */,
-				3A58377B215421880074BCA9 /* List */,
+				50F235FC21593EAE0005CD20 /* VC */,
+				50F235FD21593EDC0005CD20 /* Util */,
 				50D0485A213EECBF00380CFE /* Resources */,
-				50C620942146E8A10018550B /* Extension.swift */,
 			);
 			path = EcoSeoul;
 			sourceTree = "<group>";
@@ -380,6 +374,47 @@
 				3A583788215422970074BCA9 /* PostListTVCell.swift */,
 			);
 			path = ListTabBar;
+			sourceTree = "<group>";
+		};
+		50F235FC21593EAE0005CD20 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				505549FA214BCF11000D2130 /* Login */,
+				50C620932146DE4C0018550B /* Home */,
+				5050A83C215907C60066C433 /* Web */,
+				502A246621516B9A00421F9F /* Affiliation */,
+				3A5837A021577DCD0074BCA9 /* Shop */,
+				50C5E3132158C97800E29C59 /* Donation */,
+				3A00FC152157EB6D009CD296 /* Community */,
+				502A245F21516A4A00421F9F /* Pay */,
+				3A58377B215421880074BCA9 /* List */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		50F235FD21593EDC0005CD20 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				50F235FE21593EF00005CD20 /* Utility */,
+				50F235FF21593F190005CD20 /* Service */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		50F235FE21593EF00005CD20 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				50C620942146E8A10018550B /* Extension.swift */,
+				50F2360021593F370005CD20 /* APIService.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		50F235FF21593F190005CD20 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		9E22B91FC8E8D910DD8E5BFE /* Pods */ = {
@@ -576,6 +611,7 @@
 				3A583781215422300074BCA9 /* DonationListTVC.swift in Sources */,
 				3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */,
 				3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */,
+				50F2360121593F370005CD20 /* APIService.swift in Sources */,
 				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
 				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,
