@@ -14,7 +14,6 @@ class HomeDownVC: UIViewController {
     
     @IBOutlet weak var barcodeBar: UILabel!
     @IBOutlet weak var barcodeBtn: UIButton!
-    
     @IBOutlet weak var horizontalScroll: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,11 +23,12 @@ class HomeDownVC: UIViewController {
         var arr: [UIImageView] = []
         for i in 0..<3 {
             arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
+
         }
         return arr
     }()
     
-    //인덱싱을 저장하기 위한 공간
+    //인덱스를 저장하기 위한 공간
     let userDefault = UserDefaults.standard
     
     //TableView Expand/Collapse Flag
@@ -38,8 +38,7 @@ class HomeDownVC: UIViewController {
     let cell3Explain = ["내 주변 가맹점 및 할인 공공시설을 찾아보세요", "온라인으로 상품을 신청해보세요",
                         "에코마일리지로 기부해보세요", "꿀팁 공유","에코마일리지를 알려드립니다!"]
     
-    
-    
+    var barcodeSerial: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,68 +47,57 @@ class HomeDownVC: UIViewController {
         tableView.dataSource = self;
         tableView.delegate = self;
         
-        if let image = generateBarcodeFromString(string: "8 0101254 257810"){
-            barcodeBtn.setBackgroundImage(image, for: .normal)
-        }
-        
+        barcodeSerial = "7200 0200 0133 6123" //실제로는 값을 등록하는 경우
+        makeBarcodeImage()
         makeBannerView()
     }
     
+    func makeBarcodeImage(){
+        
+        guard let serial = barcodeSerial else {
+            barcodeBtn.setTitle("카드등록", for: .normal)
+            barcodeBtn.setTitleColor(#colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1), for: .normal)
+            barcodeBtn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 13)
+            return
+        }
+        
+        if let image = generateBarcodeFromString(string: serial){
+            barcodeBtn.setBackgroundImage(image, for: .normal)
+        }
+
+    }
     
-    func makeBannerView(){
-        for i in 0..<bannerArray.count {
-            horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
-            if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
-            else { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-99")}
-            horizontalScroll.addSubview(bannerArray[i])
+    //바코드 버튼 클릭
+    @IBAction func barcodePressed(_ sender: Any) {
+        if barcodeSerial != nil {
+            let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
+            barcodeVC.barcodeSerial = self.barcodeSerial
+            self.addChildViewController(barcodeVC)
+            
+            //HomeVC에서 가져온 값
+            let n = userDefault.integer(forKey: "verticalIdx")
+            if n == 0{
+                barcodeVC.view.frame = CGRect(x: 0, y: -592, width: self.view.frame.width, height: self.view.frame.height)
+            }
+            else{
+                barcodeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            }
+            
+            self.view.addSubview(barcodeVC.view)
+            barcodeVC.didMove(toParentViewController: self)
+            }
+        else {
+            print("카드생성 팝업이 뜨게 해줘야합니다!!! 구현하세요!")
         }
     }
+    
     
     //마이페이지 버튼 클릭
     @IBAction func mypagePressed(_ sender: Any) {
         let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
         self.present(myPageVC, animated: true, completion: nil)
     }
-    
-    
-    //바코드 버튼 클릭
-    @IBAction func barcodePressed(_ sender: Any) {
-        let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
-        
-        self.addChildViewController(barcodeVC)
-        
-        //HomeVC에서 가져온 값
-        let n = userDefault.integer(forKey: "verticalIdx")
-        
-        if n == 0{
-            barcodeVC.view.frame = CGRect(x: 0, y: -592, width: self.view.frame.width, height: self.view.frame.height)
-        }
-        else{
-            barcodeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        }
-        
-        self.view.addSubview(barcodeVC.view)
-        barcodeVC.didMove(toParentViewController: self)
-    }
-    
-    func generateBarcodeFromString(string: String)-> UIImage?{
-        
-        let data = string.data(using: String.Encoding.ascii)
-        let filter = CIFilter(name: "CICode128BarcodeGenerator")
-        
-        filter?.setValue(data, forKey: "inputMessage")
-        
-        let transform = CGAffineTransform.init(scaleX: 10, y: 10)
-        let output = filter?.outputImage?.transformed(by: transform)
-        
-        if(output != nil){
-            return UIImage(ciImage: output!)
-        }
-        return nil
-        
-    }
-    
-    
+
     
 }
 
@@ -119,6 +107,15 @@ extension HomeDownVC: UIScrollViewDelegate{
     private func viewInstance(xPostion: CGFloat) -> UIImageView {
         let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
         return UIImageView(frame: scrollframe)
+    }
+    
+    func makeBannerView(){
+        for i in 0..<bannerArray.count {
+            horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
+            if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
+            else { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-99")}
+            horizontalScroll.addSubview(bannerArray[i])
+        }
     }
     
 }
@@ -171,37 +168,53 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             
             if section == 1{
                 //포인트 전환/결제 관련 뷰 전환 구현부
+                let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                webVC.address = "https://topshop.bccard.com/app/topmall/main/main"
+                self.present(webVC, animated: true, completion: nil)
+              
             }
                 
             else if section == 2{
                 //포인트 적립/할인 관련 뷰 전환 구현부
+                let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                if row == 0{
+                    webVC.address = "https://www.facebook.com/EngineDoctorQ"
+                }else if row == 1{
+                    webVC.address = "https://www.honest79.co.kr/?NaPm=ct%3Djmg9y1xo%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3Dbacd7b5c5fd5e888ce084b1072028c6563584fa9"
+                }
+            
+                self.present(webVC, animated: true, completion: nil)
+              
             }
                 
             else if section == 3{
                 
                 switch row {
-                case 0:
-                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                    self.navigationController?.pushViewController(affiliationVC, animated: true)
-                case 1:
-                    //친환경 상품신청하기 push 작업 구현부
-                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                    self.navigationController?.pushViewController(shopVC, animated: true)
-                    break
-                case 2:
-                    //에코마일리지 기부하기 push 작업 구현부
-                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
-                    self.navigationController?.pushViewController(donationVC, animated: true)
-                    break
-                case 3:
-                    //커뮤니티 push 작업 구현부
-                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                    self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    break
-                case 4:
-                    //에코마일리지란? push 작업 구현부
-                    break
-                default: break
+                    case 0:
+                        let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(affiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                        self.navigationController?.pushViewController(donationVC, animated: true)
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
+                        self.present(webVC, animated: true, completion: nil)
+                        break
+                    default: break
                 }
                 
             }
@@ -214,28 +227,31 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             
             if section == 1 {
                 switch row {
-                case 0:
-                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                    self.navigationController?.pushViewController(affiliationVC, animated: true)
-                case 1:
-                    //친환경 상품신청하기 push 작업 구현부
-                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                    self.navigationController?.pushViewController(shopVC, animated: true)
-                    break
-                case 2:
-                    //에코마일리지 기부하기 push 작업 구현부
-                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
-                    self.navigationController?.pushViewController(donationVC, animated: true)
-                    break
-                case 3:
-                    //커뮤니티 push 작업 구현부
-                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                    self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    break
-                case 4:
-                    //에코마일리지란? push 작업 구현부
-                    break
-                default: break
+                    case 0:
+                        let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(affiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                        self.navigationController?.pushViewController(donationVC, animated: true)
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
+                        self.present(webVC, animated: true, completion: nil)
+                        break
+                    default: break
                 }
             }
         }

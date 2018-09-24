@@ -28,6 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v6L-gz-njJ">
+
                             <size key="itemSize" width="180" height="218"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -35,10 +36,11 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ShopCVCell" reuseIdentifier="ShopCVCell" id="mnC-mm-rfm" customClass="ShopCVCell" customModule="EcoSeoul" customModuleProvider="target">
+
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="181" height="218"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-WN-HAY">
@@ -62,7 +64,7 @@
                                         </view>
                                     </subviews>
                                 </view>
-                                <size key="customSize" width="180" height="218"/>
+                                <size key="customSize" width="181" height="218"/>
                                 <connections>
                                     <outlet property="shopIMG" destination="jkr-WN-HAY" id="lL1-AH-8c2"/>
                                     <outlet property="shopLB" destination="fsi-HJ-46o" id="oPc-Q3-H0m"/>

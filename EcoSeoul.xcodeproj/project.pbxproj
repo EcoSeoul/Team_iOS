@@ -48,6 +48,8 @@
 		5048ED092157C09A007A220C /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED082157C09A007A220C /* FAQVC.swift */; };
 		5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED0A2157CA12007A220C /* FAQTVC1.swift */; };
 		5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5048ED0C2157DC65007A220C /* FAQTVC2.swift */; };
+		5050A83B215906E00066C433 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5050A83A215906E00066C433 /* Web.storyboard */; };
+		5050A83E215907D90066C433 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5050A83D215907D90066C433 /* WebVC.swift */; };
 		505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EB214BBA8F000D2130 /* LogIn.storyboard */; };
 		505549EE214BC1F3000D2130 /* HomeSub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549ED214BC1F3000D2130 /* HomeSub.storyboard */; };
 		505549F0214BCA5B000D2130 /* HomeDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505549EF214BCA5B000D2130 /* HomeDown.storyboard */; };
@@ -116,6 +118,8 @@
 		5048ED082157C09A007A220C /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
 		5048ED0A2157CA12007A220C /* FAQTVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTVC1.swift; sourceTree = "<group>"; };
 		5048ED0C2157DC65007A220C /* FAQTVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTVC2.swift; sourceTree = "<group>"; };
+		5050A83A215906E00066C433 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
+		5050A83D215907D90066C433 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		505549EB214BBA8F000D2130 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		505549ED214BC1F3000D2130 /* HomeSub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSub.storyboard; sourceTree = "<group>"; };
 		505549EF214BCA5B000D2130 /* HomeDown.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeDown.storyboard; sourceTree = "<group>"; };
@@ -222,6 +226,14 @@
 			path = Affiliation;
 			sourceTree = "<group>";
 		};
+		5050A83C215907C60066C433 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				5050A83D215907D90066C433 /* WebVC.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		505549F7214BCBBD000D2130 /* HomeSub */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +262,7 @@
 				50D0484C213EA82300380CFE /* HomeUp.storyboard */,
 				505549EF214BCA5B000D2130 /* HomeDown.storyboard */,
 				505549ED214BC1F3000D2130 /* HomeSub.storyboard */,
+				5050A83A215906E00066C433 /* Web.storyboard */,
 				502A246421516B7400421F9F /* Affiliation.storyboard */,
 				3A58379C21577DA40074BCA9 /* Shop.storyboard */,
 				50C5E30C2158C2EA00E29C59 /* Donation.storyboard */,
@@ -329,6 +342,7 @@
 				508BC665213F845B00486A89 /* Storyboard */,
 				505549FA214BCF11000D2130 /* Login */,
 				50C620932146DE4C0018550B /* Home */,
+				5050A83C215907C60066C433 /* Web */,
 				502A246621516B9A00421F9F /* Affiliation */,
 				3A5837A021577DCD0074BCA9 /* Shop */,
 				50C5E3132158C97800E29C59 /* Donation */,
@@ -452,6 +466,7 @@
 				502A246521516B7400421F9F /* Affiliation.storyboard in Resources */,
 				3A00FC142157D0E9009CD296 /* Community.storyboard in Resources */,
 				3A58376F21541FE90074BCA9 /* List.storyboard in Resources */,
+				5050A83B215906E00066C433 /* Web.storyboard in Resources */,
 				3A58379D21577DA40074BCA9 /* Shop.storyboard in Resources */,
 				50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */,
 				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
@@ -543,6 +558,7 @@
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
 				3A58379F21577DC70074BCA9 /* ShopCVC.swift in Sources */,
+				5050A83E215907D90066C433 /* WebVC.swift in Sources */,
 				505549F9214BCC98000D2130 /* LoginVC.swift in Sources */,
 				505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */,
 				3A00FC1D2157EC0C009CD296 /* CommunityTVCell.swift in Sources */,
