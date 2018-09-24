@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A00FC142157D0E9009CD296 /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A00FC132157D0E9009CD296 /* Community.storyboard */; };
+		3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC162157EB96009CD296 /* CommunityVC.swift */; };
+		3A00FC192157EBA5009CD296 /* CommunityViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC182157EBA5009CD296 /* CommunityViewVC.swift */; };
+		3A00FC1B2157EBB6009CD296 /* CommunityWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1A2157EBB6009CD296 /* CommunityWriteVC.swift */; };
+		3A00FC1D2157EC0C009CD296 /* CommunityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1C2157EC0C009CD296 /* CommunityTVCell.swift */; };
+		3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1E2157EC31009CD296 /* CommunityViewTVCell.swift */; };
 		3A58376F21541FE90074BCA9 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58376E21541FE90074BCA9 /* List.storyboard */; };
 		3A583772215420DF0074BCA9 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583771215420DF0074BCA9 /* PayVC.swift */; };
 		3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837732154212F0074BCA9 /* MileageTVC.swift */; };
@@ -20,6 +26,10 @@
 		3A5837852154227E0074BCA9 /* RequestListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837842154227E0074BCA9 /* RequestListTVCell.swift */; };
 		3A583787215422890074BCA9 /* DonationListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583786215422890074BCA9 /* DonationListTVCell.swift */; };
 		3A583789215422970074BCA9 /* PostListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583788215422970074BCA9 /* PostListTVCell.swift */; };
+		3A58379D21577DA40074BCA9 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58379C21577DA40074BCA9 /* Shop.storyboard */; };
+		3A58379F21577DC70074BCA9 /* ShopCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58379E21577DC70074BCA9 /* ShopCVC.swift */; };
+		3A5837A221577DEC0074BCA9 /* ShopCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837A121577DEC0074BCA9 /* ShopCVCell.swift */; };
+		3A5837A421577DFA0074BCA9 /* ShopDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837A321577DFA0074BCA9 /* ShopDetailVC.swift */; };
 		3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB3E214C141700507A9F /* PointTVC1.swift */; };
 		3A97AB41214C143200507A9F /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB40214C143200507A9F /* MenuTVC.swift */; };
 		3A97AB43214E5F2B00507A9F /* PointTVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB42214E5F2B00507A9F /* PointTVC2.swift */; };
@@ -64,6 +74,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A00FC132157D0E9009CD296 /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		3A00FC162157EB96009CD296 /* CommunityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
+		3A00FC182157EBA5009CD296 /* CommunityViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewVC.swift; sourceTree = "<group>"; };
+		3A00FC1A2157EBB6009CD296 /* CommunityWriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWriteVC.swift; sourceTree = "<group>"; };
+		3A00FC1C2157EC0C009CD296 /* CommunityTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTVCell.swift; sourceTree = "<group>"; };
+		3A00FC1E2157EC31009CD296 /* CommunityViewTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewTVCell.swift; sourceTree = "<group>"; };
 		3A58376E21541FE90074BCA9 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		3A583771215420DF0074BCA9 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		3A5837732154212F0074BCA9 /* MileageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTVC.swift; sourceTree = "<group>"; };
@@ -77,6 +93,10 @@
 		3A5837842154227E0074BCA9 /* RequestListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListTVCell.swift; sourceTree = "<group>"; };
 		3A583786215422890074BCA9 /* DonationListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListTVCell.swift; sourceTree = "<group>"; };
 		3A583788215422970074BCA9 /* PostListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTVCell.swift; sourceTree = "<group>"; };
+		3A58379C21577DA40074BCA9 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		3A58379E21577DC70074BCA9 /* ShopCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCVC.swift; sourceTree = "<group>"; };
+		3A5837A121577DEC0074BCA9 /* ShopCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCVCell.swift; sourceTree = "<group>"; };
+		3A5837A321577DFA0074BCA9 /* ShopDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailVC.swift; sourceTree = "<group>"; };
 		3A97AB3E214C141700507A9F /* PointTVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTVC1.swift; sourceTree = "<group>"; };
 		3A97AB40214C143200507A9F /* MenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTVC.swift; sourceTree = "<group>"; };
 		3A97AB42214E5F2B00507A9F /* PointTVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTVC2.swift; sourceTree = "<group>"; };
@@ -136,6 +156,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A00FC152157EB6D009CD296 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				3A00FC162157EB96009CD296 /* CommunityVC.swift */,
+				3A00FC1C2157EC0C009CD296 /* CommunityTVCell.swift */,
+				3A00FC182157EBA5009CD296 /* CommunityViewVC.swift */,
+				3A00FC1E2157EC31009CD296 /* CommunityViewTVCell.swift */,
+				3A00FC1A2157EBB6009CD296 /* CommunityWriteVC.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
 		3A583770215420C20074BCA9 /* PayTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +189,16 @@
 				50D8889E215814F7006524B5 /* ListTabBar */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		3A5837A021577DCD0074BCA9 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				3A58379E21577DC70074BCA9 /* ShopCVC.swift */,
+				3A5837A121577DEC0074BCA9 /* ShopCVCell.swift */,
+				3A5837A321577DFA0074BCA9 /* ShopDetailVC.swift */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		502A245F21516A4A00421F9F /* Pay */ = {
@@ -209,7 +251,8 @@
 				502A246421516B7400421F9F /* Affiliation.storyboard */,
 				502A245D2151677B00421F9F /* Pay.storyboard */,
 				3A58376E21541FE90074BCA9 /* List.storyboard */,
-				50D8889B21581498006524B5 /* Donation.storyboard */,
+				3A58379C21577DA40074BCA9 /* Shop.storyboard */,
+				3A00FC132157D0E9009CD296 /* Community.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -276,8 +319,9 @@
 				50C620932146DE4C0018550B /* Home */,
 				502A246621516B9A00421F9F /* Affiliation */,
 				502A245F21516A4A00421F9F /* Pay */,
-				3A58377B215421880074BCA9 /* List */,
-				50D8889D215814D1006524B5 /* Donation */,
+				3A58377B215421880074BCA9 /* ListTabBar */,
+				3A5837A021577DCD0074BCA9 /* Shop */,
+				3A00FC152157EB6D009CD296 /* Community */,
 				50D0485A213EECBF00380CFE /* Resources */,
 				50C620942146E8A10018550B /* Extension.swift */,
 			);
@@ -400,7 +444,9 @@
 				505549EC214BBA8F000D2130 /* LogIn.storyboard in Resources */,
 				50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */,
 				502A246521516B7400421F9F /* Affiliation.storyboard in Resources */,
+				3A00FC142157D0E9009CD296 /* Community.storyboard in Resources */,
 				3A58376F21541FE90074BCA9 /* List.storyboard in Resources */,
+				3A58379D21577DA40074BCA9 /* Shop.storyboard in Resources */,
 				50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */,
 				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
 				50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */,
@@ -492,8 +538,10 @@
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
+				3A58379F21577DC70074BCA9 /* ShopCVC.swift in Sources */,
 				505549F9214BCC98000D2130 /* LoginVC.swift in Sources */,
 				505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */,
+				3A00FC1D2157EC0C009CD296 /* CommunityTVCell.swift in Sources */,
 				502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */,
 				3A5837852154227E0074BCA9 /* RequestListTVCell.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
@@ -508,13 +556,18 @@
 				3A583781215422300074BCA9 /* DonationListTVC.swift in Sources */,
 				3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */,
 				3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */,
+				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
+				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,
 				3A58377D215421A20074BCA9 /* ListVC.swift in Sources */,
 				50D04849213EA82300380CFE /* AppDelegate.swift in Sources */,
+				3A00FC192157EBA5009CD296 /* CommunityViewVC.swift in Sources */,
 				502A246121516A7500421F9F /* CardVC.swift in Sources */,
 				3A583772215420DF0074BCA9 /* PayVC.swift in Sources */,
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
 				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
+				3A00FC1B2157EBB6009CD296 /* CommunityWriteVC.swift in Sources */,
+				3A5837A221577DEC0074BCA9 /* ShopCVCell.swift in Sources */,
 				3A583789215422970074BCA9 /* PostListTVCell.swift in Sources */,
 				3A583778215421660074BCA9 /* MileageTVCell.swift in Sources */,
 				505549F6214BCB81000D2130 /* HomeVC.swift in Sources */,
@@ -523,6 +576,7 @@
 				3A97AB41214C143200507A9F /* MenuTVC.swift in Sources */,
 				50C620912146DD9D0018550B /* WaveGraph.swift in Sources */,
 				3A97AB45214E875500507A9F /* PointHeaderTVC.swift in Sources */,
+				3A5837A421577DFA0074BCA9 /* ShopDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
