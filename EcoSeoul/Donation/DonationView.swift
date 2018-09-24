@@ -9,7 +9,7 @@
 import UIKit
 
 //mainImageView, typeImageView, titleLable
-//explainLable, selectBtn, donateBtn 로 구성
+//explainTextView, selectBtn, donateBtn 로 구성
 //monthLabel, titleLabel, dataLbel
 
 class DonationView: UIView{
@@ -38,6 +38,66 @@ class DonationView: UIView{
         return label
     }()
     
+    //설명 레이블
+    var explainTextView: UITextView = {
+        let textView = UITextView(frame: CGRect(x: 20, y: 359, width: 335, height: 129))
+        textView.textAlignment = .left
+        textView.font = UIFont(name: notoSansFont.Regular.rawValue, size: 13)
+        textView.clipsToBounds = true
+        
+        textView.layer.cornerRadius = 10
+        textView.layer.borderColor = #colorLiteral(red: 0.8588235294, green: 0.862745098, blue: 0.8588235294, alpha: 1)
+        textView.layer.borderWidth = 1
+        return textView
+    }()
+    
+    //바로 가기 버튼
+    var goDetailBtn: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 291, y: 257, width: 48, height: 48))
+        btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 13)
+        btn.setTitle("바로가기", for: .normal)
+        btn.addTarget(self, action: #selector(goDetailBtnPressed), for: .touchUpInside)
+    
+        return btn
+    }()
+    
+    //바로 가기 이미지
+    var goDetailImage: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 327, y: 257, width: 48, height: 48))
+        imageView.image = #imageLiteral(resourceName: "donation-arrow-right")
+        return imageView
+    }()
+    
+    //금액 선택 버튼
+    var selectBtn: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 20, y: 505, width: 199, height: 34))
+        btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 17)
+        btn.setTitle("금액 선택", for: .normal)
+        btn.setTitleColor(#colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1), for: .normal)
+        
+        btn.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+        btn.layer.borderWidth = 1
+        btn.layer.cornerRadius = 10
+       
+        btn.addTarget(self, action: #selector(selectBtnPressed), for: .touchUpInside)
+        return btn
+    }()
+    
+    //기부하기 버튼
+    var donateBtn: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 238, y: 505, width: 117, height: 34))
+        btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 17)
+        btn.setTitle("기부하기", for: .normal)
+        btn.setTitleColor(#colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1), for: .normal)
+
+        btn.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+        btn.layer.borderWidth = 1
+        btn.layer.cornerRadius = 10
+        
+        btn.addTarget(self, action: #selector(donateBtnPressed(_ :)), for: .touchUpInside)
+        return btn
+    }()
+    
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,11 +114,41 @@ class DonationView: UIView{
         identifyViews()
         
         parentView.subviews.last?.addSubview(mainImageView)
+        parentView.subviews.last?.addSubview(goDetailBtn)
+        parentView.subviews.last?.addSubview(goDetailImage)
+        
         parentView.subviews.last?.addSubview(typeImageView)
         parentView.subviews.last?.addSubview(titleLabel)
+        parentView.subviews.last?.addSubview(explainTextView)
+        
+        parentView.subviews.last?.addSubview(selectBtn)
+        parentView.subviews.last?.addSubview(donateBtn)
   
         
     }
+    
+    
+    
+    @objc func goDetailBtnPressed(){
+        print("바로가기 버튼!!!")
+        
+    }
+    @objc func selectBtnPressed(){
+        
+        print("금액선택하기 버튼!!")
+        
+    }
+    
+    
+    @objc func donateBtnPressed(_ sender: UIButton){
+        print("기부하기 버튼!!!")
+//        if sender.isTouchInside {
+//            sender.backgroundColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+//            sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .focused)
+//        }
+        
+    }
+    
     
     func identifyViews(){
         
@@ -66,18 +156,23 @@ class DonationView: UIView{
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-1")
             typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
+            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "forest" {
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-2")
             typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
+            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "energy" {
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-3")
             typeImageView.image = #imageLiteral(resourceName: "donation-energy")
             titleLabel.text = "에너지 빈곤층을 위한 기부"
+            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
         }
     }
     
     
 }
+
+

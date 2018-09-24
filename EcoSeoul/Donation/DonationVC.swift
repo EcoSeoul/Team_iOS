@@ -14,6 +14,12 @@ import UIKit
 class DonationVC: UIViewController {
     
     @IBOutlet weak var horizontalScroll: UIScrollView!
+    
+    
+    let pickerview = UIPickerView()
+    let mileageArray = ["10000 M", "20000 M"]
+    
+
     var pageControl = UIPageControl(frame: CGRect(x: 166, y: 635, width: 43, height: 8.57))
     
     var backBtn: UIBarButtonItem = {
@@ -25,6 +31,7 @@ class DonationVC: UIViewController {
         return btn
     }()
     
+    @IBOutlet weak var test1: UIButton!
     
     //총 3개의 뷰 배열 생성 (3가지 Donation)
     lazy var viewArray: [UIView] = {
@@ -46,12 +53,13 @@ class DonationVC: UIViewController {
         horizontalScroll.delegate = self;
         setNaviBar()
         makePageControl()
-        pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
-        
+        pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: .valueChanged)
         makeDonationView()
+        initPicker()
     }
 
     
+
 }
 
 extension DonationVC{
@@ -105,7 +113,6 @@ extension DonationVC: UIScrollViewDelegate{
         self.pageControl.tintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
         self.pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
         self.pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-//        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         self.view.addSubview(pageControl)
     }
     
@@ -125,6 +132,59 @@ extension DonationVC: UIScrollViewDelegate{
     
     
 }
+
+
+
+extension DonationVC: UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mileageArray.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mileageArray[row]
+    }
+    
+    
+    
+    func initPicker() {
+        pickerview.delegate = self;
+        pickerview.dataSource = self;
+        
+        let bar = UIToolbar()
+        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(selectedPicker))
+        
+        bar.setItems([doneButton], animated: true)
+        bar.sizeToFit()
+        //        pickerTextField.inputAccessoryView = bar
+        //        pickerTextField.inputView = pickerview
+    }
+    
+    
+    @objc func selectedPicker(){
+        let row = pickerview.selectedRow(inComponent: 0)
+        
+        // 선택된 항목 textField에 넣기.
+//        horizontalScroll.subviews. = mileageArray[row]
+        
+        view.endEditing(true)
+    }
+    
+    
+    
+    
+}
+
+    
+
+
+
+
+
 
 
 
