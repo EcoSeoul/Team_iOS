@@ -15,7 +15,6 @@ class DonationVC: UIViewController {
     
     @IBOutlet weak var horizontalScroll: UIScrollView!
     
-    
     let pickerview = UIPickerView()
     let mileageArray = ["10000 M", "20000 M"]
     
@@ -30,11 +29,12 @@ class DonationVC: UIViewController {
         btn.action = #selector(popSelf)
         return btn
     }()
+    
     var myPageBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
         btn.image = #imageLiteral(resourceName: "ic-mypage")
-        btn.tintColor = .black
-        btn.action = #selector(goMyPageVC)
+        btn.tintColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
+        btn.action = #selector(myPage)
         return btn
     }()
     
@@ -58,7 +58,7 @@ class DonationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         horizontalScroll.delegate = self;
-        setNaviBar()
+        setDonNaviBar()
         makePageControl()
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: .valueChanged)
         makeDonationView()
@@ -77,25 +77,25 @@ extension DonationVC{
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func goMyPageVC(){
+    @objc func myPage(){
         let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
         self.present(myPageVC, animated: true, completion: nil)
     }
     
     
-    func setNaviBar(){
-        backBtn.target = self
-        myPageBtn.target = self
+    func setDonNaviBar(){
         let bar: UINavigationBar! =  self.navigationController?.navigationBar
         let item: UINavigationItem = self.navigationItem
+        
+        backBtn.target = self;
+        myPageBtn.target = self;
         
         item.leftBarButtonItem = backBtn
         item.leftBarButtonItem?.imageInsets.left = -15
         item.rightBarButtonItem = myPageBtn
         item.rightBarButtonItem?.imageInsets.right = -15
         item.title = "기부하기"
-        
-        bar.backgroundColor = .white
+        bar.setBackgroundImage(UIImage(), for: .default)
         bar.shadowImage = UIImage()
     }
     
