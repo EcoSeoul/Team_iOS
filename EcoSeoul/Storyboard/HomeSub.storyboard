@@ -530,6 +530,9 @@
                                             <state key="normal" title="   전환하기" image="mypage-exchange">
                                                 <color key="titleColor" red="0.14901960784313725" green="0.81568627450980391" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="exchangeBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="211-qg-Vld"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srh-to-Uw2">
                                             <rect key="frame" x="321" y="6" width="48" height="48"/>
@@ -562,6 +565,9 @@
                                             <state key="normal" title="자주 묻는 질문">
                                                 <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="faqBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="aBs-Bh-5RQ"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIq-et-RbL">
                                             <rect key="frame" x="304" y="3" width="63" height="38"/>
@@ -621,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0V-io-zsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463.1999999999998" y="1039.4302848575712"/>
+            <point key="canvasLocation" x="1263" y="1040"/>
         </scene>
     </scenes>
     <resources>
