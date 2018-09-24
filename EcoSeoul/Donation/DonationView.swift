@@ -8,7 +8,7 @@
 
 import UIKit
 
-//mainImageView, typeImage, titleLable
+//mainImageView, typeImageView, titleLable
 //explainLable, selectBtn, donateBtn 로 구성
 //monthLabel, titleLabel, dataLbel
 
@@ -18,9 +18,14 @@ class DonationView: UIView{
     var parentView: UIScrollView?
     
     //메인 이미지뷰
-    var mainImage: UIImageView = {
+    var mainImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 305))
-        imageView.image = #imageLiteral(resourceName: "donation-banner-1")
+        return imageView
+    }()
+    
+    //타입 이미지
+    var typeImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 20, y: 316, width: 35, height: 35))
         return imageView
     }()
     
@@ -33,8 +38,7 @@ class DonationView: UIView{
         return label
     }()
     
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -49,7 +53,8 @@ class DonationView: UIView{
 
         identifyViews()
         
-        parentView.subviews.last?.addSubview(mainImage)
+        parentView.subviews.last?.addSubview(mainImageView)
+        parentView.subviews.last?.addSubview(typeImageView)
         parentView.subviews.last?.addSubview(titleLabel)
   
         
@@ -58,15 +63,18 @@ class DonationView: UIView{
     func identifyViews(){
         
         if parentView?.subviews.last?.accessibilityIdentifier == "asia" {
-            mainImage.image = #imageLiteral(resourceName: "donation-banner-1")
+            mainImageView.image = #imageLiteral(resourceName: "donation-banner-1")
+            typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "forest" {
-            mainImage.image = #imageLiteral(resourceName: "donation-banner-2")
+            mainImageView.image = #imageLiteral(resourceName: "donation-banner-2")
+            typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "energy" {
-            mainImage.image = #imageLiteral(resourceName: "donation-banner-3")
+            mainImageView.image = #imageLiteral(resourceName: "donation-banner-3")
+            typeImageView.image = #imageLiteral(resourceName: "donation-energy")
             titleLabel.text = "에너지 빈곤층을 위한 기부"
         }
     }

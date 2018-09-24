@@ -14,7 +14,7 @@ import UIKit
 class DonationVC: UIViewController {
     
     @IBOutlet weak var horizontalScroll: UIScrollView!
-    var pageControl = UIPageControl(frame: CGRect(x: 166, y: 620, width: 43, height: 8.57))
+    var pageControl = UIPageControl(frame: CGRect(x: 166, y: 635, width: 43, height: 8.57))
     
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
@@ -41,7 +41,6 @@ class DonationVC: UIViewController {
     }()
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         horizontalScroll.delegate = self;
@@ -50,10 +49,7 @@ class DonationVC: UIViewController {
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
         
         makeDonationView()
-      
     }
-    
-
 
     
 }
@@ -109,7 +105,7 @@ extension DonationVC: UIScrollViewDelegate{
         self.pageControl.tintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
         self.pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
         self.pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+//        self.pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         self.view.addSubview(pageControl)
     }
     
@@ -132,61 +128,6 @@ extension DonationVC: UIScrollViewDelegate{
 
 
 
-
-
-
-
-
-//    //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
-//    lazy var viewArray: [UIView] = {
-//
-//        let width = self.horizontalScroll.frame.width
-//        var arr: [UIView] = []
-//        for i in 0..<4 {
-//            arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
-//        }
-//        arr[1].accessibilityIdentifier = "electricity"
-//        arr[2].accessibilityIdentifier = "water"
-//        arr[3].accessibilityIdentifier = "gas"
-//
-//        return arr
-//    }()
-
-
-
-//1. 뷰 구성(원형그래프 뷰 + 웨이브 뷰)
-//extension HomeUpVC {
-//
-//    private func viewInstance(xPostion: CGFloat) -> UIView {
-//        let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
-//
-//        if xPostion == 0 {
-//            return CircleView(frame: scrollframe)
-//        }
-//        else {
-//            return WaveView(frame: scrollframe)
-//        }
-//    }
-//
-//    //탄소배출량 뷰 1개 생성(index:0)
-//    func makeCircleView(){
-//        horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(1)
-//        horizontalScroll.addSubview(viewArray[0])
-//        viewArray[0] = CircleView(self.horizontalScroll, co2Value)
-//    }
-//
-//    //전기,수도,가스 뷰 3개 생성(indx:1~3)
-//    func makeWaveView(){
-//        for i in 1..<viewArray.count {
-//            horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
-//            horizontalScroll.addSubview(viewArray[i])
-//            viewArray[i] = WaveView(self.horizontalScroll, preValue[i-1], curVlaue[i-1])
-//        }
-//    }
-//
-//}
-
-//2. 페이지 컨트롤 구성(인덱싱)
 
 
 
