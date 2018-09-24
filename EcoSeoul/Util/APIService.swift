@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+protocol APIService {}
+
+extension APIService {
+    func url(_ path: String) -> String {
+        return "" + path
+    }
+    
+    func gsno(_ value : String?) -> String{
+        return value ?? ""
+    }
+    
+    func gino(_ value : Int?) -> Int {
+        return value ?? 0
+    }
+    
+}
+
