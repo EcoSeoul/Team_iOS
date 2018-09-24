@@ -19,33 +19,41 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
     }
+
+    @IBAction func loginBtn(_ sender: Any) {
+        enterHome()
+    }
+    
+    @IBAction func signupBtn(_ sender: Any) {
+        
+    }
+
+    func enterHome() {
+        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
+        
+        self.navigationController?.pushViewController(homeVC, animated: true)
+        
+    }
+}
+
+
+
+extension LoginVC {
     
     ///상단 Navigation Bar 숨기기///
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
     ///////////////////////////
- 
-    @IBAction func loginBtn(_ sender: Any) {
-        enterHome()
-    }
-    @IBAction func signupBtn(_ sender: Any) {
-        
-    }
-
-    func enterHome() {
-        
-        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
-        
-        self.navigationController?.pushViewController(homeVC, animated: true)
-        
-    }
+    
 }

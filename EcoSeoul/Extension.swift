@@ -28,6 +28,20 @@ extension UIViewController{
         
     }
     
+    //네비게이션바 숨기기
+    func setNaviBar(_ navi: UIViewController){
+        let bar: UINavigationBar! =  navi.navigationController?.navigationBar
+        let item: UINavigationItem = navi.navigationItem
+        let backBtn = UIBarButtonItem()
+        backBtn.image = UIImage()
+        backBtn.tintColor = UIColor.white
+        backBtn.width = -40
+        item.leftBarButtonItem = backBtn
+        bar.setBackgroundImage(UIImage(), for: .default)
+        bar.shadowImage = UIImage()
+    }
+    
+    
 }
 
 enum notoSansFont: String {
