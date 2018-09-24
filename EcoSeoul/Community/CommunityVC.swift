@@ -22,11 +22,11 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return btn
     }()
     
-    var myPageBtn: UIBarButtonItem = {
+    var writeBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
-        btn.image = #imageLiteral(resourceName: "ic-mypage")
+        btn.image = #imageLiteral(resourceName: "ic-write")
         btn.tintColor = .black
-        btn.action = #selector(goMyPageVC)
+        btn.action = #selector(WriteVC)
         return btn
     }()
     
@@ -34,21 +34,21 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func goMyPageVC(){
-        let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
-        self.present(myPageVC, animated: true, completion: nil)
+    @objc func WriteVC(){
+        let writeVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityWriteVC") as! CommunityWriteVC
+        self.navigationController?.pushViewController(writeVC, animated: true)
     }
 
     
     func setNaviBar(){
         backBtn.target = self
-        myPageBtn.target = self
+        writeBtn.target = self
         let bar: UINavigationBar! =  self.navigationController?.navigationBar
         let item: UINavigationItem = self.navigationItem
         
         item.leftBarButtonItem = backBtn
         item.leftBarButtonItem?.imageInsets.left = -15
-        item.rightBarButtonItem = myPageBtn
+        item.rightBarButtonItem = writeBtn
         item.rightBarButtonItem?.imageInsets.right = -15
         item.title = "커뮤니티"
         

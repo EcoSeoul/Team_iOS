@@ -87,5 +87,9 @@ class ShopCVC: UICollectionViewController {
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shopDetailVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopDetailVC")as! ShopDetailVC
+        self.navigationController?.pushViewController(shopDetailVC, animated: true)
+    }
     
 }

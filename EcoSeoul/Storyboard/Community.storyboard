@@ -381,7 +381,7 @@
         <!--CommunityWriteVC-->
         <scene sceneID="gMb-R8-xjx">
             <objects>
-                <viewController title="CommunityWriteVC" id="xpa-Qb-38i" customClass="CommunityWriteVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityWriteVC" title="CommunityWriteVC" id="xpa-Qb-38i" customClass="CommunityWriteVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQX-Sv-Vr2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

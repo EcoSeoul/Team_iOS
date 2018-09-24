@@ -20,6 +20,45 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableview.delegate = self
         
         self.tableview.tableFooterView = UIView(frame: .zero)
+        setNaviBar()
+    }
+    
+    var backBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "arrow-left-black")
+        btn.tintColor = UIColor.black
+        btn.width = -40
+        btn.action = #selector(popSelf)
+        return btn
+    }()
+    
+    
+    
+    @objc func popSelf() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    
+    func setNaviBar(){
+        backBtn.target = self
+        let bar: UINavigationBar! =  self.navigationController?.navigationBar
+        let item: UINavigationItem = self.navigationItem
+        
+        
+        item.leftBarButtonItem = backBtn
+        item.leftBarButtonItem?.imageInsets.left = -15
+        
+        bar.backgroundColor = .white
+        item.title = ""
+        bar.shadowImage = UIImage()
+        
+    }
+    
+    //상태 표시줄 흰색 만들기
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
