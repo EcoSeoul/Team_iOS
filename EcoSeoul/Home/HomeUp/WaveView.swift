@@ -50,15 +50,13 @@ class WaveView: UIView{
         return label
     }()
     
-    //    //업다운 이미지
-    //    var updownImage: UIImage = {
+    // //업다운 이미지
+    //  var updownImage: UIImage = {
     //
     //
     //
-    //    }()
-    //
-    //    //
-    
+    //  }()
+
     //퍼센트 레이블
     var percentLabel: UILabel = {
         let label = UILabel(frame: CGRect(x:152, y:232, width:41, height: 29))
@@ -130,15 +128,12 @@ class WaveView: UIView{
         
         if parentView?.subviews.last?.accessibilityIdentifier == "electricity" {
             titleLabel.text = "전기 사용량"
-            print("1111111111")
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "water" {
             titleLabel.text = "수도 사용량"
-             print("22222222222")
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "gas" {
             titleLabel.text = "가스 사용량"
-            print("3333333333")
         }
     }
     
