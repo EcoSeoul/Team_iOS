@@ -34,6 +34,13 @@ class HomeDownVC: UIViewController {
     //TableView Expand/Collapse Flag
     var expandCol : Bool = false
     
+    let cell3Title = ["가맹점 찾기", "친환경 상품 신청하기", "에코마일리지 기부하기", "커뮤니티", "에코마일리지란?"]
+    let cell3Explain = ["내 주변 가맹점 및 할인 공공시설을 찾아보세요", "온라인으로 상품을 신청해보세요",
+                        "에코마일리지로 기부해보세요", "꿀팁 공유","에코마일리지를 알려드립니다!"]
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +51,7 @@ class HomeDownVC: UIViewController {
         if let image = generateBarcodeFromString(string: "8 0101254 257810"){
             barcodeBtn.setBackgroundImage(image, for: .normal)
         }
-       
+        
         makeBannerView()
     }
     
@@ -64,7 +71,7 @@ class HomeDownVC: UIViewController {
         self.present(myPageVC, animated: true, completion: nil)
     }
     
-
+    
     //바코드 버튼 클릭
     @IBAction func barcodePressed(_ sender: Any) {
         let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
@@ -101,7 +108,7 @@ class HomeDownVC: UIViewController {
         return nil
         
     }
-
+    
     
     
 }
@@ -165,62 +172,70 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             if section == 1{
                 //포인트 전환/결제 관련 뷰 전환 구현부
             }
-            
+                
             else if section == 2{
                 //포인트 적립/할인 관련 뷰 전환 구현부
             }
-
+                
             else if section == 3{
                 
                 switch row {
-                    case 0:
-                        let AffiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                        self.navigationController?.pushViewController(AffiliationVC, animated: true)
-                    case 1:
-                        //친환경 상품신청하기 push 작업 구현부
-                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                        self.navigationController?.pushViewController(shopVC, animated: true)
-                    case 2:
-                        //에코마일리지 기부하기 push 작업 구현부
-                        break
-                    case 3:
-                        //커뮤니티 push 작업 구현부
-                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                        self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    case 4:
-                        //에코마일리지란? push 작업 구현부
-                        break
-                    default: break
+                case 0:
+                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                    self.navigationController?.pushViewController(affiliationVC, animated: true)
+                case 1:
+                    //친환경 상품신청하기 push 작업 구현부
+                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                    self.navigationController?.pushViewController(shopVC, animated: true)
+                    break
+                case 2:
+                    //에코마일리지 기부하기 push 작업 구현부
+                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                    self.navigationController?.pushViewController(donationVC, animated: true)
+                    break
+                case 3:
+                    //커뮤니티 push 작업 구현부
+                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                    self.navigationController?.pushViewController(commnunityVC, animated: true)
+                    break
+                case 4:
+                    //에코마일리지란? push 작업 구현부
+                    break
+                default: break
                 }
                 
             }
             
         }
-        
             
-        //2)Section이 닫혀진 경우
+            
+            //2)Section이 닫혀진 경우
         else {
             
             if section == 1 {
                 switch row {
-                    case 0:
-                        let AffiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                        self.navigationController?.pushViewController(AffiliationVC, animated: true)
-                    case 1:
-                        //친환경 상품신청하기 push 작업 구현부
-                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                        self.navigationController?.pushViewController(shopVC, animated: true)
-                    case 2:
-                        //에코마일리지 기부하기 push 작업 구현부
-                        break
-                    case 3:
-                        //커뮤니티 push 작업 구현부
-                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                        self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    case 4:
-                        //에코마일리지란? push 작업 구현부
-                        break
-                    default: break
+                case 0:
+                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                    self.navigationController?.pushViewController(affiliationVC, animated: true)
+                case 1:
+                    //친환경 상품신청하기 push 작업 구현부
+                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                    self.navigationController?.pushViewController(shopVC, animated: true)
+                    break
+                case 2:
+                    //에코마일리지 기부하기 push 작업 구현부
+                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                    self.navigationController?.pushViewController(donationVC, animated: true)
+                    break
+                case 3:
+                    //커뮤니티 push 작업 구현부
+                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                    self.navigationController?.pushViewController(commnunityVC, animated: true)
+                    break
+                case 4:
+                    //에코마일리지란? push 작업 구현부
+                    break
+                default: break
                 }
             }
         }
@@ -258,55 +273,21 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                 return cell2
             }
             else{
-                switch row {
-                    case 0 :
-                        cell3.titleLB.text = "가맹점 찾기"
-                        cell3.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
-                    case 1:
-                        cell3.titleLB.text = "친환경 상품 신청하기"
-                        cell3.explainLB.text = "온라인으로 상품을 신청해보세요"
-                    case 2:
-                        cell3.titleLB.text = "에코마일리지 기부하기"
-                        cell3.explainLB.text = "에코마일리지로 기부해보세요"
-                    case 3:
-                        cell3.titleLB.text = "커뮤니티"
-                        cell3.explainLB.text = "꿀팁 공유"
-                    case 4:
-                        cell3.titleLB.text = "에코마일리지란?"
-                        cell3.explainLB.text = "에코마일리지를 알려드립니다!"
-                    default: break
-                }
+                cell3.titleLB.text = cell3Title[row]
+                cell3.explainLB.text = cell3Explain[row]
                 return cell3
             }
         }
             
-        //2)Section이 닫혀진 경우
+            //2)Section이 닫혀진 경우
         else {
             if section == 0 {
                 cell0.headerLB.text = "에코머니 가맹점 온라인 몰 둘러보기"
                 return cell0
             }
-            else {
-            
-            switch row {
-                case 0 :
-                    cell3.titleLB.text = "가맹점 찾기"
-                    cell3.explainLB.text = "내 주변 가맹점 및 할인 공공시설을 찾아보세요"
-                case 1:
-                    cell3.titleLB.text = "친환경 상품 신청하기"
-                    cell3.explainLB.text = "온라인으로 상품을 신청해보세요"
-                case 2:
-                    cell3.titleLB.text = "에코마일리지 기부하기"
-                    cell3.explainLB.text = "에코마일리지로 기부해보세요"
-                case 3:
-                    cell3.titleLB.text = "커뮤니티"
-                    cell3.explainLB.text = "꿀팁 공유"
-                case 4:
-                    cell3.titleLB.text = "에코마일리지란?"
-                    cell3.explainLB.text = "에코마일리지를 알려드립니다!"
-                default: break
-                }
-                
+            else{
+                cell3.titleLB.text = cell3Title[row]
+                cell3.explainLB.text = cell3Explain[row]
                 return cell3
             }
         }
@@ -327,7 +308,7 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         }
         
     }
-
+    
     ////////////////header 관련////////////////
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -363,13 +344,12 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if expandCol {
-            
             if (section == 1) || (section == 2) {
                 return 30
             }else {
                 return 0.1
             }
-
+            
         }else { return 0.1 }
         
     }

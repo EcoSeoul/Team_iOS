@@ -11,31 +11,31 @@
     </dependencies>
     <scenes>
         <!--DonationVC-->
-        <scene sceneID="jqo-tY-4bP">
+        <scene sceneID="s1T-ac-l14">
             <objects>
-                <viewController restorationIdentifier="DonationVC" storyboardIdentifier="DonationVC" id="gwQ-p7-t4n" customClass="DonationVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UxC-Rb-F4L">
+                <viewController restorationIdentifier="DonationVC" storyboardIdentifier="DonationVC" id="uuJ-Q5-7SO" customClass="DonationVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YT9-vw-CM8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-p9-OqA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-H6-HlP">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Nl-5g-V6y" firstAttribute="trailing" secondItem="Ldh-p9-OqA" secondAttribute="trailing" id="Mu4-Gs-NyL"/>
-                            <constraint firstItem="7Nl-5g-V6y" firstAttribute="bottom" secondItem="Ldh-p9-OqA" secondAttribute="bottom" id="gOW-em-qWC"/>
-                            <constraint firstItem="Ldh-p9-OqA" firstAttribute="top" secondItem="7Nl-5g-V6y" secondAttribute="top" id="hhu-Qx-zFK"/>
-                            <constraint firstItem="Ldh-p9-OqA" firstAttribute="leading" secondItem="7Nl-5g-V6y" secondAttribute="leading" id="lPR-VN-D6C"/>
+                            <constraint firstItem="4gD-En-54i" firstAttribute="bottom" secondItem="eR9-H6-HlP" secondAttribute="bottom" id="Xrm-IM-Yeo"/>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="leading" secondItem="4gD-En-54i" secondAttribute="leading" id="gQN-E2-97m"/>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="top" secondItem="4gD-En-54i" secondAttribute="top" id="hpe-MQ-Sb4"/>
+                            <constraint firstItem="4gD-En-54i" firstAttribute="trailing" secondItem="eR9-H6-HlP" secondAttribute="trailing" id="lwV-Jz-E7Q"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7Nl-5g-V6y"/>
+                        <viewLayoutGuide key="safeArea" id="4gD-En-54i"/>
                     </view>
                     <connections>
-                        <outlet property="horizontalScroll" destination="Ldh-p9-OqA" id="x6b-S3-YDV"/>
+                        <outlet property="horizontalScroll" destination="eR9-H6-HlP" id="nTf-WE-86D"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qQQ-Mv-GZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XjH-s9-BCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="155"/>
         </scene>
