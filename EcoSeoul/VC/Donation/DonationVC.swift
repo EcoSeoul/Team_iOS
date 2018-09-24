@@ -18,18 +18,26 @@ class DonationVC: UIViewController {
     
     let pickerview = UIPickerView()
     let mileageArray = ["10000 M", "20000 M"]
-    
 
     var pageControl = UIPageControl(frame: CGRect(x: 166, y: 635, width: 43, height: 8.57))
     
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
         btn.image = #imageLiteral(resourceName: "arrow-left-black")
-        btn.tintColor = UIColor.black
+        btn.tintColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         btn.width = -40
-        btn.action = #selector(popSelf)
+        btn.action =  #selector(popSelf)
         return btn
     }()
+    
+    var myPageBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "ic-mypage")
+        btn.tintColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
+        btn.action = #selector(myPage)
+        return btn
+    }()
+    
     
     @IBOutlet weak var test1: UIButton!
     
@@ -51,7 +59,7 @@ class DonationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         horizontalScroll.delegate = self;
-        setNaviBar()
+        setDonNaviBar()
         makePageControl()
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: .valueChanged)
         makeDonationView()
@@ -70,13 +78,26 @@ extension DonationVC{
         navigationController?.popViewController(animated: true)
     }
     
-    func setNaviBar(){
-        backBtn.target = self
+    @objc func myPage(){
+        let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
+        self.present(myPageVC, animated: true, completion: nil)
+    }
+    
+  
+    
+    func setDonNaviBar(){
+     
         let bar: UINavigationBar! =  self.navigationController?.navigationBar
         let item: UINavigationItem = self.navigationItem
         
+        backBtn.target = self;
+        myPageBtn.target = self;
+        
         item.leftBarButtonItem = backBtn
         item.leftBarButtonItem?.imageInsets.left = -15
+        item.rightBarButtonItem = myPageBtn
+        item.rightBarButtonItem?.imageInsets.right = -15
+        item.title = "기부하기"
         bar.setBackgroundImage(UIImage(), for: .default)
         bar.shadowImage = UIImage()
     }
