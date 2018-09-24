@@ -13,23 +13,42 @@ class CommunityWriteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setNaviBar()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var backBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "arrow-left-black")
+        btn.tintColor = UIColor.black
+        btn.width = -40
+        btn.action = #selector(popSelf)
+        return btn
+    }()
+    
+    
+    
+    @objc func popSelf() {
+        navigationController?.popViewController(animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setNaviBar(){
+        backBtn.target = self
+        let bar: UINavigationBar! =  self.navigationController?.navigationBar
+        let item: UINavigationItem = self.navigationItem
+        
+        
+        item.leftBarButtonItem = backBtn
+        item.leftBarButtonItem?.imageInsets.left = -15
+        
+        bar.backgroundColor = .white
+        item.title = ""
+        bar.shadowImage = UIImage()
+        
     }
-    */
+    
+    //상태 표시줄 흰색 만들기
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }

@@ -13,6 +13,54 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
     @IBOutlet weak var tableview: UITableView!
     
+    var backBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "arrow-left-black")
+        btn.tintColor = UIColor.black
+        btn.width = -40
+        btn.action = #selector(popSelf)
+        return btn
+    }()
+    
+    var writeBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "ic-write")
+        btn.tintColor = .black
+        btn.action = #selector(WriteVC)
+        return btn
+    }()
+    
+    @objc func popSelf() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func WriteVC(){
+        let writeVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityWriteVC") as! CommunityWriteVC
+        self.navigationController?.pushViewController(writeVC, animated: true)
+    }
+
+    
+    func setNaviBar(){
+        backBtn.target = self
+        writeBtn.target = self
+        let bar: UINavigationBar! =  self.navigationController?.navigationBar
+        let item: UINavigationItem = self.navigationItem
+        
+        item.leftBarButtonItem = backBtn
+        item.leftBarButtonItem?.imageInsets.left = -15
+        item.rightBarButtonItem = writeBtn
+        item.rightBarButtonItem?.imageInsets.right = -15
+        item.title = "커뮤니티"
+        
+        bar.backgroundColor = .white
+        bar.shadowImage = UIImage()
+    }
+    
+    //상태 표시줄 흰색 만들기
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +68,9 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.tableview.dataSource = self
         
         self.tableview.tableFooterView = UIView(frame: .zero)
+        
+        
+        setNaviBar()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
