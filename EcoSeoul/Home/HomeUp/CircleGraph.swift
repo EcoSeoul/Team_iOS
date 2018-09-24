@@ -53,15 +53,14 @@ class CircleGraph{
         return label
     }()
     
-//    //업다운 이미지
-//    var updownImage: UIImage = {
-//
-//
-//
-//    }()
-//
-//    //
-    
+    //업다운 이미지
+    var updownImage: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x:0, y:0, width:30, height: 20))
+        imageView.image = #imageLiteral(resourceName: "percentage-down")
+        return imageView
+    }()
+
+
     //퍼센트 레이블
     var percentLabel: UILabel = {
         let label = UILabel(frame: CGRect(x:0, y:0, width:158, height: 320))
@@ -92,12 +91,14 @@ class CircleGraph{
         
         durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 217)
         co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
-        percentLabel.center = CGPoint(x: 178.5 - 10, y: 326)
-        nothingLabel.center = CGPoint(x: 230 - 10, y: 328)
+        percentLabel.center = CGPoint(x: 168.5 , y: 326)
+        updownImage.center = CGPoint(x: 133.5 , y: 326)
+        nothingLabel.center = CGPoint(x: 220, y: 328)
         
         parentView.addSubview(durationLabel)
         parentView.addSubview(co2Label)
         parentView.addSubview(percentLabel)
+        parentView.addSubview(updownImage)
         parentView.addSubview(nothingLabel)
         
     }
@@ -189,7 +190,7 @@ class CircleGraph{
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
         co2Label.text = String(format: "% .fkgCO2%", percent * 100)
         
-            colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
+         colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
          if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
          if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
          if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}

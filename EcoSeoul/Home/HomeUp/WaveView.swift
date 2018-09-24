@@ -50,12 +50,12 @@ class WaveView: UIView{
         return label
     }()
     
-    // //업다운 이미지
-    //  var updownImage: UIImage = {
-    //
-    //
-    //
-    //  }()
+    //업다운 이미지
+    var updownImage: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x:128, y:239, width:20, height: 20))
+        imageView.image = #imageLiteral(resourceName: "percentage-down")
+        return imageView
+    }()
 
     //퍼센트 레이블
     var percentLabel: UILabel = {
@@ -111,7 +111,7 @@ class WaveView: UIView{
         parentView.subviews.last?.addSubview(monthLabel)
         parentView.subviews.last?.addSubview(titleLabel)
         parentView.subviews.last?.addSubview(dataLbel)
-        parentView.subviews.last?.addSubview(percentLabel)
+        parentView.subviews.last?.addSubview(updownImage)
         parentView.subviews.last?.addSubview(percentLabel)
         parentView.subviews.last?.addSubview(contentLabel)
         parentView.subviews.last?.addSubview(nothingLabel)
