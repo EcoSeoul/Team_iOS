@@ -8,6 +8,42 @@
 
 import UIKit
 
+extension UIViewController{
+    
+    //바코드 생성
+    func generateBarcodeFromString(string: String)-> UIImage?{
+        
+        let data = string.data(using: String.Encoding.ascii)
+        let filter = CIFilter(name: "CICode128BarcodeGenerator")
+        
+        filter?.setValue(data, forKey: "inputMessage")
+        
+        let transform = CGAffineTransform.init(scaleX: 10, y: 10)
+        let output = filter?.outputImage?.transformed(by: transform)
+        
+        if(output != nil){
+            return UIImage(ciImage: output!)
+        }
+        return nil
+        
+    }
+    
+    //네비게이션바 숨기기
+    func setNaviBar(_ navi: UIViewController){
+        let bar: UINavigationBar! =  navi.navigationController?.navigationBar
+        let item: UINavigationItem = navi.navigationItem
+        let backBtn = UIBarButtonItem()
+        backBtn.image = UIImage()
+        backBtn.tintColor = UIColor.white
+        backBtn.width = -40
+        item.leftBarButtonItem = backBtn
+        bar.setBackgroundImage(UIImage(), for: .default)
+        bar.shadowImage = UIImage()
+    }
+    
+    
+}
+
 enum notoSansFont: String {
     case Bold = "NotoSansCJKkr-Bold"
     case Light = "NotoSansCJKkr-Light"

@@ -11,12 +11,15 @@
 
 import UIKit
 
-class HomeVC: UIViewController, UIScrollViewDelegate {
+class HomeVC: UIViewController {
     
+    //HomeVC Elements
     @IBOutlet weak var verticalScroll: UIScrollView!
-    
     var homeUpVC: HomeUpVC?
     var homeDownVC: HomeDownVC?
+    
+    //to identify vertical Index
+    let userDefault = UserDefaults.standard
     
     var downBtn: UIButton = {
         let button = UIButton(frame: CGRect(x: 162, y: 512, width: 50 , height: 50))
@@ -24,16 +27,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
         button.addTarget(self, action: #selector(downBtnTapped), for: .touchUpInside)
         return button
     }()
-    
-    //to identify vertical Index
-    let userDefault = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
         setVC()
         self.view.subviews[0].addSubview(downBtn)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,33 +41,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
          donwnBtnAnimate()
     }
     
+   
+}
 
-
-    //다운버튼 클릭시 화면전환(Paging 효과로)
-    @objc func downBtnTapped() {
-        var contentOffset = verticalScroll.contentOffset
-        contentOffset.y = self.view.bounds.height - 75
-        verticalScroll.setContentOffset(contentOffset, animated: true)
-    }
-    
-    //다운버튼의 AutoLayOut & Hovering(위아래움직임) 효과
-    func donwnBtnAnimate(){
-        let v1 = self.view.subviews[0]
-        downBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-       let buttonConstraint = downBtn.topAnchor.constraint(equalTo: v1.topAnchor, constant: 512)
-        NSLayoutConstraint.activate([
-            buttonConstraint,
-            downBtn.leadingAnchor.constraint(equalTo: v1.leadingAnchor, constant: 162),
-            downBtn.centerXAnchor.constraint(equalTo: v1.safeAreaLayoutGuide.centerXAnchor)
-        ])
-        
-        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .repeat, .allowUserInteraction], animations: {
-                buttonConstraint.constant += 30
-                self.view.layoutIfNeeded()
-                }, completion:nil)
-
-    }
+//Vertical Index 감지
+extension HomeVC : UIScrollViewDelegate{
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.y / scrollView.frame.size.height)
@@ -78,25 +56,58 @@ class HomeVC: UIViewController, UIScrollViewDelegate {
 
 }
 
+
+//다운버튼 관련
+extension HomeVC {
+    
+    //다운버튼 클릭시 화면전환(Paging 효과로)
+    @objc func downBtnTapped() {
+        var contentOffset = verticalScroll.contentOffset
+        contentOffset.y = self.view.bounds.height - 75
+        verticalScroll.setContentOffset(contentOffset, animated: true)
+    }
+    
+    //다운버튼의 오토레이아웃 & 애니메이션
+    func donwnBtnAnimate(){
+        
+        let v1 = self.view.subviews[0]
+        let buttonConstraint = downBtn.topAnchor.constraint(equalTo: v1.topAnchor, constant: 512)
+        downBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        //1)다운버튼의 AutoLayOut
+        NSLayoutConstraint.activate([
+            buttonConstraint,
+            downBtn.leadingAnchor.constraint(equalTo: v1.leadingAnchor, constant: 162),
+            downBtn.centerXAnchor.constraint(equalTo: v1.safeAreaLayoutGuide.centerXAnchor)
+            ])
+        //2)다운버튼의 Hovering(위아래움직임) 효과
+        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse, .repeat, .allowUserInteraction], animations: {
+            buttonConstraint.constant += 30
+            self.view.layoutIfNeeded()
+        }, completion:nil)
+        
+    }
+
+}
+
+
 //HomeVC의 HomeUpVC & HomeDownVC 통합
 extension HomeVC {
-
     
     ///상단 Navigation Bar 숨기기///
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-       
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
-    ///////////////////////////
-    
+
     func setVC(){
         
         //HomeDown(테이블뷰 부분)을 다른 스토리보드로 분리하겠음

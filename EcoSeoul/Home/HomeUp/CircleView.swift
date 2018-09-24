@@ -10,6 +10,7 @@ import UIKit
 
 //CircleGraph가 있는 뷰
 //titleLabel, circleGraph, contentLabel 으로 구성
+//*** contentLabel에 랜덤 문장 발생 시키기(사용자이름, 절약률 고려)
 
 
 class CircleView: UIView {
