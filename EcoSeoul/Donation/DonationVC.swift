@@ -9,7 +9,6 @@
 import UIKit
 
 //ScrollView로 횡단 스크롤이 가능
-//mainImageView, typeImage, titleLable, explainLable, selectBtn, donateBtn 필요
 //pageControl 필요
 
 class DonationVC: UIViewController {
@@ -17,45 +16,6 @@ class DonationVC: UIViewController {
     @IBOutlet weak var horizontalScroll: UIScrollView!
     var pageControl = UIPageControl(frame: CGRect(x: 166, y: 620, width: 43, height: 8.57))
     
-    //총 3개의 뷰 배열 생성 (3가지 Donation)
-    lazy var viewArray: [UIView] = {
-        let width = self.horizontalScroll.frame.width
-        var arr: [UIView] = []
-        for i in 0..<3 {
-            arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
-        }
-        return arr
-    }()
-    
-    //메인 이미지뷰
-    var mainImage: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 305))
-        imageView.image = #imageLiteral(resourceName: "donation-banner-1")
-        return imageView
-    }()
-    
-    //타이틀 레이블
-    var titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 59, y: 320, width: 203, height: 25))
-        label.textAlignment = .left
-        label.font = UIFont(name: notoSansFont.Medium.rawValue, size: 17)
-        label.textColor = #colorLiteral(red: 0.2651461363, green: 0.2651531994, blue: 0.2651493847, alpha: 1)
-        label.text = "사막화 방지를 위한 나무 기부"
-        return label
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        horizontalScroll.delegate = self;
-        setNaviBar()
-        makePageControl()
-        pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
-        
-        viewArray[0].addSubview(mainImage)
-        viewArray[0].addSubview(titleLabel)
-    }
-    
-    ////////////Navigation Bar 관련////////////
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
         btn.image = #imageLiteral(resourceName: "arrow-left-black")
@@ -66,6 +26,42 @@ class DonationVC: UIViewController {
     }()
     
     
+    //총 3개의 뷰 배열 생성 (3가지 Donation)
+    lazy var viewArray: [UIView] = {
+        let width = self.horizontalScroll.frame.width
+        var arr: [UIView] = []
+        for i in 0..<3 {
+            arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
+        }
+        arr[0].accessibilityIdentifier = "asia"
+        arr[1].accessibilityIdentifier = "forest"
+        arr[2].accessibilityIdentifier = "energy"
+        
+        return arr
+    }()
+    
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        horizontalScroll.delegate = self;
+        setNaviBar()
+        makePageControl()
+        pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
+        
+        makeDonationView()
+      
+    }
+    
+
+
+    
+}
+
+extension DonationVC{
+    
+    ////////////Navigation Bar 관련////////////
+ 
     @objc func popSelf() {
         navigationController?.popViewController(animated: true)
     }
@@ -81,20 +77,32 @@ class DonationVC: UIViewController {
         bar.shadowImage = UIImage()
     }
     ///////////////////////////////////////
-    
-    
 }
 
 
 extension DonationVC: UIScrollViewDelegate{
     
+    ////////////뷰 구성(도네이션 뷰) ////////////
+    
     private func viewInstance(xPostion: CGFloat) -> UIView {
         let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
-        return UIView(frame: scrollframe)
+        return DonationView(frame: scrollframe)
     }
+    
+    //3개의 View 생성(아시아,미래 숲,에너지)
+    func  makeDonationView(){
+        for i in 0..<viewArray.count {
+            horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
+            horizontalScroll.addSubview(viewArray[i])
+            viewArray[i] = DonationView(self.horizontalScroll)
+        }
+    }
+    
+    ////////////////////////////////////
     
     
     ////Page Control (위에 인덱싱 표시) 구현부 ////
+    
     func makePageControl(){
         self.pageControl.numberOfPages = 3
         self.pageControl.currentPage = 0
@@ -116,6 +124,7 @@ extension DonationVC: UIScrollViewDelegate{
         pageControl.currentPage = Int(pageNumber)
         print("현재 Horizontal 인덱스 = \(pageControl.currentPage)")
     }
+    
     /////////////////////////////////////
     
     
