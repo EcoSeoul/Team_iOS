@@ -38,9 +38,6 @@ class HomeDownVC: UIViewController {
     let cell3Explain = ["내 주변 가맹점 및 할인 공공시설을 찾아보세요", "온라인으로 상품을 신청해보세요",
                         "에코마일리지로 기부해보세요", "꿀팁 공유","에코마일리지를 알려드립니다!"]
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -171,37 +168,50 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             
             if section == 1{
                 //포인트 전환/결제 관련 뷰 전환 구현부
+                let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                webVC.address = "https://topshop.bccard.com/app/topmall/main/main"
+                self.present(webVC, animated: true, completion: nil)
+              
             }
                 
             else if section == 2{
                 //포인트 적립/할인 관련 뷰 전환 구현부
+                let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+                if row == 0{
+                    webVC.address = "https://www.facebook.com/EngineDoctorQ"
+                }else if row == 1{
+                    webVC.address = "https://www.honest79.co.kr/?NaPm=ct%3Djmg9y1xo%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3Dbacd7b5c5fd5e888ce084b1072028c6563584fa9"
+                }
+            
+                self.present(webVC, animated: true, completion: nil)
+              
             }
                 
             else if section == 3{
                 
                 switch row {
-                case 0:
-                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                    self.navigationController?.pushViewController(affiliationVC, animated: true)
-                case 1:
-                    //친환경 상품신청하기 push 작업 구현부
-                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                    self.navigationController?.pushViewController(shopVC, animated: true)
-                    break
-                case 2:
-                    //에코마일리지 기부하기 push 작업 구현부
-                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
-                    self.navigationController?.pushViewController(donationVC, animated: true)
-                    break
-                case 3:
-                    //커뮤니티 push 작업 구현부
-                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                    self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    break
-                case 4:
-                    //에코마일리지란? push 작업 구현부
-                    break
-                default: break
+                    case 0:
+                        let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(affiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                        self.navigationController?.pushViewController(donationVC, animated: true)
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        break
+                    default: break
                 }
                 
             }
@@ -214,28 +224,28 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             
             if section == 1 {
                 switch row {
-                case 0:
-                    let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
-                    self.navigationController?.pushViewController(affiliationVC, animated: true)
-                case 1:
-                    //친환경 상품신청하기 push 작업 구현부
-                    let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
-                    self.navigationController?.pushViewController(shopVC, animated: true)
-                    break
-                case 2:
-                    //에코마일리지 기부하기 push 작업 구현부
-                    let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
-                    self.navigationController?.pushViewController(donationVC, animated: true)
-                    break
-                case 3:
-                    //커뮤니티 push 작업 구현부
-                    let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
-                    self.navigationController?.pushViewController(commnunityVC, animated: true)
-                    break
-                case 4:
-                    //에코마일리지란? push 작업 구현부
-                    break
-                default: break
+                    case 0:
+                        let affiliationVC = UIStoryboard(name: "Affiliation", bundle: nil).instantiateViewController(withIdentifier: "AffiliationVC")as! AffiliationVC
+                        self.navigationController?.pushViewController(affiliationVC, animated: true)
+                    case 1:
+                        //친환경 상품신청하기 push 작업 구현부
+                        let shopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopCVC")as! ShopCVC
+                        self.navigationController?.pushViewController(shopVC, animated: true)
+                        break
+                    case 2:
+                        //에코마일리지 기부하기 push 작업 구현부
+                        let donationVC = UIStoryboard(name: "Donation", bundle: nil).instantiateViewController(withIdentifier: "DonationVC") as! DonationVC
+                        self.navigationController?.pushViewController(donationVC, animated: true)
+                        break
+                    case 3:
+                        //커뮤니티 push 작업 구현부
+                        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityVC")as! CommunityVC
+                        self.navigationController?.pushViewController(commnunityVC, animated: true)
+                        break
+                    case 4:
+                        //에코마일리지란? push 작업 구현부
+                        break
+                    default: break
                 }
             }
         }
