@@ -32,6 +32,9 @@ class FAQVC: UIViewController {
         tableview.delegate = self;
         tableview.dataSource = self;
         tableview.reloadData()
+        
+        tableview.tableFooterView = UIView(frame: .zero)
+   
 
     }
 

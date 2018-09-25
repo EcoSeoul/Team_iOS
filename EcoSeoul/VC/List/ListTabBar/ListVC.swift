@@ -27,7 +27,9 @@ class ListVC: ButtonBarPagerTabStripViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+
     func loadViewDesign(){
+        
         self.settings.style.selectedBarHeight = 1
         self.settings.style.buttonBarBackgroundColor = UIColor.white
         self.settings.style.buttonBarItemBackgroundColor = UIColor.white
