@@ -67,7 +67,7 @@ struct Percent: Codable {
 }
 
 struct UserInfo: Codable{
-    let userBarcode: Int
+    let userBarcode: String
     let userMileage: Int
     
     enum CodingKeys: String, CodingKey {

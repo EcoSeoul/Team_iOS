@@ -24,11 +24,12 @@ extension GettableService {
     
     func get(_ URL:String, completion : @escaping (Result<NetworkData>)->Void){
         Alamofire.request(URL).responseData {(res) in
+            
             switch res.result {
             case .success :
                 
                 if let value = res.result.value {
-                
+
                     let decoder = JSONDecoder()
                     
                     //do try catch 아예 컴플리션 쪽에서 처리가능
