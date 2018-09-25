@@ -19,8 +19,8 @@ class HomeAllVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.Tableview.delegate = self
-        self.Tableview.dataSource = self
+        self.Tableview.delegate = self;
+        self.Tableview.dataSource = self;
 
     }
 

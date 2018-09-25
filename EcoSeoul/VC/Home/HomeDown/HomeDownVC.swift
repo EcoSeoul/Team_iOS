@@ -47,7 +47,7 @@ class HomeDownVC: UIViewController {
         tableView.dataSource = self;
         tableView.delegate = self;
         
-        barcodeSerial = "7200 0200 0133 6123" //실제로는 값을 등록하는 경우
+        barcodeSerial = userDefault.string(forKey: "userBarcode")
         makeBarcodeImage()
         makeBannerView()
     }

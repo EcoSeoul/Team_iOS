@@ -30,18 +30,16 @@ extension PostableService {
         
         Alamofire.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseData(){
             res in
-            
-            print("PostableService.swift 확인하는지점")
+
             switch res.result {
             case .success:
                 
                 if let value = res.result.value {
-                    print(value)
+                   
                     let decoder = JSONDecoder()
                     
                     do {
                         let data = try decoder.decode(NetworkData.self, from: value)
-                        print(data)
                         completion(.success(data))
                         
                     }catch{

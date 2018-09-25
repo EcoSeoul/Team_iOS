@@ -51,7 +51,7 @@ class BarcodeVC: UIViewController {
         if let image = generateBarcodeFromString(string: serial) {
             barcodeImage.image = image
             barcodeNumber.text = serial
-            titleLabel.text = "이충신님 에코머니"
+            titleLabel.text = "\(UserDefaults.standard.string(forKey: "userName")!)님 에코머니"
             moneyLabel.text = "56000"
         }
         

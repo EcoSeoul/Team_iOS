@@ -11,18 +11,20 @@ import XLPagerTabStrip
 
 class PayVC: ButtonBarPagerTabStripViewController {
     
+    let check = UserDefaults.standard.object(forKey: "check") as! Int
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButtonBar()
-        
+
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        
-        let check = UserDefaults.standard.object(forKey: "check") as! Int
-        if check == 1 {
-            moveToViewController(at: 1)
-        }
+        super.viewDidAppear(animated)
+         moveToViewController(at: check)
+     
     }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController]{
         let child1 = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "MileageTVC")
         let child2 = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "MoneyTVC")
