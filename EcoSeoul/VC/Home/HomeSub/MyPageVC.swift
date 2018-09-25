@@ -27,6 +27,7 @@ class MyPageVC: UIViewController {
     @IBAction func mileageDetailBtn(_ sender: Any) {
         UserDefaults.standard.set(0, forKey: "check")
         let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+        
         self.present(mileageVC, animated: true, completion: nil)
     }
     
@@ -34,6 +35,7 @@ class MyPageVC: UIViewController {
         
         UserDefaults.standard.set(1, forKey: "check")
         let moneyVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
+     
         self.present(moneyVC, animated: true, completion: nil)
     }
     

@@ -11,22 +11,16 @@ import XLPagerTabStrip
 
 class ListVC: ButtonBarPagerTabStripViewController {
     
+    let check = UserDefaults.standard.object(forKey: "check") as! Int
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadViewDesign()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        let check = UserDefaults.standard.object(forKey: "check") as! Int
-        switch check {
-        case 1:
-            moveToViewController(at: 1)
-        case 2 :
-            moveToViewController(at: 2)
-        default:
-            break
-        }
+        super.viewDidAppear(animated)
+        moveToViewController(at: check)
     }
 
     

@@ -51,7 +51,7 @@ class LoginVC: UIViewController, APIService {
             switch result {
                 case .networkSuccess(let uidx):
                  
-                    self.userDefault.set(uidx, forKey: "userIdx")
+//                    self.userDefault.set(uidx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
                     
                     guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
@@ -85,6 +85,9 @@ extension LoginVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //Reset TextField.
+        self.idTF.text = ""
+        self.passwordTF.text = ""
         
     }
     

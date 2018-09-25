@@ -18,17 +18,13 @@ struct LoginService: PostableService {
     func login(url : String, params : [String : Any], completion : @escaping (NetworkResult<Any>) -> Void){
         
         post(url, params: params) { (result) in
-            
-            print(result)
-            print("///////////")
-            dump(result)
-            
+      
             switch result {
                 
                 case .success(let networkResult):
                     
-                    print("서버로부터받은결과값 출력!")
-                    print(networkResult)
+                    print("\n서버로부터받은결과값 출력!\n")
+                    print("\(networkResult)\n")
                     
                     switch networkResult.message {
                         case "Login Success" :
