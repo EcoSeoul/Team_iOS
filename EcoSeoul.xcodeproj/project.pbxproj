@@ -61,7 +61,6 @@
 		5064FD962159F17A00AC8A85 /* PostableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD952159F17A00AC8A85 /* PostableService.swift */; };
 		5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD972159F1AE00AC8A85 /* Enums.swift */; };
 		5064FD9A2159F1E200AC8A85 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD992159F1E200AC8A85 /* LoginService.swift */; };
-		5064FD9C2159F21C00AC8A85 /* LoginVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD9B2159F21C00AC8A85 /* LoginVO.swift */; };
 		50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */; };
 		50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */; };
 		50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */; };
@@ -74,7 +73,9 @@
 		50C6208F2146DD8E0018550B /* CircleGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6208E2146DD8E0018550B /* CircleGraph.swift */; };
 		50C620912146DD9D0018550B /* WaveGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C620902146DD9D0018550B /* WaveGraph.swift */; };
 		50C620952146E8A10018550B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C620942146E8A10018550B /* Extension.swift */; };
-		50CD75682159FC1F00E7B3E8 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD75672159FC1F00E7B3E8 /* LoginData.swift */; };
+		50CD75682159FC1F00E7B3E8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD75672159FC1F00E7B3E8 /* Login.swift */; };
+		50CD756A215A42A700E7B3E8 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD7569215A42A700E7B3E8 /* Default.swift */; };
+		50CD756C215A513800E7B3E8 /* HTTPResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD756B215A513800E7B3E8 /* HTTPResponseCode.swift */; };
 		50D04849213EA82300380CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D04848213EA82300380CFE /* AppDelegate.swift */; };
 		50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484C213EA82300380CFE /* HomeUp.storyboard */; };
 		50D04850213EA82500380CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484F213EA82500380CFE /* Assets.xcassets */; };
@@ -138,7 +139,6 @@
 		5064FD952159F17A00AC8A85 /* PostableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostableService.swift; sourceTree = "<group>"; };
 		5064FD972159F1AE00AC8A85 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5064FD992159F1E200AC8A85 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		5064FD9B2159F21C00AC8A85 /* LoginVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVO.swift; sourceTree = "<group>"; };
 		50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
 		50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -151,7 +151,9 @@
 		50C6208E2146DD8E0018550B /* CircleGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGraph.swift; sourceTree = "<group>"; };
 		50C620902146DD9D0018550B /* WaveGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveGraph.swift; sourceTree = "<group>"; };
 		50C620942146E8A10018550B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		50CD75672159FC1F00E7B3E8 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		50CD75672159FC1F00E7B3E8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		50CD7569215A42A700E7B3E8 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
+		50CD756B215A513800E7B3E8 /* HTTPResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseCode.swift; sourceTree = "<group>"; };
 		50D04845213EA82300380CFE /* EcoSeoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoSeoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D04848213EA82300380CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D0484D213EA82300380CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeUp.storyboard; sourceTree = "<group>"; };
@@ -273,8 +275,8 @@
 			children = (
 				50C620942146E8A10018550B /* Extension.swift */,
 				50B94A5E21595D5C00DB3FDA /* APIService.swift */,
-				5064FD932159F16200AC8A85 /* GettableService.swift */,
 				5064FD952159F17A00AC8A85 /* PostableService.swift */,
+				5064FD932159F16200AC8A85 /* GettableService.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -282,9 +284,10 @@
 		5064FD9E2159F26B00AC8A85 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				50CD756B215A513800E7B3E8 /* HTTPResponseCode.swift */,
 				5064FD972159F1AE00AC8A85 /* Enums.swift */,
-				50CD75672159FC1F00E7B3E8 /* LoginData.swift */,
-				5064FD9B2159F21C00AC8A85 /* LoginVO.swift */,
+				50CD7569215A42A700E7B3E8 /* Default.swift */,
+				50CD75672159FC1F00E7B3E8 /* Login.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				5064FD942159F16200AC8A85 /* GettableService.swift in Sources */,
 				502A246A21516BD100421F9F /* AffiliationDetailVC.swift in Sources */,
 				3A5837852154227E0074BCA9 /* RequestListTVCell.swift in Sources */,
+				50CD756A215A42A700E7B3E8 /* Default.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
 				5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */,
 				5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */,
@@ -646,9 +650,10 @@
 				3A58377D215421A20074BCA9 /* ListVC.swift in Sources */,
 				50D04849213EA82300380CFE /* AppDelegate.swift in Sources */,
 				3A00FC192157EBA5009CD296 /* CommunityViewVC.swift in Sources */,
+				50CD756C215A513800E7B3E8 /* HTTPResponseCode.swift in Sources */,
 				502A246121516A7500421F9F /* CardVC.swift in Sources */,
 				5064FD962159F17A00AC8A85 /* PostableService.swift in Sources */,
-				50CD75682159FC1F00E7B3E8 /* LoginData.swift in Sources */,
+				50CD75682159FC1F00E7B3E8 /* Login.swift in Sources */,
 				3A583772215420DF0074BCA9 /* PayVC.swift in Sources */,
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
 				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
@@ -666,7 +671,6 @@
 				50C5E3152158C9D100E29C59 /* DonationVC.swift in Sources */,
 				3A97AB45214E875500507A9F /* PointHeaderTVC.swift in Sources */,
 				3A5837A421577DFA0074BCA9 /* ShopDetailVC.swift in Sources */,
-				5064FD9C2159F21C00AC8A85 /* LoginVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

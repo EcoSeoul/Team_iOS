@@ -1,5 +1,5 @@
 //
-//  LoginData.swift
+//  DefaultVO.swift
 //  EcoSeoul
 //
 //  Created by 이충신 on 2018. 9. 25..
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct LoginData: Codable {
+struct Default: Codable {
     let status : Bool
     let message: String
-    let checkResult : LoginVO
 }

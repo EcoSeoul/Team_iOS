@@ -108,14 +108,17 @@ extension HomeDownVC: UIScrollViewDelegate{
         let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
         return UIImageView(frame: scrollframe)
     }
-    
+
     func makeBannerView(){
+  
+      
         for i in 0..<bannerArray.count {
             horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
             if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
             else { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-99")}
             horizontalScroll.addSubview(bannerArray[i])
         }
+        
     }
     
 }
