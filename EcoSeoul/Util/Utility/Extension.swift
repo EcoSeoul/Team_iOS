@@ -10,6 +10,24 @@ import UIKit
 
 extension UIViewController{
     
+    //Optional타입 변환
+    func gsno(_ value : String?) -> String{
+        return value ?? ""
+    }
+    
+    func gino(_ value : Int?) -> Int {
+        return value ?? 0
+    }
+    
+    
+    //Alert창 띄우기
+    func simpleAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     //바코드 생성
     func generateBarcodeFromString(string: String)-> UIImage?{
         

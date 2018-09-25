@@ -169,7 +169,7 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             if section == 1{
                 //포인트 전환/결제 관련 뷰 전환 구현부
                 let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-                webVC.address = "https://topshop.bccard.com/app/topmall/main/main"
+                webVC.address = "http://topshop.bccard.com/app/topmall/m/main/main"
                 self.present(webVC, animated: true, completion: nil)
               
             }
