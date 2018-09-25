@@ -33,7 +33,6 @@ class LoginVC: UIViewController, APIService {
 
     func enterHome() {
         
-     
         if (idTF.text?.isEmpty)! || (passwordTF.text?.isEmpty)! {
             simpleAlert(title: "로그인 실패", message: "모든 항목을 입력해 주세요")
             return
@@ -44,11 +43,8 @@ class LoginVC: UIViewController, APIService {
             userPwd : gsno(passwordTF.text)
         ]
         
-        
-//        
-//        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
-//        self.navigationController?.pushViewController(homeVC, animated: true)
-        
+    //        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
+    //        self.navigationController?.pushViewController(homeVC, animated: true)
         
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in
             guard let `self` = self else { return }

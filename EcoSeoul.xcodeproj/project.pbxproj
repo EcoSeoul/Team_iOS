@@ -74,6 +74,7 @@
 		50C6208F2146DD8E0018550B /* CircleGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6208E2146DD8E0018550B /* CircleGraph.swift */; };
 		50C620912146DD9D0018550B /* WaveGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C620902146DD9D0018550B /* WaveGraph.swift */; };
 		50C620952146E8A10018550B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C620942146E8A10018550B /* Extension.swift */; };
+		50CD75682159FC1F00E7B3E8 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD75672159FC1F00E7B3E8 /* LoginData.swift */; };
 		50D04849213EA82300380CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D04848213EA82300380CFE /* AppDelegate.swift */; };
 		50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484C213EA82300380CFE /* HomeUp.storyboard */; };
 		50D04850213EA82500380CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484F213EA82500380CFE /* Assets.xcassets */; };
@@ -150,6 +151,7 @@
 		50C6208E2146DD8E0018550B /* CircleGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGraph.swift; sourceTree = "<group>"; };
 		50C620902146DD9D0018550B /* WaveGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveGraph.swift; sourceTree = "<group>"; };
 		50C620942146E8A10018550B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		50CD75672159FC1F00E7B3E8 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		50D04845213EA82300380CFE /* EcoSeoul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoSeoul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D04848213EA82300380CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D0484D213EA82300380CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeUp.storyboard; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				5064FD972159F1AE00AC8A85 /* Enums.swift */,
+				50CD75672159FC1F00E7B3E8 /* LoginData.swift */,
 				5064FD9B2159F21C00AC8A85 /* LoginVO.swift */,
 			);
 			path = Data;
@@ -645,6 +648,7 @@
 				3A00FC192157EBA5009CD296 /* CommunityViewVC.swift in Sources */,
 				502A246121516A7500421F9F /* CardVC.swift in Sources */,
 				5064FD962159F17A00AC8A85 /* PostableService.swift in Sources */,
+				50CD75682159FC1F00E7B3E8 /* LoginData.swift in Sources */,
 				3A583772215420DF0074BCA9 /* PayVC.swift in Sources */,
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
 				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
