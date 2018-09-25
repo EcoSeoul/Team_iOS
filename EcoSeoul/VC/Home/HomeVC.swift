@@ -11,7 +11,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, APIService {
     
     //HomeVC Elements
     @IBOutlet weak var verticalScroll: UIScrollView!
@@ -20,6 +20,7 @@ class HomeVC: UIViewController {
     
     //to identify vertical Index
     let userDefault = UserDefaults.standard
+   
     
     var downBtn: UIButton = {
         let button = UIButton(frame: CGRect(x: 162, y: 512, width: 50 , height: 50))
@@ -33,11 +34,34 @@ class HomeVC: UIViewController {
         verticalScroll.delegate = self;
         setVC()
         self.view.subviews[0].addSubview(downBtn)
+        
+        //통신
+        let userIdx = userDefault.string(forKey: "userIdx")!
+        mainDataInit(url : url("/home/\(userIdx)"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          donwnBtnAnimate()
+    }
+    
+
+    func mainDataInit(url : String){
+        MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+                case .networkSuccess(let data):
+                    print(data)
+                    break
+                case .networkFail :
+                    self.simpleAlert(title: "network", message: "check")
+                    break
+                default :
+                    break
+            }
+        })
+        
     }
     
 }
@@ -97,6 +121,10 @@ extension HomeVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        //통신
+        let userIdx = userDefault.string(forKey: "userIdx")!
+        mainDataInit(url : url("/home/\(userIdx)"))
     }
     
     override func viewWillDisappear(_ animated: Bool) {

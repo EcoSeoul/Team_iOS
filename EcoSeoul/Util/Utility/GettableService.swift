@@ -28,7 +28,7 @@ extension GettableService {
             case .success :
                 
                 if let value = res.result.value {
-                    
+                
                     let decoder = JSONDecoder()
                     
                     //do try catch 아예 컴플리션 쪽에서 처리가능
