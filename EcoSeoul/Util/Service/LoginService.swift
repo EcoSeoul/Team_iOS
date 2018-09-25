@@ -23,8 +23,8 @@ struct LoginService: PostableService {
                 
                 case .success(let networkResult):
                     
-                    print("\n서버로부터받은결과값 출력!\n")
-                    print("\(networkResult)\n")
+//                    print("\n서버로부터받은결과값 출력!\n")
+//                    print("\(networkResult)\n")
                     
                     switch networkResult.message {
                         case "Login Success" :

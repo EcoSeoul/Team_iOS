@@ -284,10 +284,8 @@
 		5064FD9E2159F26B00AC8A85 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				50CD756B215A513800E7B3E8 /* HTTPResponseCode.swift */,
-				5064FD972159F1AE00AC8A85 /* Enums.swift */,
-				50CD7569215A42A700E7B3E8 /* Default.swift */,
-				50CD75672159FC1F00E7B3E8 /* Login.swift */,
+				50CD756D215A932D00E7B3E8 /* Singleton */,
+				50CD756E215A934200E7B3E8 /* VO */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -387,6 +385,24 @@
 				505549F7214BCBBD000D2130 /* HomeSub */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		50CD756D215A932D00E7B3E8 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				50CD756B215A513800E7B3E8 /* HTTPResponseCode.swift */,
+				5064FD972159F1AE00AC8A85 /* Enums.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		50CD756E215A934200E7B3E8 /* VO */ = {
+			isa = PBXGroup;
+			children = (
+				50CD7569215A42A700E7B3E8 /* Default.swift */,
+				50CD75672159FC1F00E7B3E8 /* Login.swift */,
+			);
+			path = VO;
 			sourceTree = "<group>";
 		};
 		50D0483C213EA82300380CFE = {

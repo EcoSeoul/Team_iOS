@@ -28,7 +28,6 @@ class HomeVC: UIViewController {
         return button
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
@@ -41,7 +40,6 @@ class HomeVC: UIViewController {
          donwnBtnAnimate()
     }
     
-   
 }
 
 //Vertical Index 감지

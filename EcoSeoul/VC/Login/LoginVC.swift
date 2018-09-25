@@ -15,7 +15,6 @@ class LoginVC: UIViewController, APIService {
     
     let userId : String = "user_id"
     let userPwd : String = "user_pw"
-    
     let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -43,7 +42,6 @@ class LoginVC: UIViewController, APIService {
             userPwd : gsno(passwordTF.text)
         ]
 
-        
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in
             
             guard let `self` = self else { return }
@@ -88,6 +86,7 @@ extension LoginVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         //Reset TextField.
         self.idTF.text = ""
         self.passwordTF.text = ""
