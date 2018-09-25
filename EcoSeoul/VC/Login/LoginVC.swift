@@ -45,9 +45,9 @@ class LoginVC: UIViewController, APIService {
         ]
         
         
-        
-        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
-        self.navigationController?.pushViewController(homeVC, animated: true)
+//        
+//        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
+//        self.navigationController?.pushViewController(homeVC, animated: true)
         
         
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in

@@ -81,7 +81,7 @@
                                 <rect key="frame" x="57" y="379" width="268" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nD8-hN-lpt">
                                 <rect key="frame" x="31" y="429" width="313" height="44"/>
