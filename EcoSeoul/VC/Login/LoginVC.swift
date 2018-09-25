@@ -49,7 +49,7 @@ class LoginVC: UIViewController, APIService {
             switch result {
                 case .networkSuccess(let data):
                     
-                    let datas: Login = data as! Login
+                    let datas = data as! Login
                     self.userDefault.set(datas.userIdx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
                     self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")

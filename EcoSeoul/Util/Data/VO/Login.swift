@@ -6,23 +6,6 @@
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
-//데이터 예시
-//{
-//  "message": "Login Success",
-//  "checkResult": [
-//      {
-//       "user_idx": 1,
-//       "user_ID": "timi",
-//       "user_pw": "123",
-//       "user_name": "timti",
-//       "user_barcodenum": "2312323",
-//       "user_mileage": 20000,
-//       "user_money": 10000,
-//       "user_join_date": "2018-01-23T00:00:00.000Z"
-//      }
-//  ]
-//}
-
 import Foundation
 
 struct LoginData: Codable {
@@ -59,4 +42,23 @@ struct Login: Codable {
     }
     
 }
+
+
+//EXAMPLE
+//{
+//  "message": "Login Success",
+//  "checkResult": [
+//      {
+//       "user_idx": 1,
+//       "user_ID": "timi",
+//       "user_pw": "123",
+//       "user_name": "timti",
+//       "user_barcodenum": "2312323",
+//       "user_mileage": 20000,
+//       "user_money": 10000,
+//       "user_join_date": "2018-01-23T00:00:00.000Z"
+//      }
+//  ]
+//}
+
 

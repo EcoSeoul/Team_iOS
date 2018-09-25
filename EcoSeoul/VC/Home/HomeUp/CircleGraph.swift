@@ -21,7 +21,7 @@ class CircleGraph{
     
     //이니셜라이저 변수
     var parentView: UIView?
-    var percentage: Double?
+    var percentage: Int?
     
     //감시자역할(원형의 로딩에 따라 퍼센트레이블 증가)
     var loadingDisplayLink: CADisplayLink?
@@ -82,7 +82,7 @@ class CircleGraph{
     }()
     
     
-    init(_  parentView: UIView, _ percentage: Double){
+    init(_  parentView: UIView, _ percentage: Int){
         
         self.parentView = parentView;
         self.percentage = percentage;
@@ -104,7 +104,7 @@ class CircleGraph{
     }
     
     
-    func updateValue(_ percent: Double){
+    func updateValue(_ percent: Int){
         self.percentage = percent
         animateCircle()
     }
@@ -166,7 +166,7 @@ class CircleGraph{
         
         guard let percent = percentage else {return}
         circleAnimation.toValue = percent
-        circleAnimation.duration = percent * 1.5 // 속도 조절
+        circleAnimation.duration = CFTimeInterval(percent)  // 속도 조절
         circleAnimation.fillMode = kCAFillModeForwards
         circleAnimation.isRemovedOnCompletion = false
         
@@ -188,7 +188,7 @@ class CircleGraph{
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
-        co2Label.text = String(format: "% .fkgCO2%", percent * 100)
+        co2Label.text = String(format: "% .fkgCO2%", percent)
         
          colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
          if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}

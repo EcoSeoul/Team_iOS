@@ -52,7 +52,12 @@ class HomeVC: UIViewController, APIService {
             
             switch result {
                 case .networkSuccess(let data):
-                    print(data)
+                    
+                    self.userDefault.set(data.userInfo[0].userMileage, forKey: "userMileage")
+                    self.userDefault.set(data.totalCarbon, forKey: "totalCarbon")
+                    self.userDefault.set(data.pastTotalCarbon, forKey: "pastTotalCarbon")
+//                    self.userDefault.set(datas.userName, forKey: "userName")
+                
                     break
                 case .networkFail :
                     self.simpleAlert(title: "network", message: "check")

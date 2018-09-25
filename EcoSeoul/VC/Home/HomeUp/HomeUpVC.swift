@@ -17,7 +17,7 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var horizontalScroll: UIScrollView!
     
     //서버에서 받아와서 값 대입할것!!!!
-    var co2Value: Double = 0.85                 //탄소배출 저감률
+    var co2Value: Int = UserDefaults.standard.integer(forKey: "totalCarbon")                 
     var preValue: [Double] = [0.55, 0.6, 0.7]   //작년 데이터(전기,수도,가스)
     var curVlaue: [Double] = [0.47, 0.5, 0.45]  //올해 데이터(전기,수도,가스)
     
