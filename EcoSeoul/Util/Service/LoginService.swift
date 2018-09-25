@@ -28,7 +28,7 @@ struct LoginService: PostableService {
                     
                     switch networkResult.message {
                         case "Login Success" :
-                            completion(.networkSuccess(networkResult.checkResult))
+                            completion(.networkSuccess(networkResult.checkResult[0]))
                         case "400 Error" :
                             completion(.nullValue)
                             //completion(.wrongInput)

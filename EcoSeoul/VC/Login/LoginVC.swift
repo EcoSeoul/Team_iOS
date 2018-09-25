@@ -49,10 +49,13 @@ class LoginVC: UIViewController, APIService {
             guard let `self` = self else { return }
 
             switch result {
-                case .networkSuccess(let uidx):
-                 
-//                    self.userDefault.set(uidx, forKey: "userIdx")
+                case .networkSuccess(let data):
+                    
+                    let datas: Login = data as! Login
+                    self.userDefault.set(datas.userIdx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
+                    self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
+                    self.userDefault.set(datas.userName, forKey: "userName")
                     
                     guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
                     else { return }
