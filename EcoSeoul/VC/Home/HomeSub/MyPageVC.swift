@@ -25,11 +25,14 @@ class MyPageVC: UIViewController {
     }
     
     @IBAction func mileageDetailBtn(_ sender: Any) {
+        UserDefaults.standard.set(0, forKey: "check")
         let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
         self.present(mileageVC, animated: true, completion: nil)
     }
     
     @IBAction func moneyDetailBtn(_ sender: Any) {
+        
+        UserDefaults.standard.set(1, forKey: "check")
         let moneyVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
         self.present(moneyVC, animated: true, completion: nil)
     }
@@ -69,15 +72,19 @@ extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
         if section == 0 {
             switch row {
                 case 0:
+                    
+                    UserDefaults.standard.set(0, forKey: "check")
                     let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
                     self.present(listVC, animated: true, completion: nil)
                     
                     break
                 case 1:
+                    UserDefaults.standard.set(1, forKey: "check")
                     let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
                     self.present(listVC, animated: true, completion: nil)
                     break
                 case 2:
+                    UserDefaults.standard.set(2, forKey: "check")
                     let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
                     self.present(listVC, animated: true, completion: nil)
                     break

@@ -16,6 +16,20 @@ class ListVC: ButtonBarPagerTabStripViewController {
         loadViewDesign()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let check = UserDefaults.standard.object(forKey: "check") as! Int
+        switch check {
+        case 1:
+            moveToViewController(at: 1)
+        case 2 :
+            moveToViewController(at: 2)
+        default:
+            break
+        }
+    }
+
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController]{
         let child1 = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "RequestListTVC")
         let child2 = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "DonationListTVC")

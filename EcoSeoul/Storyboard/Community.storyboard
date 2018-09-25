@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -192,8 +191,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w2h-q4-uMk">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="LDr-Ef-bne"/>
+                                </constraints>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="gcD-kc-fdo">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -345,7 +347,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-BC-lU8">
-                                        <rect key="frame" x="317" y="4" width="50" height="38"/>
+                                        <rect key="frame" x="317" y="4" width="32" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                         <state key="normal" title="작성">
@@ -353,24 +355,25 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="top" secondItem="fNf-9F-bt1" secondAttribute="top" constant="602" id="00w-Gd-Bgx"/>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="bottom" secondItem="w2h-q4-uMk" secondAttribute="bottom" id="49f-vQ-Mn8"/>
-                            <constraint firstItem="fNf-9F-bt1" firstAttribute="bottom" secondItem="rJK-Ke-jTY" secondAttribute="bottom" id="9m0-5j-Kdo"/>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="trailing" secondItem="w2h-q4-uMk" secondAttribute="trailing" id="Est-IM-5ws"/>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="leading" secondItem="fNf-9F-bt1" secondAttribute="leading" id="TaZ-Mk-R0Z"/>
-                            <constraint firstItem="fNf-9F-bt1" firstAttribute="trailing" secondItem="rJK-Ke-jTY" secondAttribute="trailing" id="VDR-tX-CkU"/>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="leading" secondItem="w2h-q4-uMk" secondAttribute="leading" id="aeB-V7-gnX"/>
-                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="width" secondItem="ti0-QS-Ds2" secondAttribute="height" multiplier="375:667" id="duN-lr-N2R"/>
-                            <constraint firstItem="w2h-q4-uMk" firstAttribute="top" secondItem="fNf-9F-bt1" secondAttribute="top" id="wY3-ea-Spe"/>
+                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="leading" secondItem="ti0-QS-Ds2" secondAttribute="leading" id="6lz-G1-5Fn"/>
+                            <constraint firstItem="fNf-9F-bt1" firstAttribute="bottom" secondItem="rJK-Ke-jTY" secondAttribute="bottom" id="DFa-ZF-9D8"/>
+                            <constraint firstAttribute="trailing" secondItem="rJK-Ke-jTY" secondAttribute="trailing" id="gHC-q4-b1j"/>
+                            <constraint firstItem="fNf-9F-bt1" firstAttribute="bottom" secondItem="w2h-q4-uMk" secondAttribute="bottom" constant="45" id="kMR-24-dHT"/>
+                            <constraint firstItem="w2h-q4-uMk" firstAttribute="top" secondItem="fNf-9F-bt1" secondAttribute="top" id="mLf-Gm-gvd"/>
+                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="top" secondItem="w2h-q4-uMk" secondAttribute="bottom" id="n2U-8r-h19"/>
+                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="leading" secondItem="w2h-q4-uMk" secondAttribute="leading" id="sTm-Se-9nU"/>
+                            <constraint firstItem="rJK-Ke-jTY" firstAttribute="trailing" secondItem="w2h-q4-uMk" secondAttribute="trailing" id="vbY-Fu-fCQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fNf-9F-bt1"/>
                     </view>
                     <connections>
+                        <outlet property="commentBar" destination="rJK-Ke-jTY" id="Ges-2x-aCn"/>
+                        <outlet property="commentSendView" destination="rJK-Ke-jTY" id="xw5-C9-qvl"/>
                         <outlet property="tableview" destination="w2h-q4-uMk" id="uFj-9a-NfN"/>
                     </connections>
                 </viewController>
