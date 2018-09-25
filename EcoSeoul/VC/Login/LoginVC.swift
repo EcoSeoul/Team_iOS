@@ -42,20 +42,22 @@ class LoginVC: UIViewController, APIService {
             userId : gsno(idTF.text),
             userPwd : gsno(passwordTF.text)
         ]
-        
-    //        guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC else { return }
-    //        self.navigationController?.pushViewController(homeVC, animated: true)
+
         
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in
+            
             guard let `self` = self else { return }
 
             switch result {
-                case .networkSuccess(let userIdx):
-                    self.userDefault.set((userIdx as? Int), forKey: "userIdx")
+                case .networkSuccess(let uidx):
+                 
+                    self.userDefault.set(uidx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
+                    
                     guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
                     else { return }
                     self.navigationController?.pushViewController(homeVC, animated: true)
+                    
                     break
                 case .wrongInput :
                     self.simpleAlert(title: "오류", message: "아이디와 비밀번호를 확인해주세요 :)")
