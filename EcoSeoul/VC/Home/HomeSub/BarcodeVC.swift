@@ -52,7 +52,7 @@ class BarcodeVC: UIViewController {
             barcodeImage.image = image
             barcodeNumber.text = serial
             titleLabel.text = "\(UserDefaults.standard.string(forKey: "userName")!)님 에코머니"
-            moneyLabel.text = "56000"
+            moneyLabel.text = "\(UserDefaults.standard.string(forKey: "userMileage")!)"
         }
         
     }

@@ -16,7 +16,7 @@ import UIKit
 class CircleView: UIView {
     
     var parentView: UIScrollView?
-    var percentage: Double?
+    var percentage: Int?
     
     var circleGraph: CircleGraph?
 
@@ -49,7 +49,7 @@ class CircleView: UIView {
         super.init(frame: frame)
     }
     
-   init(_ parentView: UIScrollView, _ percentage: Double){
+   init(_ parentView: UIScrollView, _ percentage: Int){
         super.init(frame: parentView.frame)
         self.parentView = parentView
         self.percentage = percentage

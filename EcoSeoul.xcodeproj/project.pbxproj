@@ -57,6 +57,8 @@
 		505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F3214BCB23000D2130 /* HomeAllVC.swift */; };
 		505549F6214BCB81000D2130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F5214BCB81000D2130 /* HomeVC.swift */; };
 		505549F9214BCC98000D2130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F8214BCC98000D2130 /* LoginVC.swift */; };
+		50612ABC215A980100497DDE /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABB215A980100497DDE /* Main.swift */; };
+		50612ABE215AA12700497DDE /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABD215AA12700497DDE /* MainService.swift */; };
 		5064FD942159F16200AC8A85 /* GettableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD932159F16200AC8A85 /* GettableService.swift */; };
 		5064FD962159F17A00AC8A85 /* PostableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD952159F17A00AC8A85 /* PostableService.swift */; };
 		5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD972159F1AE00AC8A85 /* Enums.swift */; };
@@ -135,6 +137,8 @@
 		505549F3214BCB23000D2130 /* HomeAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAllVC.swift; sourceTree = "<group>"; };
 		505549F5214BCB81000D2130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		505549F8214BCC98000D2130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		50612ABB215A980100497DDE /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		50612ABD215AA12700497DDE /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		5064FD932159F16200AC8A85 /* GettableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettableService.swift; sourceTree = "<group>"; };
 		5064FD952159F17A00AC8A85 /* PostableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostableService.swift; sourceTree = "<group>"; };
 		5064FD972159F1AE00AC8A85 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				5064FD992159F1E200AC8A85 /* LoginService.swift */,
+				50612ABD215AA12700497DDE /* MainService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 			children = (
 				50CD7569215A42A700E7B3E8 /* Default.swift */,
 				50CD75672159FC1F00E7B3E8 /* Login.swift */,
+				50612ABB215A980100497DDE /* Main.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				5048ED092157C09A007A220C /* FAQVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
+				50612ABC215A980100497DDE /* Main.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
 				3A58379F21577DC70074BCA9 /* ShopCVC.swift in Sources */,
 				5050A83E215907D90066C433 /* WebVC.swift in Sources */,
@@ -686,6 +693,7 @@
 				50C620912146DD9D0018550B /* WaveGraph.swift in Sources */,
 				50C5E3152158C9D100E29C59 /* DonationVC.swift in Sources */,
 				3A97AB45214E875500507A9F /* PointHeaderTVC.swift in Sources */,
+				50612ABE215AA12700497DDE /* MainService.swift in Sources */,
 				3A5837A421577DFA0074BCA9 /* ShopDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
