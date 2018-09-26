@@ -9,6 +9,7 @@
 //downBtn을 이곳에서 추가(VC1에서 VC2로 내려가는 제어가 필요해서)
 //Animation: downBtn(Hovering)
 
+
 import UIKit
 
 class HomeVC: UIViewController, APIService {
@@ -20,8 +21,8 @@ class HomeVC: UIViewController, APIService {
     
     //to identify vertical Index
     let userDefault = UserDefaults.standard
+    let userIdx = UserDefaults.standard.string(forKey: "userIdx")!
    
-    
     var downBtn: UIButton = {
         let button = UIButton(frame: CGRect(x: 162, y: 512, width: 50 , height: 50))
         button.setImage(#imageLiteral(resourceName: "arrow-down-black"), for: .normal)
@@ -32,12 +33,12 @@ class HomeVC: UIViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
-        setVC()
-        self.view.subviews[0].addSubview(downBtn)
         
         //통신
-        let userIdx = userDefault.string(forKey: "userIdx")!
         mainDataInit(url : url("/home/\(userIdx)"))
+        
+        setVC()
+        self.view.subviews[0].addSubview(downBtn)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,28 +47,6 @@ class HomeVC: UIViewController, APIService {
     }
     
 
-    func mainDataInit(url : String){
-        MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
-            guard let `self` = self else { return }
-            
-            switch result {
-                case .networkSuccess(let data):
-                    
-                    self.userDefault.set(data.userInfo[0].userMileage, forKey: "userMileage")
-                    self.userDefault.set(data.totalCarbon, forKey: "totalCarbon")
-                    self.userDefault.set(data.pastTotalCarbon, forKey: "pastTotalCarbon")
-//                    self.userDefault.set(datas.userName, forKey: "userName")
-                
-                    break
-                case .networkFail :
-                    self.simpleAlert(title: "network", message: "check")
-                    break
-                default :
-                    break
-            }
-        })
-        
-    }
     
 }
 
@@ -117,7 +96,6 @@ extension HomeVC {
 
 }
 
-
 //HomeVC의 HomeUpVC & HomeDownVC 통합
 extension HomeVC {
     
@@ -126,16 +104,37 @@ extension HomeVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         //통신
-        let userIdx = userDefault.string(forKey: "userIdx")!
         mainDataInit(url : url("/home/\(userIdx)"))
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+    }
+    
+    func mainDataInit(url : String){
+        MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+            case .networkSuccess(let data):
+                let datas = data as! MainData
+                self.userDefault.set(datas.usageData.carbonData.present, forKey: "totalCarbon")
+                self.userDefault.set(datas.usageData.carbonData.past, forKey: "pastTotalCarbon")
+                self.userDefault.set(datas.term[0], forKey: "termStart")
+                
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+                break
+            default :
+                break
+            }
+        })
         
     }
 

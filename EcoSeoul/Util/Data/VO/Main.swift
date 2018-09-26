@@ -10,9 +10,8 @@ import Foundation
 
 struct MainData: Codable {
     let term: [Int]
-    let carbon: [Carbon]
-    let totalCarbon: Int
-    let pastTotalCarbon: Int
+    let carbon: [Int]
+    let pastCarbon: [Int]
     let usageData: UsageData
     let userInfo: [UserInfo]
     let message: String
@@ -21,8 +20,7 @@ struct MainData: Codable {
      
         case term = "term"
         case carbon = "carbon"
-        case totalCarbon = "totalCarbon"
-        case pastTotalCarbon = "pastTotalCarbon"
+        case pastCarbon = "pastCarbon"
         case usageData = "usageData"
         case userInfo = "userInfo"
         case message = "message"
@@ -30,15 +28,7 @@ struct MainData: Codable {
     }
 }
 
-struct Carbon: Codable {
-    let useMonth: Int
-    let useCarbon: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case useMonth = "use_month_int"
-        case useCarbon = "use_carbon"
-    }
-}
+
 
 struct UsageData: Codable {
     
@@ -58,10 +48,14 @@ struct UsageData: Codable {
 struct Percent: Codable {
     let updown: Int
     let percent: Int
+    let past : Int
+    let present: Int
     
     enum CodingKeys: String, CodingKey {
         case updown = "up_down"
         case percent = "percentage"
+        case past = "past"
+        case present = "present"
 
     }
 }

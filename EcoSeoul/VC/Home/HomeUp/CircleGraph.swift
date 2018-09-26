@@ -21,7 +21,7 @@ class CircleGraph{
     
     //이니셜라이저 변수
     var parentView: UIView?
-    var percentage: Int?
+    var percentage: Double?
     
     //감시자역할(원형의 로딩에 따라 퍼센트레이블 증가)
     var loadingDisplayLink: CADisplayLink?
@@ -29,16 +29,21 @@ class CircleGraph{
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
-   
     
+    //CO2 VALUE
+    let totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
+    let pastTotalCarbon = UserDefaults.standard.integer(forKey: "pastTotalCarbon")
+    
+
     //에니메이션 변수
     let circleAnimation = CABasicAnimation(keyPath: "strokeEnd")
     
     //기간 레이블
     var durationLabel: UILabel = {
+        let termStart = UserDefaults.standard.integer(forKey: "termStart")
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 74))
         label.textAlignment = .center
-        label.text = "4월 ~ 8월"
+        label.text = "\(termStart)월 ~ 8월"
         label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         label.textColor = #colorLiteral(red: 0.3333333333, green: 0.3490196078, blue: 0.3647058824, alpha: 1)
         return label
@@ -46,9 +51,11 @@ class CircleGraph{
     
     //CO2 감소량 레이블
     var co2Label: UILabel = {
+        let totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
         label.textAlignment = .center
         label.font = UIFont(name: notoSansFont.Medium.rawValue, size: 38)
+        label.text = "\(totalCarbon)kgCO2"
         label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()
@@ -56,7 +63,6 @@ class CircleGraph{
     //업다운 이미지
     var updownImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x:0, y:0, width:30, height: 20))
-        imageView.image = #imageLiteral(resourceName: "percentage-down")
         return imageView
     }()
 
@@ -65,9 +71,7 @@ class CircleGraph{
     var percentLabel: UILabel = {
         let label = UILabel(frame: CGRect(x:0, y:0, width:158, height: 320))
         label.textAlignment = .center
-        label.text = "10%"
         label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
-        label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
         return label
     }()
     
@@ -82,7 +86,7 @@ class CircleGraph{
     }()
     
     
-    init(_  parentView: UIView, _ percentage: Int){
+    init(_  parentView: UIView, _ percentage: Double){
         
         self.parentView = parentView;
         self.percentage = percentage;
@@ -91,7 +95,7 @@ class CircleGraph{
         
         durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 217)
         co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
-        percentLabel.center = CGPoint(x: 168.5 , y: 326)
+        percentLabel.center = CGPoint(x: 165.5 , y: 326)
         updownImage.center = CGPoint(x: 133.5 , y: 326)
         nothingLabel.center = CGPoint(x: 220, y: 328)
         
@@ -102,14 +106,28 @@ class CircleGraph{
         parentView.addSubview(nothingLabel)
         
     }
+
     
-    
-    func updateValue(_ percent: Int){
+    func updateValue(_ percent: Double){
         self.percentage = percent
         animateCircle()
     }
     
     func makeCircleLayer(){
+    
+        guard let percent = percentage else {return}
+        
+        if percent > 0 {
+            updownImage.image = #imageLiteral(resourceName: "percentage-down")
+            percentLabel.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
+            colorLayer.strokeColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
+        }
+        else {
+            updownImage.image = #imageLiteral(resourceName: "percentage-up")
+            percentLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            colorLayer.strokeColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        }
+        
         
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 132.5, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         let centerPoint =  CGPoint(x:(parentView?.layer.bounds.midX)!, y: 269.5)
@@ -165,8 +183,16 @@ class CircleGraph{
     func animateCircle() {
         
         guard let percent = percentage else {return}
-        circleAnimation.toValue = percent
-        circleAnimation.duration = CFTimeInterval(percent)  // 속도 조절
+      
+        if percent < 0 {
+            circleAnimation.toValue = -percent
+            circleAnimation.duration = -percent * 2
+        }
+        else {
+            circleAnimation.toValue = percent
+            circleAnimation.duration = percent * 2
+        }
+    
         circleAnimation.fillMode = kCAFillModeForwards
         circleAnimation.isRemovedOnCompletion = false
         
@@ -180,7 +206,6 @@ class CircleGraph{
         
     }
     
-    
     let small1 = CAShapeLayer()
     let small2 = CAShapeLayer()
     let small3 = CAShapeLayer()
@@ -188,17 +213,27 @@ class CircleGraph{
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
-        co2Label.text = String(format: "% .fkgCO2%", percent)
-        
-         colorLayer.strokeColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)
-         if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
-         if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
-         if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+        percentLabel.text = String(format: "% .f%%", percent * 100)
         
         if percent > 1 {
             displayLink.invalidate()
             loadingDisplayLink = nil
         }
+       
+        guard let per = percentage else {return}
+        
+        if per >= 0 {
+            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+        }
+        if per < 0 {
+            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
+            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
+            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
+        }
+        
+   
         
     }
 }
