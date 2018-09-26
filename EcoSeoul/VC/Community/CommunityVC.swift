@@ -53,7 +53,9 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             switch result {
                 
             case .networkSuccess(let community):
-                self.applys = community as! [Community]
+                self.applys.append(community)
+                print("applys!!!!!")
+                print(self.applys)
                 self.tableview.reloadData()
                 break
                 
