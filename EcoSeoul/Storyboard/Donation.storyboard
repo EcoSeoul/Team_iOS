@@ -24,10 +24,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="bottom" secondItem="4gD-En-54i" secondAttribute="bottom" id="6Y0-sk-pnS"/>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="top" secondItem="4gD-En-54i" secondAttribute="top" id="ODk-7z-zVx"/>
                             <constraint firstItem="4gD-En-54i" firstAttribute="bottom" secondItem="eR9-H6-HlP" secondAttribute="bottom" id="Xrm-IM-Yeo"/>
                             <constraint firstItem="eR9-H6-HlP" firstAttribute="leading" secondItem="4gD-En-54i" secondAttribute="leading" id="gQN-E2-97m"/>
                             <constraint firstItem="eR9-H6-HlP" firstAttribute="top" secondItem="4gD-En-54i" secondAttribute="top" id="hpe-MQ-Sb4"/>
                             <constraint firstItem="4gD-En-54i" firstAttribute="trailing" secondItem="eR9-H6-HlP" secondAttribute="trailing" id="lwV-Jz-E7Q"/>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="trailing" secondItem="4gD-En-54i" secondAttribute="trailing" id="sCO-fU-HSu"/>
+                            <constraint firstItem="eR9-H6-HlP" firstAttribute="leading" secondItem="4gD-En-54i" secondAttribute="leading" id="yJY-iJ-Hgb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4gD-En-54i"/>
                     </view>
