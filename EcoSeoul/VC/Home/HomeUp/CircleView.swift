@@ -62,10 +62,10 @@ class CircleView: UIView {
     func initContentLabel(){
         guard let percent = self.percentage else {return}
         if percent >= 0 {
-            contentLabel.text = "작년보다 \(Int(percent*100))%를 \n절약한 당신! 최고에요! :)"
+            contentLabel.text = "작년보다 \(Int(percent * 100))%를 \n절약한 당신! 최고에요! :)"
         }
         else {
-            contentLabel.text = "작년보다 \(Int(-percent*100))%를 \n더쓴 당신! 아쉬워요! :("
+            //contentLabel.text = "작년보다 \(Int(-percent * 100))%를 \n더쓴 당신! 아쉬워요! :("
         }
     }
     

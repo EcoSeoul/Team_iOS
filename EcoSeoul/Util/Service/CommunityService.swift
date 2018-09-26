@@ -21,12 +21,12 @@ struct CommunityService: GettableService {
             switch result {
             case .success(let networkResult):
                 switch networkResult.message {
-                case "Successfully Get Data" :
+                case "OK" :
                                         print("\n서버로부터받은결과값 출력!\n")
                                         print("\(networkResult)\n")
                     completion(.networkSuccess(networkResult))
-                case "Internal Server Error!" :
-                    completion(.serverErr)
+//                case "Internal Server Error!" :
+//                    completion(.serverErr)
                 default :
                     break
                 }

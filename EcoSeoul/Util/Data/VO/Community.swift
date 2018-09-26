@@ -22,8 +22,8 @@ struct Community: Codable {
 }
 
 struct CommunityData: Codable {
-    let bestList: [List]
-    let allList: [List]
+    let bestList: [List]?
+    let allList: [List]?
     
     enum CodingKeys: String, CodingKey{
         case bestList = "best_list"
