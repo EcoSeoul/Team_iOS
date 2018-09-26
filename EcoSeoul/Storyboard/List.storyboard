@@ -84,8 +84,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="자주 묻는 질문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRL-VD-fMR">
-                                            <rect key="frame" x="34" y="60" width="168" height="41"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자주 묻는 질문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="HRL-VD-fMR">
+                                            <rect key="frame" x="34" y="60" width="170.5" height="41"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이곳은 자주묻는 질문 입니다?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEA-oa-HR6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이곳은 자주묻는 질문 입니다?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eEA-oa-HR6">
                                                     <rect key="frame" x="35" y="10" width="282" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="EvX-d4-noo"/>
@@ -139,6 +139,7 @@
                                                 <constraint firstItem="eEA-oa-HR6" firstAttribute="centerY" secondItem="7fH-9n-D5h" secondAttribute="centerY" id="T2L-ba-RDd"/>
                                                 <constraint firstItem="eEA-oa-HR6" firstAttribute="leading" secondItem="7fH-9n-D5h" secondAttribute="leading" constant="35" id="fyV-Dw-iBK"/>
                                                 <constraint firstItem="eEA-oa-HR6" firstAttribute="top" secondItem="7fH-9n-D5h" secondAttribute="top" constant="10" id="gKM-bb-n1I"/>
+                                                <constraint firstItem="IhH-JZ-jhu" firstAttribute="leading" secondItem="eEA-oa-HR6" secondAttribute="trailing" constant="1" id="zaS-i6-5iJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -166,6 +167,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iSp-EX-EGy" firstAttribute="top" secondItem="UKz-Ek-Sxs" secondAttribute="top" constant="7" id="Wbl-vM-QZN"/>
+                                                <constraint firstItem="iSp-EX-EGy" firstAttribute="width" secondItem="UKz-Ek-Sxs" secondAttribute="width" multiplier="303:375" id="Xtl-ra-M5o"/>
                                                 <constraint firstItem="iSp-EX-EGy" firstAttribute="leading" secondItem="UKz-Ek-Sxs" secondAttribute="leading" constant="35" id="zGA-X1-v0U"/>
                                             </constraints>
                                         </tableViewCellContentView>
