@@ -12,19 +12,22 @@ import UIKit
 //자식뷰로 CircleView(Index:0),WaveView(Index:1~3)을 추가
 //pageControl과 HomeAllBtn 필요 
 
-class HomeUpVC: UIViewController, UIScrollViewDelegate {
+class HomeUpVC: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var horizontalScroll: UIScrollView!
+    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
+    @IBOutlet weak var homeAllBtn: UIButton!
     
-    //서버에서 받아와서 값 대입할것!!!!
-    var co2Value: Int = UserDefaults.standard.integer(forKey: "totalCarbon")                 
+    //CO2 VALUE(Circle)
+    var co2Percent: Double = 0.0
+    var totalCarbon: Int = 0
+    var pastTotalCarbon: Int = 0
+    
+    //ELEC,WATER,GAS VALUE(Wave)
     var preValue: [Double] = [0.55, 0.6, 0.7]   //작년 데이터(전기,수도,가스)
     var curVlaue: [Double] = [0.47, 0.5, 0.45]  //올해 데이터(전기,수도,가스)
     
-    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
-    
-    @IBOutlet weak var homeAllBtn: UIButton!
-    
+     
     //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
     lazy var viewArray: [UIView] = {
         
@@ -42,8 +45,8 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         horizontalScroll.delegate = self;
+        initValue()
         makeCircleView()
         makeWaveView()
         makePageControl()
@@ -51,6 +54,18 @@ class HomeUpVC: UIViewController, UIScrollViewDelegate {
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
         self.view.addSubview(homeAllBtn)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+
+    //서버에서 받은 현재 탄소배출량, 과거 탄소 배출량, 절약률을 계산
+    func initValue(){
+        totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
+        pastTotalCarbon = UserDefaults.standard.integer(forKey: "pastTotalCarbon")
+        co2Percent = Double(pastTotalCarbon - totalCarbon) / Double(pastTotalCarbon)
     }
     
     //홈 모아보기 버튼 클릭
@@ -83,7 +98,7 @@ extension HomeUpVC {
     func makeCircleView(){
         horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(1)
         horizontalScroll.addSubview(viewArray[0])
-        viewArray[0] = CircleView(self.horizontalScroll, co2Value)
+        viewArray[0] = CircleView(self.horizontalScroll, co2Percent)
     }
     
     //전기,수도,가스 뷰 3개 생성(indx:1~3)

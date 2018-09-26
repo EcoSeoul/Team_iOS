@@ -9,17 +9,16 @@
 import UIKit
 
 class LoginVC: UIViewController, APIService {
-
+    
+    let userDefault = UserDefaults.standard
     @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
     let userId : String = "user_id"
     let userPwd : String = "user_pw"
-    let userDefault = UserDefaults.standard
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     @IBAction func loginBtn(_ sender: Any) {
@@ -27,7 +26,7 @@ class LoginVC: UIViewController, APIService {
     }
     
     @IBAction func signupBtn(_ sender: Any) {
-        
+        print("회원가입 뷰전환을 구현해주세요!")
     }
 
     func enterHome() {

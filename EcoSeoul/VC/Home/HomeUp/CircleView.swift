@@ -16,7 +16,7 @@ import UIKit
 class CircleView: UIView {
     
     var parentView: UIScrollView?
-    var percentage: Int?
+    var percentage: Double?
     
     var circleGraph: CircleGraph?
 
@@ -31,7 +31,6 @@ class CircleView: UIView {
     var contentLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 23, y: 430, width: 287, height: 82))
         label.textAlignment = .left
-        label.text = "작년보다 10%를 \n절약한 당신! 최고에요!"
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.clipsToBounds = true
@@ -49,18 +48,30 @@ class CircleView: UIView {
         super.init(frame: frame)
     }
     
-   init(_ parentView: UIScrollView, _ percentage: Int){
+   init(_ parentView: UIScrollView, _ percentage: Double){
         super.init(frame: parentView.frame)
         self.parentView = parentView
         self.percentage = percentage
+        initContentLabel()
         parentView.subviews.last?.addSubview(titleLabel)
         parentView.subviews.last?.addSubview(contentLabel)
         makeCircleGraph()
 
     }
     
+    func initContentLabel(){
+        guard let percent = self.percentage else {return}
+        if percent >= 0 {
+            contentLabel.text = "작년보다 \(Int(percent*100))%를 \n절약한 당신! 최고에요! :)"
+        }
+        else {
+            contentLabel.text = "작년보다 \(Int(-percent*100))%를 \n더쓴 당신! 아쉬워요! :("
+        }
+    }
+    
     func makeCircleGraph() {
-        circleGraph = CircleGraph((parentView?.subviews.last)!, percentage!)
+        guard let percent = self.percentage else {return}
+        circleGraph = CircleGraph((parentView?.subviews.last)!, percent)
         circleGraph?.animateCircle()
     }
     
