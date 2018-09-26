@@ -65,7 +65,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKk-A2-IEf">
-                                <rect key="frame" x="285" y="445" width="52" height="27"/>
+                                <rect key="frame" x="285" y="445" width="52" height="62"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="회원가입">
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-character" translatesAutoresizingMaskIntoConstraints="NO" id="IvP-16-04x">
-                                <rect key="frame" x="41" y="472" width="293" height="293"/>
+                                <rect key="frame" x="42" y="507" width="293" height="293"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,6 +118,7 @@
                             <constraint firstItem="nD8-hN-lpt" firstAttribute="width" secondItem="eQw-4r-x47" secondAttribute="width" multiplier="313:375" id="HPL-iX-ddX"/>
                             <constraint firstItem="4cB-T2-Okb" firstAttribute="centerY" secondItem="emc-l4-y2H" secondAttribute="centerY" id="Hnf-1P-epC"/>
                             <constraint firstItem="4cB-T2-Okb" firstAttribute="centerX" secondItem="emc-l4-y2H" secondAttribute="centerX" id="K32-O9-iRI"/>
+                            <constraint firstItem="IvP-16-04x" firstAttribute="top" secondItem="nD8-hN-lpt" secondAttribute="bottom" constant="76" id="PaI-wL-JHp"/>
                             <constraint firstItem="cpP-n1-pfE" firstAttribute="leading" secondItem="vCG-nb-kSs" secondAttribute="leading" id="Rtw-i4-hny"/>
                             <constraint firstItem="nD8-hN-lpt" firstAttribute="centerX" secondItem="4qG-Fq-JyU" secondAttribute="centerX" id="TE9-Rq-DsF"/>
                             <constraint firstItem="4qG-Fq-JyU" firstAttribute="trailing" secondItem="HKk-A2-IEf" secondAttribute="trailing" constant="38" id="U96-hm-OC9"/>
@@ -126,7 +127,7 @@
                             <constraint firstItem="Yhz-oy-lRa" firstAttribute="leading" secondItem="4q0-7j-5cE" secondAttribute="leading" id="fTX-5z-dze"/>
                             <constraint firstItem="emc-l4-y2H" firstAttribute="height" secondItem="eQw-4r-x47" secondAttribute="height" multiplier="44:667" id="feu-Va-knH"/>
                             <constraint firstItem="ZB9-Re-NsZ" firstAttribute="centerX" secondItem="emc-l4-y2H" secondAttribute="centerX" id="ffo-vj-wc0"/>
-                            <constraint firstItem="IvP-16-04x" firstAttribute="centerX" secondItem="4qG-Fq-JyU" secondAttribute="centerX" id="gJO-bP-N7f"/>
+                            <constraint firstItem="IvP-16-04x" firstAttribute="centerX" secondItem="4qG-Fq-JyU" secondAttribute="centerX" constant="1" id="gJO-bP-N7f"/>
                             <constraint firstItem="emc-l4-y2H" firstAttribute="width" secondItem="eQw-4r-x47" secondAttribute="width" multiplier="313:375" id="gUl-Wk-zux"/>
                             <constraint firstItem="nD8-hN-lpt" firstAttribute="top" secondItem="ZB9-Re-NsZ" secondAttribute="bottom" constant="15" id="gc1-sL-055"/>
                             <constraint firstItem="emc-l4-y2H" firstAttribute="leading" secondItem="4qG-Fq-JyU" secondAttribute="leading" constant="31" id="jXi-Oq-egF"/>
