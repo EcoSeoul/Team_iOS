@@ -53,7 +53,7 @@ class AffiliationDetailVC: UIViewController{
         let cameraZoom: Float = 15.0
         
         if let idx = guIdx {
-            let camera = GMSCameraPosition.camera(withLatitude: cameraLat[idx], longitude: cameraLong[idx], zoom: Float(cameraZoom))
+            let camera = GMSCameraPosition.camera(withLatitude: cameraLat[0], longitude: cameraLong[0], zoom: Float(cameraZoom))
             displayView.camera = camera
         }
         

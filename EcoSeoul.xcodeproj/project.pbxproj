@@ -85,6 +85,8 @@
 		50D04850213EA82500380CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D0484F213EA82500380CFE /* Assets.xcassets */; };
 		50D04853213EA82500380CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D04851213EA82500380CFE /* LaunchScreen.storyboard */; };
 		50D470DD2158D482007712CB /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D470DC2158D482007712CB /* DonationView.swift */; };
+		50D6FA23215C075C00D4A8A3 /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FA22215C075C00D4A8A3 /* Franchise.swift */; };
+		50D6FA25215C087200D4A8A3 /* FranchiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FA24215C087200D4A8A3 /* FranchiseService.swift */; };
 		DDC879EB7E4AAE3700B6B66F /* Pods_EcoSeoul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +171,8 @@
 		50D04852213EA82500380CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50D04854213EA82500380CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50D470DC2158D482007712CB /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
+		50D6FA22215C075C00D4A8A3 /* Franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
+		50D6FA24215C087200D4A8A3 /* FranchiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseService.swift; sourceTree = "<group>"; };
 		53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoSeoul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC25BC8BF5B845E45453C3AE /* Pods-EcoSeoul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8101C0A24BADA8B98BC9D1 /* Pods-EcoSeoul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.release.xcconfig"; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				5064FD992159F1E200AC8A85 /* LoginService.swift */,
 				50612ABD215AA12700497DDE /* MainService.swift */,
 				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
+				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				50CD75672159FC1F00E7B3E8 /* Login.swift */,
 				50612ABB215A980100497DDE /* Main.swift */,
 				3AB3A021215BC14100768B69 /* Community.swift */,
+				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -691,6 +697,8 @@
 				5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */,
 				50D470DD2158D482007712CB /* DonationView.swift in Sources */,
 				3A5837A221577DEC0074BCA9 /* ShopCVCell.swift in Sources */,
+				50D6FA23215C075C00D4A8A3 /* Franchise.swift in Sources */,
+				50D6FA25215C087200D4A8A3 /* FranchiseService.swift in Sources */,
 				3A583789215422970074BCA9 /* PostListTVCell.swift in Sources */,
 				3A583778215421660074BCA9 /* MileageTVCell.swift in Sources */,
 				505549F6214BCB81000D2130 /* HomeVC.swift in Sources */,

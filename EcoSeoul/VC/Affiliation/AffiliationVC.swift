@@ -10,7 +10,7 @@ import UIKit
 //제휴업체 표시
 //서울시 전역 지도
 
-class AffiliationVC: UIViewController {
+class AffiliationVC: UIViewController, APIService {
 
     @IBOutlet weak var seoulMap: UIImageView!
     
@@ -100,10 +100,34 @@ class AffiliationVC: UIViewController {
         default: break
         }
         
+        //통신
+        franDataInit(url : url("/franchise/\(tag)"))
+      
         let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
         affiliationDetailVC.guIdx = tag
         self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
-        }
+        
+    }
+    
+    
+    
+    func franDataInit(url : String){
+        FranchiseService.shareInstance.getFranchiseData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+            case .networkSuccess(let data):
+                print(data)
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+                break
+            default :
+                break
+            }
+        })
+        
+    }
         
 }
     
