@@ -44,7 +44,6 @@ extension GettableService {
                         
                         print("get 성공!!!================================")
                         print(JSON(value))
-                        print(data)
                         
                     }catch{
                         

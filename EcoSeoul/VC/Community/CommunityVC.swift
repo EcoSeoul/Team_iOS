@@ -53,7 +53,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             switch result {
                 
             case .networkSuccess(let community):
-                self.applys = community as! [Community]
+                self.applys.append(community)
                 self.tableview.reloadData()
                 break
                 
@@ -68,23 +68,13 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityTVCell") as!  CommunityTVCell
-//        if indexPath.row <= 2{
-//            cell.bestIMG.image = #imageLiteral(resourceName: "community-gold")
-//            cell.titleLB.text = "우아아앗"
-//            cell.contentLB.text = "저의 에코마일리지를 보십시오"
-//            cell.goodLB.text = "67"
-//        }else {
-//            cell.bestIMG.image = nil
-//            cell.titleLB.text = "우아아앗"
-//            cell.contentLB.text = "저의 에코마일리지를 보십시오"
-//            cell.goodLB.text = "1"
-//        }
+        
         switch indexPath.row {
         case 0:
             cell.bestIMG.image = #imageLiteral(resourceName: "community-gold")
@@ -96,9 +86,10 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             cell.bestIMG.image = nil
         }
         
-        if let applys_ = lists {
-            cell.configure(apply: applys_[indexPath.row])
+        if let lists_ = lists {
+            cell.configure(list: lists_[indexPath.row])
             
+            print("배열이 나오려나")
         }
         
         return cell

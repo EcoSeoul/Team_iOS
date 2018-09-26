@@ -17,14 +17,13 @@ class CommunityTVCell: UITableViewCell {
     @IBOutlet weak var commentNumLB: UILabel!
     
     
-    func configure(apply : List){
-        
-//        titleLB.text = apply.boardTitle
-//        commentLB.text = (String)(apply.commentCount)
-        titleLB.text = apply.boardTitle
-        contentLB.text = apply.boardContent
-        goodLB.text = (String)(apply.boardLike)
-        commentNumLB.text = (String)(apply.boardCmtnum)
+    func configure(list : List){
+        print("\n데이터들")
+        print(list.boardTitle)
+        titleLB.text = list.boardTitle
+        contentLB.text = list.boardContent
+        goodLB.text = (String)(list.boardLike)
+        commentNumLB.text = (String)(list.boardCmtnum)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
