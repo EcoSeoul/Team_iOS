@@ -16,6 +16,16 @@ class CommunityTVCell: UITableViewCell {
     @IBOutlet weak var goodLB: UILabel!
     @IBOutlet weak var commentNumLB: UILabel!
     
+    
+    func configure(apply : List){
+        
+//        titleLB.text = apply.boardTitle
+//        commentLB.text = (String)(apply.commentCount)
+        titleLB.text = apply.boardTitle
+        contentLB.text = apply.boardContent
+        goodLB.text = (String)(apply.boardLike)
+        commentNumLB.text = (String)(apply.boardCmtnum)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
