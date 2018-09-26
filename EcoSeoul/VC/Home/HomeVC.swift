@@ -70,6 +70,8 @@ class HomeVC: UIViewController, APIService {
         self.userDefault.set(data.term[0], forKey: "termStart")
         self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")
         self.userDefault.set(data.usageData.carbonData.past, forKey: "pastTotalCarbon")
+        self.userDefault.set(data.usageData.carbonData.updown, forKey: "carbonUpDown")
+        
         //WaveView(Elec,Water,Gas)
         let elecData = data.usageData.elecData
         let waterData = data.usageData.waterData
