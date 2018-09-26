@@ -24,9 +24,12 @@ extension GettableService {
     
     func get(_ URL:String, completion : @escaping (Result<NetworkData>)->Void){
         Alamofire.request(URL).responseData {(res) in
+            print("URL!!!!!!!!!!!!!!!!!")
+            print(URL)
             
             switch res.result {
             case .success :
+                print("result : \(res.result)")
                 
                 if let value = res.result.value {
 
@@ -39,8 +42,14 @@ extension GettableService {
                         
                         completion(.success(data))
                         
+                        print("get 성공!!!================================")
+                        print(JSON(value))
+                        print(data)
+                        
                     }catch{
                         
+                        print("")
+                        print("error: \(error)")
                         completion(.error("에러"))
                     }
                 }
