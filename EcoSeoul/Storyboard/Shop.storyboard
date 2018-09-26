@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqE-hY-8kr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hmF-iQ-mFT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v6L-gz-njJ">
-
                             <size key="itemSize" width="180" height="218"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -36,34 +36,45 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ShopCVCell" reuseIdentifier="ShopCVCell" id="mnC-mm-rfm" customClass="ShopCVCell" customModule="EcoSeoul" customModuleProvider="target">
-
-                                <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="181" height="218"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-WN-HAY">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="187"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-WN-HAY">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="187"/>
                                             <color key="backgroundColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOL-vX-fFJ">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOL-vX-fFJ">
                                             <rect key="frame" x="0.0" y="187" width="180" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsi-HJ-46o">
-                                                    <rect key="frame" x="75" y="6" width="31" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="fsi-HJ-46o">
+                                                    <rect key="frame" x="0.5" y="6" width="180" height="18"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="fsi-HJ-46o" firstAttribute="centerY" secondItem="FOL-vX-fFJ" secondAttribute="centerY" id="4ok-td-h6D"/>
+                                                <constraint firstItem="fsi-HJ-46o" firstAttribute="centerX" secondItem="FOL-vX-fFJ" secondAttribute="centerX" id="NaF-Rr-xJb"/>
+                                                <constraint firstItem="fsi-HJ-46o" firstAttribute="width" secondItem="FOL-vX-fFJ" secondAttribute="width" id="r9K-dg-gdw"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="jkr-WN-HAY" firstAttribute="top" secondItem="mnC-mm-rfm" secondAttribute="top" id="4Ss-am-INT"/>
+                                    <constraint firstAttribute="trailing" secondItem="jkr-WN-HAY" secondAttribute="trailing" id="Aje-qU-AbC"/>
+                                    <constraint firstItem="FOL-vX-fFJ" firstAttribute="height" secondItem="mnC-mm-rfm" secondAttribute="height" multiplier="31:218" id="C2e-gA-Oul"/>
+                                    <constraint firstItem="FOL-vX-fFJ" firstAttribute="leading" secondItem="mnC-mm-rfm" secondAttribute="leading" id="bTh-2F-lTC"/>
+                                    <constraint firstItem="jkr-WN-HAY" firstAttribute="height" secondItem="mnC-mm-rfm" secondAttribute="height" multiplier="187:218" id="h2r-QO-PhQ"/>
+                                    <constraint firstItem="jkr-WN-HAY" firstAttribute="leading" secondItem="mnC-mm-rfm" secondAttribute="leading" id="pKR-L1-lG0"/>
+                                    <constraint firstAttribute="trailing" secondItem="FOL-vX-fFJ" secondAttribute="trailing" constant="1" id="pNf-s9-Kvy"/>
+                                    <constraint firstAttribute="bottom" secondItem="FOL-vX-fFJ" secondAttribute="bottom" id="wIA-zm-wkd"/>
+                                </constraints>
                                 <size key="customSize" width="181" height="218"/>
                                 <connections>
                                     <outlet property="shopIMG" destination="jkr-WN-HAY" id="lL1-AH-8c2"/>
@@ -124,7 +135,7 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-td-EQQ">
                                                 <rect key="frame" x="37" y="547" width="300" height="444"/>
-                                                <mutableString key="text">1. 이 T-coin은, 선불교통카드에 T-money를 충전하실 수 있는 쿠폰으로 휴대전화 문자메시지로 전송됩니다. 2. 이 T-coin은 교통카드 충전결제앱 또는 모바일 T- money, GS25(편의점)에서 충전하실 수 있습니다. [티머니카드 충전] ▶ 교통카드 충전결재 앱 설치 → 충전 → 티코인 선택 → 충전권 번호 입력 → 충전 ▶ GS25(편의점) 방문 → 메시지 화면과 티머니카드 제시 → 충전 [모바일티머니 충전] ▶ 모바일 T-money → 충전하기 → T-coin → 인증번호 (숫자12자리)입력 → 충전 3. 이 T-coin을 통해 충전한 T-money는 대중교통(지하철, 버스,택시)은 물론 T-money 온/오프라인 가맹점에서 사용하실 수 있습니다. 4. 이 T-coin은 현금으로 교환되지 않으며, 유효기간이 경과하면 사용하실 수 없습니다. ※ 충전 관련 문의는 1899-2823번으로 전화주시기 바랍니다. 5. 배송일(문자전송일) - 매월 1~10일 신청 : 18일 전송 - 매월 11~20일 신청 : 28일 전송 - 매월 21~말일 신청 : 익월 8일 전송 ※ 신청기간(10일) 동안 1회의 신청만 가능합니다.</mutableString>
+                                                <string key="text">1. 이 T-coin은, 선불교통카드에 T-money를 충전하실 수 있는 쿠폰으로 휴대전화 문자메시지로 전송됩니다. 2. 이 T-coin은 교통카드 충전결제앱 또는 모바일 T- money, GS25(편의점)에서 충전하실 수 있습니다. [티머니카드 충전] ▶ 교통카드 충전결재 앱 설치 → 충전 → 티코인 선택 → 충전권 번호 입력 → 충전 ▶ GS25(편의점) 방문 → 메시지 화면과 티머니카드 제시 → 충전 [모바일티머니 충전] ▶ 모바일 T-money → 충전하기 → T-coin → 인증번호 (숫자12자리)입력 → 충전 3. 이 T-coin을 통해 충전한 T-money는 대중교통(지하철, 버스,택시)은 물론 T-money 온/오프라인 가맹점에서 사용하실 수 있습니다. 4. 이 T-coin은 현금으로 교환되지 않으며, 유효기간이 경과하면 사용하실 수 없습니다. ※ 충전 관련 문의는 1899-2823번으로 전화주시기 바랍니다. 5. 배송일(문자전송일) - 매월 1~10일 신청 : 18일 전송 - 매월 11~20일 신청 : 28일 전송 - 매월 21~말일 신청 : 익월 8일 전송 ※ 신청기간(10일) 동안 1회의 신청만 가능합니다.</string>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

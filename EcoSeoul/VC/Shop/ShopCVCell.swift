@@ -12,4 +12,10 @@ class ShopCVCell: UICollectionViewCell {
     @IBOutlet weak var shopIMG: UIImageView!
     @IBOutlet weak var shopLB: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+    }
+    
 }
