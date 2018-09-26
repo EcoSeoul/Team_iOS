@@ -46,6 +46,52 @@ class HomeVC: UIViewController, APIService {
          donwnBtnAnimate()
     }
     
+    
+    func mainDataInit(url : String){
+        MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+            case .networkSuccess(let data):
+                self.setDB(data as! MainData)
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+                break
+            default :
+                break
+            }
+        })
+        
+    }
+    
+    func setDB(_ data: MainData){
+        //CircleView(Carbon)
+        self.userDefault.set(data.term[0], forKey: "termStart")
+        self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")
+        self.userDefault.set(data.usageData.carbonData.past, forKey: "pastTotalCarbon")
+        //WaveView(Elec,Water,Gas)
+        let elecData = data.usageData.elecData
+        let waterData = data.usageData.waterData
+        let gasData = data.usageData.gasData
+        
+        self.userDefault.set(elecData.past, forKey: "elecPast")
+        self.userDefault.set(elecData.present, forKey: "elecPresent")
+        self.userDefault.set(elecData.percent, forKey: "elecPercent")
+        self.userDefault.set(elecData.updown, forKey: "elecUpDown")
+        
+        self.userDefault.set(waterData.past, forKey: "waterPast")
+        self.userDefault.set(waterData.present, forKey: "waterPresent")
+        self.userDefault.set(waterData.percent, forKey: "waterPercent")
+        self.userDefault.set(waterData.updown, forKey: "waterUpDown")
+        
+        self.userDefault.set(gasData.past, forKey: "gasPast")
+        self.userDefault.set(gasData.present, forKey: "gasPresent")
+        self.userDefault.set(gasData.percent, forKey: "gasPercent")
+        self.userDefault.set(gasData.updown, forKey: "gasUpDown")
+
+    }
+    
 
     
 }
@@ -115,28 +161,7 @@ extension HomeVC {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
-    
-    func mainDataInit(url : String){
-        MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
-            guard let `self` = self else { return }
-            
-            switch result {
-            case .networkSuccess(let data):
-                let datas = data as! MainData
-                self.userDefault.set(datas.usageData.carbonData.present, forKey: "totalCarbon")
-                self.userDefault.set(datas.usageData.carbonData.past, forKey: "pastTotalCarbon")
-                self.userDefault.set(datas.term[0], forKey: "termStart")
-                
-                break
-            case .networkFail :
-                self.simpleAlert(title: "network", message: "check")
-                break
-            default :
-                break
-            }
-        })
-        
-    }
+
 
     func setVC(){
         

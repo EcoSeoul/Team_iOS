@@ -124,8 +124,8 @@ class CircleGraph{
         }
         else {
             updownImage.image = #imageLiteral(resourceName: "percentage-up")
-            percentLabel.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            colorLayer.strokeColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            percentLabel.textColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+            colorLayer.strokeColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
         }
         
         
@@ -228,9 +228,9 @@ class CircleGraph{
             if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
         }
         if per < 0 {
-            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
-            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
-            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
+            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
+            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
+            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
         }
         
    
