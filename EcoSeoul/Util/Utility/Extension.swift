@@ -27,7 +27,15 @@ extension UIViewController{
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
+    //예아니오 Alert창
+    func simpleAlertwithHandler(title: String, message: String, okHandler : ((UIAlertAction) -> Void)?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .default, handler: okHandler)
+        let cancelAction = UIAlertAction(title: "취소",style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
     //바코드 생성
     func generateBarcodeFromString(string: String)-> UIImage?{
         
