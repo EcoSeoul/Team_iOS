@@ -12,26 +12,27 @@ import XLPagerTabStrip
 class MileageTVC: UITableViewController, APIService {
     
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userDefault = UserDefaults.standard
     var mileageListDataArr : [MileageListData]?
     
-    //적립 마일리지, 사용 마일리지 레이블
+    //적립 마일리지, 사용 마일리지 레이블, 현재 마일리지 레이블
     @IBOutlet weak var depositMileage: UILabel!
     @IBOutlet weak var withdrawMileage: UILabel!
+    @IBOutlet weak var currentMileage: UILabel!
+    
     var deposit = 0
     var withdraw = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
         
-        //통신
-        self.getPayList(url: url("/mypage/usage/\(userIdx)/0"))
-
+        currentMileage.text = String(userDefault.integer(forKey: "userMileage"))
+        getMileageData(url: url("/mypage/usage/\(userIdx)/0"))
     }
     
-    func getPayList(url : String){
+    func getMileageData(url : String){
         
         MileageListService.shareInstance.getMileageData(url: url, completion: { [weak self] (result) in
             guard let `self` = self else { return }

@@ -64,13 +64,10 @@ class AffiliationVC: UIViewController, APIService {
         default: break
         }
         
-        //통신
         franDataInit(url : url("/franchise/\(tag)"))
         
         
     }
-    
-    
     
     func franDataInit(url : String){
         FranchiseService.shareInstance.getFranchiseData(url: url, completion: { [weak self] (result) in

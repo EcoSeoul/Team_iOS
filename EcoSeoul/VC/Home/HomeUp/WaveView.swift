@@ -60,7 +60,7 @@ class WaveView: UIView{
 
     //퍼센트 레이블
     var percentLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x:152, y:232, width:41, height: 29))
+        let label = UILabel(frame: CGRect(x:157, y:232, width:41, height: 29))
         label.textAlignment = .center
         label.font = UIFont(name: notoSansFont.Regular.rawValue, size: 20)
         label.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
@@ -156,6 +156,7 @@ class WaveView: UIView{
             case 2:
                 updownImage.image = #imageLiteral(resourceName: "percentage-up")
                 contentLabel.text = "작년보다 \(data.percent)%를 \n과소비 했어요! ㅠㅠ"
+                percentLabel.textColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
                 
                 break
             default: break

@@ -11,23 +11,24 @@ import XLPagerTabStrip
 
 class MoneyTVC: UITableViewController, APIService {
     
+    let userDefault = UserDefaults.standard
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var moneyListDataArr: [MoneyListData]?
     
-    //적립 머니, 사용 머니 레이블
+    //적립 머니, 사용 머니 레이블, 현재 머니 레이블
     @IBOutlet weak var depositMoney: UILabel!
     @IBOutlet weak var withdrawMoney: UILabel!
+    @IBOutlet weak var currentMoney: UILabel!
     var deposit = 0
     var withdraw = 0
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
         
-        //통신
-        self.getMoneyData(url: url("/mypage/usage/\(userIdx)/1"))
+        currentMoney.text = String(userDefault.integer(forKey: "userMoney"))
+        getMoneyData(url: url("/mypage/usage/\(userIdx)/1"))
     }
     
     

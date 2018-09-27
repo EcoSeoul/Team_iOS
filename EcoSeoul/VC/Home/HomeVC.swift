@@ -19,7 +19,6 @@ class HomeVC: UIViewController, APIService {
     var homeUpVC: HomeUpVC?
     var homeDownVC: HomeDownVC?
     
-    //to identify vertical Index
     let userDefault = UserDefaults.standard
     let userIdx = UserDefaults.standard.string(forKey: "userIdx")!
    
@@ -33,8 +32,7 @@ class HomeVC: UIViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
-        
-        //통신
+    
         mainDataInit(url : url("/home/\(userIdx)"))
         
         setVC()
@@ -152,7 +150,6 @@ extension HomeVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        //통신
         mainDataInit(url : url("/home/\(userIdx)"))
         
     }

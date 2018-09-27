@@ -22,7 +22,6 @@ class BarcodeVC: UIViewController {
     
     var barcodeSerial: String?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         //make background blurred.

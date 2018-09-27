@@ -10,14 +10,19 @@ import UIKit
 
 class RequestListTVCell: UITableViewCell {
 
+    @IBOutlet weak var requestImage: UIImageView!
+    @IBOutlet weak var requestTitle: UILabel!
+    @IBOutlet weak var requestDate: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 

@@ -10,6 +10,13 @@ import UIKit
 
 class PostListTVCell: UITableViewCell {
 
+    @IBOutlet weak var postTitleLB: UILabel!
+    @IBOutlet weak var postContentLB: UILabel!
+    @IBOutlet weak var postDateLB: UILabel!
+    
+    @IBOutlet weak var postLikeLB: UILabel!
+    @IBOutlet weak var postCmtNumLB: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

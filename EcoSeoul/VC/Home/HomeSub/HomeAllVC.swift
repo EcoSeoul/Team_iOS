@@ -26,7 +26,6 @@ class HomeAllVC: UIViewController {
         
         self.Tableview.delegate = self;
         self.Tableview.dataSource = self;
-
     }
 
     @IBAction func dismissPressed(_ sender: Any) {
@@ -52,20 +51,29 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
         cell.monthLB.text = "8"
         self.carbonLB.text = "\(carbon)"
         self.periodLB.text = "2018.\(termStart).14 ~ 2018.08.13"
-        self.percentLB.text = "\(Int(-(pastCarbon - carbon) * 100 / pastCarbon))"
         
-        if carbonUpDown == 0 {
-            upDownImg.image = UIImage()
+        if pastCarbon >= carbon {
+            self.percentLB.text = "\(Int((pastCarbon - carbon) * 100 / pastCarbon))"
         }
-        if carbonUpDown == 1 {
-            upDownImg.image = #imageLiteral(resourceName: "percentage-down")
-            
-        }
-        if carbonUpDown == 2 {
-            upDownImg.image = #imageLiteral(resourceName: "percentage-up")
+        else{
+            self.percentLB.text = "\(Int(-(pastCarbon - carbon) * 100 / pastCarbon))"
         }
         
+        switch carbonUpDown {
+            case 0 :
+                upDownImg.image = UIImage()
+                break
+            case 1:
+                upDownImg.image = #imageLiteral(resourceName: "percentage-down")
+                break
+            case 2:
+                upDownImg.image = #imageLiteral(resourceName: "percentage-up")
+                break
+            default:
+                break
+        }
         
+
         
         func setData(_ data: Percent){
             
@@ -74,15 +82,15 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
             
             switch data.updown {
                 case 0:
-                    cell.explainLB.text = "작년과 사용량이 같은 당신!\n좀 더 분발하세요! ^^"
+                    cell.explainLB.text = "작년과 사용량이 같네요~!ㅎㅎ\n좀 더 분발하세요! ^_^"
                     cell.upDownImg.image = UIImage()
                     break
                 case 1:
-                    cell.explainLB.text = "작년보다 \(data.percent)%를 절약한 당신!\n최고에요! :)"
+                    cell.explainLB.text = "작년보다 \(data.percent)%를 절약한 당신!\n정말 최고에요! 체고체고 >_< b"
                     cell.upDownImg.image = #imageLiteral(resourceName: "percentage-down")
                     break
                 case 2:
-                    cell.explainLB.text = "작년보다 \(data.percent)%를 과소비!!!\n 노력하세요! :("
+                    cell.explainLB.text = "작년보다 \(data.percent)%를 과소비!!! ㅠㅠ\n노력하세요! 지구가 아파요 :( "
                     cell.upDownImg.image = #imageLiteral(resourceName: "percentage-up")
                     break
                 default:
@@ -108,11 +116,7 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
         }
         return cell
         
-     
-        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200

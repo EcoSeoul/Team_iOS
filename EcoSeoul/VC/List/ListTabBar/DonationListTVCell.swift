@@ -10,6 +10,11 @@ import UIKit
 
 class DonationListTVCell: UITableViewCell {
 
+    @IBOutlet weak var orgNameLB: UILabel!
+    @IBOutlet weak var mileageDateLB: UILabel!
+    @IBOutlet weak var mileageWithDrawLB: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
