@@ -94,11 +94,6 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             cell.bestIMG.image = nil
         }
         
-        if let lists_ = lists {
-            cell.configure(list: lists_[indexPath.row])
-            
-            print("배열이 나오려나")
-        }
         if let communityData_ = communityData {
             if let bestlist = communityData_[0].bestList{
                 if indexPath.row < 3{
@@ -118,7 +113,17 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
-        communityVC.selectedBoardIdx = communityData[indexPath.row]
+        if let lists_ = self.lists {
+            
+            communityVC.selectedBoardIdx = lists_[indexPath.row]
+        }
+        if let data = communityData {
+            if let list = data[indexPath.row].bestList{
+                if let board : List = list[indexPath.row] {
+                    communityVC.selectedBoardIdx = board
+                }
+            }
+        }
         self.navigationController?.pushViewController(communityVC, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

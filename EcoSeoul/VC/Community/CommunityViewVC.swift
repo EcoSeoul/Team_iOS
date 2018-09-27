@@ -27,6 +27,8 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
         commnentBarShadow()
+        print("selectedBoardIDX")
+        print(selectedBoardIdx?.boardIdx as Any)
         CommunityViewInit(url: url("/board/\(selectedBoardIdx.boardIdx)/\(selectedBoardIdx.userIdx)"))
     }
     
