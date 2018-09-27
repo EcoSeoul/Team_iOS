@@ -95,12 +95,14 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         }
         
         if let communityData_ = communityData {
+            //0번째 인덱스에 bestList들만 들어 있음, allList: nil
             if let bestlist = communityData_[0].bestList{
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
                 }
             }
             
+            //반대로 1번째 인덱스엔 allList들만 들어있음, bestList: nil
             if let alllist = communityData_[1].allList{
                 if indexPath.row > 2{
                     cell.configure(list: alllist[indexPath.row-3])
@@ -113,14 +115,19 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
-        if let lists_ = self.lists {
-            
-            communityVC.selectedBoardIdx = lists_[indexPath.row]
-        }
+        //이 경우도 bestList(0~2), allList(3~) 중 어떤걸 누르는지 파악.
         if let data = communityData {
-            if let list = data[indexPath.row].bestList{
-                if let board : List = list[indexPath.row] {
-                    communityVC.selectedBoardIdx = board
+            if let list = data[0].bestList{
+                if indexPath.row < 3 {
+                        let board: List = list[indexPath.row]
+                        communityVC.selectedBoardIdx = board
+                    
+                }
+            }
+            if let list = data[1].allList{
+                if indexPath.row >= 3{
+                        let board: List  = list[indexPath.row-3]
+                        communityVC.selectedBoardIdx = board
                 }
             }
         }

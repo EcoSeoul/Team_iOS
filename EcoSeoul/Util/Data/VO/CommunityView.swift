@@ -32,7 +32,7 @@ struct BoardResult: Codable {
     let userIdx: Int
     let boardLike: Int
     let boardCmtnum: Int
-    let writerCheck: Int
+    let writerCheck: Bool
     
     enum CodingKeys: String, CodingKey {
         case boardIdx = "board_idx"

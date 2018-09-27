@@ -15,8 +15,8 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var commentSendView: UIView!
     var keyboardDismissGesture: UITapGestureRecognizer?
     
-    var communityView : CommunityView!
-    var selectedBoardIdx : List!
+    var communityView : CommunityView?
+    var selectedBoardIdx : List?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,12 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
         commnentBarShadow()
-        print("selectedBoardIDX")
-        print(selectedBoardIdx?.boardIdx as Any)
-        CommunityViewInit(url: url("/board/\(selectedBoardIdx.boardIdx)/\(selectedBoardIdx.userIdx)"))
+
+        if let sboardIdx = selectedBoardIdx{
+            print("selectedBoardIDX")
+            print(sboardIdx.boardIdx)
+            CommunityViewInit(url: url("/board/\(sboardIdx.boardIdx)/\(sboardIdx.userIdx)"))
+        }
     }
     
     func CommunityViewInit(url : String){
@@ -43,6 +46,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 self.communityView = detailView
                 print("\n communityView에 잘 들어가는지 확인하기\n")
                 print(self.communityView as Any)
+                
                 self.tableview.reloadData()
                 break
                 
@@ -107,7 +111,11 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        var rowNumber = 0
+        if let comDat = communityView {
+            rowNumber = comDat.commentResult.count
+        }
+        return rowNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
