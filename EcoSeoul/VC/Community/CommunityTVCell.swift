@@ -18,7 +18,6 @@ class CommunityTVCell: UITableViewCell {
     
     
     func configure(list : List){
-  
         titleLB.text = list.boardTitle
         contentLB.text = list.boardContent
         goodLB.text = (String)(list.boardLike)

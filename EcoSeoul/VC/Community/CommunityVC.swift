@@ -51,7 +51,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             guard let `self` = self else { return }
             
             switch result {
-                
+
             case .networkSuccess(let data):
                 self.communityData = data
                 self.tableview.reloadData()
@@ -91,21 +91,23 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.bestIMG.image = #imageLiteral(resourceName: "community-bronze")
             default:
                 cell.bestIMG.image = nil
-        }
-    
+        } 
         if let communityData_ = communityData {
-            
-            if let bestList = communityData_[0].bestList{
-                if row < 3{
-                    cell.configure(list: bestList[row])
+            //0번째 인덱스에 bestList들만 들어 있음, allList: nil
+            if let bestlist = communityData_[0].bestList{
+                if indexPath.row < 3{
+                    cell.configure(list: bestlist[indexPath.row])
                 }
             }
             
-            if let allList = communityData_[1].allList{
-                if row >= 3{
-                    cell.configure(list: allList[row-3])
+            //반대로 1번째 인덱스엔 allList들만 들어있음, bestList: nil
+            if let alllist = communityData_[1].allList{
+                if indexPath.row >= 3{
+                    cell.configure(list: alllist[indexPath.row-3])
                 }
             }
+        }
+
         
         }
        
@@ -114,13 +116,25 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
+        let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
         
-        
-        
-        
-        self.navigationController?.pushViewController(commnunityVC, animated: true)
-        
+        if let data = communityData {
+            if let list = data[0].bestList{
+                if indexPath.row < 3 {
+                        let board: List = list[indexPath.row]
+                        communityVC.selectedBoardIdx = board
+                    
+                }
+            }
+            if let list = data[1].allList{
+                if indexPath.row >= 3{
+                        let board: List  = list[indexPath.row-3]
+                        communityVC.selectedBoardIdx = board
+                }
+            }
+        }
+        self.navigationController?.pushViewController(communityVC, animated: true)
+
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90

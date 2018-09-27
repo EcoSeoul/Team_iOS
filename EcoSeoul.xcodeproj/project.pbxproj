@@ -13,6 +13,8 @@
 		3A00FC1B2157EBB6009CD296 /* CommunityWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1A2157EBB6009CD296 /* CommunityWriteVC.swift */; };
 		3A00FC1D2157EC0C009CD296 /* CommunityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1C2157EC0C009CD296 /* CommunityTVCell.swift */; };
 		3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00FC1E2157EC31009CD296 /* CommunityViewTVCell.swift */; };
+		3A0F87D4215CCAAB005D0C66 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */; };
+		3A0F87D6215CD51D005D0C66 /* CommunityVewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */; };
 		3A58376F21541FE90074BCA9 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58376E21541FE90074BCA9 /* List.storyboard */; };
 		3A583772215420DF0074BCA9 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583771215420DF0074BCA9 /* PayVC.swift */; };
 		3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837732154212F0074BCA9 /* MileageTVC.swift */; };
@@ -102,6 +104,8 @@
 		3A00FC1A2157EBB6009CD296 /* CommunityWriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWriteVC.swift; sourceTree = "<group>"; };
 		3A00FC1C2157EC0C009CD296 /* CommunityTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTVCell.swift; sourceTree = "<group>"; };
 		3A00FC1E2157EC31009CD296 /* CommunityViewTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewTVCell.swift; sourceTree = "<group>"; };
+		3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVewService.swift; sourceTree = "<group>"; };
 		3A58376E21541FE90074BCA9 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		3A583771215420DF0074BCA9 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		3A5837732154212F0074BCA9 /* MileageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTVC.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 				5064FD992159F1E200AC8A85 /* LoginService.swift */,
 				50612ABD215AA12700497DDE /* MainService.swift */,
 				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
+				3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */,
 				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
 				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
 				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
@@ -431,6 +436,7 @@
 				50CD75672159FC1F00E7B3E8 /* Login.swift */,
 				50612ABB215A980100497DDE /* Main.swift */,
 				3AB3A021215BC14100768B69 /* Community.swift */,
+				3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */,
 				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
 				505A7BEB215CE8CA00F03B24 /* MyPage.swift */,
 				505A7BEF215D053C00F03B24 /* PayList.swift */,
@@ -721,10 +727,12 @@
 				50D6FA25215C087200D4A8A3 /* FranchiseService.swift in Sources */,
 				3A583789215422970074BCA9 /* PostListTVCell.swift in Sources */,
 				3A583778215421660074BCA9 /* MileageTVCell.swift in Sources */,
+				3A0F87D6215CD51D005D0C66 /* CommunityVewService.swift in Sources */,
 				505549F6214BCB81000D2130 /* HomeVC.swift in Sources */,
 				3AB3A024215BC4D100768B69 /* CommunityService.swift in Sources */,
 				3A583783215422650074BCA9 /* PostListTVC.swift in Sources */,
 				3A5837762154214A0074BCA9 /* MoneyTVC.swift in Sources */,
+				3A0F87D4215CCAAB005D0C66 /* CommunityView.swift in Sources */,
 				3A97AB41214C143200507A9F /* MenuTVC.swift in Sources */,
 				50C620912146DD9D0018550B /* WaveGraph.swift in Sources */,
 				50C5E3152158C9D100E29C59 /* DonationVC.swift in Sources */,
