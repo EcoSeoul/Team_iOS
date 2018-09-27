@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-struct PayListService: GettableService {
+struct MileageListService: GettableService {
     
     typealias NetworkData = MileageList
-    static let shareInstance = PayListService()
+    static let shareInstance = MileageListService()
     
-    func getPayData(url : String, completion : @escaping (NetworkResult<MileageList>) -> Void){
+    func getMileageData(url : String, completion : @escaping (NetworkResult<MileageList>) -> Void){
         
         get(url) { (result) in
             switch result {

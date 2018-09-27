@@ -14,7 +14,7 @@ class MileageTVC: UITableViewController, APIService {
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var mileageListDataArr : [MileageListData]?
     
-   //적립 마일리지, 사용 마일리지 레이블
+    //적립 마일리지, 사용 마일리지 레이블
     @IBOutlet weak var depositMileage: UILabel!
     @IBOutlet weak var withdrawMileage: UILabel!
     var deposit = 0
@@ -33,7 +33,7 @@ class MileageTVC: UITableViewController, APIService {
     
     func getPayList(url : String){
         
-        PayListService.shareInstance.getPayData(url: url, completion: { [weak self] (result) in
+        MileageListService.shareInstance.getMileageData(url: url, completion: { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
             case .networkSuccess(let data):

@@ -551,6 +551,10 @@
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="my-money-save" translatesAutoresizingMaskIntoConstraints="NO" id="DKo-gw-oM2">
                                     <rect key="frame" x="24" y="149" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="9aF-Ys-oDP"/>
+                                        <constraint firstAttribute="width" constant="25" id="Dj4-Sc-dbt"/>
+                                    </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="적립 포인트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-lP-rgv">
                                     <rect key="frame" x="53" y="153" width="64" height="20"/>
@@ -654,6 +658,12 @@
                                         <constraint firstItem="Tzg-CC-Zyz" firstAttribute="top" secondItem="Om8-2K-HfL" secondAttribute="top" constant="23" id="iDJ-4h-P5s"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="moneyIcon" destination="AhR-WI-O5s" id="2oh-hc-6mi"/>
+                                    <outlet property="plusminusLB" destination="Tzg-CC-Zyz" id="H3t-Hz-JHu"/>
+                                    <outlet property="usageDateLB" destination="pVc-h4-jRh" id="ebo-K6-nF0"/>
+                                    <outlet property="usageTitleLB" destination="vS5-39-kig" id="Z8o-5V-Exc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -661,6 +671,10 @@
                             <outlet property="delegate" destination="YgX-QQ-DEX" id="vEi-qR-8In"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="depositMoney" destination="7og-9f-oPT" id="yRr-j7-3eR"/>
+                        <outlet property="withdrawMoney" destination="9Jd-69-oaU" id="JTa-eW-NAk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9B-IG-LF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
