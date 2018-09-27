@@ -77,6 +77,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         return rowNumber
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityTVCell") as!  CommunityTVCell
@@ -91,8 +92,10 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.bestIMG.image = #imageLiteral(resourceName: "community-bronze")
             default:
                 cell.bestIMG.image = nil
-        } 
+        }
+        
         if let communityData_ = communityData {
+            
             //0번째 인덱스에 bestList들만 들어 있음, allList: nil
             if let bestlist = communityData_[0].bestList{
                 if indexPath.row < 3{
@@ -108,12 +111,10 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             }
         }
 
-        
-        }
-       
-
-        return cell
+         return cell
     }
+    
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
@@ -136,6 +137,8 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.navigationController?.pushViewController(communityVC, animated: true)
 
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }

@@ -9,12 +9,10 @@
 import Foundation
 
 struct LoginData: Codable {
-  //let status : Bool
     let message: String
     let checkResult : [Login]
     
     enum CodingKeys: String, CodingKey {
-      //case status = "status"
         case message = "message"
         case checkResult = "checkResult"
     }
@@ -46,19 +44,19 @@ struct Login: Codable {
 
 //EXAMPLE
 //{
-//  "message": "Login Success",
-//  "checkResult": [
-//      {
-//       "user_idx": 1,
-//       "user_ID": "timi",
-//       "user_pw": "123",
-//       "user_name": "timti",
-//       "user_barcodenum": "2312323",
-//       "user_mileage": 20000,
-//       "user_money": 10000,
-//       "user_join_date": "2018-01-23T00:00:00.000Z"
-//      }
-//  ]
+//    "message": "Login Success",
+//    "checkResult": [
+//    {
+//    "user_idx": 1,
+//    "user_ID": "timi",
+//    "user_pw": "123",
+//    "user_name": "timti",
+//    "user_barcodenum": "2312323",
+//    "user_mileage": 20000,
+//    "user_money": 10000,
+//    "user_join_date": "2018-04-10T00:00:00.000Z"
+//    }
+//    ]
 //}
 
 

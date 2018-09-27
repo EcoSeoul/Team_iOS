@@ -435,10 +435,10 @@
 				50CD7569215A42A700E7B3E8 /* Default.swift */,
 				50CD75672159FC1F00E7B3E8 /* Login.swift */,
 				50612ABB215A980100497DDE /* Main.swift */,
+				505A7BEB215CE8CA00F03B24 /* MyPage.swift */,
+				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
 				3AB3A021215BC14100768B69 /* Community.swift */,
 				3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */,
-				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
-				505A7BEB215CE8CA00F03B24 /* MyPage.swift */,
 				505A7BEF215D053C00F03B24 /* PayList.swift */,
 			);
 			path = VO;
