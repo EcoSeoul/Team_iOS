@@ -96,7 +96,7 @@ class CircleGraph{
         
         durationLabel.center = CGPoint(x: parentView.layer.bounds.midX, y: 217)
         co2Label.center = CGPoint(x: parentView.layer.bounds.midX, y: 269.5)
-        percentLabel.center = CGPoint(x: 165.5 , y: 326)
+        percentLabel.center = CGPoint(x: 166.5 , y: 326)
         updownImage.center = CGPoint(x: 133.5 , y: 326)
         nothingLabel.center = CGPoint(x: 220, y: 328)
         

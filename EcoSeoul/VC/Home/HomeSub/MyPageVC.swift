@@ -50,6 +50,7 @@ class MyPageVC: UIViewController, APIService {
         self.dismiss(animated: true, completion: nil)
     }
     
+
     @IBAction func mileageDetailBtn(_ sender: Any) {
         UserDefaults.standard.set(0, forKey: "check")
         let mileageVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "PayVC") as! PayVC
