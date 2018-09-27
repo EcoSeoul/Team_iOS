@@ -18,7 +18,7 @@ class CommunityViewTVCell: UITableViewCell {
         // Initialization code
     }
     func commentConfig(comment : CommentResult){
-        nicknameLB.text = (String)(comment.userIdx)
+        nicknameLB.text = (String)(comment.userID)
         commentLB.text = comment.cmtContent
         dateLB.text = comment.cmtDate
     }
