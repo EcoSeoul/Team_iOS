@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class RequestListTVC: UITableViewController {
+class RequestListTVC: UITableViewController, APIService {
     
     override func viewDidLoad() {
         super.viewDidLoad()
