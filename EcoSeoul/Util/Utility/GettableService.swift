@@ -40,7 +40,7 @@ extension GettableService {
                         let data = try decoder.decode(NetworkData.self, from: value)
                         
                         completion(.success(data))
-                    
+
                         
                     }catch{
                         
