@@ -42,6 +42,7 @@
 		3AB3A024215BC4D100768B69 /* CommunityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3A023215BC4D100768B69 /* CommunityService.swift */; };
 		5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB372147BB4E00A59B48 /* CircleView.swift */; };
 		5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023DB392147BB6100A59B48 /* WaveView.swift */; };
+		5027F864215D4DA000D9C643 /* MoneyListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027F863215D4DA000D9C643 /* MoneyListService.swift */; };
 		502A245C2151670300421F9F /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A245B2151670300421F9F /* MyPageVC.swift */; };
 		502A245E2151677B00421F9F /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502A245D2151677B00421F9F /* Pay.storyboard */; };
 		502A246121516A7500421F9F /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502A246021516A7500421F9F /* CardVC.swift */; };
@@ -133,6 +134,7 @@
 		3AB3A023215BC4D100768B69 /* CommunityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityService.swift; sourceTree = "<group>"; };
 		5023DB372147BB4E00A59B48 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		5023DB392147BB6100A59B48 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		5027F863215D4DA000D9C643 /* MoneyListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyListService.swift; sourceTree = "<group>"; };
 		502A245B2151670300421F9F /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		502A245D2151677B00421F9F /* Pay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
 		502A246021516A7500421F9F /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
 				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
 				505A7BF1215D163700F03B24 /* MileageListService.swift */,
+				5027F863215D4DA000D9C643 /* MoneyListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				50B94A5F21595D5C00DB3FDA /* APIService.swift in Sources */,
 				505A7BF2215D163700F03B24 /* MileageListService.swift in Sources */,
 				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
+				5027F864215D4DA000D9C643 /* MoneyListService.swift in Sources */,
 				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,
 				5064FD9A2159F1E200AC8A85 /* LoginService.swift in Sources */,

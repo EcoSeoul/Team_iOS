@@ -24,6 +24,7 @@ extension GettableService {
     
     func get(_ URL:String, completion : @escaping (Result<NetworkData>)->Void){
         Alamofire.request(URL).responseData {(res) in
+            
             print("\nURL!!!!!!!!!!!!!!!!!")
             print(URL)
             

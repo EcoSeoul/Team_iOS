@@ -22,8 +22,6 @@ struct MainService: GettableService {
             case .success(let networkResult):
                 switch networkResult.message {
                 case "Successfully Get Data" :
-                    print("\n서버로부터 받은 메인 정보 출력!\n")
-                    print("\(networkResult)\n")
                     completion(.networkSuccess(networkResult))
                 case "Null Value : User Index" :
                     completion(.nullValue)

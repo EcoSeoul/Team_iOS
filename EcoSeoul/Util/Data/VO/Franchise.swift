@@ -71,17 +71,10 @@ struct FranchiseData: Codable {
 
 struct FranchiseDetail: Codable {
     let message: String
-    let data: [FranchiseInform]
+    let frcInfo: [FranchiseDetailData]
     
     enum CodingKeys: String, CodingKey{
         case message = "message"
-        case data = "data"
-    }
-}
-
-struct FranchiseInform: Codable {
-    let frcInfo: [FranchiseDetailData]
-    enum CodingKeys: String, CodingKey{
         case frcInfo = "frc_information"
     }
 }
@@ -117,8 +110,6 @@ struct FranchiseDetailData: Codable {
 //Example
 //{
 //    "message": "OK",
-//    "data": [
-//    {
 //    "frc_information": [
 //    {
 //    "frc_idx": 8,
@@ -132,6 +123,5 @@ struct FranchiseDetailData: Codable {
 //    "frc_type": 1
 //    }
 //    ]
-//    }
 //    ]
 //}

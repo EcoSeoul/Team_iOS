@@ -1,8 +1,8 @@
 //
-//  MyPageService.swift
+//  MoneyListService.swift
 //  EcoSeoul
 //
-//  Created by 이충신 on 2018. 9. 27..
+//  Created by 이충신 on 2018. 9. 28..
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
@@ -10,18 +10,19 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-struct MyPageService: GettableService {
+struct MoneyListService: GettableService {
     
-    typealias NetworkData = MyPage
-    static let shareInstance = MyPageService()
+    typealias NetworkData = MoneyList
+    static let shareInstance = MoneyListService()
     
-    func getMyPageData(url : String, completion : @escaping (NetworkResult<MyPageData>) -> Void){
+    func getMoneyData(url : String, completion : @escaping (NetworkResult<MoneyList>) -> Void){
+        
         get(url) { (result) in
             switch result {
             case .success(let networkResult):
                 switch networkResult.message {
-                case "Successfully select data" :
-                    completion(.networkSuccess(networkResult.result[0]))
+                case "Successfully Get Data" :
+                    completion(.networkSuccess(networkResult))
                 case "Internal Server Error!" :
                     completion(.serverErr)
                 default :

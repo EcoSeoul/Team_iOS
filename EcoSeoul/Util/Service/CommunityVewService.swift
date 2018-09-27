@@ -22,12 +22,9 @@ struct CommunityViewService: GettableService {
             case .success(let networkResult):
                 switch networkResult.message {
                 case "Success" :
-                    print("\n서버로부터 받은 커뮤니티 detail 정보 출력!\n")
-                    print("\(networkResult)\n")
                     completion(.networkSuccess(networkResult))
-                    
-                    //                case "Internal Server Error!" :
-                //                    completion(.serverErr)
+                case "Internal Server Error!" :
+                    completion(.serverErr)
                 default :
                     break
                 }

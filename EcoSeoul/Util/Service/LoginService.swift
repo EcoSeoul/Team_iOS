@@ -21,8 +21,6 @@ struct LoginService: PostableService {
       
             switch result {
                 case .success(let networkResult):
-                    print("\n서버로부터 받은 로그인 정보 출력!\n")
-                    print("\(networkResult)\n")
                     switch networkResult.message {
                         case "Login Success" :
                             completion(.networkSuccess(networkResult.checkResult[0]))

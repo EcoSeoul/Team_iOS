@@ -22,8 +22,6 @@ struct MileageListService: GettableService {
             case .success(let networkResult):
                 switch networkResult.message {
                 case "Successfully Get Data" :
-                    // print("\n서버로부터 받은 프랜차이즈 상세 정보 출력!\n")
-                    // print("\(networkResult)\n")
                     completion(.networkSuccess(networkResult))
                 case "Internal Server Error!" :
                     completion(.serverErr)
