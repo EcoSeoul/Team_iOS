@@ -13,6 +13,7 @@ import UIKit
 class HomeDownVC: UIViewController {
     
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userDefault = UserDefaults.standard
     
     @IBOutlet weak var barcodeBar: UILabel!
     @IBOutlet weak var barcodeBtn: UIButton!
@@ -31,9 +32,7 @@ class HomeDownVC: UIViewController {
         return arr
     }()
     
-    //인덱스를 저장하기 위한 공간
-    let userDefault = UserDefaults.standard
-    
+   
     //TableView Expand/Collapse Flag
     var expandCol : Bool = false
     
@@ -74,6 +73,7 @@ class HomeDownVC: UIViewController {
     
     //바코드 버튼 클릭
     @IBAction func barcodePressed(_ sender: Any) {
+        //1)바코드가 있는 경우
         if barcodeSerial != nil {
             let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
             barcodeVC.barcodeSerial = self.barcodeSerial
@@ -90,7 +90,8 @@ class HomeDownVC: UIViewController {
             
             self.view.addSubview(barcodeVC.view)
             barcodeVC.didMove(toParentViewController: self)
-            }
+        }
+        //2)바코드가 없는 경우(->카드 등록창으로 유도)
         else {
             print("카드생성 팝업이 뜨게 해줘야합니다!!! 구현하세요!")
         }

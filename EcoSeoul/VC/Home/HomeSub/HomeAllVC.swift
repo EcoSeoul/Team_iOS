@@ -26,7 +26,6 @@ class HomeAllVC: UIViewController {
         
         self.Tableview.delegate = self;
         self.Tableview.dataSource = self;
-
     }
 
     @IBAction func dismissPressed(_ sender: Any) {
@@ -52,20 +51,29 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
         cell.monthLB.text = "8"
         self.carbonLB.text = "\(carbon)"
         self.periodLB.text = "2018.\(termStart).14 ~ 2018.08.13"
-        self.percentLB.text = "\(Int(-(pastCarbon - carbon) * 100 / pastCarbon))"
         
-        if carbonUpDown == 0 {
-            upDownImg.image = UIImage()
+        if pastCarbon >= carbon {
+            self.percentLB.text = "\(Int((pastCarbon - carbon) * 100 / pastCarbon))"
         }
-        if carbonUpDown == 1 {
-            upDownImg.image = #imageLiteral(resourceName: "percentage-down")
-            
-        }
-        if carbonUpDown == 2 {
-            upDownImg.image = #imageLiteral(resourceName: "percentage-up")
+        else{
+            self.percentLB.text = "\(Int(-(pastCarbon - carbon) * 100 / pastCarbon))"
         }
         
+        switch carbonUpDown {
+            case 0 :
+                upDownImg.image = UIImage()
+                break
+            case 1:
+                upDownImg.image = #imageLiteral(resourceName: "percentage-down")
+                break
+            case 2:
+                upDownImg.image = #imageLiteral(resourceName: "percentage-up")
+                break
+            default:
+                break
+        }
         
+
         
         func setData(_ data: Percent){
             
@@ -108,11 +116,7 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
         }
         return cell
         
-     
-        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200

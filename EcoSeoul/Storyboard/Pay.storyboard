@@ -371,6 +371,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="currentMileage" destination="pwb-SQ-lzR" id="Zcz-uU-3Ml"/>
                         <outlet property="depositMileage" destination="wze-kT-XfK" id="eX3-GM-j5O"/>
                         <outlet property="withdrawMileage" destination="ocg-Rp-Ch7" id="XK6-zh-mAU"/>
                     </connections>
@@ -672,6 +673,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="currentMoney" destination="zb3-4w-x1Y" id="rNi-as-VRt"/>
                         <outlet property="depositMoney" destination="7og-9f-oPT" id="yRr-j7-3eR"/>
                         <outlet property="withdrawMoney" destination="9Jd-69-oaU" id="JTa-eW-NAk"/>
                     </connections>

@@ -51,13 +51,13 @@ class LoginVC: UIViewController, APIService {
                     let datas = data as! Login
                     self.userDefault.set(datas.userIdx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
-                    self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
                     self.userDefault.set(datas.userName, forKey: "userName")
-                    
+                    self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
+                    self.userDefault.set(datas.userMileage, forKey: "userMileage")
+                   
                     guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
                     else { return }
                     self.navigationController?.pushViewController(homeVC, animated: true)
-                    
                     break
                 case .wrongInput :
                     self.simpleAlert(title: "오류", message: "아이디와 비밀번호를 확인해주세요 :)")

@@ -34,6 +34,7 @@ class MyPageVC: UIViewController, APIService {
                 case .networkSuccess(let data):
                     self.mileageLB.text = String(data.userMileage)
                     self.moneyLB.text = String(data.userMoney)
+                    UserDefaults.standard.set(data.userMoney, forKey: "userMoney")
                 break
             case .networkFail :
                 self.simpleAlert(title: "network", message: "check")
