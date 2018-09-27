@@ -646,6 +646,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mileageLB" destination="1HZ-wp-6KT" id="pp8-Rf-txq"/>
+                        <outlet property="moneyLB" destination="ptn-v6-sdE" id="T2c-dZ-Ezu"/>
                         <outlet property="tableview" destination="IhL-aA-3u7" id="xdt-IF-lho"/>
                     </connections>
                 </viewController>

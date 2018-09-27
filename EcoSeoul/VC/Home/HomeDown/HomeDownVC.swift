@@ -12,6 +12,8 @@ import UIKit
 
 class HomeDownVC: UIViewController {
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    
     @IBOutlet weak var barcodeBar: UILabel!
     @IBOutlet weak var barcodeBtn: UIButton!
     @IBOutlet weak var horizontalScroll: UIScrollView!
@@ -100,7 +102,7 @@ class HomeDownVC: UIViewController {
         let myPageVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
         self.present(myPageVC, animated: true, completion: nil)
     }
-
+    
     
 }
 

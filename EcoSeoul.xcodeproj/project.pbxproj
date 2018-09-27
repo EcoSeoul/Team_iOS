@@ -60,6 +60,7 @@
 		505549F6214BCB81000D2130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F5214BCB81000D2130 /* HomeVC.swift */; };
 		505549F9214BCC98000D2130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F8214BCC98000D2130 /* LoginVC.swift */; };
 		505A7BEC215CE8CA00F03B24 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BEB215CE8CA00F03B24 /* MyPage.swift */; };
+		505A7BEE215CE9BD00F03B24 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BED215CE9BD00F03B24 /* MyPageService.swift */; };
 		50612ABC215A980100497DDE /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABB215A980100497DDE /* Main.swift */; };
 		50612ABE215AA12700497DDE /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABD215AA12700497DDE /* MainService.swift */; };
 		5064FD942159F16200AC8A85 /* GettableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD932159F16200AC8A85 /* GettableService.swift */; };
@@ -146,6 +147,7 @@
 		505549F5214BCB81000D2130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		505549F8214BCC98000D2130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		505A7BEB215CE8CA00F03B24 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		505A7BED215CE9BD00F03B24 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
 		50612ABB215A980100497DDE /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		50612ABD215AA12700497DDE /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		5064FD932159F16200AC8A85 /* GettableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettableService.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
 				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
 				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
+				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505A7BEE215CE9BD00F03B24 /* MyPageService.swift in Sources */,
 				5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */,
 				3A583787215422890074BCA9 /* DonationListTVCell.swift in Sources */,
 				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
