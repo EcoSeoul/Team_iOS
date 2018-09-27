@@ -24,8 +24,6 @@ struct FranchiseService: GettableService {
             case .success(let networkResult):
                 switch networkResult.message {
                 case "ok" :
-//                    print("\n서버로부터 받은 프렌차이즈 정보 출력!\n")
-//                    print("\(networkResult)\n")
                     completion(.networkSuccess(networkResult.data))
                 case "Internal Server Error!" :
                     completion(.serverErr)

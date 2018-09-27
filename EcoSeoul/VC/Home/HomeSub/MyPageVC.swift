@@ -9,12 +9,12 @@
 import UIKit
 
 class MyPageVC: UIViewController, APIService {
-
+    
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var mileageLB: UILabel!
     @IBOutlet weak var moneyLB: UILabel!
-    
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MyPageVC: UIViewController, APIService {
         tableview.delegate = self;
         tableview.dataSource = self;
     
-        myPageInit(url: "/mypage/\(userIdx)")
+        myPageInit(url: url("/mypage/\(userIdx)"))
  
     }
 

@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class MoneyTVC: UITableViewController {
+class MoneyTVC: UITableViewController, APIService {
     
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var moneyListDataArr: [MoneyListData]?
@@ -26,30 +26,29 @@ class MoneyTVC: UITableViewController {
         // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
         
-//        //통신
-//        self.getPayList(url: url("/mypage/usage/\(userIdx)/0"))
+        //통신
+        self.getMoneyData(url: url("/mypage/usage/\(userIdx)/1"))
     }
     
     
-//    func getPayList(url : String){
-//
-//        PayListService.shareInstance.getPayData(url: url, completion: { [weak self] (result) in
-//            guard let `self` = self else { return }
-//            switch result {
-//            case .networkSuccess(let data):
-//                self.moneyListDataArr = data.
-//                self.tableView.reloadData()
-//                break
-//
-//            case .networkFail :
-//                self.simpleAlert(title: "network", message: "check")
-//            default :
-//                break
-//            }
-//
-//        })
-//
-//    }
+    func getMoneyData(url : String){
+
+        MoneyListService.shareInstance.getMoneyData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .networkSuccess(let data):
+                self.moneyListDataArr = data.moneyTotalUsage
+                self.tableView.reloadData()
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+
+        })
+
+    }
     
     
     // MARK: - Table view data source
@@ -61,15 +60,29 @@ class MoneyTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoneyTVCell", for: indexPath) as! MoneyTVCell
+        let row = indexPath.row
         
-//        if let moneyArr = moneyListDataArr {
-//            
-//            cell.usageTitleLB.text = moneyArr[row]
-//            
-//            
-//            
-//            
-//        }
+
+        if let moneyArr = moneyListDataArr {
+            
+            cell.usageTitleLB.text = moneyArr[row].moneyUsage
+            cell.usageDateLB.text = moneyArr[row].moneyDate
+            
+            if moneyArr[row].moneyDeposit != nil {
+                deposit += moneyArr[row].moneyDeposit!
+                cell.plusminusLB.text = String("+\(moneyArr[row].moneyDeposit!)")
+            }
+            else {
+                withdraw += moneyArr[row].moneyWithdraw!
+                cell.plusminusLB.text = String("-\(moneyArr[row].moneyWithdraw!)")
+                cell.plusminusLB.textColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+                cell.moneyIcon.image = #imageLiteral(resourceName: "my-mileage-use")
+            }
+            
+            depositMoney.text = "\(deposit)"
+            withdrawMoney.text = "\(withdraw)"
+  
+        }
         
         
         

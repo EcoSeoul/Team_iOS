@@ -49,13 +49,14 @@ class CircleGraph{
         return label
     }()
     
-    //CO2 감소량 레이블
+    //CO2 전체 배출량 레이블
     var co2Label: UILabel = {
         let totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
         let label = UILabel(frame: CGRect(x:0, y:0, width:196, height: 64))
         label.textAlignment = .center
         label.font = UIFont(name: notoSansFont.Medium.rawValue, size: 38)
         label.text = "\(totalCarbon)kgCO2"
+        label.sizeToFit()
         label.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         return label
     }()
