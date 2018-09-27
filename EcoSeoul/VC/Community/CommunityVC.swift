@@ -13,7 +13,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     @IBOutlet weak var tableview: UITableView!
     
-    var communityData : [CommunityData]?
+    var communityData : Community?
     var lists : [List]?
     
     var backBtn: UIBarButtonItem = {
@@ -70,7 +70,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowNumber = 0
         if let comDat = communityData {
-            if let best = comDat[0].bestList, let all = comDat[1].allList{
+            if let best = comDat.bestList, let all = comDat.allList{
                 rowNumber = best.count + all.count
             }
         }
@@ -97,14 +97,14 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if let communityData_ = communityData {
             
             //0번째 인덱스에 bestList들만 들어 있음, allList: nil
-            if let bestlist = communityData_[0].bestList{
+            if let bestlist = communityData_.bestList{
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
                 }
             }
             
             //반대로 1번째 인덱스엔 allList들만 들어있음, bestList: nil
-            if let alllist = communityData_[1].allList{
+            if let alllist = communityData_.allList{
                 if indexPath.row >= 3{
                     cell.configure(list: alllist[indexPath.row-3])
                 }
@@ -120,14 +120,14 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
         
         if let data = communityData {
-            if let list = data[0].bestList{
+            if let list = data.bestList{
                 if indexPath.row < 3 {
                         let board: List = list[indexPath.row]
                         communityVC.selectedBoardIdx = board
                     
                 }
             }
-            if let list = data[1].allList{
+            if let list = data.allList{
                 if indexPath.row >= 3{
                         let board: List  = list[indexPath.row-3]
                         communityVC.selectedBoardIdx = board
