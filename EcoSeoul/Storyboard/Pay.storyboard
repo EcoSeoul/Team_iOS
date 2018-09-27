@@ -250,6 +250,10 @@
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-mileage-save" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-XD-Wg5">
                                     <rect key="frame" x="24" y="149" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="RB9-kD-jBd"/>
+                                        <constraint firstAttribute="height" constant="25" id="iuf-cq-x7A"/>
+                                    </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="적립 마일리지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-tS-B0X">
                                     <rect key="frame" x="53" y="153" width="76" height="20"/>
@@ -272,13 +276,13 @@
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ocg-Rp-Ch7">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ocg-Rp-Ch7">
                                     <rect key="frame" x="310" y="148" width="48" height="26"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wze-kT-XfK">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wze-kT-XfK">
                                     <rect key="frame" x="137" y="149" width="48" height="26"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -353,6 +357,12 @@
                                         <constraint firstItem="q9Y-25-aE4" firstAttribute="leading" secondItem="Zwd-t0-N1R" secondAttribute="leading" constant="24" id="zio-mj-omi"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mileageIcon" destination="q9Y-25-aE4" id="i9C-Ha-8Rd"/>
+                                    <outlet property="plusminusLB" destination="Khj-kk-Zp0" id="WHD-YQ-gLE"/>
+                                    <outlet property="usageDateLB" destination="wED-sa-0vI" id="RVR-vg-beO"/>
+                                    <outlet property="usageTitleLB" destination="A24-ho-afh" id="Zce-NG-GsV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -360,6 +370,10 @@
                             <outlet property="delegate" destination="8e1-ZL-UbB" id="LKP-1d-LyS"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="depositMileage" destination="wze-kT-XfK" id="eX3-GM-j5O"/>
+                        <outlet property="withdrawMileage" destination="ocg-Rp-Ch7" id="XK6-zh-mAU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JbY-4t-pWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
