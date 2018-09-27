@@ -87,6 +87,7 @@
 		50D470DD2158D482007712CB /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D470DC2158D482007712CB /* DonationView.swift */; };
 		50D6FA23215C075C00D4A8A3 /* Franchise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FA22215C075C00D4A8A3 /* Franchise.swift */; };
 		50D6FA25215C087200D4A8A3 /* FranchiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FA24215C087200D4A8A3 /* FranchiseService.swift */; };
+		50D6FA27215C7CC200D4A8A3 /* FranchiseDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */; };
 		DDC879EB7E4AAE3700B6B66F /* Pods_EcoSeoul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +174,7 @@
 		50D470DC2158D482007712CB /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
 		50D6FA22215C075C00D4A8A3 /* Franchise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franchise.swift; sourceTree = "<group>"; };
 		50D6FA24215C087200D4A8A3 /* FranchiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseService.swift; sourceTree = "<group>"; };
+		50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseDetailService.swift; sourceTree = "<group>"; };
 		53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoSeoul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC25BC8BF5B845E45453C3AE /* Pods-EcoSeoul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8101C0A24BADA8B98BC9D1 /* Pods-EcoSeoul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				50612ABD215AA12700497DDE /* MainService.swift */,
 				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
 				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
+				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
 				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
 				3A00FC1B2157EBB6009CD296 /* CommunityWriteVC.swift in Sources */,
+				50D6FA27215C7CC200D4A8A3 /* FranchiseDetailService.swift in Sources */,
 				5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */,
 				50D470DD2158D482007712CB /* DonationView.swift in Sources */,
 				3A5837A221577DEC0074BCA9 /* ShopCVCell.swift in Sources */,

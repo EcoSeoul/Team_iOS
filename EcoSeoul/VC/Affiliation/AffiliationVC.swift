@@ -23,15 +23,93 @@ class AffiliationVC: UIViewController, APIService {
         return btn
     }()
 
-    @objc func popSelf() {
-        navigationController?.popViewController(animated: true)
-    }
-        
-        
+    var frcIdxArray: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        seoulMap.image = #imageLiteral(resourceName: "affiliate-map")
+    }
+  
+    @IBAction func pressedBtn(_ sender: UIButton) {
+        
+        let tag = sender.tag
+        
+        switch tag {
+            
+        case 1: seoulMap.image = #imageLiteral(resourceName: "a-gangbook"); break; //강북,도봉
+        case 3: seoulMap.image = #imageLiteral(resourceName: "a-seongbook"); break; //성북
+        case 4: seoulMap.image = #imageLiteral(resourceName: "a-nowon"); break; //노원
+        case 5: seoulMap.image = #imageLiteral(resourceName: "a-dongdaemoon"); break; //동대문
+        case 6: seoulMap.image = #imageLiteral(resourceName: "a-joongrang"); break; //중랑
+        case 7: seoulMap.image = #imageLiteral(resourceName: "a-seongdong"); break; //성동
+        case 8: seoulMap.image = #imageLiteral(resourceName: "a-gwangjin"); break; //광진
+        case 9: seoulMap.image = #imageLiteral(resourceName: "a-gangdong"); break; //강동
+        case 10: seoulMap.image = #imageLiteral(resourceName: "a-songpa");break; //송파
+        case 11: seoulMap.image = #imageLiteral(resourceName: "a-seocho");break; //서초
+        case 12: seoulMap.image = #imageLiteral(resourceName: "a-gangnam");break; //강남
+        case 13: seoulMap.image = #imageLiteral(resourceName: "a-jongro");break; //종로,서대문
+        case 14: seoulMap.image = #imageLiteral(resourceName: "a-yongsan");break; //중구,용산
+        case 16: seoulMap.image = #imageLiteral(resourceName: "a-dongjak");break; //동작
+        case 17: seoulMap.image = #imageLiteral(resourceName: "a-geumcheon");break; //금천,관악
+        case 18: seoulMap.image = #imageLiteral(resourceName: "a-gangseo");break; //강서
+        case 19: seoulMap.image = #imageLiteral(resourceName: "a-yangcheon");break; //양천,구로
+        case 20: seoulMap.image = #imageLiteral(resourceName: "a-yeongdeungpo");break; //영등포
+        case 21: seoulMap.image = #imageLiteral(resourceName: "a-eunpyeong");break; //은평
+        case 22: seoulMap.image = #imageLiteral(resourceName: "a-mapo");break; //마포
+        default: break
+        }
+        
+        //통신
+        franDataInit(url : url("/franchise/\(tag)"))
+        
+        
+    }
+    
+    
+    
+    func franDataInit(url : String){
+        FranchiseService.shareInstance.getFranchiseData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+            case .networkSuccess(let data):
+                self.setDB(data)
+                let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
+                affiliationDetailVC.frcIdxArr = self.frcIdxArray
+                self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+                break
+            default :
+                break
+            }
+        })
+        
+    }
+    
+    
+    
+    func setDB(_ data: [FranchiseData]){
+        let dataNum = data.count
+        for i in 0..<dataNum {
+            self.frcIdxArray.append(data[i].frcIdx)
+        }
+    }
+    
+    
+        
+}
 
+extension AffiliationVC {
+    
+    @objc func popSelf() {
+        navigationController?.popViewController(animated: true)
     }
     
     func setNaviBar(){
@@ -45,90 +123,7 @@ class AffiliationVC: UIViewController, APIService {
         bar.shadowImage = UIImage()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        seoulMap.image = #imageLiteral(resourceName: "affiliate-map")
-    }
-  
-    @IBAction func pressedBtn(_ sender: UIButton) {
-        
-        let tag = sender.tag
-        
-        switch tag {
-            
-        case 1: //강북,도봉
-            seoulMap.image = #imageLiteral(resourceName: "a-gangbook")
-        case 3: //성북
-            seoulMap.image = #imageLiteral(resourceName: "a-seongbook")
-        case 4: //노원
-            seoulMap.image = #imageLiteral(resourceName: "a-nowon")
-        case 5: //동대문
-            seoulMap.image = #imageLiteral(resourceName: "a-dongdaemoon")
-        case 6: //중랑
-            seoulMap.image = #imageLiteral(resourceName: "a-joongrang")
-        case 7: //성동
-            seoulMap.image = #imageLiteral(resourceName: "a-seongdong")
-        case 8: //광진
-            seoulMap.image = #imageLiteral(resourceName: "a-gwangjin")
-        case 9: //강동
-            seoulMap.image = #imageLiteral(resourceName: "a-gangdong")
-        case 10: //송파
-            seoulMap.image = #imageLiteral(resourceName: "a-songpa")
-        case 11: //서초
-            seoulMap.image = #imageLiteral(resourceName: "a-seocho")
-        case 12: //강남
-            seoulMap.image = #imageLiteral(resourceName: "a-gangnam")
-        case 13: //종로,서대문
-            seoulMap.image = #imageLiteral(resourceName: "a-jongro")
-        case 14: //중구,용산
-            seoulMap.image = #imageLiteral(resourceName: "a-yongsan")
-        case 16: //동작
-            seoulMap.image = #imageLiteral(resourceName: "a-dongjak")
-        case 17: //금천,관악
-            seoulMap.image = #imageLiteral(resourceName: "a-geumcheon")
-        case 18: //강서
-            seoulMap.image = #imageLiteral(resourceName: "a-gangseo")
-        case 19: //양천,구로
-            seoulMap.image = #imageLiteral(resourceName: "a-yangcheon")
-        case 20: //영등포
-            seoulMap.image = #imageLiteral(resourceName: "a-yeongdeungpo")
-        case 21: //은평
-            seoulMap.image = #imageLiteral(resourceName: "a-eunpyeong")
-        case 22: //마포
-            seoulMap.image = #imageLiteral(resourceName: "a-mapo")
-        default: break
-        }
-        
-        //통신
-        franDataInit(url : url("/franchise/\(tag)"))
-      
-        let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
-        affiliationDetailVC.guIdx = tag
-        self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
-        
-    }
     
-    
-    
-    func franDataInit(url : String){
-        FranchiseService.shareInstance.getFranchiseData(url: url, completion: { [weak self] (result) in
-            guard let `self` = self else { return }
-            
-            switch result {
-            case .networkSuccess(let data):
-                print(data)
-                break
-            case .networkFail :
-                self.simpleAlert(title: "network", message: "check")
-                break
-            default :
-                break
-            }
-        })
-        
-    }
-        
 }
     
 
