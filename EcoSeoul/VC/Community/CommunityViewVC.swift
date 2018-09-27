@@ -54,7 +54,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 self.communityView = detailView
                 print("\n communityView에 잘 들어가는지 확인하기\n")
                 print(self.communityView as Any)
-                //self.communityView.
+                self.showBoardData()
                 self.tableview.reloadData()
                 break
                 
@@ -68,6 +68,18 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
 
+    func showBoardData(){
+        if let sboardIdx = self.selectedBoardIdx{
+            self.userNameLB.text = sboardIdx.userName
+        }
+        if let boardresult = self.communityView?.boardResult {
+            self.boardTitleLB.text = boardresult[0].boardTitle
+            self.boardContentLB.text = boardresult[0].boardContent
+            self.goodLB.text = (String)(boardresult[0].boardLike)
+            self.commentLB.text = (String)(boardresult[0].boardCmtnum)
+            self.dateLB.text = boardresult[0].boardDate
+        }
+    }
     
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
@@ -128,8 +140,10 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityViewTVCell") as! CommunityViewTVCell
-        cell.nicknameLB.text = "배셔넝"
-        cell.commentLB.text = "나는 노라조다"
+        
+        if let comment = communityView?.commentResult {
+            cell.commentConfig(comment: comment[indexPath.row])
+        }
         
         return cell
     }

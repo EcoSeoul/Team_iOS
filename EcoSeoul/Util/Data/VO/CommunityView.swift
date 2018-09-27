@@ -10,7 +10,7 @@ import Foundation
 
 struct CommunityView: Codable {
     
-    let status: String
+    let status: String?
     let message: String
     let boardResult: [BoardResult]
     let commentResult: [CommentResult]
