@@ -13,7 +13,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     @IBOutlet weak var tableview: UITableView!
     
-    var applys : [Community] = []
+    var communityData : [CommunityData]?
     var lists : [List]?
     
     var backBtn: UIBarButtonItem = {
@@ -53,7 +53,9 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             switch result {
                 
             case .networkSuccess(let community):
-                self.applys.append(community)
+                self.communityData = community
+                print("\n applys에 잘 들어가는지 확인하기\n")
+                print(self.communityData as Any)
                 self.tableview.reloadData()
                 break
                 
@@ -68,7 +70,13 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        var rowNumber = 0
+        if let comDat = communityData {
+            if let best = comDat[0].bestList, let all = comDat[1].allList{
+                rowNumber = best.count + all.count
+            }
+        }
+        return rowNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,18 +94,44 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             cell.bestIMG.image = nil
         }
         
-        if let lists_ = lists {
-            cell.configure(list: lists_[indexPath.row])
+        if let communityData_ = communityData {
+            //0번째 인덱스에 bestList들만 들어 있음, allList: nil
+            if let bestlist = communityData_[0].bestList{
+                if indexPath.row < 3{
+                    cell.configure(list: bestlist[indexPath.row])
+                }
+            }
             
-            print("배열이 나오려나")
+            //반대로 1번째 인덱스엔 allList들만 들어있음, bestList: nil
+            if let alllist = communityData_[1].allList{
+                if indexPath.row > 2{
+                    cell.configure(list: alllist[indexPath.row-3])
+                }
+            }
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
-        self.navigationController?.pushViewController(commnunityVC, animated: true)
+        let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
+        //이 경우도 bestList(0~2), allList(3~) 중 어떤걸 누르는지 파악.
+        if let data = communityData {
+            if let list = data[0].bestList{
+                if indexPath.row < 3 {
+                        let board: List = list[indexPath.row]
+                        communityVC.selectedBoardIdx = board
+                    
+                }
+            }
+            if let list = data[1].allList{
+                if indexPath.row >= 3{
+                        let board: List  = list[indexPath.row-3]
+                        communityVC.selectedBoardIdx = board
+                }
+            }
+        }
+        self.navigationController?.pushViewController(communityVC, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90

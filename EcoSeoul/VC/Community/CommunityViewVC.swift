@@ -8,12 +8,23 @@
 
 import UIKit
 
-class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, APIService{
     
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var commentSendView: UIView!
     var keyboardDismissGesture: UITapGestureRecognizer?
+    
+    @IBOutlet weak var boardTitleLB: UILabel!
+    @IBOutlet weak var boardContentLB: UILabel!
+    @IBOutlet weak var goodLB: UILabel!
+    @IBOutlet weak var commentLB: UILabel!
+    @IBOutlet weak var dateLB: UILabel!
+    @IBOutlet weak var userNameLB: UILabel!
+    
+    
+    var communityView : CommunityView?
+    var selectedBoardIdx : List?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +35,50 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
         commnentBarShadow()
+
+        if let sboardIdx = selectedBoardIdx{
+            print("selectedBoardIDX")
+            print(sboardIdx.boardIdx)
+            CommunityViewInit(url: url("/board/\(sboardIdx.boardIdx)/\(sboardIdx.userIdx)"))
+        }
+    }
+    
+    func CommunityViewInit(url : String){
+        
+        CommunityViewService.shareInstance.getCommunityDetailData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+                
+            case .networkSuccess(let detailView):
+                self.communityView = detailView
+                print("\n communityView에 잘 들어가는지 확인하기\n")
+                print(self.communityView as Any)
+                self.showBoardData()
+                self.tableview.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
+        
+    }
+
+    func showBoardData(){
+        if let sboardIdx = self.selectedBoardIdx{
+            self.userNameLB.text = sboardIdx.userName
+        }
+        if let boardresult = self.communityView?.boardResult {
+            self.boardTitleLB.text = boardresult[0].boardTitle
+            self.boardContentLB.text = boardresult[0].boardContent
+            self.goodLB.text = (String)(boardresult[0].boardLike)
+            self.commentLB.text = (String)(boardresult[0].boardCmtnum)
+            self.dateLB.text = boardresult[0].boardDate
+        }
     }
     
     var backBtn: UIBarButtonItem = {
@@ -76,13 +131,19 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        var rowNumber = 0
+        if let comDat = communityView {
+            rowNumber = comDat.commentResult.count
+        }
+        return rowNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityViewTVCell") as! CommunityViewTVCell
-        cell.nicknameLB.text = "배셔넝"
-        cell.commentLB.text = "나는 노라조다"
+        
+        if let comment = communityView?.commentResult {
+            cell.commentConfig(comment: comment[indexPath.row])
+        }
         
         return cell
     }
