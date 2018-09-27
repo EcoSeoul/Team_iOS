@@ -12,10 +12,15 @@ class CommunityViewTVCell: UITableViewCell {
 
     @IBOutlet weak var nicknameLB: UILabel!
     @IBOutlet weak var commentLB: UILabel!
+    @IBOutlet weak var dateLB: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func commentConfig(comment : CommentResult){
+        nicknameLB.text = (String)(comment.userIdx)
+        commentLB.text = comment.cmtContent
+        dateLB.text = comment.cmtDate
+    }
 
 }

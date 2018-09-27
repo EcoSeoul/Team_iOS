@@ -8,12 +8,15 @@
 
 import UIKit
 
-class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, APIService{
     
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var commentSendView: UIView!
     var keyboardDismissGesture: UITapGestureRecognizer?
+    
+    var communityView : CommunityView!
+    var selectedBoardIdx : List!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,33 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
         commnentBarShadow()
+        CommunityViewInit(url: url("/board/\(selectedBoardIdx.boardIdx)/\(selectedBoardIdx.userIdx)"))
     }
+    
+    func CommunityViewInit(url : String){
+        
+        CommunityViewService.shareInstance.getCommunityDetailData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+                
+            case .networkSuccess(let detailView):
+                self.communityView = detailView
+                print("\n communityView에 잘 들어가는지 확인하기\n")
+                print(self.communityView as Any)
+                self.tableview.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
+        
+    }
+
     
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()

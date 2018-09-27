@@ -63,9 +63,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목은이것" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLA-BM-9Lp">
-
-                                                    <rect key="frame" x="47" y="12" width="79" height="26"/>
-
+                                                    <rect key="frame" x="47" y="10" width="79" height="26"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -73,10 +71,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community-gold" translatesAutoresizingMaskIntoConstraints="NO" id="v90-UL-hBa">
                                                     <rect key="frame" x="12" y="12" width="25" height="25"/>
                                                 </imageView>
-
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세여ㅕ아녕안뇽안녀엉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwM-dV-VHb">
-
-
                                                     <rect key="frame" x="47" y="39" width="180" height="23"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                     <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -102,7 +97,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                           <constraint firstItem="jLA-BM-9Lp" firstAttribute="leading" secondItem="v90-UL-hBa" secondAttribute="trailing" constant="10" id="7XE-GO-otB"/>
+                                                <constraint firstItem="jLA-BM-9Lp" firstAttribute="leading" secondItem="v90-UL-hBa" secondAttribute="trailing" constant="10" id="7XE-GO-otB"/>
                                                 <constraint firstItem="rip-7a-K7q" firstAttribute="bottom" secondItem="JTv-pF-2j9" secondAttribute="bottom" id="9ES-40-Uyi"/>
                                                 <constraint firstItem="QwM-dV-VHb" firstAttribute="leading" secondItem="jLA-BM-9Lp" secondAttribute="leading" id="BCY-rk-8c9"/>
                                                 <constraint firstItem="dnC-dp-hYu" firstAttribute="leading" secondItem="JTv-pF-2j9" secondAttribute="trailing" constant="7" id="IYI-4B-TcT"/>
@@ -116,8 +111,6 @@
                                                 <constraint firstItem="JTv-pF-2j9" firstAttribute="leading" secondItem="rip-7a-K7q" secondAttribute="trailing" constant="21" id="ogw-kA-p2M"/>
                                                 <constraint firstAttribute="bottom" secondItem="JTv-pF-2j9" secondAttribute="bottom" constant="2.5" id="ooC-vU-aTT"/>
                                                 <constraint firstItem="v90-UL-hBa" firstAttribute="top" secondItem="0jv-8Y-HWs" secondAttribute="top" constant="12" id="sdn-TZ-6u6"/>
-
-
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -357,6 +350,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLB" destination="ifv-1e-6k4" id="CvU-Jj-cXE"/>
+                                            <outlet property="dateLB" destination="fkT-pO-ZDw" id="rBv-QG-Kbd"/>
                                             <outlet property="nicknameLB" destination="ane-FP-Iwz" id="vnt-JK-rb1"/>
                                         </connections>
                                     </tableViewCell>
