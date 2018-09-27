@@ -25,6 +25,17 @@ class CommunityWriteVC: UIViewController {
         return btn
     }()
     
+    var registerBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.tintColor = UIColor.init(hexString: "26D07C")
+        btn.title = "등록"
+        btn.action = #selector(registerVC)
+        return btn
+    }()
+    
+    @objc func registerVC(){
+        navigationController?.popViewController(animated: true)
+    }
     
     
     @objc func popSelf() {
@@ -33,15 +44,18 @@ class CommunityWriteVC: UIViewController {
     
     func setNaviBar(){
         backBtn.target = self
+        registerBtn.target = self
         let bar: UINavigationBar! =  self.navigationController?.navigationBar
         let item: UINavigationItem = self.navigationItem
         
         
         item.leftBarButtonItem = backBtn
         item.leftBarButtonItem?.imageInsets.left = -15
+        item.rightBarButtonItem = registerBtn
+        item.rightBarButtonItem?.imageInsets.right = -15
         
         bar.backgroundColor = .white
-        item.title = ""
+        item.title = "글 작성하기"
         bar.shadowImage = UIImage()
         
     }
