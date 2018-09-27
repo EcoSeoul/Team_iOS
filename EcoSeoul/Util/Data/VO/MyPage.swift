@@ -10,13 +10,10 @@ import Foundation
 
 struct MyPage: Codable {
     
-    let status: String
     let message: String
     let result: [MyPageData]
     
-    
     enum CodingKeys: String, CodingKey{
-        case status = "status"
         case message = "message"
         case result = "result"
     }
@@ -37,3 +34,15 @@ struct MyPageData: Codable {
     
     
 }
+
+//Example
+//{
+//    "message": "Successfully select data",
+//    "result": [
+//    {
+//    "user_idx": 1,
+//    "user_mileage": 20000,
+//    "user_money": 10000
+//    }
+//    ]
+//}

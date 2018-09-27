@@ -36,6 +36,37 @@ struct FranchiseData: Codable {
   
     }
 }
+
+//Example
+//{
+//    "message": "ok",
+//    "data": [
+//    {
+//    "frc_idx": 12,
+//    "gu_idx": 8,
+//    "frc_lat": 37.5378,
+//    "frc_long": 127.071
+//    },
+//    {
+//    "frc_idx": 13,
+//    "gu_idx": 8,
+//    "frc_lat": 37.5378,
+//    "frc_long": 127.071
+//    },
+//    {
+//    "frc_idx": 14,
+//    "gu_idx": 8,
+//    "frc_lat": 37.5463,
+//    "frc_long": 127.107
+//    },
+//    {
+//    "frc_idx": 15,
+//    "gu_idx": 8,
+//    "frc_lat": 37.568,
+//    "frc_long": 127.085
+//    }
+//    ]
+//}
 //=====================================================
 
 struct FranchiseDetail: Codable {
@@ -82,3 +113,25 @@ struct FranchiseDetailData: Codable {
         
     }
 }
+
+//Example
+//{
+//    "message": "OK",
+//    "data": [
+//    {
+//    "frc_information": [
+//    {
+//    "frc_idx": 8,
+//    "gu_idx": 18,
+//    "frc_name": "우장산숲속도서관",
+//    "frc_lat": 37.5484,
+//    "frc_long": 126.842,
+//    "frc_add": "서울특별시 강서구 화곡동 1159-4",
+//    "frc_phone": "02-2696-6689",
+//    "frc_salepercent": 5,
+//    "frc_type": 1
+//    }
+//    ]
+//    }
+//    ]
+//}

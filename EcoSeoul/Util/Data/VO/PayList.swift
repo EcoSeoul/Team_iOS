@@ -10,14 +10,11 @@ import Foundation
 
 //EcoMileage (eco_value : 0)
 struct MileageList: Codable {
-    
-    let status: String
     let message: String
     let mileageTotalUsage: [MileageListData]
     let usedMileage: Int
     
     enum CodingKeys: String, CodingKey{
-        case status = "status"
         case message = "message"
         case mileageTotalUsage = "milage_total_usage"
         case usedMileage = "used_milage"
@@ -50,13 +47,11 @@ struct MileageListData: Codable {
 
 //EcoMoney (eco_value : 1)
 struct MoneyList: Codable {
-    let status: String
     let message: String
     let moneyTotalUsage: [MoneyListData]
     let usedMileage: Int
     
     enum CodingKeys: String, CodingKey{
-        case status = "status"
         case message = "message"
         case moneyTotalUsage = "milage_total_usage"
         case usedMileage = "used_milage"
