@@ -56,6 +56,7 @@ class RequestListTVC: UITableViewController, APIService {
         let row = indexPath.row
     
         if let requestArr = requestListDataArr {
+//            cell.requestImage.image = 
             cell.requestTitle.text = requestArr[row].goodsName
             cell.requestDate.text = requestArr[row].mileageDate
         }

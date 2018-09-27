@@ -47,18 +47,39 @@ class PostListTVC: UITableViewController, APIService {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        guard let arr = postListDataArr else{return 3}
+        return arr.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostListTVCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostListTVCell", for: indexPath) as! PostListTVCell
+        let row = indexPath.row
         
-        // Configure the cell...
+        if let postArr = postListDataArr {
+            
+            cell.postTitleLB.text = postArr[row].boardTitle
+            cell.postContentLB.text = postArr[row].boardContent
+            cell.postDateLB.text = postArr[row].boardDate
+            
+            if postArr[row].boardLike == nil {
+                cell.postLikeLB.text = "0"
+            }else {
+                cell.postLikeLB.text = String(postArr[row].boardLike!)
+            }
+            
+            if postArr[row].boardCmtNum == nil {
+                cell.postCmtNumLB.text = "0"
+            }else {
+                cell.postCmtNumLB.text = String(postArr[row].boardCmtNum!)
+            }
+           
+            
+        }
         
         return cell
     }
+
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

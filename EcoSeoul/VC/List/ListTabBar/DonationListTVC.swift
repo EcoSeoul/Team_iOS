@@ -46,18 +46,25 @@ class DonationListTVC: UITableViewController, APIService {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        guard let arr = donationListDataArr else{return 3}
+        return arr.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DonationListTVCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DonationListTVCell", for: indexPath) as! DonationListTVCell
+        let row = indexPath.row
         
-        // Configure the cell...
+        if let donationArr = donationListDataArr {
+            cell.orgNameLB.text = donationArr[row].orgName
+            cell.mileageDateLB.text = donationArr[row].mileageDate
+            cell.mileageWithDrawLB.text = String(-donationArr[row].mileageWithdraw)
+    
+        }
         
         return cell
     }
+
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70

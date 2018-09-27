@@ -309,6 +309,11 @@
                                         <constraint firstItem="eZa-lD-KrF" firstAttribute="leading" secondItem="fu7-eq-UAX" secondAttribute="trailing" constant="16" id="wyf-TN-V9l"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mileageDateLB" destination="eZa-lD-KrF" id="ljX-FU-frH"/>
+                                    <outlet property="mileageWithDrawLB" destination="Nb4-IB-FPO" id="P8V-Yf-3qh"/>
+                                    <outlet property="orgNameLB" destination="7gt-ig-JOl" id="gsr-pL-KGI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -391,6 +396,13 @@
                                         <constraint firstItem="rmu-xC-CJX" firstAttribute="bottom" secondItem="gni-k7-2mJ" secondAttribute="bottom" id="uLH-Xc-TA3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postCmtNumLB" destination="4RX-S1-iPj" id="iD3-cN-ec7"/>
+                                    <outlet property="postContentLB" destination="EGK-ea-0nZ" id="iYw-ao-7Cc"/>
+                                    <outlet property="postDateLB" destination="3qa-do-X8d" id="3Je-6a-zmc"/>
+                                    <outlet property="postLikeLB" destination="zaX-Mm-xdb" id="Cal-Ei-4AH"/>
+                                    <outlet property="postTitleLB" destination="03m-mo-ZKz" id="KUn-L7-Pj3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
