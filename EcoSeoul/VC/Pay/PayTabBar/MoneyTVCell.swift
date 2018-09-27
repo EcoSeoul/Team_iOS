@@ -9,7 +9,13 @@
 import UIKit
 
 class MoneyTVCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var usageTitleLB: UILabel!
+    @IBOutlet weak var usageDateLB: UILabel!
+    @IBOutlet weak var plusminusLB: UILabel!
+    @IBOutlet weak var moneyIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

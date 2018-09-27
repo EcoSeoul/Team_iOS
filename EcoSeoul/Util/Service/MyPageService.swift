@@ -1,5 +1,5 @@
 //
-//  FranchiseDetailService.swift
+//  MyPageService.swift
 //  EcoSeoul
 //
 //  Created by 이충신 on 2018. 9. 27..
@@ -10,21 +10,22 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-struct FranchiseDetailService: GettableService {
+struct MyPageService: GettableService {
     
-    typealias NetworkData = FranchiseDetail
-    static let shareInstance = FranchiseDetailService()
+    typealias NetworkData = MyPage
+    static let shareInstance = MyPageService()
     
-    func getFranchiseDetailData(url : String, completion : @escaping (NetworkResult<FranchiseDetailData>) -> Void){
-        
+    func getMyPageData(url : String, completion : @escaping (NetworkResult<MyPageData>) -> Void){
         get(url) { (result) in
+            print("result!!= \(result)")
+            
             switch result {
             case .success(let networkResult):
                 switch networkResult.message {
-                case "OK" :
-//                    print("\n서버로부터 받은 프랜차이즈 상세 정보 출력!\n")
-//                    print("\(networkResult)\n")
-                    completion(.networkSuccess(networkResult.data[0].frcInfo[0]))
+                case "Successfully select data" :
+                    // print("\n서버로부터 받은 마이페이지 정보 출력!\n")
+                    // print("\(networkResult)\n")
+                    completion(.networkSuccess(networkResult.result[0]))
                 case "Internal Server Error!" :
                     completion(.serverErr)
                 default :

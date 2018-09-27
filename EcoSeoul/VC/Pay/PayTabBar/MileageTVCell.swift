@@ -10,6 +10,11 @@ import UIKit
 
 class MileageTVCell: UITableViewCell {
 
+    @IBOutlet weak var usageTitleLB: UILabel!
+    @IBOutlet weak var usageDateLB: UILabel!
+    @IBOutlet weak var plusminusLB: UILabel!
+    @IBOutlet weak var mileageIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

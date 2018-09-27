@@ -29,8 +29,8 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableview.dataSource = self
-        self.tableview.delegate = self
+        self.tableview.dataSource = self;
+        self.tableview.delegate = self;
         
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()

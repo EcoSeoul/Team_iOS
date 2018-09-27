@@ -8,16 +8,41 @@
 
 import UIKit
 
-class MyPageVC: UIViewController {
+class MyPageVC: UIViewController, APIService {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var mileageLB: UILabel!
+    @IBOutlet weak var moneyLB: UILabel!
+    
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.delegate = self;
         tableview.dataSource = self;
+    
+        myPageInit(url: "/mypage/\(userIdx)")
  
+    }
+
+    func myPageInit(url: String){
+        MyPageService.shareInstance.getMyPageData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+                case .networkSuccess(let data):
+                    self.mileageLB.text = String(data.userMileage)
+                    self.moneyLB.text = String(data.userMoney)
+                break
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+                break
+            default :
+                break
+            }
+        })
+        
     }
 
     @IBAction func dismissPressed(_ sender: Any) {

@@ -61,6 +61,10 @@
 		505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F3214BCB23000D2130 /* HomeAllVC.swift */; };
 		505549F6214BCB81000D2130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F5214BCB81000D2130 /* HomeVC.swift */; };
 		505549F9214BCC98000D2130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F8214BCC98000D2130 /* LoginVC.swift */; };
+		505A7BEC215CE8CA00F03B24 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BEB215CE8CA00F03B24 /* MyPage.swift */; };
+		505A7BEE215CE9BD00F03B24 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BED215CE9BD00F03B24 /* MyPageService.swift */; };
+		505A7BF0215D053C00F03B24 /* PayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BEF215D053C00F03B24 /* PayList.swift */; };
+		505A7BF2215D163700F03B24 /* MileageListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BF1215D163700F03B24 /* MileageListService.swift */; };
 		50612ABC215A980100497DDE /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABB215A980100497DDE /* Main.swift */; };
 		50612ABE215AA12700497DDE /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABD215AA12700497DDE /* MainService.swift */; };
 		5064FD942159F16200AC8A85 /* GettableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD932159F16200AC8A85 /* GettableService.swift */; };
@@ -148,6 +152,10 @@
 		505549F3214BCB23000D2130 /* HomeAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAllVC.swift; sourceTree = "<group>"; };
 		505549F5214BCB81000D2130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		505549F8214BCC98000D2130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		505A7BEB215CE8CA00F03B24 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		505A7BED215CE9BD00F03B24 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
+		505A7BEF215D053C00F03B24 /* PayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayList.swift; sourceTree = "<group>"; };
+		505A7BF1215D163700F03B24 /* MileageListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageListService.swift; sourceTree = "<group>"; };
 		50612ABB215A980100497DDE /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		50612ABD215AA12700497DDE /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		5064FD932159F16200AC8A85 /* GettableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettableService.swift; sourceTree = "<group>"; };
@@ -317,6 +325,8 @@
 				3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */,
 				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
 				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
+				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
+				505A7BF1215D163700F03B24 /* MileageListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -428,6 +438,8 @@
 				3AB3A021215BC14100768B69 /* Community.swift */,
 				3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */,
 				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
+				505A7BEB215CE8CA00F03B24 /* MyPage.swift */,
+				505A7BEF215D053C00F03B24 /* PayList.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -657,8 +669,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505A7BEE215CE9BD00F03B24 /* MyPageService.swift in Sources */,
 				5023DB3A2147BB6100A59B48 /* WaveView.swift in Sources */,
 				3A583787215422890074BCA9 /* DonationListTVCell.swift in Sources */,
+				505A7BF0215D053C00F03B24 /* PayList.swift in Sources */,
 				3A97AB472151358300507A9F /* HomeAllTVC.swift in Sources */,
 				5048ED092157C09A007A220C /* FAQVC.swift in Sources */,
 				50C6208C2146D44D0018550B /* HomeUpVC.swift in Sources */,
@@ -677,6 +691,7 @@
 				50CD756A215A42A700E7B3E8 /* Default.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
 				5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */,
+				505A7BEC215CE8CA00F03B24 /* MyPage.swift in Sources */,
 				5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */,
 				50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */,
 				3A58377A2154217C0074BCA9 /* MoneyTVCell.swift in Sources */,
@@ -688,6 +703,7 @@
 				3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */,
 				3A97AB3F214C141700507A9F /* PointTVC1.swift in Sources */,
 				50B94A5F21595D5C00DB3FDA /* APIService.swift in Sources */,
+				505A7BF2215D163700F03B24 /* MileageListService.swift in Sources */,
 				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
 				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,

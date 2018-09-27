@@ -9,14 +9,15 @@
 import UIKit
 import XLPagerTabStrip
 
-class PayVC: ButtonBarPagerTabStripViewController {
+class PayVC: ButtonBarPagerTabStripViewController, APIService {
     
     let check = UserDefaults.standard.object(forKey: "check") as! Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButtonBar()
-
+     
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,6 +25,8 @@ class PayVC: ButtonBarPagerTabStripViewController {
          moveToViewController(at: check)
      
     }
+    
+    
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController]{
         let child1 = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "MileageTVC")

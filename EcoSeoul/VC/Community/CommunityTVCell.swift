@@ -23,6 +23,7 @@ class CommunityTVCell: UITableViewCell {
         goodLB.text = (String)(list.boardLike)
         commentNumLB.text = (String)(list.boardCmtnum)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
