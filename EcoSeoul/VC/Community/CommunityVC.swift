@@ -13,7 +13,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     @IBOutlet weak var tableview: UITableView!
     
-    var applys : [Community] = []
+    var communityData : [CommunityData]?
     var lists : [List]?
     
     var backBtn: UIBarButtonItem = {
@@ -36,13 +36,13 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableview.delegate = self
-        self.tableview.dataSource = self
-        
+        self.tableview.delegate = self;
+        self.tableview.dataSource = self;
         self.tableview.tableFooterView = UIView(frame: .zero)
         
         setNaviBar()
         self.CommunityInit(url: url("/board/list"))
+    
     }
     
     func CommunityInit(url : String){
@@ -52,8 +52,8 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             
             switch result {
                 
-            case .networkSuccess(let community):
-                self.applys.append(community)
+            case .networkSuccess(let data):
+                self.communityData = data
                 self.tableview.reloadData()
                 break
                 
@@ -68,36 +68,59 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        var rowNumber = 0
+        if let comDat = communityData {
+            if let best = comDat[0].bestList, let all = comDat[1].allList{
+                rowNumber = best.count + all.count
+            }
+        }
+        return rowNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityTVCell") as!  CommunityTVCell
+        let row = indexPath.row
         
-        switch indexPath.row {
-        case 0:
-            cell.bestIMG.image = #imageLiteral(resourceName: "community-gold")
-        case 1:
-            cell.bestIMG.image = #imageLiteral(resourceName: "community-silver")
-        case 2:
-            cell.bestIMG.image = #imageLiteral(resourceName: "community-bronze")
-        default:
-            cell.bestIMG.image = nil
+        switch row {
+            case 0:
+                cell.bestIMG.image = #imageLiteral(resourceName: "community-gold")
+            case 1:
+                cell.bestIMG.image = #imageLiteral(resourceName: "community-silver")
+            case 2:
+                cell.bestIMG.image = #imageLiteral(resourceName: "community-bronze")
+            default:
+                cell.bestIMG.image = nil
         }
-        
-        if let lists_ = lists {
-            cell.configure(list: lists_[indexPath.row])
+    
+        if let communityData_ = communityData {
             
-            print("배열이 나오려나")
-        }
+            if let bestList = communityData_[0].bestList{
+                if row < 3{
+                    cell.configure(list: bestList[row])
+                }
+            }
+            
+            if let allList = communityData_[1].allList{
+                if row >= 3{
+                    cell.configure(list: allList[row-3])
+                }
+            }
         
+        }
+       
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let commnunityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
+        
+        
+        
+        
         self.navigationController?.pushViewController(commnunityVC, animated: true)
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90

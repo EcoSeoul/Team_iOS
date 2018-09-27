@@ -59,6 +59,7 @@
 		505549F4214BCB23000D2130 /* HomeAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F3214BCB23000D2130 /* HomeAllVC.swift */; };
 		505549F6214BCB81000D2130 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F5214BCB81000D2130 /* HomeVC.swift */; };
 		505549F9214BCC98000D2130 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505549F8214BCC98000D2130 /* LoginVC.swift */; };
+		505A7BEC215CE8CA00F03B24 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A7BEB215CE8CA00F03B24 /* MyPage.swift */; };
 		50612ABC215A980100497DDE /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABB215A980100497DDE /* Main.swift */; };
 		50612ABE215AA12700497DDE /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50612ABD215AA12700497DDE /* MainService.swift */; };
 		5064FD942159F16200AC8A85 /* GettableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD932159F16200AC8A85 /* GettableService.swift */; };
@@ -144,6 +145,7 @@
 		505549F3214BCB23000D2130 /* HomeAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAllVC.swift; sourceTree = "<group>"; };
 		505549F5214BCB81000D2130 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		505549F8214BCC98000D2130 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		505A7BEB215CE8CA00F03B24 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		50612ABB215A980100497DDE /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		50612ABD215AA12700497DDE /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 		5064FD932159F16200AC8A85 /* GettableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettableService.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				50612ABB215A980100497DDE /* Main.swift */,
 				3AB3A021215BC14100768B69 /* Community.swift */,
 				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
+				505A7BEB215CE8CA00F03B24 /* MyPage.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				50CD756A215A42A700E7B3E8 /* Default.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
 				5048ED0B2157CA12007A220C /* FAQTVC1.swift in Sources */,
+				505A7BEC215CE8CA00F03B24 /* MyPage.swift in Sources */,
 				5048ED0D2157DC65007A220C /* FAQTVC2.swift in Sources */,
 				50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */,
 				3A58377A2154217C0074BCA9 /* MoneyTVCell.swift in Sources */,

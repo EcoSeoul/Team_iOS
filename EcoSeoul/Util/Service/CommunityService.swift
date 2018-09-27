@@ -15,7 +15,7 @@ struct CommunityService: GettableService {
     typealias NetworkData = Community
     static let shareInstance = CommunityService()
     
-    func getCommunityData(url : String, completion : @escaping (NetworkResult<Community>) -> Void){
+    func getCommunityData(url : String, completion : @escaping (NetworkResult<[CommunityData]>) -> Void){
         
         get(url) { (result) in
             switch result {
@@ -24,7 +24,7 @@ struct CommunityService: GettableService {
                 case "OK" :
                      print("\n서버로부터 받은 커뮤니티 정보 출력!\n")
                      print("\(networkResult)\n")
-                    completion(.networkSuccess(networkResult))
+                    completion(.networkSuccess(networkResult.data))
 //                case "Internal Server Error!" :
 //                    completion(.serverErr)
                 default :

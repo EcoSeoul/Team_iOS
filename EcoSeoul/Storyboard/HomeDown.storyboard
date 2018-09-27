@@ -282,6 +282,7 @@
                         <outlet property="barcodeBar" destination="J5w-J2-lsB" id="Rco-lk-hZM"/>
                         <outlet property="barcodeBtn" destination="w7n-ht-QEt" id="FY8-hY-Hi2"/>
                         <outlet property="horizontalScroll" destination="UfE-rI-eU0" id="kvu-Po-STT"/>
+                        <outlet property="mileageLabel" destination="I4j-SY-0bK" id="X6Z-hc-VYf"/>
                         <outlet property="tableView" destination="S67-4a-GmX" id="lmc-8o-jnG"/>
                     </connections>
                 </viewController>

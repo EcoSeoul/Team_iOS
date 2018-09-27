@@ -18,13 +18,13 @@ class CommunityTVCell: UITableViewCell {
     
     
     func configure(list : List){
-        print("\n데이터들")
-        print(list.boardTitle)
+  
         titleLB.text = list.boardTitle
         contentLB.text = list.boardContent
         goodLB.text = (String)(list.boardLike)
         commentNumLB.text = (String)(list.boardCmtnum)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -16,6 +16,7 @@ class HomeDownVC: UIViewController {
     @IBOutlet weak var barcodeBtn: UIButton!
     @IBOutlet weak var horizontalScroll: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mileageLabel: UILabel!
     
     //총 3개의 이미지뷰 배열 생성 (배너광고)
     lazy var bannerArray: [UIImageView] = {
@@ -53,6 +54,8 @@ class HomeDownVC: UIViewController {
     }
     
     func makeBarcodeImage(){
+        
+        mileageLabel.text = String(userDefault.integer(forKey: "userMileage"))
         
         guard let serial = barcodeSerial else {
             barcodeBtn.setTitle("카드등록", for: .normal)
