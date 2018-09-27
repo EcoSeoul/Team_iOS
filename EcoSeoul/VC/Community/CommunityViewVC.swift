@@ -15,6 +15,14 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var commentSendView: UIView!
     var keyboardDismissGesture: UITapGestureRecognizer?
     
+    @IBOutlet weak var boardTitleLB: UILabel!
+    @IBOutlet weak var boardContentLB: UILabel!
+    @IBOutlet weak var goodLB: UILabel!
+    @IBOutlet weak var commentLB: UILabel!
+    @IBOutlet weak var dateLB: UILabel!
+    @IBOutlet weak var userNameLB: UILabel!
+    
+    
     var communityView : CommunityView?
     var selectedBoardIdx : List?
     
@@ -46,7 +54,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 self.communityView = detailView
                 print("\n communityView에 잘 들어가는지 확인하기\n")
                 print(self.communityView as Any)
-                
+                //self.communityView.
                 self.tableview.reloadData()
                 break
                 

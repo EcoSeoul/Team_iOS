@@ -402,9 +402,15 @@
                         <viewLayoutGuide key="safeArea" id="fNf-9F-bt1"/>
                     </view>
                     <connections>
+                        <outlet property="boardContentLB" destination="tIk-gY-tAg" id="a23-BA-vhU"/>
+                        <outlet property="boardTitleLB" destination="anN-XG-Pd6" id="2QP-LJ-ye2"/>
                         <outlet property="commentBar" destination="rJK-Ke-jTY" id="Ges-2x-aCn"/>
+                        <outlet property="commentLB" destination="ZYC-13-PMd" id="jt0-gq-Yfr"/>
                         <outlet property="commentSendView" destination="rJK-Ke-jTY" id="xw5-C9-qvl"/>
+                        <outlet property="dateLB" destination="2Ic-bm-3yt" id="tiQ-iS-wCo"/>
+                        <outlet property="goodLB" destination="GnA-iz-fiE" id="9cY-3O-lHh"/>
                         <outlet property="tableview" destination="w2h-q4-uMk" id="uFj-9a-NfN"/>
+                        <outlet property="userNameLB" destination="SJE-c4-fWO" id="PAc-Gx-lqY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TiU-07-yvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
