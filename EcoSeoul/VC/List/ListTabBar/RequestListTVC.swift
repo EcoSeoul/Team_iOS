@@ -11,27 +11,59 @@ import XLPagerTabStrip
 
 class RequestListTVC: UITableViewController, APIService {
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userDefault = UserDefaults.standard
+    var requestListDataArr : [RequestListData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        getRequestData(url: url("/mypage/mygoods/\(userIdx)"))
+        
+    
+    }
+    
+    func getRequestData(url : String){
+        
+        RequestListService.shareInstance.getRequestData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .networkSuccess(let data):
+                self.requestListDataArr = data
+                self.tableView.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
         
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        guard let arr = requestListDataArr else{return 3}
+        return arr.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestListTVCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RequestListTVCell", for: indexPath) as! RequestListTVCell
+        let row = indexPath.row
+    
+        if let requestArr = requestListDataArr {
+            cell.requestTitle.text = requestArr[row].goodsName
+            cell.requestDate.text = requestArr[row].mileageDate
+        }
         
         return cell
     }
+    
+
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70

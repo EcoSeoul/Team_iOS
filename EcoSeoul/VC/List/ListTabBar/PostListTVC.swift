@@ -12,11 +12,37 @@ import XLPagerTabStrip
 
 class PostListTVC: UITableViewController, APIService {
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userDefault = UserDefaults.standard
+    var postListDataArr : [PostListData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        getPostData(url: url("/mypage/myboard/\(userIdx)"))
+        
+        
+    }
+    
+    func getPostData(url : String){
+        
+        PostListService.shareInstance.getPostData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .networkSuccess(let data):
+                self.postListDataArr = data
+                self.tableView.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
+        
     }
     
     

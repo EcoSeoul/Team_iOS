@@ -11,13 +11,38 @@ import XLPagerTabStrip
 
 class DonationListTVC: UITableViewController, APIService {
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userDefault = UserDefaults.standard
+    var donationListDataArr : [DonationListData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰에 내용이 나오지 않는 하단 부분의 선을 없애줍니다.
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        getDonationData(url: url("/mypage/mydonation/\(userIdx)"))
+        
+        
     }
     
+    func getDonationData(url : String){
+        
+        DonationListService.shareInstance.getDonationData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .networkSuccess(let data):
+                self.donationListDataArr = data
+                self.tableView.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
+        
+    }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

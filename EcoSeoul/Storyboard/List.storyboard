@@ -243,6 +243,11 @@
                                         <constraint firstItem="rRC-vj-5rO" firstAttribute="top" secondItem="ptU-xn-S3S" secondAttribute="topMargin" id="wNc-Vp-fNi"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="requestDate" destination="POJ-2u-mGG" id="PcY-ZW-zoW"/>
+                                    <outlet property="requestImage" destination="lja-Qq-A3L" id="rib-zD-YYZ"/>
+                                    <outlet property="requestTitle" destination="rRC-vj-5rO" id="eiu-do-1aa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
