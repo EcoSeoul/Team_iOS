@@ -119,6 +119,9 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let communityVC = UIStoryboard(name: "Community", bundle: nil).instantiateViewController(withIdentifier: "CommunityViewVC")as! CommunityViewVC
         
+        //셀 클릭이후 남아있는 gray color 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if let data = communityData {
             if let list = data.bestList{
                 if indexPath.row < 3 {

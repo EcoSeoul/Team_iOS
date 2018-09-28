@@ -52,15 +52,14 @@ class LoginVC: UIViewController, APIService {
                     
                     let datas = data as! Login
                     self.userDefault.set(datas.userIdx, forKey: "userIdx")
-                    self.userDefault.set(self.idTF.text, forKey: "userId")
+                    self.userDefault.set(datas.userId, forKey: "userId")
                     self.userDefault.set(datas.userName, forKey: "userName")
-                    if datas.userBarcodeNum != nil {
-                        self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
+                    
+                    if let barcodeNum = datas.userBarcodeNum {
+                        self.userDefault.set(barcodeNum, forKey: "userBarcode")
                     }
-                    self.userDefault.set(datas.userMileage, forKey: "userMileage")
-                   
-                    guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
-                    else { return }
+                
+                    let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                     self.navigationController?.pushViewController(homeVC, animated: true)
                     break
                 case .wrongInput :
@@ -68,10 +67,13 @@ class LoginVC: UIViewController, APIService {
                     break
                 case .nullValue :
                     self.simpleAlert(title: "오류", message: "빈 값이 들어갑니다")
+                    break
                 case .serverErr :
                     self.simpleAlert(title: "오류", message: "서버 에러")
+                    break
                 case .networkFail :
                     self.simpleAlert(title: "오류", message: "인터넷 연결상태를 확인해주세요")
+                    break
                 default :
                     break
             }

@@ -14,14 +14,14 @@ import UIKit
 
 class HomeVC: UIViewController, APIService {
     
+    let userDefault = UserDefaults.standard
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    
     //HomeVC Elements
     @IBOutlet weak var verticalScroll: UIScrollView!
     var homeUpVC: HomeUpVC?
     var homeDownVC: HomeDownVC?
     
-    let userDefault = UserDefaults.standard
-    let userIdx = UserDefaults.standard.string(forKey: "userIdx")!
-   
     var downBtn: UIButton = {
         let button = UIButton(frame: CGRect(x: 162, y: 512, width: 50 , height: 50))
         button.setImage(#imageLiteral(resourceName: "arrow-down-black"), for: .normal)
@@ -32,10 +32,8 @@ class HomeVC: UIViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalScroll.delegate = self;
-    
-        mainDataInit(url : url("/home/\(userIdx)"))
-        
         setVC()
+        network()
         self.view.subviews[0].addSubview(downBtn)
     }
     
@@ -44,17 +42,19 @@ class HomeVC: UIViewController, APIService {
          donwnBtnAnimate()
     }
     
+    func network(){
+         mainDataInit(url : url("/home/\(userIdx)"))
+    }
     
     func mainDataInit(url : String){
         MainService.shareInstance.getMain(url: url, completion: { [weak self] (result) in
             guard let `self` = self else { return }
-            
             switch result {
             case .networkSuccess(let data):
                 self.setDB(data as! MainData)
                 break
             case .networkFail :
-                self.simpleAlert(title: "network", message: "check")
+                self.simpleAlert(title: "network", message: "네트워크상태를 확인해주세요 :)")
                 break
             default :
                 break
@@ -64,6 +64,7 @@ class HomeVC: UIViewController, APIService {
     }
     
     func setDB(_ data: MainData){
+        
         //CircleView(Carbon)
         self.userDefault.set(data.term[0], forKey: "termStart")
         self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")
@@ -102,7 +103,6 @@ extension HomeVC : UIScrollViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.y / scrollView.frame.size.height)
         print("현재 Vertical 인덱스 = \(Int(pageNumber))")
-        //현재의 인덱스를 저장하여 다른VC에서 판별용도
         userDefault.set(Int(pageNumber), forKey: "verticalIdx")
     }
 

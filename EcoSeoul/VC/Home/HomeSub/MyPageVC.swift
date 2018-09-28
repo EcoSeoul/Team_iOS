@@ -98,6 +98,9 @@ extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
         let section = indexPath.section
         let row = indexPath.row
         
+        //셀 클릭이후 남아있는 gray color 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if section == 0 {
             switch row {
                 case 0:

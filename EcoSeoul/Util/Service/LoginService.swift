@@ -26,7 +26,6 @@ struct LoginService: PostableService {
                             completion(.networkSuccess(networkResult.checkResult[0]))
                         case "400 Error" :
                             completion(.nullValue)
-                            //completion(.wrongInput)
                         case "500 Error" :
                             completion(.serverErr)
                         default :

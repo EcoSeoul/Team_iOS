@@ -12,12 +12,12 @@ import UIKit
 //자식뷰로 CircleView(Index:0),WaveView(Index:1~3)을 추가
 //pageControl과 HomeAllBtn 필요 
 
-class HomeUpVC: UIViewController, UIScrollViewDelegate{
+class HomeUpVC: UIViewController{
 
     @IBOutlet weak var horizontalScroll: UIScrollView!
-    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
     @IBOutlet weak var homeAllBtn: UIButton!
-    
+    var pageControl = UIPageControl(frame: CGRect(x: 146, y: 30, width: 84, height: 12))
+   
     //CO2 VALUE(Circle)
     var co2Percent: Double = 0.0
     var totalCarbon: Int = 0
@@ -113,8 +113,7 @@ extension HomeUpVC {
 }
 
 //2. 페이지 컨트롤 구성(인덱싱)
-
-extension HomeUpVC {
+extension HomeUpVC: UIScrollViewDelegate {
     
     ////Page Control (위에 인덱싱 표시) 구현부 ////
     func makePageControl(){

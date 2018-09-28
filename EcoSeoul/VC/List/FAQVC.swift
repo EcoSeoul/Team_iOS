@@ -94,6 +94,9 @@ extension FAQVC: UITableViewDelegate,UITableViewDataSource {
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: indexPath.section)) as! FAQTVC1
   
+        //셀 클릭이후 남아있는 gray color 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if selectedIndx != indexPath.section{
             expandCol = true
             selectedIndx = indexPath.section
