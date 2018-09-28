@@ -371,6 +371,9 @@
                                         <state key="normal" title="작성">
                                             <color key="titleColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerComment:" destination="cli-xL-3eb" eventType="touchUpInside" id="ZRq-VA-aA0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -407,6 +410,7 @@
                         <outlet property="commentBar" destination="rJK-Ke-jTY" id="Ges-2x-aCn"/>
                         <outlet property="commentLB" destination="ZYC-13-PMd" id="jt0-gq-Yfr"/>
                         <outlet property="commentSendView" destination="rJK-Ke-jTY" id="xw5-C9-qvl"/>
+                        <outlet property="commentTF" destination="ZHs-uG-efK" id="5nk-OP-r5a"/>
                         <outlet property="dateLB" destination="2Ic-bm-3yt" id="tiQ-iS-wCo"/>
                         <outlet property="goodLB" destination="GnA-iz-fiE" id="9cY-3O-lHh"/>
                         <outlet property="tableview" destination="w2h-q4-uMk" id="uFj-9a-NfN"/>

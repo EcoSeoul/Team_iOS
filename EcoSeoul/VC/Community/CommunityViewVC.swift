@@ -22,6 +22,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var dateLB: UILabel!
     @IBOutlet weak var userNameLB: UILabel!
     
+    @IBOutlet weak var commentTF: UITextField!
     
     var communityView : CommunityView?
     var selectedBoardIdx : List?
@@ -53,7 +54,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             case .networkSuccess(let detailView):
                 self.communityView = detailView
                 print("\n communityView에 잘 들어가는지 확인하기\n")
-                print(self.communityView as Any)
+                print(self.communityView!)
                 self.showBoardData()
                 self.tableview.reloadData()
                 break
@@ -75,8 +76,16 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         if let boardresult = self.communityView?.boardResult {
             self.boardTitleLB.text = boardresult[0].boardTitle
             self.boardContentLB.text = boardresult[0].boardContent
-            self.goodLB.text = (String)(boardresult[0].boardLike)
-            self.commentLB.text = (String)(boardresult[0].boardCmtnum)
+            if boardresult[0].boardLike != nil {
+                self.goodLB.text = (String)(boardresult[0].boardLike!)
+            }else{
+                self.goodLB.text = "0"
+            }
+            if boardresult[0].boardCmtnum != nil {
+                self.commentLB.text = (String)(boardresult[0].boardCmtnum!)
+            }else{
+                self.commentLB.text = "0"
+            }
             self.dateLB.text = boardresult[0].boardDate
         }
     }
@@ -98,6 +107,43 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     @IBOutlet weak var commentBar: UIView!
+
+    @IBAction func registerComment(_ sender: UIButton) {
+    
+        if (commentTF.text?.isEmpty)!{
+            simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.")
+        }else{
+            
+            let params : [String : Any] = [
+                "board_idx" : selectedBoardIdx!.boardIdx,
+                "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!,
+                "cmt_content" : commentTF.text!
+            ]
+            print(params)
+            CommunityCommentService.shareInstance.registercomment(url: self.url("/comment"), params: params) { [weak self] (result) in
+                guard let `self` = self else { return }
+                switch result {
+                case .networkSuccess(_):
+                    print("\n댓글작성 성공!")
+                case .nullValue :
+                    self.simpleAlert(title: "오류", message: "텍스트 비어있음")
+                case .networkFail :
+                    self.simpleAlert(title: "오류", message: "인터넷 연결상태를 확인해주세요")
+                default :
+                    break
+                }
+                
+            }
+//            var cmtnum : Int
+//            if let boardresult = communityView?.boardResult{
+//                cmtnum = boardresult[0].boardCmtnum!
+//            }
+            self.tableview.reloadData()
+            self.commentTF.text = ""
+            self.viewDidLoad()
+            
+        }
+    }
 
     func commnentBarShadow(){
         self.commentBar.layer.shadowColor = UIColor.black.cgColor
@@ -153,7 +199,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 }
 
-
+//keyboard Setting
 extension CommunityViewVC{
     
     func setKeyboardSetting() {
