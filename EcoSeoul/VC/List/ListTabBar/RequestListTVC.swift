@@ -18,10 +18,16 @@ class RequestListTVC: UITableViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: .zero)
-        
-        getRequestData(url: url("/mypage/mygoods/\(userIdx)"))
-        
+        network()
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+    }
+    
+    func network(){
+         getRequestData(url: url("/mypage/mygoods/\(userIdx)"))
     }
     
     func getRequestData(url : String){
@@ -43,20 +49,23 @@ class RequestListTVC: UITableViewController, APIService {
         })
         
     }
-    
+}
+
+
+
+extension RequestListTVC{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let arr = requestListDataArr else{return 3}
         return arr.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestListTVCell", for: indexPath) as! RequestListTVCell
         let row = indexPath.row
-    
+        
         if let requestArr = requestListDataArr {
-//            cell.requestImage.image = 
+            //cell.requestImage.image =
             cell.requestTitle.text = requestArr[row].goodsName
             cell.requestDate.text = requestArr[row].mileageDate
         }
@@ -64,12 +73,12 @@ class RequestListTVC: UITableViewController, APIService {
         return cell
     }
     
-
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
 }
+
+
 
 extension RequestListTVC: IndicatorInfoProvider{
     

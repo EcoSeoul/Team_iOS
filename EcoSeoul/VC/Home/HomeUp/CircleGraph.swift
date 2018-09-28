@@ -34,7 +34,6 @@ class CircleGraph{
     let totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
     let pastTotalCarbon = UserDefaults.standard.integer(forKey: "pastTotalCarbon")
     
-
     //에니메이션 변수
     let circleAnimation = CABasicAnimation(keyPath: "strokeEnd")
     

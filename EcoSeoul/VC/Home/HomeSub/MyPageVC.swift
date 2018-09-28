@@ -21,9 +21,16 @@ class MyPageVC: UIViewController, APIService {
 
         tableview.delegate = self;
         tableview.dataSource = self;
+        network()
+    }
     
-        myPageInit(url: url("/mypage/\(userIdx)"))
- 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+    }
+    
+    func network(){
+         myPageInit(url: url("/mypage/\(userIdx)"))
     }
 
     func myPageInit(url: String){
@@ -32,12 +39,12 @@ class MyPageVC: UIViewController, APIService {
             
             switch result {
                 case .networkSuccess(let data):
+                    UserDefaults.standard.set(data.userMoney, forKey: "userMoney")
                     self.mileageLB.text = String(data.userMileage)
                     self.moneyLB.text = String(data.userMoney)
-                    UserDefaults.standard.set(data.userMoney, forKey: "userMoney")
                 break
             case .networkFail :
-                self.simpleAlert(title: "network", message: "check")
+                self.simpleAlert(title: "network", message: "네트워크 환경을 확인해주세요 :)")
                 break
             default :
                 break
@@ -98,10 +105,12 @@ extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
         let section = indexPath.section
         let row = indexPath.row
         
+        //셀 클릭이후 남아있는 gray color 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if section == 0 {
             switch row {
                 case 0:
-                    
                     UserDefaults.standard.set(0, forKey: "check")
                     let listVC = UIStoryboard(name: "List", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as! ListVC
                     self.present(listVC, animated: true, completion: nil)

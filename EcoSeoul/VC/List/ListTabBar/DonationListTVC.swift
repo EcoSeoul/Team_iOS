@@ -18,10 +18,16 @@ class DonationListTVC: UITableViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: .zero)
-        
+        network()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+    }
+    
+    func network(){
         getDonationData(url: url("/mypage/mydonation/\(userIdx)"))
-        
-        
     }
     
     func getDonationData(url : String){
@@ -43,14 +49,16 @@ class DonationListTVC: UITableViewController, APIService {
         })
         
     }
-    
+
+}
+
+extension DonationListTVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let arr = donationListDataArr else{return 3}
         return arr.count
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DonationListTVCell", for: indexPath) as! DonationListTVCell
         let row = indexPath.row
@@ -59,17 +67,19 @@ class DonationListTVC: UITableViewController, APIService {
             cell.orgNameLB.text = donationArr[row].orgName
             cell.mileageDateLB.text = donationArr[row].mileageDate
             cell.mileageWithDrawLB.text = String(-donationArr[row].mileageWithdraw)
-    
+            
         }
         
         return cell
     }
-
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
 }
+
+
 
 extension DonationListTVC: IndicatorInfoProvider{
     

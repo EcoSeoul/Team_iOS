@@ -74,6 +74,9 @@ class AffiliationDetailVC: UIViewController, APIService{
         storeData["address"] = data.frcAdd
         storeData["phone"] = data.frcPhone
         storeData["frc_sale"] = String(data.frcSale)
+        storeData["frc_type"] = String(data.frcType)
+        
+        let typeCheck = data.frcType
         
         //zoom up when value is increasing
         let cameraZoom: Float = 12.5
@@ -81,18 +84,10 @@ class AffiliationDetailVC: UIViewController, APIService{
         displayView.camera = camera
       
         let marker = GMSMarker()
-       
         marker.position = CLLocationCoordinate2D(latitude: data.frcLat, longitude: data.frcLong)
-            
-        if data.frcType == 0 {
-            marker.icon = #imageLiteral(resourceName: "map-marker-green")
-            categoryLabel.text = "가맹점"
-        }
-        if data.frcType == 1{
-            marker.icon = #imageLiteral(resourceName: "map-marker-darkgreen")
-             categoryLabel.text = "공공시설"
-        }
-      
+        marker.icon =  typeCheck == 1 ? #imageLiteral(resourceName: "map-marker-darkgreen") : #imageLiteral(resourceName: "map-marker-green")
+        categoryLabel.text = typeCheck == 1 ? "공공시설" : "가맹점"
+    
         marker.map = displayView
         marker.userData = storeData
         
@@ -110,25 +105,27 @@ extension AffiliationDetailVC: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     
         var saleInfo = ""
+        var typeInfo = ""
         
         if let data = marker.userData as? [String: Any] {
             nameLabel.text = data["name"] as? String
             addressLabel.text = data["address"] as? String
             phoneLabel.text = data["phone"] as? String
             saleInfo = data["frc_sale"] as! String
+            typeInfo = data["frc_type"] as! String
         }
         
         switch saleInfo {
             case "5" :
-                print("5프로할인!")
+                salesPercent.image =  typeInfo == "1" ? #imageLiteral(resourceName: "5-discount-darkgreen") : #imageLiteral(resourceName: "5-discount-green")
             case "10" :
-                print("10프로 할인!!")
+                salesPercent.image =  typeInfo == "1" ? #imageLiteral(resourceName: "10-discount-darkgreen") : #imageLiteral(resourceName: "10-discount-green")
             case "20" :
-                print("20프로 할인!!")
+                salesPercent.image =  typeInfo == "1" ? #imageLiteral(resourceName: "20-discount-darkgreen") : #imageLiteral(resourceName: "20-discount-green")
             case "30" :
-                print("30프로 할인!!")
+                salesPercent.image =  typeInfo == "1" ? #imageLiteral(resourceName: "30-discount-darkgreen") : #imageLiteral(resourceName: "30-discount-green")
             case "100":
-                print("무료!!!!")
+                salesPercent.image =  typeInfo == "1" ? #imageLiteral(resourceName: "free-darkgreen") : #imageLiteral(resourceName: "free-green")
             break
         default: break
             
@@ -140,12 +137,12 @@ extension AffiliationDetailVC: GMSMapViewDelegate{
             {
                 if self.markerSelected == false {
                     self.bottomViewConstraint.constant -= 110
-                    marker.icon = #imageLiteral(resourceName: "map-marker-darkgreen-big")
+                    marker.icon = typeInfo == "1" ? #imageLiteral(resourceName: "map-marker-darkgreen-big") : #imageLiteral(resourceName: "map-marker-green-big")
                     self.markerSelected = !self.markerSelected
                 }
                 else{
                     self.bottomViewConstraint.constant += 110
-                    marker.icon = #imageLiteral(resourceName: "map-marker-darkgreen")
+                    marker.icon = typeInfo == "1" ? #imageLiteral(resourceName: "map-marker-darkgreen") : #imageLiteral(resourceName: "map-marker-green")
                     self.markerSelected = !self.markerSelected
                 }
                 self.view.layoutIfNeeded() }, completion:nil)

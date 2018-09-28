@@ -134,6 +134,9 @@ extension DonationVC: UIScrollViewDelegate{
                 print(data)
                 //기부를 했습니다. 창 띄우기
                 print("\(UserDefaults.standard.integer(forKey: "donateMileage")) M 기부완료!!!")
+                let newMileage = UserDefaults.standard.integer(forKey: "userMileage") - UserDefaults.standard.integer(forKey: "donateMileage")
+                UserDefaults.standard.set(newMileage, forKey: "userMileage")
+             
                 break
             case .nullValue :
                 self.simpleAlert(title: "오류", message: "마일리지가 부족해요 ㅠㅠ")

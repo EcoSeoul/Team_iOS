@@ -27,15 +27,14 @@ class HomeDownVC: UIViewController {
         var arr: [UIImageView] = []
         for i in 0..<3 {
             arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
-
         }
         return arr
     }()
-    
-   
+    var pageControl = UIPageControl(frame: CGRect(x: 317, y: 200, width: 34, height: 7))
+
+
     //TableView Expand/Collapse Flag
     var expandCol : Bool = false
-    
     let cell3Title = ["가맹점 찾기", "친환경 상품 신청하기", "에코마일리지 기부하기", "커뮤니티", "에코마일리지란?"]
     let cell3Explain = ["내 주변 가맹점 및 할인 공공시설을 찾아보세요", "온라인으로 상품을 신청해보세요",
                         "에코마일리지로 기부해보세요", "꿀팁 공유","에코마일리지를 알려드립니다!"]
@@ -44,18 +43,25 @@ class HomeDownVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         horizontalScroll.delegate = self;
         tableView.dataSource = self;
         tableView.delegate = self;
-        
-        barcodeSerial = userDefault.string(forKey: "userBarcode")
+ 
         makeBarcodeImage()
         makeBannerView()
+        makePageControl()
+        pageControl.addTarget(self.horizontalScroll, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        makeBarcodeImage()
     }
     
     func makeBarcodeImage(){
         
+        barcodeSerial = userDefault.string(forKey: "userBarcode")
         mileageLabel.text = String(userDefault.integer(forKey: "userMileage"))
         
         guard let serial = barcodeSerial else {
@@ -73,28 +79,36 @@ class HomeDownVC: UIViewController {
     
     //바코드 버튼 클릭
     @IBAction func barcodePressed(_ sender: Any) {
+        
         //1)바코드가 있는 경우
         if barcodeSerial != nil {
             let barcodeVC = UIStoryboard(name: "HomeSub", bundle: nil).instantiateViewController(withIdentifier: "BarcodeVC")as! BarcodeVC
             barcodeVC.barcodeSerial = self.barcodeSerial
             self.addChildViewController(barcodeVC)
             
-            //HomeVC에서 가져온 값
+            //HomeVC에서 가져온 현재 Vertical 인덱스 위치 확인
             let n = userDefault.integer(forKey: "verticalIdx")
-            if n == 0{
-                barcodeVC.view.frame = CGRect(x: 0, y: -592, width: self.view.frame.width, height: self.view.frame.height)
-            }
-            else{
-                barcodeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            switch n {
+                case 0:
+                      barcodeVC.view.frame = CGRect(x: 0, y: -592, width: self.view.frame.width, height: self.view.frame.height)
+                      break
+                case 1:
+                      barcodeVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                      break
+                default:
+                    break
             }
             
             self.view.addSubview(barcodeVC.view)
             barcodeVC.didMove(toParentViewController: self)
         }
+            
         //2)바코드가 없는 경우(->카드 등록창으로 유도)
         else {
             print("카드생성 팝업이 뜨게 해줘야합니다!!! 구현하세요!")
         }
+    
     }
     
     
@@ -117,15 +131,36 @@ extension HomeDownVC: UIScrollViewDelegate{
 
     func makeBannerView(){
   
-      
         for i in 0..<bannerArray.count {
             horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
             if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
-            else { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-99")}
+            else { bannerArray[i].image = #imageLiteral(resourceName: "main_banner_2")}
             horizontalScroll.addSubview(bannerArray[i])
         }
         
     }
+    
+    ////Page Control (위에 인덱싱 표시) 구현부 ////
+    func makePageControl(){
+        self.pageControl.numberOfPages = bannerArray.count
+        self.pageControl.currentPage = 0
+        self.pageControl.tintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
+        self.pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.6392156863, green: 0.6392156863, blue: 0.6392156863, alpha: 1)
+        self.pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+        self.tableView.addSubview(pageControl)
+    }
+    
+    @objc func changePage(sender: AnyObject) -> () {
+        let x = CGFloat(pageControl.currentPage) * horizontalScroll.frame.width
+        horizontalScroll.setContentOffset(CGPoint(x:x, y:0), animated: true)
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+    /////////////////////////////////////
     
 }
 
@@ -150,11 +185,14 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let section = indexPath.section
         let row = indexPath.row
         
+        //셀 클릭이후 남아있는 gray color 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if section == 0 {
             

@@ -11,6 +11,9 @@ import UIKit
 
 class BarcodeVC: UIViewController {
     
+    let userName = UserDefaults.standard.string(forKey: "userName")!
+    let userMileage = UserDefaults.standard.string(forKey: "userMileage")!
+    
     //최상위 부모뷰
     @IBOutlet var superView: UIControl!
     
@@ -52,15 +55,14 @@ class BarcodeVC: UIViewController {
         if let image = generateBarcodeFromString(string: serial) {
             barcodeImage.image = image
             barcodeNumber.text = serial
-            titleLabel.text = "\(UserDefaults.standard.string(forKey: "userName")!)님 에코머니"
-            moneyLabel.text = "\(UserDefaults.standard.string(forKey: "userMileage")!)"
+            titleLabel.text = userName + "님 에코머니"
+            moneyLabel.text = "\(userMileage)"
         }
         
     }
     
-    
-    
 }
+
 extension BarcodeVC {
     
     @objc func subViewTapped(){
