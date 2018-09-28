@@ -44,6 +44,8 @@ extension PostableService {
                         
                     }catch{
                         
+                        print("")
+                        print("error: \(error)")
                         completion(.error("error"))
                     }
                 }
