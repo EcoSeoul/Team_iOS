@@ -56,8 +56,7 @@ class DonationView: UIView{
         let btn = UIButton(frame: CGRect(x: 291, y: 257, width: 48, height: 48))
         btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 13)
         btn.setTitle("바로가기", for: .normal)
-        btn.addTarget(self, action: #selector(goDetailBtnPressed), for: .touchUpInside)
-    
+        
         return btn
     }()
     
@@ -69,19 +68,21 @@ class DonationView: UIView{
     }()
     
     //금액 선택 버튼
-    var selectBtn: UIButton = {
-        let btn = UIButton(frame: CGRect(x: 20, y: 505, width: 199, height: 34))
-        btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 17)
-        btn.setTitle("금액 선택", for: .normal)
-        btn.setTitleColor(#colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1), for: .normal)
+    var selectTF: UITextField = {
+        let textfield = UITextField(frame: CGRect(x: 20, y: 505, width: 199, height: 34))
+        let centeredParagraphStyle = NSMutableParagraphStyle()
+        centeredParagraphStyle.alignment = .center
+        textfield.attributedPlaceholder = NSAttributedString(string: "금액 선택", attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1), NSAttributedStringKey.paragraphStyle: centeredParagraphStyle ])
         
-        btn.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
-        btn.layer.borderWidth = 1
-        btn.layer.cornerRadius = 10
-       
-        btn.addTarget(self, action: #selector(selectBtnPressed), for: .touchUpInside)
-        return btn
+        textfield.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
+        textfield.layer.borderWidth = 1
+        textfield.layer.cornerRadius = 10
+        
+        return textfield
     }()
+    
+    
+    
     
     //기부하기 버튼
     var donateBtn: UIButton = {
@@ -89,16 +90,14 @@ class DonationView: UIView{
         btn.titleLabel?.font = UIFont(name: notoSansFont.Regular.rawValue, size: 17)
         btn.setTitle("기부하기", for: .normal)
         btn.setTitleColor(#colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1), for: .normal)
-
+        
         btn.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
         btn.layer.borderWidth = 1
         btn.layer.cornerRadius = 10
-        
-        btn.addTarget(self, action: #selector(donateBtnPressed(_ :)), for: .touchUpInside)
         return btn
     }()
     
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -110,7 +109,7 @@ class DonationView: UIView{
     init(_ parentView: UIScrollView){
         super.init(frame: parentView.frame)
         self.parentView = parentView
-
+        
         identifyViews()
         
         parentView.subviews.last?.addSubview(mainImageView)
@@ -121,31 +120,9 @@ class DonationView: UIView{
         parentView.subviews.last?.addSubview(titleLabel)
         parentView.subviews.last?.addSubview(explainTextView)
         
-        parentView.subviews.last?.addSubview(selectBtn)
+        parentView.subviews.last?.addSubview(selectTF)
         parentView.subviews.last?.addSubview(donateBtn)
-  
         
-    }
-    
-    
-    
-    @objc func goDetailBtnPressed(){
-        print("바로가기 버튼!!!")
-        
-    }
-    @objc func selectBtnPressed(){
-        
-        print("금액선택하기 버튼!!")
-        
-    }
-    
-    
-    @objc func donateBtnPressed(_ sender: UIButton){
-        print("기부하기 버튼!!!")
-//        if sender.isTouchInside {
-//            sender.backgroundColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
-//            sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .focused)
-//        }
         
     }
     
@@ -156,19 +133,20 @@ class DonationView: UIView{
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-1")
             typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
-            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
+            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를 \n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다.이는 나무 열 그루를 심어 이산화탄소를  \n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의 \n   마음과 삶의 변화를 뜻하는 것입니다. 사람의 마음이\n   바뀌면 기후변화, 사막화 문제도 해결될 수 있습니다.\n   에코마일리지 회원들의 기부는 나무 한 그루, \n   한 그루가 모여 숲이 이루어지듯 사막화 방지의 \n   큰 밑거름이 될 것입니다."
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "forest" {
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-2")
             typeImageView.image = #imageLiteral(resourceName: "donation-tree")
             titleLabel.text = "사막화 방지를 위한 나무 기부"
-            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
+            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를 \n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다.이는 나무 열 그루를 심어 이산화탄소를  \n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의 \n   마음과 삶의 변화를 뜻하는 것입니다. 사람의 마음이\n   바뀌면 기후변화, 사막화 문제도 해결될 수 있습니다.\n   에코마일리지 회원들의 기부는 나무 한 그루, \n   한 그루가 모여 숲이 이루어지듯 사막화 방지의 \n   큰 밑거름이 될 것입니다."
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "energy" {
             mainImageView.image = #imageLiteral(resourceName: "donation-banner-3")
             typeImageView.image = #imageLiteral(resourceName: "donation-energy")
             titleLabel.text = "에너지 빈곤층을 위한 기부"
-            explainTextView.text = "   사막화, 황사를 막을 수 있는 유일한 해결책은 나무를\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의\n   심는 일입니다. 한 사람이 평생 열 그루의 나무를\n   심는다면 기후변화, 사막화, 황사를 방지할 수\n   있습니다. 이는 나무 열 그루를 심어 이산화탄소를\n   흡수하는 효과도 크겠지만 더 중요한 것은 사람들의"
+            explainTextView.text = "   별다른 생각 없이 쓰는 에너지, 그러나 우리 주위에는\n   에너지가 없어 생활의 불편함을 겪고 있는 이웃들이 \n   있습니다.작은 방 하나를 데울 수 없고, 좁은 \n   공간조차 밝힐 수 없는 이웃에게 따뜻한 에너지를 \n   전해주세요. 우리들의 작은 배려로 아낀 에너지가 \n   에너지 빈곤층에게 큰 도움이 됩니다. 시민들의 기부는\n   태양광에너지 설치, 주거에너지효율화, 에너지효율 \n   제품 지원 등에 쓰입니다. 서울에너지복지시민기금은 \n   에너지 나눔을 실천합니다."
+            
         }
     }
     
