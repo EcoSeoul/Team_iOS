@@ -19,7 +19,6 @@ class WebVC: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            // 첫 페이지는 네이버로 설정
             self.request(url: address)
 
         }
@@ -51,12 +50,15 @@ class WebVC: UIViewController {
 
 // searchBar에서 검색하면 searchBar에 입력된 주소를 요청한다.
 extension WebVC: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.request(url: searchBar.text!)
         
         //다른곳을 터치하면 키보드가 내려갈 수 있도록 한다.
         self.view.endEditing(true)
     }
+    
+    
 }
 
 // 현재 웹페이지의 URL을 searchBar에 띄워준다.
