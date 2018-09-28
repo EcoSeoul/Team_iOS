@@ -11,8 +11,9 @@ import XLPagerTabStrip
 
 class MoneyTVC: UITableViewController, APIService {
     
-    let userDefault = UserDefaults.standard
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userMoney = UserDefaults.standard.integer(forKey: "userMoney")
+    
     var moneyListDataArr: [MoneyListData]?
     
     //적립 머니, 사용 머니 레이블, 현재 머니 레이블
@@ -26,9 +27,19 @@ class MoneyTVC: UITableViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: .zero)
-        
-        currentMoney.text = String(userDefault.integer(forKey: "userMoney"))
-        getMoneyData(url: url("/mypage/usage/\(userIdx)/1"))
+        network()
+        currentMoney.text = String(userMoney)
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+        currentMoney.text = String(userMoney)
+    }
+    
+    func network(){
+         getMoneyData(url: url("/mypage/usage/\(userIdx)/1"))
     }
     
     
@@ -51,6 +62,10 @@ class MoneyTVC: UITableViewController, APIService {
 
     }
     
+}
+
+extension MoneyTVC{
+    
     
     // MARK: - Table view data source
     
@@ -63,7 +78,7 @@ class MoneyTVC: UITableViewController, APIService {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoneyTVCell", for: indexPath) as! MoneyTVCell
         let row = indexPath.row
         
-
+        
         if let moneyArr = moneyListDataArr {
             
             cell.usageTitleLB.text = moneyArr[row].moneyUsage
@@ -82,10 +97,8 @@ class MoneyTVC: UITableViewController, APIService {
             
             depositMoney.text = "\(deposit)"
             withdrawMoney.text = "\(withdraw)"
-  
+            
         }
-        
-        
         
         return cell
     }
@@ -93,7 +106,10 @@ class MoneyTVC: UITableViewController, APIService {
         return 63
     }
     
+    
 }
+
+
 extension MoneyTVC: IndicatorInfoProvider{
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

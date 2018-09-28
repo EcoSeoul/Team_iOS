@@ -11,7 +11,6 @@ import UIKit
 class CardVC: UIViewController, APIService {
     
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-    let userBarcode = UserDefaults.standard.string(forKey: "userBarcode")!
 
     @IBOutlet weak var pickerTF: UITextField!
     @IBOutlet weak var cardNumberTF: UITextField!
@@ -33,37 +32,43 @@ class CardVC: UIViewController, APIService {
     
     
     @IBAction func makeCardBtn(_ sender: Any) {
-        UserDefaults.standard.set(cardNumberTF.text!, forKey: "userBarCode")
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
         //1. 카드 등록이 완료되었습니다 창 띄우기..(1~2초)
  
         //2.통신구현부
+        network()
+        
+    }
+    
+    func network(){
+        
         let params: [String:Any] = [
             "user_idx" : userIdx,
-            "user_barcodenum" : userBarcode
+            "user_barcodenum" : gsno(cardNumberTF.text)
         ]
         
         CardService.shareInstance.card(url: url("/mypage/ecocard"), params: params, completion: { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
-                case .networkSuccess(let data):
-                    print(data)
-                    break
-                default :break
+            case .networkSuccess(let data):
+                self.simpleAlert(title: "카드 생성", message: "카드를 만들었습니다!")
+                UserDefaults.standard.set(params["user_barcodenum"], forKey: "userBarcode")
+                print(data)
+                break
+            default :break
             }
         })
         
     }
     
-
-    
+     //카드 신청하러 가기 버튼(웹으로 연결)
     @IBAction func makeCardSiteBtn(_ sender: Any) {
-        
-        //카드 신청하러 가기 버튼(웹으로 연결)
         let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
         webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/introduceEcoCard.do?menuNo=4"
         self.present(webVC, animated: true, completion: nil)
     }
+    
+    
 }
 
 extension CardVC: UITextFieldDelegate {
@@ -83,8 +88,9 @@ extension CardVC: UITextFieldDelegate {
 extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func initPicker() {
+        
         self.pickerview.delegate = self;
-        self.pickerview.dataSource = self
+        self.pickerview.dataSource = self;
         
         let bar = UIToolbar()
         bar.sizeToFit()
@@ -98,10 +104,7 @@ extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
     
     @objc func selectedPicker(){
         let row = pickerview.selectedRow(inComponent: 0)
-        
-        // 선택된 항목 textField에 넣기.
         pickerTF.text = cardArray[row]
-        
         view.endEditing(true)
     }
     

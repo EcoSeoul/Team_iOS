@@ -12,7 +12,8 @@ import XLPagerTabStrip
 class MileageTVC: UITableViewController, APIService {
     
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-    let userDefault = UserDefaults.standard
+    let userMileage = UserDefaults.standard.integer(forKey: "userMileage")
+
     var mileageListDataArr : [MileageListData]?
     
     //적립 마일리지, 사용 마일리지 레이블, 현재 마일리지 레이블
@@ -22,13 +23,21 @@ class MileageTVC: UITableViewController, APIService {
     
     var deposit = 0
     var withdraw = 0
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: .zero)
-        
-        currentMileage.text = String(userDefault.integer(forKey: "userMileage"))
+        network()
+        currentMileage.text = String(userMileage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+        currentMileage.text = String(userMileage)
+    }
+    
+    func network(){
         getMileageData(url: url("/mypage/usage/\(userIdx)/0"))
     }
     
@@ -51,12 +60,15 @@ class MileageTVC: UITableViewController, APIService {
         })
         
     }
+    
+}
+
+extension MileageTVC {
+    
     // MARK: - Table view data source
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let arr = mileageListDataArr else{return 3}
-    
+        
         return arr.count
     }
     
@@ -83,7 +95,7 @@ class MileageTVC: UITableViewController, APIService {
             }
             depositMileage.text = "\(deposit)"
             withdrawMileage.text = "\(withdraw)"
-       
+            
         }
         return cell
     }
@@ -91,6 +103,7 @@ class MileageTVC: UITableViewController, APIService {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 63
     }
+    
 }
 
 extension MileageTVC: IndicatorInfoProvider{

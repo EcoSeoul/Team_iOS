@@ -19,10 +19,17 @@ class PostListTVC: UITableViewController, APIService {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: .zero)
+        network()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        network()
+    }
+    
+    func network(){
         
         getPostData(url: url("/mypage/myboard/\(userIdx)"))
-        
-        
     }
     
     func getPostData(url : String){
@@ -44,13 +51,16 @@ class PostListTVC: UITableViewController, APIService {
         })
         
     }
-    
+
+}
+
+
+extension PostListTVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let arr = postListDataArr else{return 3}
         return arr.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostListTVCell", for: indexPath) as! PostListTVCell
@@ -73,18 +83,21 @@ class PostListTVC: UITableViewController, APIService {
             }else {
                 cell.postCmtNumLB.text = String(postArr[row].boardCmtNum!)
             }
-           
+            
             
         }
         
         return cell
     }
-
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
 }
+
+
 
 extension PostListTVC: IndicatorInfoProvider{
     
