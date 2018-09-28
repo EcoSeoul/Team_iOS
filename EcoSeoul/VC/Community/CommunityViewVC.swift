@@ -25,18 +25,33 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var commentTF: UITextField!
     
     var communityView : CommunityView?
+    @IBOutlet weak var commentBar: UIView!
+    
     var selectedBoardIdx : List?
+    
+    var backBtn: UIBarButtonItem = {
+        let btn = UIBarButtonItem()
+        btn.image = #imageLiteral(resourceName: "arrow-left-black")
+        btn.tintColor = UIColor.black
+        btn.width = -40
+        btn.action = #selector(popSelf)
+        return btn
+    }()
+    
+    @objc func popSelf() {
+        navigationController?.popViewController(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableview.tableFooterView = UIView(frame: .zero)
+        
         self.tableview.dataSource = self;
         self.tableview.delegate = self;
         
-        self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
         setKeyboardSetting()
-        commnentBarShadow()
+        commmentBarShadow()
 
         if let sboardIdx = selectedBoardIdx{
             print("selectedBoardIDX")
@@ -71,6 +86,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 
     func showBoardData(){
+        
         if let sboardIdx = self.selectedBoardIdx{
             self.userNameLB.text = sboardIdx.userName
         }
@@ -91,29 +107,11 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    var backBtn: UIBarButtonItem = {
-        let btn = UIBarButtonItem()
-        btn.image = #imageLiteral(resourceName: "arrow-left-black")
-        btn.tintColor = UIColor.black
-        btn.width = -40
-        btn.action = #selector(popSelf)
-        return btn
-    }()
-    
-    
-    
-    @objc func popSelf() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-    @IBOutlet weak var commentBar: UIView!
+   
 
     @IBAction func registerComment(_ sender: UIButton) {
     
-        if (commentTF.text?.isEmpty)!{
-            simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.")
-        }else{
+        if (commentTF.text?.isEmpty)! == true{ simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.") }
             
             let params : [String : Any] = [
                 "board_idx" : selectedBoardIdx!.boardIdx,
@@ -139,10 +137,10 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             self.commentTF.text = ""
             self.viewDidLoad()
             
-        }
+     
     }
 
-    func commnentBarShadow(){
+    func commmentBarShadow(){
         self.commentBar.layer.shadowColor = UIColor.black.cgColor
         commentBar.layer.shadowOpacity = 0.3
         commentBar.layer.shadowOffset = CGSize.zero
@@ -173,6 +171,10 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         return .lightContent
     }
 
+}
+
+extension CommunityViewVC {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowNumber = 0
         if let comDat = communityView {
@@ -194,31 +196,8 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //keyboard Setting

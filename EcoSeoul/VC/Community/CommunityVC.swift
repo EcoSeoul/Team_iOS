@@ -51,6 +51,30 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         //self.tableview.reloadData()
         self.CommunityInit(url: url("/board/list"))
     }
+
+    
+    //커뮤니티 데이터 Get
+    func CommunityInit(url : String){
+        
+        CommunityService.shareInstance.getCommunityData(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+
+            case .networkSuccess(let data):
+                self.communityData = data
+                self.tableview.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "네트워크 환경을 확인해주세요 :)")
+            default :
+                break
+            }
+            
+        })
+        
+    }
     
     ////좋아요 버튼
     @IBAction func likeBtn(_ sender: Any) {
@@ -83,29 +107,6 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 break
             }
         }
-    }
-    
-    //커뮤니티 데이터 Get
-    func CommunityInit(url : String){
-        
-        CommunityService.shareInstance.getCommunityData(url: url, completion: { [weak self] (result) in
-            guard let `self` = self else { return }
-            
-            switch result {
-
-            case .networkSuccess(let data):
-                self.communityData = data
-                self.tableview.reloadData()
-                break
-                
-            case .networkFail :
-                self.simpleAlert(title: "network", message: "check")
-            default :
-                break
-            }
-            
-        })
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,7 +142,6 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             if let bestlist = communityData_.bestList{
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
-                    //좋아요 누를때 해당 cell의 board index 넘기기
                     if let board : List = bestlist[indexPath.row]{
                         checkLike = board.boardIdx
                     }
