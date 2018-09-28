@@ -135,10 +135,6 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 }
                 
             }
-//            var cmtnum : Int
-//            if let boardresult = communityView?.boardResult{
-//                cmtnum = boardresult[0].boardCmtnum!
-//            }
             self.tableview.reloadData()
             self.commentTF.text = ""
             self.viewDidLoad()
@@ -199,6 +195,31 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         return 70
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //keyboard Setting
 extension CommunityViewVC{

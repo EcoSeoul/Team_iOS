@@ -17,6 +17,7 @@
 		3A0F87D6215CD51D005D0C66 /* CommunityVewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */; };
 		3A13A295215D56F9008DBFDC /* CommunityWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A294215D56F9008DBFDC /* CommunityWrite.swift */; };
 		3A13A297215E1D60008DBFDC /* CommunityCommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */; };
+		3A13A299215E6328008DBFDC /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A298215E6328008DBFDC /* LikeService.swift */; };
 		3A58376F21541FE90074BCA9 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58376E21541FE90074BCA9 /* List.storyboard */; };
 		3A583772215420DF0074BCA9 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583771215420DF0074BCA9 /* PayVC.swift */; };
 		3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837732154212F0074BCA9 /* MileageTVC.swift */; };
@@ -119,6 +120,7 @@
 		3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVewService.swift; sourceTree = "<group>"; };
 		3A13A294215D56F9008DBFDC /* CommunityWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWrite.swift; sourceTree = "<group>"; };
 		3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCommentService.swift; sourceTree = "<group>"; };
+		3A13A298215E6328008DBFDC /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
 		3A58376E21541FE90074BCA9 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		3A583771215420DF0074BCA9 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		3A5837732154212F0074BCA9 /* MileageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTVC.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */,
 				3A13A294215D56F9008DBFDC /* CommunityWrite.swift */,
 				3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */,
+				3A13A298215E6328008DBFDC /* LikeService.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				50C6208A2146D36B0018550B /* HomeDownVC.swift in Sources */,
 				3A58377A2154217C0074BCA9 /* MoneyTVCell.swift in Sources */,
 				502A246821516BB200421F9F /* AffiliationVC.swift in Sources */,
+				3A13A299215E6328008DBFDC /* LikeService.swift in Sources */,
 				50C620952146E8A10018550B /* Extension.swift in Sources */,
 				3A97AB43214E5F2B00507A9F /* PointTVC2.swift in Sources */,
 				50C6208F2146DD8E0018550B /* CircleGraph.swift in Sources */,

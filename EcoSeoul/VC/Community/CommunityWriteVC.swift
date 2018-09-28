@@ -55,9 +55,7 @@ class CommunityWriteVC: UIViewController, APIService {
                     guard let `self` = self else { return }
                     switch result {
                     case .networkSuccess(_):
-                        
-                        self.simpleAlertwithHandler(title: "등록하기", message: "게시글을 등록하시겠습니까?", okHandler: { (_) in self.navigationController?.popViewController(animated: false)
-                        })
+                        print("왜 여기는 동작을 안할까?")
                     case .nullValue :
                         self.simpleAlert(title: "오류", message: "텍스트 비어있음")
                     case .networkFail :
@@ -67,7 +65,8 @@ class CommunityWriteVC: UIViewController, APIService {
                     }
                     
                 }
-            
+            self.simpleAlertwithHandler(title: "등록하기", message: "게시글을 등록하시겠습니까?", okHandler: { (_) in self.navigationController?.popViewController(animated: false)
+            })
         }
     }
     

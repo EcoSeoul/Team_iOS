@@ -77,9 +77,6 @@
                                                     <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="community-recommendation-color" translatesAutoresizingMaskIntoConstraints="NO" id="rip-7a-K7q">
-                                                    <rect key="frame" x="274" y="62" width="25" height="25"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfS-xf-4bK">
                                                     <rect key="frame" x="302" y="64" width="8" height="20"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
@@ -95,10 +92,18 @@
                                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-gQ-olr">
+                                                    <rect key="frame" x="274" y="62" width="25" height="25"/>
+                                                    <state key="normal" image="community-recommendation-line"/>
+                                                    <connections>
+                                                        <action selector="likeBtn:" destination="yTA-kH-WUQ" eventType="touchUpInside" id="bec-wh-Moi"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="dfz-gQ-olr" firstAttribute="bottom" secondItem="JTv-pF-2j9" secondAttribute="bottom" id="6y1-CN-acj"/>
                                                 <constraint firstItem="jLA-BM-9Lp" firstAttribute="leading" secondItem="v90-UL-hBa" secondAttribute="trailing" constant="10" id="7XE-GO-otB"/>
-                                                <constraint firstItem="rip-7a-K7q" firstAttribute="bottom" secondItem="JTv-pF-2j9" secondAttribute="bottom" id="9ES-40-Uyi"/>
+                                                <constraint firstItem="MfS-xf-4bK" firstAttribute="leading" secondItem="dfz-gQ-olr" secondAttribute="trailing" constant="3" id="9tJ-mX-NQ8"/>
                                                 <constraint firstItem="QwM-dV-VHb" firstAttribute="leading" secondItem="jLA-BM-9Lp" secondAttribute="leading" id="BCY-rk-8c9"/>
                                                 <constraint firstItem="dnC-dp-hYu" firstAttribute="leading" secondItem="JTv-pF-2j9" secondAttribute="trailing" constant="7" id="IYI-4B-TcT"/>
                                                 <constraint firstItem="QwM-dV-VHb" firstAttribute="top" secondItem="jLA-BM-9Lp" secondAttribute="bottom" constant="3" id="OTB-MH-1hz"/>
@@ -108,7 +113,6 @@
                                                 <constraint firstItem="dnC-dp-hYu" firstAttribute="leading" secondItem="MfS-xf-4bK" secondAttribute="trailing" constant="42" id="jWu-vB-aZV"/>
                                                 <constraint firstItem="v90-UL-hBa" firstAttribute="leading" secondItem="0jv-8Y-HWs" secondAttribute="leading" constant="12" id="mlc-9V-N78"/>
                                                 <constraint firstItem="MfS-xf-4bK" firstAttribute="bottom" secondItem="dnC-dp-hYu" secondAttribute="bottom" id="nf8-ws-3D7"/>
-                                                <constraint firstItem="JTv-pF-2j9" firstAttribute="leading" secondItem="rip-7a-K7q" secondAttribute="trailing" constant="21" id="ogw-kA-p2M"/>
                                                 <constraint firstAttribute="bottom" secondItem="JTv-pF-2j9" secondAttribute="bottom" constant="2.5" id="ooC-vU-aTT"/>
                                                 <constraint firstItem="v90-UL-hBa" firstAttribute="top" secondItem="0jv-8Y-HWs" secondAttribute="top" constant="12" id="sdn-TZ-6u6"/>
                                             </constraints>
@@ -480,5 +484,6 @@
         <image name="community-gold" width="25" height="25"/>
         <image name="community-notice" width="16" height="16"/>
         <image name="community-recommendation-color" width="25" height="25"/>
+        <image name="community-recommendation-line" width="25" height="25"/>
     </resources>
 </document>
