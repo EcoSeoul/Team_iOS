@@ -10,26 +10,53 @@ import UIKit
 
 class ExchangeVC: UIViewController {
     
-    let userName = UserDefaults.standard.string(forKey: "userName")
-    let userMileage = UserDefaults.standard.integer(forKey: "userMileage")
+    let userName = UserDefaults.standard.string(forKey: "userName")!
+    let userMileage = UserDefaults.standard.string(forKey: "userMileage")!
     
-    //최상위 부모 뷰
     @IBOutlet var superView: UIControl!
     @IBOutlet weak var exchangeView: UIControl!
+    
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var totalBtn: UIButton!
     @IBOutlet weak var mileageLabel: UILabel!
+    @IBOutlet weak var totalBtn: UIButton!
+    @IBOutlet weak var moneyTF: UITextField!
     @IBOutlet weak var changeBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        moneyTF.delegate = self;
+        
+        initData()
         makeBtnBorder()
         makeExchangeView()
-        initData()
+     
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
     }
     
+
+    @IBAction func totalBtnPressed(_ sender: Any) {
+        print("전액버튼을 눌렀습니다.")
+        moneyTF.text = userMileage
+        
+    }
+    
+    @IBAction func chnageBtnPressed(_ sender: Any) {
+        print("에코머니로 전환버튼을 눌렀습니다.")
+        removeAnimate()
+        //빔 애니메이션 넣기
+        //통신구현부
+        
+
+    }
+    
+    
+    
+    
+    
+    
+    
+
     func initData(){
         
         userNameLabel.text = "\(userName)님"
@@ -46,18 +73,6 @@ class ExchangeVC: UIViewController {
         totalBtn.layer.borderColor = #colorLiteral(red: 0.1296959221, green: 0.8359363675, blue: 0.5591831207, alpha: 1)
     }
     
-    @IBAction func totalBtnPressed(_ sender: Any) {
-        print("전액버튼을 눌렀습니다.")
-        
-    }
-    
-    @IBAction func chnageBtnPressed(_ sender: Any) {
-        print("에코머니로 전환버튼을 눌렀습니다.")
-        removeAnimate()
-
-    }
-
-    
     func makeExchangeView(){
         exchangeView.layer.cornerRadius = 20;
         exchangeView.layer.masksToBounds = true;
@@ -65,15 +80,14 @@ class ExchangeVC: UIViewController {
         
     }
     
-    
     @objc func subViewTapped(){
         self.removeAnimate()
         self.view.removeFromSuperview()
     }
 
 
-}
 
+}
 
 extension ExchangeVC: UITextFieldDelegate {
     
@@ -85,6 +99,9 @@ extension ExchangeVC: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+    
+    
+ 
     
 }
 extension ExchangeVC {

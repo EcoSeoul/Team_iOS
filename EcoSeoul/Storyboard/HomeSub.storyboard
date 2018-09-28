@@ -319,7 +319,7 @@
                                             <constraint firstAttribute="width" constant="275" id="HLV-QO-G9V"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-yQ-Wlh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7200 0200 0133 6123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-yQ-Wlh">
                                         <rect key="frame" x="26" y="235" width="275" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="nzv-qy-dQN"/>
@@ -329,10 +329,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-Ya-RUr">
-                                        <rect key="frame" x="62" y="62" width="172" height="57"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QC-Ya-RUr">
+                                        <rect key="frame" x="55" y="62" width="179" height="57"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="172" id="4s0-QY-hcp"/>
+                                            <constraint firstAttribute="width" constant="179" id="4s0-QY-hcp"/>
                                             <constraint firstAttribute="height" constant="57" id="GLo-th-1au"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -381,7 +381,7 @@
                                     <constraint firstItem="1uh-yQ-Wlh" firstAttribute="top" secondItem="ngR-QX-uc3" secondAttribute="bottom" constant="1" id="G6O-Qf-Iyx"/>
                                     <constraint firstItem="xWg-SA-kxt" firstAttribute="top" secondItem="Fcl-J2-lLG" secondAttribute="top" constant="46" id="Hq4-hy-7c6"/>
                                     <constraint firstItem="zof-3h-vep" firstAttribute="top" secondItem="xWg-SA-kxt" secondAttribute="bottom" constant="15" id="IFQ-eN-KAb"/>
-                                    <constraint firstItem="3QC-Ya-RUr" firstAttribute="leading" secondItem="Fcl-J2-lLG" secondAttribute="leading" constant="62" id="LE1-fa-IZt"/>
+                                    <constraint firstItem="3QC-Ya-RUr" firstAttribute="leading" secondItem="Fcl-J2-lLG" secondAttribute="leading" constant="55" id="LE1-fa-IZt"/>
                                     <constraint firstAttribute="trailing" secondItem="zof-3h-vep" secondAttribute="trailing" constant="61" id="RHW-nr-Wsb"/>
                                     <constraint firstAttribute="trailing" secondItem="ngR-QX-uc3" secondAttribute="trailing" constant="26" id="VnO-Bu-gjM"/>
                                     <constraint firstAttribute="trailing" secondItem="1uh-yQ-Wlh" secondAttribute="trailing" constant="26" id="W5C-pF-WnC"/>
@@ -420,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98C-oc-3Ek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="1041"/>
+            <point key="canvasLocation" x="-98.400000000000006" y="1040.3298350824589"/>
         </scene>
         <!--MyPageVC-->
         <scene sceneID="OyQ-xf-kQD">

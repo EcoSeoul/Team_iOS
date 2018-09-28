@@ -407,10 +407,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZQ-x7-yjW">
-                                        <rect key="frame" x="84" y="177" width="66" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZQ-x7-yjW">
+                                        <rect key="frame" x="80" y="177" width="70" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="66" id="NFV-0T-sUU"/>
+                                            <constraint firstAttribute="width" constant="70" id="NFV-0T-sUU"/>
                                             <constraint firstAttribute="height" constant="29" id="vVP-8z-yyX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
@@ -499,7 +499,7 @@
                                     <constraint firstItem="NrM-2k-BdX" firstAttribute="centerX" secondItem="6Lt-Ij-cZg" secondAttribute="centerX" id="cUg-NJ-B80"/>
                                     <constraint firstItem="DZQ-x7-yjW" firstAttribute="top" secondItem="1Cg-eE-r0a" secondAttribute="bottom" constant="11" id="cjQ-Hr-9f3"/>
                                     <constraint firstItem="0tj-uj-F93" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="62.5" id="jUP-3a-P0n"/>
-                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="leading" secondItem="0tj-uj-F93" secondAttribute="trailing" constant="3" id="jmy-Q4-srA"/>
+                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="leading" secondItem="0tj-uj-F93" secondAttribute="trailing" constant="-1" id="jmy-Q4-srA"/>
                                     <constraint firstItem="TLv-Xt-hag" firstAttribute="leading" secondItem="DZQ-x7-yjW" secondAttribute="trailing" constant="3" id="ny0-Sj-ixZ"/>
                                     <constraint firstItem="TLv-Xt-hag" firstAttribute="height" secondItem="DZQ-x7-yjW" secondAttribute="height" id="ofy-kz-Kh8"/>
                                     <constraint firstItem="PrR-qf-aMb" firstAttribute="leading" secondItem="h6U-X2-ybL" secondAttribute="trailing" constant="10" id="pd1-ry-Sgu"/>
@@ -520,6 +520,7 @@
                         <outlet property="changeBtn" destination="0x8-ec-V3y" id="KB3-5W-Q4I"/>
                         <outlet property="exchangeView" destination="6Lt-Ij-cZg" id="7wn-kD-L8q"/>
                         <outlet property="mileageLabel" destination="DZQ-x7-yjW" id="b7s-4e-xxk"/>
+                        <outlet property="moneyTF" destination="h6U-X2-ybL" id="thc-fw-BdA"/>
                         <outlet property="superView" destination="8QX-nE-bdd" id="S7w-x2-Mzv"/>
                         <outlet property="totalBtn" destination="PrR-qf-aMb" id="7iH-MN-CTe"/>
                         <outlet property="userNameLabel" destination="1Cg-eE-r0a" id="ioD-Ao-7Vg"/>
