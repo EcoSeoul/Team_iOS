@@ -155,6 +155,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
 
 extension CommunityViewVC{
+    
     func setKeyboardSetting() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)

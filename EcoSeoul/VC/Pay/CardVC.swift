@@ -10,11 +10,12 @@ import UIKit
 
 class CardVC: UIViewController {
 
-    @IBOutlet weak var pickerTextField: UITextField!
+    @IBOutlet weak var pickerTF: UITextField!
+    @IBOutlet weak var cardNumberTF: UITextField!
     
     let cardArray = ["우리은행", "SC제일", "NH농협", "IBK기업"]
     let pickerview = UIPickerView()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         initPicker()
@@ -25,6 +26,20 @@ class CardVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func makeCardBtn(_ sender: Any) {
+        UserDefaults.standard.set(cardNumberTF.text!, forKey: "userBarCode")
+        self.dismiss(animated: true, completion: nil)
+        //카드 등록이 완료되었습니다 창 띄우기..(1~2초)
+    }
+    
+    @IBAction func makeCardSiteBtn(_ sender: Any) {
+        
+        //카드 신청하러 가기 버튼(웹으로 연결)
+        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
+        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/introduceEcoCard.do?menuNo=4"
+        self.present(webVC, animated: true, completion: nil)
+    }
 }
 
 extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -39,15 +54,15 @@ extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
         let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(selectedPicker))
         
         bar.setItems([doneButton], animated: true)
-        pickerTextField.inputAccessoryView = bar
-        pickerTextField.inputView = pickerview
+        pickerTF.inputAccessoryView = bar
+        pickerTF.inputView = pickerview
     }
     
     @objc func selectedPicker(){
         let row = pickerview.selectedRow(inComponent: 0)
         
         // 선택된 항목 textField에 넣기.
-        pickerTextField.text = cardArray[row]
+        pickerTF.text = cardArray[row]
         
         view.endEditing(true)
     }
