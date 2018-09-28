@@ -204,6 +204,13 @@
                         <viewLayoutGuide key="safeArea" id="0l6-I2-ZWB"/>
                     </view>
                     <size key="freeformSize" width="375" height="1200"/>
+                    <connections>
+                        <outlet property="companyLB" destination="ybV-7Z-8kR" id="Et6-g8-YZY"/>
+                        <outlet property="contentLB" destination="dAk-td-EQQ" id="IDV-Nh-ll9"/>
+                        <outlet property="imageIMG" destination="xbS-cj-5nb" id="tcy-YJ-GPy"/>
+                        <outlet property="nameLB" destination="sCE-jH-KKv" id="EIv-qm-ErW"/>
+                        <outlet property="summeryLB" destination="BN7-tW-KPD" id="akc-nG-R2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGt-iH-v7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
