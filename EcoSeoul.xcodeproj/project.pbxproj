@@ -18,6 +18,9 @@
 		3A13A295215D56F9008DBFDC /* CommunityWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A294215D56F9008DBFDC /* CommunityWrite.swift */; };
 		3A13A297215E1D60008DBFDC /* CommunityCommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */; };
 		3A13A299215E6328008DBFDC /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A298215E6328008DBFDC /* LikeService.swift */; };
+		3A13A29B215E9025008DBFDC /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29A215E9025008DBFDC /* Shop.swift */; };
+		3A13A29D215E92D0008DBFDC /* ShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29C215E92D0008DBFDC /* ShopService.swift */; };
+		3A13A2A0215E9F13008DBFDC /* ShopDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */; };
 		3A58376F21541FE90074BCA9 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58376E21541FE90074BCA9 /* List.storyboard */; };
 		3A583772215420DF0074BCA9 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583771215420DF0074BCA9 /* PayVC.swift */; };
 		3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837732154212F0074BCA9 /* MileageTVC.swift */; };
@@ -121,6 +124,9 @@
 		3A13A294215D56F9008DBFDC /* CommunityWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWrite.swift; sourceTree = "<group>"; };
 		3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCommentService.swift; sourceTree = "<group>"; };
 		3A13A298215E6328008DBFDC /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
+		3A13A29A215E9025008DBFDC /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		3A13A29C215E92D0008DBFDC /* ShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopService.swift; sourceTree = "<group>"; };
+		3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailService.swift; sourceTree = "<group>"; };
 		3A58376E21541FE90074BCA9 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		3A583771215420DF0074BCA9 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		3A5837732154212F0074BCA9 /* MileageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTVC.swift; sourceTree = "<group>"; };
@@ -240,6 +246,15 @@
 			path = Community;
 			sourceTree = "<group>";
 		};
+		3A13A29E215E9380008DBFDC /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				3A13A29C215E92D0008DBFDC /* ShopService.swift */,
+				3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		3A583770215420C20074BCA9 /* PayTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +364,7 @@
 				50E30D94215E15A200BBEE7E /* ExchangeService.swift */,
 				50E30DA0215E5C6100BBEE7E /* CardService.swift */,
 				50E30D9A215E500700BBEE7E /* DonationService.swift */,
+				3A13A29E215E9380008DBFDC /* Shop */,
 				50E30D9E215E511100BBEE7E /* Affiliation */,
 				50E30D9D215E50F200BBEE7E /* Pay */,
 				50E30D9C215E50A700BBEE7E /* Community */,
@@ -465,6 +481,7 @@
 				50D6FA22215C075C00D4A8A3 /* Franchise.swift */,
 				3AB3A021215BC14100768B69 /* Community.swift */,
 				3A0F87D3215CCAAB005D0C66 /* CommunityView.swift */,
+				3A13A29A215E9025008DBFDC /* Shop.swift */,
 				505A7BEF215D053C00F03B24 /* Pay.swift */,
 				5019F05A215D5CB400DDB4B1 /* List.swift */,
 				50E30D92215E132C00BBEE7E /* Exchange.swift */,
@@ -748,6 +765,7 @@
 				3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */,
 				50612ABC215A980100497DDE /* Main.swift in Sources */,
 				502A246321516AC000421F9F /* ExchangeVC.swift in Sources */,
+				3A13A29D215E92D0008DBFDC /* ShopService.swift in Sources */,
 				3A58379F21577DC70074BCA9 /* ShopCVC.swift in Sources */,
 				5050A83E215907D90066C433 /* WebVC.swift in Sources */,
 				505549F9214BCC98000D2130 /* LoginVC.swift in Sources */,
@@ -795,6 +813,8 @@
 				505549F2214BCB16000D2130 /* BarcodeVC.swift in Sources */,
 				502A245C2151670300421F9F /* MyPageVC.swift in Sources */,
 				3A00FC1B2157EBB6009CD296 /* CommunityWriteVC.swift in Sources */,
+				3A13A2A0215E9F13008DBFDC /* ShopDetailService.swift in Sources */,
+				3A13A29B215E9025008DBFDC /* Shop.swift in Sources */,
 				50D6FA27215C7CC200D4A8A3 /* FranchiseDetailService.swift in Sources */,
 				5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */,
 				50D470DD2158D482007712CB /* DonationView.swift in Sources */,

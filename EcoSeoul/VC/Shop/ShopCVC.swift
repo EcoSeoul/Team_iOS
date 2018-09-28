@@ -10,7 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "ShopCVCell"
 
-class ShopCVC: UICollectionViewController {
+class ShopCVC: UICollectionViewController, APIService{
+    
+    var shopData_ : Shop?
 
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
@@ -41,8 +43,30 @@ class ShopCVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviBar()
+        getShopInit(url: url("/shop"))
     }
     
+    func getShopInit(url : String){
+        
+        ShopService.shareInstance.shopInit(url: url, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            
+            switch result {
+                
+            case .networkSuccess(let data):
+                self.shopData_ = data
+                self.collectionView?.reloadData()
+                break
+                
+            case .networkFail :
+                self.simpleAlert(title: "network", message: "check")
+            default :
+                break
+            }
+            
+        })
+        
+    }
     func setNaviBar(){
         backBtn.target = self
         myPageBtn.target = self
@@ -74,21 +98,57 @@ class ShopCVC: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 9
+        var rownumber : Int = 0
+        if let Num = shopData_?.shopData {
+            rownumber = Num.count
+        }
+        return rownumber
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCVCell", for: indexPath) as! ShopCVCell
         
-        cell.shopLB.text = "티머니 충전권"
-        cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
+        if let data = shopData_?.shopData{
+            if let cellContent: ShopData = data[indexPath.row]{
+                cell.configure(shops: cellContent)
+            }
+        }
+        switch indexPath.row {
+        case 0:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
+        case 1:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-tent")
+        case 2:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-tumbler")
+        case 3:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-stand")
+        case 4:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-market-voucher")
+        case 5:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-culture-voucher")
+        case 6:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-socket")
+        case 7:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-apti")
+        case 8:
+            cell.shopIMG.image = #imageLiteral(resourceName: "exchange-character")
+        case 9:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
+        case 10:
+            cell.shopIMG.image = #imageLiteral(resourceName: "shop-cash")
+        default:
+            break
+        }
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let shopDetailVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopDetailVC")as! ShopDetailVC
+        
+        if let data = shopData_?.shopData[indexPath.row] {
+            shopDetailVC.selectedShop = data
+        }
         self.navigationController?.pushViewController(shopDetailVC, animated: true)
     }
     

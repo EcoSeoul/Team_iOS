@@ -142,9 +142,9 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
                     //좋아요 누를때 해당 cell의 board index 넘기기
-                    if let board : List = bestlist[indexPath.row]{
-                        checkLike = board.boardIdx
-                    }
+//                    if let board : List = bestlist[indexPath.row]{
+//                        checkLike = board.boardIdx
+//                    }
                 }
             }
             
