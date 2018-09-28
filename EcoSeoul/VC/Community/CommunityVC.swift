@@ -16,6 +16,8 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var communityData : Community?
     var lists : [List]?
     
+    var checkLike : Int?
+    
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
         btn.image = #imageLiteral(resourceName: "arrow-left-black")
@@ -50,6 +52,40 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.CommunityInit(url: url("/board/list"))
     }
     
+    ////좋아요 버튼
+    @IBAction func likeBtn(_ sender: Any) {
+        
+        let params: [String : Any] = [
+            "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!,
+            "board_idx" : checkLike!
+        ]
+        print(params)
+        
+        //좋아요 누를때
+        LikeService.shareInstance.checkLike(URL: url("/board/like"), params: params) { [weak self] (result) in
+            guard self != nil else { return }
+            switch result {
+            case .networkSuccess:
+                print("\n좋아요!")
+            default :
+                break
+            }
+            
+        }
+        
+        //좋아요 해제할때
+        LikeService.shareInstance.uncheckLike(URL: url("/board/like"), params: params) { [weak self] (result) in
+            guard self != nil else { return }
+            switch result {
+            case .networkSuccess:
+                print("\n이제는 안 좋아요!")
+            default :
+                break
+            }
+        }
+    }
+    
+    //커뮤니티 데이터 Get
     func CommunityInit(url : String){
         
         CommunityService.shareInstance.getCommunityData(url: url, completion: { [weak self] (result) in
@@ -105,6 +141,10 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             if let bestlist = communityData_.bestList{
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
+                    //좋아요 누를때 해당 cell의 board index 넘기기
+                    if let board : List = bestlist[indexPath.row]{
+                        checkLike = board.boardIdx
+                    }
                 }
             }
             
@@ -127,15 +167,16 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if let data = communityData {
             if let list = data.bestList{
                 if indexPath.row < 3 {
-                        let board: List = list[indexPath.row]
-                        communityVC.selectedBoardIdx = board
-                    
+                    let board: List = list[indexPath.row]
+                    communityVC.selectedBoardIdx = board
+                    checkLike = board.boardIdx
                 }
             }
             if let list = data.allList{
                 if indexPath.row >= 3{
-                        let board: List  = list[indexPath.row-3]
-                        communityVC.selectedBoardIdx = board
+                    let board: List  = list[indexPath.row-3]
+                    communityVC.selectedBoardIdx = board
+                    checkLike = board.boardIdx
                 }
             }
         }

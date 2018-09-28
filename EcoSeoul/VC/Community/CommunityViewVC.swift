@@ -195,6 +195,31 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //keyboard Setting
 extension CommunityViewVC{
     
