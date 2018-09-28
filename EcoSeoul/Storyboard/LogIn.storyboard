@@ -148,7 +148,7 @@
                     <navigationItem key="navigationItem" id="gXC-kK-i3b"/>
                     <connections>
                         <outlet property="idTF" destination="4cB-T2-Okb" id="7FL-oY-wNs"/>
-                        <outlet property="passwordTF" destination="wRa-de-EX3" id="fFg-xq-h5g"/>
+                        <outlet property="pwTF" destination="wRa-de-EX3" id="fFg-xq-h5g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuw-zd-eQN" userLabel="First Responder" sceneMemberID="firstResponder"/>

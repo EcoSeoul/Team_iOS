@@ -12,13 +12,15 @@ class LoginVC: UIViewController, APIService {
     
     let userDefault = UserDefaults.standard
     @IBOutlet weak var idTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var pwTF: UITextField!
     
     let userId : String = "user_id"
     let userPwd : String = "user_pw"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        idTF.delegate = self;
+        pwTF.delegate = self;
     }
 
     @IBAction func loginBtn(_ sender: Any) {
@@ -31,14 +33,14 @@ class LoginVC: UIViewController, APIService {
 
     func enterHome() {
         
-        if (idTF.text?.isEmpty)! || (passwordTF.text?.isEmpty)! {
+        if (idTF.text?.isEmpty)! || (pwTF.text?.isEmpty)! {
             simpleAlert(title: "로그인 실패", message: "모든 항목을 입력해 주세요")
             return
         }
         
         let params: [String:Any] = [
             userId : gsno(idTF.text),
-            userPwd : gsno(passwordTF.text)
+            userPwd : gsno(pwTF.text)
         ]
 
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in
@@ -77,9 +79,17 @@ class LoginVC: UIViewController, APIService {
 }
 
 
-
-extension LoginVC {
+extension LoginVC: UITextFieldDelegate {
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
     ///상단 Navigation Bar 숨기기///
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -88,7 +98,7 @@ extension LoginVC {
         
         //Reset TextField.
         self.idTF.text = ""
-        self.passwordTF.text = ""
+        self.pwTF.text = ""
         
     }
     

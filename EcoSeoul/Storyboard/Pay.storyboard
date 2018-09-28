@@ -67,6 +67,9 @@
                                 <state key="normal" title="확인!" backgroundImage="cardregister_check_color">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="makeCardBtn:" destination="X7D-c7-h16" eventType="touchUpInside" id="bVo-PL-moi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카드번호가 없으신가요?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="vOr-g2-EO1">
                                 <rect key="frame" x="213" y="606" width="120" height="18"/>
@@ -96,6 +99,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="makeCardSiteBtn:" destination="X7D-c7-h16" eventType="touchUpInside" id="4Pf-RI-oY2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-KU-wWr">
                                 <rect key="frame" x="327" y="19" width="48" height="48"/>
@@ -164,7 +170,8 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrow-left-black" style="plain" id="eu4-Py-UnG"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="pickerTextField" destination="bhj-QO-0lL" id="dPt-MO-HFn"/>
+                        <outlet property="cardNumberTF" destination="yfi-jr-aVD" id="oU6-bd-JlD"/>
+                        <outlet property="pickerTF" destination="bhj-QO-0lL" id="dPt-MO-HFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWO-Nk-Lru" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,26 +244,26 @@
                                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="pwb-SQ-lzR">
-                                    <rect key="frame" x="27" y="13" width="121" height="67"/>
+                                    <rect key="frame" x="27" y="13" width="120.5" height="67"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="45"/>
                                     <color key="textColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="적립 / 사용 내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7di-XE-mlE">
-                                    <rect key="frame" x="26" y="114" width="100" height="23"/>
+                                    <rect key="frame" x="26" y="114" width="100" height="22.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my-mileage-save" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-XD-Wg5">
-                                    <rect key="frame" x="24" y="149" width="25" height="25"/>
+                                    <rect key="frame" x="24" y="148.5" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="RB9-kD-jBd"/>
                                         <constraint firstAttribute="height" constant="25" id="iuf-cq-x7A"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="적립 마일리지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-tS-B0X">
-                                    <rect key="frame" x="53" y="153" width="76" height="20"/>
+                                    <rect key="frame" x="53" y="152.5" width="76" height="19.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -265,25 +272,25 @@
                                     <rect key="frame" x="201" y="149" width="25" height="25"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 마일리지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-gE-fqS">
-                                    <rect key="frame" x="230" y="153" width="76" height="20"/>
+                                    <rect key="frame" x="230" y="153" width="76" height="19.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-jT-Tt7">
-                                    <rect key="frame" x="149" y="13" width="36" height="67"/>
+                                    <rect key="frame" x="148.5" y="13" width="35.5" height="67"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Light" family="Noto Sans CJK KR" pointSize="45"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ocg-Rp-Ch7">
-                                    <rect key="frame" x="310" y="148" width="48" height="26"/>
+                                    <rect key="frame" x="310" y="148" width="48" height="25.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wze-kT-XfK">
-                                    <rect key="frame" x="137" y="149" width="48" height="26"/>
+                                    <rect key="frame" x="137" y="148.5" width="48" height="25.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -328,13 +335,13 @@
                                             <rect key="frame" x="24" y="19" width="25" height="25"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A24-ho-afh">
-                                            <rect key="frame" x="62" y="11" width="35" height="20"/>
+                                            <rect key="frame" x="62" y="11" width="34.5" height="19.5"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                             <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wED-sa-0vI">
-                                            <rect key="frame" x="62" y="35" width="34" height="20"/>
+                                            <rect key="frame" x="62" y="34.5" width="33.5" height="19.5"/>
                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                             <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -400,10 +407,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZQ-x7-yjW">
-                                        <rect key="frame" x="84" y="177" width="66" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZQ-x7-yjW">
+                                        <rect key="frame" x="80" y="177" width="70" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="66" id="NFV-0T-sUU"/>
+                                            <constraint firstAttribute="width" constant="70" id="NFV-0T-sUU"/>
                                             <constraint firstAttribute="height" constant="29" id="vVP-8z-yyX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
@@ -492,7 +499,7 @@
                                     <constraint firstItem="NrM-2k-BdX" firstAttribute="centerX" secondItem="6Lt-Ij-cZg" secondAttribute="centerX" id="cUg-NJ-B80"/>
                                     <constraint firstItem="DZQ-x7-yjW" firstAttribute="top" secondItem="1Cg-eE-r0a" secondAttribute="bottom" constant="11" id="cjQ-Hr-9f3"/>
                                     <constraint firstItem="0tj-uj-F93" firstAttribute="leading" secondItem="6Lt-Ij-cZg" secondAttribute="leading" constant="62.5" id="jUP-3a-P0n"/>
-                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="leading" secondItem="0tj-uj-F93" secondAttribute="trailing" constant="3" id="jmy-Q4-srA"/>
+                                    <constraint firstItem="DZQ-x7-yjW" firstAttribute="leading" secondItem="0tj-uj-F93" secondAttribute="trailing" constant="-1" id="jmy-Q4-srA"/>
                                     <constraint firstItem="TLv-Xt-hag" firstAttribute="leading" secondItem="DZQ-x7-yjW" secondAttribute="trailing" constant="3" id="ny0-Sj-ixZ"/>
                                     <constraint firstItem="TLv-Xt-hag" firstAttribute="height" secondItem="DZQ-x7-yjW" secondAttribute="height" id="ofy-kz-Kh8"/>
                                     <constraint firstItem="PrR-qf-aMb" firstAttribute="leading" secondItem="h6U-X2-ybL" secondAttribute="trailing" constant="10" id="pd1-ry-Sgu"/>
@@ -513,6 +520,7 @@
                         <outlet property="changeBtn" destination="0x8-ec-V3y" id="KB3-5W-Q4I"/>
                         <outlet property="exchangeView" destination="6Lt-Ij-cZg" id="7wn-kD-L8q"/>
                         <outlet property="mileageLabel" destination="DZQ-x7-yjW" id="b7s-4e-xxk"/>
+                        <outlet property="moneyTF" destination="h6U-X2-ybL" id="thc-fw-BdA"/>
                         <outlet property="superView" destination="8QX-nE-bdd" id="S7w-x2-Mzv"/>
                         <outlet property="totalBtn" destination="PrR-qf-aMb" id="7iH-MN-CTe"/>
                         <outlet property="userNameLabel" destination="1Cg-eE-r0a" id="ioD-Ao-7Vg"/>

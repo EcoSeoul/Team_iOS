@@ -29,8 +29,8 @@ struct List: Codable {
     let boardContent: String
     let boardDate: String
     let userIdx: Int
-    let boardLike: Int
-    let boardCmtnum: Int
+    let boardLike: Int?
+    let boardCmtnum: Int?
     let userName: String
     
     enum CodingKeys:String, CodingKey {

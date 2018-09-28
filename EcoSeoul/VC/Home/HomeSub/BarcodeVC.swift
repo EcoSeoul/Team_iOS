@@ -24,10 +24,10 @@ class BarcodeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //make background blurred.
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        moneyLabel.sizeToFit()
+        barcodeNumber.sizeToFit()
         self.showAnimate()
-        
         makeBarcodeView()
         
     }
@@ -48,6 +48,7 @@ class BarcodeVC: UIViewController {
     func saveBarcodeData(){
         
         guard let serial = barcodeSerial else {return}
+        
         if let image = generateBarcodeFromString(string: serial) {
             barcodeImage.image = image
             barcodeNumber.text = serial
