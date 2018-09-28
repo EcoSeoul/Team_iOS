@@ -104,6 +104,7 @@
 		50E30D93215E132C00BBEE7E /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E30D92215E132C00BBEE7E /* Exchange.swift */; };
 		50E30D95215E15A200BBEE7E /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E30D94215E15A200BBEE7E /* ExchangeService.swift */; };
 		50E30D9B215E500700BBEE7E /* DonationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E30D9A215E500700BBEE7E /* DonationService.swift */; };
+		50E30DA1215E5C6100BBEE7E /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E30DA0215E5C6100BBEE7E /* CardService.swift */; };
 		DDC879EB7E4AAE3700B6B66F /* Pods_EcoSeoul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +208,7 @@
 		50E30D92215E132C00BBEE7E /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		50E30D94215E15A200BBEE7E /* ExchangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeService.swift; sourceTree = "<group>"; };
 		50E30D9A215E500700BBEE7E /* DonationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationService.swift; sourceTree = "<group>"; };
+		50E30DA0215E5C6100BBEE7E /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		53C11ED57D0D4B1F1E5CC5AC /* Pods_EcoSeoul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoSeoul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC25BC8BF5B845E45453C3AE /* Pods-EcoSeoul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8101C0A24BADA8B98BC9D1 /* Pods-EcoSeoul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoSeoul.release.xcconfig"; path = "Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul.release.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				50612ABD215AA12700497DDE /* MainService.swift */,
 				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
 				50E30D94215E15A200BBEE7E /* ExchangeService.swift */,
+				50E30DA0215E5C6100BBEE7E /* CardService.swift */,
 				50E30D9A215E500700BBEE7E /* DonationService.swift */,
 				50E30D9E215E511100BBEE7E /* Affiliation */,
 				50E30D9D215E50F200BBEE7E /* Pay */,
@@ -792,6 +795,7 @@
 				5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */,
 				50D470DD2158D482007712CB /* DonationView.swift in Sources */,
 				3A5837A221577DEC0074BCA9 /* ShopCVCell.swift in Sources */,
+				50E30DA1215E5C6100BBEE7E /* CardService.swift in Sources */,
 				50D6FA23215C075C00D4A8A3 /* Franchise.swift in Sources */,
 				50D6FA25215C087200D4A8A3 /* FranchiseService.swift in Sources */,
 				3A583789215422970074BCA9 /* PostListTVCell.swift in Sources */,

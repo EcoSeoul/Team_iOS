@@ -23,7 +23,7 @@ struct Login: Codable {
     let userId: String
     let userPw: String
     let userName: String
-    let userBarcodeNum: String
+    let userBarcodeNum: String?
     let userMileage: Int
     let userMoney: Int
     let userJoinDate: String

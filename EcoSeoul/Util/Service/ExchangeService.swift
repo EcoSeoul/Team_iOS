@@ -6,7 +6,6 @@
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 //
 
-
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -33,8 +32,7 @@ struct ExchangeService: PostableService {
                         completion(.minimumValue)
                     case "Null Value : user index and exchange" :
                         completion(.nullValue)
-//                    case "500 Error" :
-//                        completion(.serverErr)
+
                 default :
                     break
                 }
