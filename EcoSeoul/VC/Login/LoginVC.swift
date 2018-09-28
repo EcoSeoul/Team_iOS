@@ -19,6 +19,8 @@ class LoginVC: UIViewController, APIService {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        idTF.delegate = self;
+        pwTF.delegate = self;
     }
 
     @IBAction func loginBtn(_ sender: Any) {
@@ -75,7 +77,6 @@ class LoginVC: UIViewController, APIService {
         
     }
 }
-
 
 
 extension LoginVC: UITextFieldDelegate {

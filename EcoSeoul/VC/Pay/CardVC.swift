@@ -12,14 +12,16 @@ class CardVC: UIViewController {
 
     @IBOutlet weak var pickerTF: UITextField!
     @IBOutlet weak var cardNumberTF: UITextField!
+    var keyboardDismissGesture: UITapGestureRecognizer?
     
     let cardArray = ["우리은행", "SC제일", "NH농협", "IBK기업"]
     let pickerview = UIPickerView()
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerTF.delegate = self;
+        cardNumberTF.delegate = self;
         initPicker()
-
     }
 
     @IBAction func dismissBtn(_ sender: Any) {
@@ -41,6 +43,20 @@ class CardVC: UIViewController {
         self.present(webVC, animated: true, completion: nil)
     }
 }
+
+extension CardVC: UITextFieldDelegate {
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
+}
+
 
 extension CardVC: UIPickerViewDelegate, UIPickerViewDataSource{
     

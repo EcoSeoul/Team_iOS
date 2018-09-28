@@ -9,7 +9,10 @@
 import UIKit
 
 class ExchangeVC: UIViewController {
-
+    
+    let userName = UserDefaults.standard.string(forKey: "userName")
+    let userMileage = UserDefaults.standard.integer(forKey: "userMileage")
+    
     //최상위 부모 뷰
     @IBOutlet var superView: UIControl!
     @IBOutlet weak var exchangeView: UIControl!
@@ -22,11 +25,16 @@ class ExchangeVC: UIViewController {
         super.viewDidLoad()
         makeBtnBorder()
         makeExchangeView()
-        
+        initData()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
     }
     
+    func initData(){
+        
+        userNameLabel.text = "\(userName)님"
+        mileageLabel.text = String(userMileage)
+    }
     
     func makeBtnBorder(){
         changeBtn.layer.cornerRadius = 10
@@ -48,10 +56,9 @@ class ExchangeVC: UIViewController {
         removeAnimate()
 
     }
+
     
     func makeExchangeView(){
-        
-        //make corner rounded.
         exchangeView.layer.cornerRadius = 20;
         exchangeView.layer.masksToBounds = true;
         self.superView.addTarget(self, action: #selector(subViewTapped), for: .allTouchEvents)
@@ -68,6 +75,18 @@ class ExchangeVC: UIViewController {
 }
 
 
+extension ExchangeVC: UITextFieldDelegate {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+}
 extension ExchangeVC {
     
     func showAnimate()

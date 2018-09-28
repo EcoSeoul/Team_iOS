@@ -18,10 +18,22 @@ class CommunityTVCell: UITableViewCell {
     
     
     func configure(list : List){
+        
         titleLB.text = list.boardTitle
         contentLB.text = list.boardContent
-        goodLB.text = (String)(list.boardLike)
-        commentNumLB.text = (String)(list.boardCmtnum)
+        
+        if list.boardLike != nil {
+            goodLB.text = (String)(list.boardLike!)
+        }else{
+            goodLB.text = "0"
+        }
+        
+        if list.boardCmtnum != nil {
+            commentNumLB.text = (String)(list.boardCmtnum!)
+        }else{
+            commentNumLB.text = "0"
+        }
+ 
     }
     
     override func awakeFromNib() {
