@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CardVC: UIViewController {
+class CardVC: UIViewController, APIService {
+    
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userBarcode = UserDefaults.standard.string(forKey: "userBarcode")!
 
     @IBOutlet weak var pickerTF: UITextField!
     @IBOutlet weak var cardNumberTF: UITextField!
@@ -32,8 +35,27 @@ class CardVC: UIViewController {
     @IBAction func makeCardBtn(_ sender: Any) {
         UserDefaults.standard.set(cardNumberTF.text!, forKey: "userBarCode")
         self.dismiss(animated: true, completion: nil)
-        //카드 등록이 완료되었습니다 창 띄우기..(1~2초)
+        //1. 카드 등록이 완료되었습니다 창 띄우기..(1~2초)
+ 
+        //2.통신구현부
+        let params: [String:Any] = [
+            "user_idx" : userIdx,
+            "user_barcodenum" : userBarcode
+        ]
+        
+        CardService.shareInstance.card(url: url("/mypage/ecocard"), params: params, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+                case .networkSuccess(let data):
+                    print(data)
+                    break
+                default :break
+            }
+        })
+        
     }
+    
+
     
     @IBAction func makeCardSiteBtn(_ sender: Any) {
         

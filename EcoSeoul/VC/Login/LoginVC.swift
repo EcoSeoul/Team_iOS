@@ -54,7 +54,9 @@ class LoginVC: UIViewController, APIService {
                     self.userDefault.set(datas.userIdx, forKey: "userIdx")
                     self.userDefault.set(self.idTF.text, forKey: "userId")
                     self.userDefault.set(datas.userName, forKey: "userName")
-                    self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
+                    if datas.userBarcodeNum != nil {
+                        self.userDefault.set(datas.userBarcodeNum, forKey: "userBarcode")
+                    }
                     self.userDefault.set(datas.userMileage, forKey: "userMileage")
                    
                     guard let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
