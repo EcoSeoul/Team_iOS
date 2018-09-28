@@ -45,6 +45,11 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //self.tableview.reloadData()
+        self.CommunityInit(url: url("/board/list"))
+    }
+    
     func CommunityInit(url : String){
         
         CommunityService.shareInstance.getCommunityData(url: url, completion: { [weak self] (result) in
