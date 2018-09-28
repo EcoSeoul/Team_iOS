@@ -21,4 +21,6 @@ enum NetworkResult<T> {
     case serverErr
     case networkFail
     case wrongInput
+    case minimumValue
+    case insufficient
 }

@@ -35,6 +35,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         self.tableview.tableFooterView = UIView(frame: .zero)
         setNaviBar()
+        setKeyboardSetting()
         commnentBarShadow()
 
         if let sboardIdx = selectedBoardIdx{

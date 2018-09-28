@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ExchangeVC: UIViewController {
+class ExchangeVC: UIViewController, APIService {
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     let userName = UserDefaults.standard.string(forKey: "userName")!
     let userMileage = UserDefaults.standard.string(forKey: "userMileage")!
     
@@ -37,25 +38,43 @@ class ExchangeVC: UIViewController {
 
     @IBAction func totalBtnPressed(_ sender: Any) {
         print("전액버튼을 눌렀습니다.")
+        moneyTF.textAlignment = .justified
         moneyTF.text = userMileage
-        
     }
     
     @IBAction func chnageBtnPressed(_ sender: Any) {
         print("에코머니로 전환버튼을 눌렀습니다.")
         removeAnimate()
-        //빔 애니메이션 넣기
-        //통신구현부
+        //1.빔 애니메이션 넣기
         
-
+        //2.통신구현부
+        let params: [String:Any] = [
+            "user_idx" : userIdx,
+            "exchange" : gino(Int(moneyTF.text!))
+        ]
+        
+        ExchangeService.shareInstance.exchange(url: url("/mypage/exchange"), params: params, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .networkSuccess(let data):
+                print(data)
+                //성공시 할 이벤트
+                break
+            case .insufficient:
+                self.simpleAlert(title: "오류", message: "환전할 마일리지가 부족합니다 ㅠ.ㅠ")
+                
+            case .wrongInput:
+                self.simpleAlert(title: "오류", message: "보유 마일리지가 2만이 넘어야 환전 가능!")
+         
+            case .minimumValue:
+                self.simpleAlert(title: "오류", message: "환전 최소 금액은 1만 마일리지 입니다!")
+            case .nullValue :
+                self.simpleAlert(title: "오류", message: "값을 다시 입력해주세요 :)")
+            default :break
+            }
+        })
     }
-    
-    
-    
-    
-    
-    
-    
+
 
     func initData(){
         
