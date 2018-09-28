@@ -341,20 +341,13 @@
 			children = (
 				5064FD992159F1E200AC8A85 /* LoginService.swift */,
 				50612ABD215AA12700497DDE /* MainService.swift */,
-				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
-				3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */,
-				3A13A294215D56F9008DBFDC /* CommunityWrite.swift */,
-				3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */,
-				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
-				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
 				505A7BED215CE9BD00F03B24 /* MyPageService.swift */,
-				505A7BF1215D163700F03B24 /* MileageListService.swift */,
-				5027F863215D4DA000D9C643 /* MoneyListService.swift */,
-				5019F05C215D5CEF00DDB4B1 /* RequestListService.swift */,
-				5019F05E215D5CFF00DDB4B1 /* DonationListService.swift */,
-				5019F060215D5D1500DDB4B1 /* PostListService.swift */,
 				50E30D94215E15A200BBEE7E /* ExchangeService.swift */,
 				50E30D9A215E500700BBEE7E /* DonationService.swift */,
+				50E30D9E215E511100BBEE7E /* Affiliation */,
+				50E30D9D215E50F200BBEE7E /* Pay */,
+				50E30D9C215E50A700BBEE7E /* Community */,
+				50E30D9F215E512C00BBEE7E /* List */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -529,6 +522,45 @@
 				3A583788215422970074BCA9 /* PostListTVCell.swift */,
 			);
 			path = ListTabBar;
+			sourceTree = "<group>";
+		};
+		50E30D9C215E50A700BBEE7E /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				3AB3A023215BC4D100768B69 /* CommunityService.swift */,
+				3A0F87D5215CD51D005D0C66 /* CommunityVewService.swift */,
+				3A13A294215D56F9008DBFDC /* CommunityWrite.swift */,
+				3A13A296215E1D60008DBFDC /* CommunityCommentService.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		50E30D9D215E50F200BBEE7E /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				505A7BF1215D163700F03B24 /* MileageListService.swift */,
+				5027F863215D4DA000D9C643 /* MoneyListService.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		50E30D9E215E511100BBEE7E /* Affiliation */ = {
+			isa = PBXGroup;
+			children = (
+				50D6FA24215C087200D4A8A3 /* FranchiseService.swift */,
+				50D6FA26215C7CC200D4A8A3 /* FranchiseDetailService.swift */,
+			);
+			path = Affiliation;
+			sourceTree = "<group>";
+		};
+		50E30D9F215E512C00BBEE7E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				5019F05C215D5CEF00DDB4B1 /* RequestListService.swift */,
+				5019F05E215D5CFF00DDB4B1 /* DonationListService.swift */,
+				5019F060215D5D1500DDB4B1 /* PostListService.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		9E22B91FC8E8D910DD8E5BFE /* Pods */ = {
