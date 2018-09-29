@@ -47,10 +47,14 @@ class HomeDownVC: UIViewController {
         tableView.dataSource = self;
         tableView.delegate = self;
  
-        makeBarcodeImage()
         makeBannerView()
         makePageControl()
         pageControl.addTarget(self.horizontalScroll, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        makeBarcodeImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {

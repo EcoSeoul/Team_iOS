@@ -185,12 +185,12 @@ class CircleGraph{
         guard let percent = percentage else {return}
       
         if percent < 0 {
-            circleAnimation.toValue = -percent
-            circleAnimation.duration = -percent * 2
+            circleAnimation.toValue = -percent * 5
+            circleAnimation.duration = -percent * 2 //* 5
         }
         else {
-            circleAnimation.toValue = percent
-            circleAnimation.duration = percent * 2
+            circleAnimation.toValue = percent * 5
+            circleAnimation.duration = percent //* 2 //* 5
         }
     
         circleAnimation.fillMode = kCAFillModeForwards

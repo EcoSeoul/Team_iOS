@@ -39,8 +39,10 @@ class HomeVC: UIViewController, APIService {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         donwnBtnAnimate()
+         network()
+         downBtnAnimate()
     }
+
     
     func network(){
          mainDataInit(url : url("/home/\(userIdx)"))
@@ -64,7 +66,6 @@ class HomeVC: UIViewController, APIService {
     }
     
     func setDB(_ data: MainData){
-        
         //CircleView(Carbon)
         self.userDefault.set(data.term[0], forKey: "termStart")
         self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")
@@ -120,7 +121,7 @@ extension HomeVC {
     }
     
     //다운버튼의 오토레이아웃 & 애니메이션
-    func donwnBtnAnimate(){
+    func downBtnAnimate(){
         
         let v1 = self.view.subviews[0]
         let buttonConstraint = downBtn.topAnchor.constraint(equalTo: v1.topAnchor, constant: 512)
@@ -150,7 +151,6 @@ extension HomeVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        mainDataInit(url : url("/home/\(userIdx)"))
         
     }
     

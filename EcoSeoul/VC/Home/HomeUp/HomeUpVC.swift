@@ -50,16 +50,11 @@ class HomeUpVC: UIViewController{
         makeCircleView()
         makeWaveView()
         makePageControl()
-        
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
         self.view.addSubview(homeAllBtn)
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
+        
 
     //서버에서 받은 현재 탄소배출량, 과거 탄소 배출량, 절약률을 계산
     func initValue(){
@@ -99,6 +94,7 @@ extension HomeUpVC {
         horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(1)
         horizontalScroll.addSubview(viewArray[0])
         viewArray[0] = CircleView(self.horizontalScroll, co2Percent)
+        
     }
     
     //전기,수도,가스 뷰 3개 생성(indx:1~3)
