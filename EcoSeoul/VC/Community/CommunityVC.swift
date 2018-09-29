@@ -124,6 +124,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityTVCell") as!  CommunityTVCell
         let row = indexPath.row
+        cell.selectionStyle = .none
         
         switch row {
             case 0:

@@ -65,7 +65,7 @@ extension PostListTVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostListTVCell", for: indexPath) as! PostListTVCell
         let row = indexPath.row
-        
+        cell.selectionStyle = .none
         if let postArr = postListDataArr {
             
             cell.postTitleLB.text = postArr[row].boardTitle

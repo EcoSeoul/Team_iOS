@@ -48,6 +48,7 @@ extension HomeAllVC : UITableViewDataSource, UITableViewDelegate {
         let termStart = UserDefaults.standard.integer(forKey: "termStart")
         let carbonUpDown = UserDefaults.standard.integer(forKey: "carbonUpDown")
         
+        cell.selectionStyle = .none
         cell.monthLB.text = "8"
         self.carbonLB.text = "\(carbon)"
         self.periodLB.text = "2018.\(termStart).14 ~ 2018.08.13"

@@ -72,7 +72,7 @@ class AffiliationDetailVC: UIViewController, APIService{
         
         storeData["name"] = data.frcName
         storeData["address"] = data.frcAdd
-        storeData["phone"] = data.frcPhone
+        storeData["phone"] = gsno(data.frcPhone)
         storeData["frc_sale"] = String(data.frcSale)
         storeData["frc_type"] = String(data.frcType)
         

@@ -137,6 +137,7 @@ extension MyPageVC:  UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "MyPageTVC") as! MyPageTVC
+        cell.selectionStyle = .none
         switch indexPath.row {
             case 0:
                 cell.titleLB.text = "신청 내역"
