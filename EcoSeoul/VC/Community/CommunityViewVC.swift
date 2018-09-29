@@ -22,7 +22,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var dateLB: UILabel!
     @IBOutlet weak var userNameLB: UILabel!
     
-    @IBOutlet weak var commentTF: UITextField!
+    @IBOutlet weak var commentTV: UITextView!
     
     var communityView : CommunityView?
     
@@ -110,12 +110,12 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     @IBAction func registerComment(_ sender: UIButton) {
     
-        if (commentTF.text?.isEmpty)! == true{ simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.") }
+        if (commentTV.text?.isEmpty)! == true{ simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.") }
             
             let params : [String : Any] = [
                 "board_idx" : selectedBoardIdx!.boardIdx,
                 "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!,
-                "cmt_content" : commentTF.text!
+                "cmt_content" : commentTV.text!
             ]
             print(params)
             CommunityCommentService.shareInstance.registercomment(url: self.url("/comment"), params: params) { [weak self] (result) in
@@ -133,7 +133,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 
             }
             self.tableview.reloadData()
-            self.commentTF.text = ""
+            self.commentTV.text = ""
             self.viewDidLoad()
             
      
