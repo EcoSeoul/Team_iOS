@@ -23,10 +23,9 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var userNameLB: UILabel!
     
     @IBOutlet weak var commentTF: UITextField!
-    
-    var communityView : CommunityView?
     @IBOutlet weak var commentBar: UIView!
     
+    var communityView : CommunityView?
     var selectedBoardIdx : List?
     
     var backBtn: UIBarButtonItem = {
@@ -54,8 +53,6 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         commmentBarShadow()
 
         if let sboardIdx = selectedBoardIdx{
-            print("selectedBoardIDX")
-            print(sboardIdx.boardIdx)
             CommunityViewInit(url: url("/board/\(sboardIdx.boardIdx)/\(sboardIdx.userIdx)"))
         }
     }
@@ -93,6 +90,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         if let boardresult = self.communityView?.boardResult {
             self.boardTitleLB.text = boardresult[0].boardTitle
             self.boardContentLB.text = boardresult[0].boardContent
+            
             if boardresult[0].boardLike != nil {
                 self.goodLB.text = (String)(boardresult[0].boardLike!)
             }else{
