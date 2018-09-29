@@ -21,7 +21,7 @@
 		3A13A29B215E9025008DBFDC /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29A215E9025008DBFDC /* Shop.swift */; };
 		3A13A29D215E92D0008DBFDC /* ShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29C215E92D0008DBFDC /* ShopService.swift */; };
 		3A13A2A0215E9F13008DBFDC /* ShopDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */; };
-		3A13A2CA215F9E5C008DBFDC /* ShopApplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A2C9215F9E5C008DBFDC /* ShopApplyService.swift */; };
+		3A13A2D8215FD9E1008DBFDC /* ShopApplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A13A2D7215FD9E1008DBFDC /* ShopApplyService.swift */; };
 		3A58376F21541FE90074BCA9 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A58376E21541FE90074BCA9 /* List.storyboard */; };
 		3A583772215420DF0074BCA9 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A583771215420DF0074BCA9 /* PayVC.swift */; };
 		3A5837742154212F0074BCA9 /* MileageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5837732154212F0074BCA9 /* MileageTVC.swift */; };
@@ -128,7 +128,7 @@
 		3A13A29A215E9025008DBFDC /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		3A13A29C215E92D0008DBFDC /* ShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopService.swift; sourceTree = "<group>"; };
 		3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailService.swift; sourceTree = "<group>"; };
-		3A13A2C9215F9E5C008DBFDC /* ShopApplyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShopApplyService.swift; path = "../../../../../연습/helloworld/helloworld/ShopApplyService.swift"; sourceTree = "<group>"; };
+		3A13A2D7215FD9E1008DBFDC /* ShopApplyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopApplyService.swift; sourceTree = "<group>"; };
 		3A58376E21541FE90074BCA9 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		3A583771215420DF0074BCA9 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		3A5837732154212F0074BCA9 /* MileageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTVC.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 			children = (
 				3A13A29C215E92D0008DBFDC /* ShopService.swift */,
 				3A13A29F215E9F13008DBFDC /* ShopDetailService.swift */,
-				3A13A2C9215F9E5C008DBFDC /* ShopApplyService.swift */,
+				3A13A2D7215FD9E1008DBFDC /* ShopApplyService.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				5019F05B215D5CB400DDB4B1 /* List.swift in Sources */,
 				3AB3A022215BC14100768B69 /* Community.swift in Sources */,
 				3A5837852154227E0074BCA9 /* RequestListTVCell.swift in Sources */,
-				3A13A2CA215F9E5C008DBFDC /* ShopApplyService.swift in Sources */,
+				3A13A2D8215FD9E1008DBFDC /* ShopApplyService.swift in Sources */,
 				50CD756A215A42A700E7B3E8 /* Default.swift in Sources */,
 				5023DB382147BB4E00A59B48 /* CircleView.swift in Sources */,
 				3A13A297215E1D60008DBFDC /* CommunityCommentService.swift in Sources */,
