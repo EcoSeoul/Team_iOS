@@ -15,7 +15,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     var communityData : Community?
     var lists : [List]?
-    
+    var userIdx = 1
     var checkLike : Int?
     
     var backBtn: UIBarButtonItem = {
@@ -43,7 +43,7 @@ class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.tableview.tableFooterView = UIView(frame: .zero)
         
         setNaviBar()
-        self.CommunityInit(url: url("/board/list"))
+        self.CommunityInit(url: url("/board/list/\(userIdx)"))
     
     }
     

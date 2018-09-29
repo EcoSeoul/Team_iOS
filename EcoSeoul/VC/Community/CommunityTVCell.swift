@@ -34,6 +34,7 @@ class CommunityTVCell: UITableViewCell {
             commentNumLB.text = "0"
         }
  
+        
     }
     
     override func awakeFromNib() {

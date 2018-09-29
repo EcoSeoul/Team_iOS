@@ -63,7 +63,8 @@ class ShopDetailVC: UIViewController, APIService {
                 "goods_price" : shopresult[0].goodsPrice,
                 "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!
             ]
-            
+            print("paramssssssss")
+            print(params)
             
             self.simpleAlertwithHandler(title: "신청하기", message: "이 상품으로 신청하시겠습니까?", okHandler: { (_) in  ShopApplyService.shareInstance.applyitem(url: self.url("/shop"), params: params) { [weak self] (result) in
                 guard let `self` = self else { return }
