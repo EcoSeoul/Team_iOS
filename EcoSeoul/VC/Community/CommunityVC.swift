@@ -8,18 +8,15 @@
 
 import UIKit
 
-class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, APIService, MyCellDelegate {
+class CommunityVC: UIViewController, UITableViewDelegate, UITableViewDataSource, APIService {
+    
 
     @IBOutlet weak var tableview: UITableView!
+    
     var communityData : Community?
     var lists : [List]?
     
-    let params: [String : Any] = [
-        "user_idx" : UserDefaults.standard.integer(forKey: "userIdx"),
-        "board_idx" : UserDefaults.standard.integer(forKey: "checkLike")
-    ]
-    
-    //var checkLike : Int?
+    var checkLike : Int?
     
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
@@ -46,17 +43,24 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
         self.tableview.tableFooterView = UIView(frame: .zero)
         
         setNaviBar()
-        CommunityInit(url: url("/board/list"))
+        self.CommunityInit(url: url("/board/list"))
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //self.tableview.reloadData()
+        self.CommunityInit(url: url("/board/list"))
+    }
 
-
+    
+    //커뮤니티 데이터 Get
     func CommunityInit(url : String){
         
         CommunityService.shareInstance.getCommunityData(url: url, completion: { [weak self] (result) in
             guard let `self` = self else { return }
             
             switch result {
+
             case .networkSuccess(let data):
                 self.communityData = data
                 self.tableview.reloadData()
@@ -72,24 +76,37 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
         
     }
     
-    
-    
-    //**********여기서 오류가 발생***********
-    func likeBtnTapped(at index: IndexPath) {
+    ////좋아요 버튼
+    @IBAction func likeBtn(_ sender: Any) {
         
-        print("buttont tap이 일어났다!! :\(index.row)")
-    
+        let params: [String : Any] = [
+            "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!,
+            "board_idx" : checkLike!
+        ]
+        print(params)
+        
+        //좋아요 누를때
         LikeService.shareInstance.checkLike(URL: url("/board/like"), params: params) { [weak self] (result) in
             guard self != nil else { return }
             switch result {
             case .networkSuccess:
-                break
+                print("\n좋아요!")
             default :
                 break
             }
             
         }
-    
+        
+        //좋아요 해제할때
+        LikeService.shareInstance.uncheckLike(URL: url("/board/like"), params: params) { [weak self] (result) in
+            guard self != nil else { return }
+            switch result {
+            case .networkSuccess:
+                print("\n이제는 안 좋아요!")
+            default :
+                break
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,10 +123,6 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityTVCell") as!  CommunityTVCell
-        
-        cell.delegate = self;
-        cell.indexPath = indexPath
-        
         let row = indexPath.row
         
         switch row {
@@ -127,15 +140,13 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
             
             //0번째 인덱스에 bestList들만 들어 있음, allList: nil
             if let bestlist = communityData_.bestList{
-                
                 if indexPath.row < 3{
                     cell.configure(list: bestlist[indexPath.row])
 
-                    // 좋아요 누를때 해당 cell의 board index 넘기기
-                    if let board : List = bestlist[indexPath.row]{
-                        UserDefaults.standard.set(board.boardIdx, forKey: "checkLike")
-                        print("checkLike = \(board.boardIdx)")
-                    }
+                    //좋아요 누를때 해당 cell의 board index 넘기기
+//                    if let board : List = bestlist[indexPath.row]{
+//                        checkLike = board.boardIdx
+//                    }
 
                 }
             }
@@ -144,11 +155,6 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
             if let alllist = communityData_.allList{
                 if indexPath.row >= 3{
                     cell.configure(list: alllist[indexPath.row-3])
-                    
-                    // 좋아요 누를때 해당 cell의 board index 넘기기
-                    if let board : List = alllist[indexPath.row-3]{
-                        UserDefaults.standard.set(board.boardIdx, forKey: "checkLike")
-                    }
                 }
             }
         }
@@ -169,14 +175,14 @@ class CommunityVC: UIViewController,UITableViewDelegate, UITableViewDataSource, 
                 if indexPath.row < 3 {
                     let board: List = list[indexPath.row]
                     communityVC.selectedBoardIdx = board
-                    UserDefaults.standard.set(board.boardIdx, forKey: "checkLike")
+                    checkLike = board.boardIdx
                 }
             }
             if let list = data.allList{
                 if indexPath.row >= 3{
                     let board: List  = list[indexPath.row-3]
                     communityVC.selectedBoardIdx = board
-                    UserDefaults.standard.set(board.boardIdx, forKey: "checkLike")
+                    checkLike = board.boardIdx
                 }
             }
         }
