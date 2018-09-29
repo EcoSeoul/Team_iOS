@@ -76,7 +76,7 @@ extension MileageTVC {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MileageTVCell", for: indexPath) as! MileageTVCell
         let row = indexPath.row
-        
+        cell.selectionStyle = .none
         if let mileageArr = mileageListDataArr {
             
             cell.usageTitleLB.text = mileageArr[row].mileageUsage
