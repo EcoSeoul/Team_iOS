@@ -188,6 +188,9 @@
                                 <state key="normal" title="신청하기">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="applyItemBtn:" destination="eqE-hY-8kr" eventType="touchUpInside" id="LhR-xd-3VL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
