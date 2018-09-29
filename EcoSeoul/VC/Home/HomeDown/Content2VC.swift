@@ -17,6 +17,7 @@ class Content2VC: UIViewController {
     }
 
     @IBAction func dismissBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
