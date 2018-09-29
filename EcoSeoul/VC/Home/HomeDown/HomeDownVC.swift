@@ -383,26 +383,28 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
             tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.font = UIFont(name: notoSansFont.Medium.rawValue, size: 15)
         headerLabel.textColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
-        
-        if section == 1 {
-            
-            headerLabel.text = "포인트 전환 / 결제"
-            headerLabel.sizeToFit()
-            headerView.addSubview(headerLabel)
-            
-            return headerView
-            
-        }else if (section == 2) {
-            headerLabel.text = "포인트 적립 / 할인"
-            headerLabel.sizeToFit()
-            headerView.addSubview(headerLabel)
-            
-            return headerView
-        }else {
-            headerLabel.isHidden = true
-            return nil
+        if expandCol {
+            if section == 1 {
+                
+                headerLabel.text = "포인트 전환 / 결제"
+                headerLabel.sizeToFit()
+                headerView.addSubview(headerLabel)
+                
+                
+            }else if (section == 2) {
+                headerLabel.text = "포인트 적립 / 할인"
+                headerLabel.sizeToFit()
+                headerView.addSubview(headerLabel)
+                
+            }else {
+                headerLabel.isHidden = true
+                return nil
+            }
+        }else{
+            headerLabel.text = ""
         }
         
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
