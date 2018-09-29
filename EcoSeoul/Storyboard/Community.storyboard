@@ -411,7 +411,6 @@
                     <connections>
                         <outlet property="boardContentLB" destination="tIk-gY-tAg" id="a23-BA-vhU"/>
                         <outlet property="boardTitleLB" destination="anN-XG-Pd6" id="2QP-LJ-ye2"/>
-                        <outlet property="commentBar" destination="rJK-Ke-jTY" id="Ges-2x-aCn"/>
                         <outlet property="commentLB" destination="ZYC-13-PMd" id="jt0-gq-Yfr"/>
                         <outlet property="commentSendView" destination="rJK-Ke-jTY" id="xw5-C9-qvl"/>
                         <outlet property="commentTF" destination="ZHs-uG-efK" id="5nk-OP-r5a"/>

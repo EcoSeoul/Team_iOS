@@ -25,7 +25,6 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var commentTF: UITextField!
     
     var communityView : CommunityView?
-    @IBOutlet weak var commentBar: UIView!
     
     var selectedBoardIdx : List?
     
@@ -51,7 +50,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         setNaviBar()
         setKeyboardSetting()
-        commmentBarShadow()
+        commentSendViewShadow()
 
         if let sboardIdx = selectedBoardIdx{
             print("selectedBoardIDX")
@@ -140,12 +139,12 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
      
     }
 
-    func commmentBarShadow(){
-        self.commentBar.layer.shadowColor = UIColor.black.cgColor
-        commentBar.layer.shadowOpacity = 0.3
-        commentBar.layer.shadowOffset = CGSize.zero
-        commentBar.layer.shadowRadius = 5
-        self.view.addSubview(commentBar)
+    func commentSendViewShadow(){
+        self.commentSendView.layer.shadowColor = UIColor.black.cgColor
+        commentSendView.layer.shadowOpacity = 0.3
+        commentSendView.layer.shadowOffset = CGSize.zero
+        commentSendView.layer.shadowRadius = 5
+        self.view.addSubview(commentSendView)
     }
 
     
