@@ -32,6 +32,7 @@ struct List: Codable {
     let boardLike: Int?
     let boardCmtnum: Int?
     let userName: String
+    let likeFlag: Bool
     
     enum CodingKeys:String, CodingKey {
         case boardIdx = "board_idx"
@@ -42,6 +43,7 @@ struct List: Codable {
         case boardLike = "board_like"
         case boardCmtnum = "board_cmtnum"
         case userName = "User_name"
+        case likeFlag = "likeFlag"
     }
 }
 

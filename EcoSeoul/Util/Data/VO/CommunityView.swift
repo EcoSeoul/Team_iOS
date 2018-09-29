@@ -31,6 +31,7 @@ struct BoardResult: Codable {
     let boardLike: Int?
     let boardCmtnum: Int?
     let userID: String
+    let likeFlag : Bool
     let writerCheck: Bool
     
     enum CodingKeys: String, CodingKey {
@@ -42,6 +43,7 @@ struct BoardResult: Codable {
         case boardLike = "board_like"
         case boardCmtnum = "board_cmtnum"
         case userID = "user_ID"
+        case likeFlag = "likeFlag"
         case writerCheck = "writer_check"
     }
 }
