@@ -1000,7 +1000,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1019,7 +1019,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8E3WW2RPPH;
+				DEVELOPMENT_TEAM = C99ST777A5;
 				INFOPLIST_FILE = "$(SRCROOT)/EcoSeoul/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

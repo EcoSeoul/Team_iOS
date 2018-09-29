@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSx-3d-IZ4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -298,13 +298,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRD-An-Swc">
-                                <rect key="frame" x="325" y="20" width="48" height="48"/>
-                                <state key="normal" image="ic-close"/>
-                                <connections>
-                                    <action selector="dismissBtn:" destination="RSx-3d-IZ4" eventType="touchUpInside" id="XBx-MA-ESu"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx3-cS-Hzy">
                                 <rect key="frame" x="0.0" y="20" width="375" height="1960"/>
                                 <subviews>
@@ -332,6 +325,13 @@
                                     <constraint firstAttribute="trailing" secondItem="wdn-ja-nBz" secondAttribute="trailing" id="mbc-dr-bzx"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRD-An-Swc">
+                                <rect key="frame" x="325" y="20" width="48" height="48"/>
+                                <state key="normal" image="ic-close"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="RSx-3d-IZ4" eventType="touchUpInside" id="XBx-MA-ESu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -387,8 +387,8 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKd-xm-sYX">
-                                <rect key="frame" x="357" y="20" width="16" height="16"/>
-                                <state key="normal" image="ic-close-white" backgroundImage="ic-close-white"/>
+                                <rect key="frame" x="325" y="20" width="48" height="48"/>
+                                <state key="normal" image="ic-close-white"/>
                                 <connections>
                                     <action selector="dismissBtn:" destination="b01-AA-80L" eventType="touchUpInside" id="tl4-02-k2t"/>
                                 </connections>
@@ -419,13 +419,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1245"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdI-cL-Md8">
-                                <rect key="frame" x="325" y="20" width="48" height="48"/>
-                                <state key="normal" image="ic-close"/>
-                                <connections>
-                                    <action selector="dismissBtn:" destination="tWO-58-NW4" eventType="touchUpInside" id="VTo-59-Wo5"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEq-tj-BtF">
                                 <rect key="frame" x="0.0" y="20" width="375" height="1225"/>
                                 <subviews>
@@ -480,6 +473,13 @@
                                     <constraint firstAttribute="trailing" secondItem="KGx-G7-5by" secondAttribute="trailing" id="xyh-Og-9EI"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdI-cL-Md8">
+                                <rect key="frame" x="325" y="20" width="48" height="48"/>
+                                <state key="normal" image="ic-close"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="tWO-58-NW4" eventType="touchUpInside" id="VTo-59-Wo5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -508,7 +508,7 @@
         <image name="content-3" width="375" height="1225"/>
         <image name="home-mileage" width="18" height="18"/>
         <image name="ic-close" width="48" height="48"/>
-        <image name="ic-close-white" width="16" height="16"/>
+        <image name="ic-close-white" width="48" height="48"/>
         <image name="ic-mypage" width="48" height="48"/>
     </resources>
 </document>
