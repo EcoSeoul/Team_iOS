@@ -288,9 +288,8 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         break
                     case 4:
                         //에코마일리지란? push 작업 구현부
-                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
-                        self.present(webVC, animated: true, completion: nil)
+                        let ContentVC1 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content1VC")as! Content1VC
+                        self.present(ContentVC1, animated: true, completion: nil)
                         break
                     default: break
                 }
@@ -325,9 +324,8 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         break
                     case 4:
                         //에코마일리지란? push 작업 구현부
-                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
-                        self.present(webVC, animated: true, completion: nil)
+                        let ContentVC1 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content1VC")as! Content1VC
+                        self.present(ContentVC1, animated: true, completion: nil)
                         break
                     default: break
                 }
@@ -345,10 +343,12 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
         let cell2 = tableView.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
         let cell3 = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
+        
         cell0.selectionStyle = .none
         cell1.selectionStyle = .none
         cell2.selectionStyle = .none
         cell3.selectionStyle = .none
+        
         //1)Section이 펼쳐진 경우
         if expandCol{
             if section == 0 {
