@@ -35,8 +35,8 @@ struct ShopView: Codable {
     let shopDetail : [ShopDetail]
     
     enum CodingKeys: String, CodingKey {
-        case message = "massage"
-        case shopDetail = "sohopDetail"
+        case message = "message"
+        case shopDetail = "shopDetail"
     }
 }
 

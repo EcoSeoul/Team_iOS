@@ -116,26 +116,22 @@ class ShopCVC: UICollectionViewController, APIService{
         }
         switch indexPath.row {
         case 0:
-            cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
-        case 1:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-tent")
-        case 2:
+        case 1:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-tumbler")
-        case 3:
+        case 2:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-stand")
-        case 4:
+        case 3:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-market-voucher")
-        case 5:
+        case 4:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-culture-voucher")
-        case 6:
+        case 5:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-socket")
-        case 7:
+        case 6:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-apti")
-        case 8:
-            cell.shopIMG.image = #imageLiteral(resourceName: "exchange-character")
-        case 9:
+        case 7:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
-        case 10:
+        case 8:
             cell.shopIMG.image = #imageLiteral(resourceName: "shop-cash")
         default:
             break
@@ -146,8 +142,15 @@ class ShopCVC: UICollectionViewController, APIService{
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let shopDetailVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "ShopDetailVC")as! ShopDetailVC
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCVCell", for: indexPath) as! ShopCVCell
+        
         if let data = shopData_?.shopData[indexPath.row] {
             shopDetailVC.selectedShop = data
+            //            if cell.shopIMG != nil{
+            //                shopDetailVC.itemImg = cell.shopIMG.image
+            //            }else{
+            //                cell.shopIMG.image = #imageLiteral(resourceName: "shop-tmoney")
+            //            }
         }
         self.navigationController?.pushViewController(shopDetailVC, animated: true)
     }

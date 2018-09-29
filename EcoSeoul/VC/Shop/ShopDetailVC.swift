@@ -44,6 +44,7 @@ class ShopDetailVC: UIViewController, APIService {
     
     var selectedShop : ShopData?
     var detailVew : ShopView?
+    var itemImg : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,33 @@ class ShopDetailVC: UIViewController, APIService {
             print("내가 들어간 shopIDX")
             print(shopIdx)
             ShopDetailInit(url: url("/shop/\(shopIdx)"))
+        }
+    }
+    @IBAction func applyItemBtn(_ sender: Any) {
+        if let shopresult = self.detailVew?.shopDetail{
+            let params : [String : Any] = [
+                "goods_idx" : shopresult[0].goodsIdx,
+                "goods_name" : shopresult[0].goodsName,
+                "goods_price" : shopresult[0].goodsPrice,
+                "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!
+            ]
+            
+            
+            self.simpleAlertwithHandler(title: "신청하기", message: "이 상품으로 신청하시겠습니까?", okHandler: { (_) in  ShopApplyService.shareInstance.applyitem(url: self.url("/shop"), params: params) { [weak self] (result) in
+                guard let `self` = self else { return }
+                switch result {
+                case .networkSuccess(_):
+                    print("왜 여기는 동작을 안할까?")
+                case .nullValue :
+                    self.simpleAlert(title: "오류", message: "텍스트 비어있음")
+                case .networkFail :
+                    self.simpleAlert(title: "오류", message: "인터넷 연결상태를 확인해주세요")
+                default :
+                    break
+                }
+                print("신청완료 ")
+                }
+            })
         }
     }
     
@@ -86,6 +114,28 @@ class ShopDetailVC: UIViewController, APIService {
             self.contentLB.text = shopresult[0].goodsContent
             self.summeryLB.text = shopresult[0].goodsSummery
 //            self.imageIMG.image = shopresult[0].goodsImg
+            switch selectedShop?.goodsIdx {
+            case 8:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-tent")
+            case 9:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-tumbler")
+            case 10:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-stand")
+            case 14:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-market-voucher")
+            case 15:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-culture-voucher")
+            case 17:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-socket")
+            case 18:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-apti")
+            case 20:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-tmoney")
+            case 21:
+                self.imageIMG.image = #imageLiteral(resourceName: "shop-cash")
+            default:
+                break
+            }
         }
     }
 
@@ -113,4 +163,5 @@ class ShopDetailVC: UIViewController, APIService {
         return .lightContent
     }
 }
+
 
