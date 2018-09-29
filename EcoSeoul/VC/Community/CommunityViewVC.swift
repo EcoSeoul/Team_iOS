@@ -22,10 +22,9 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var dateLB: UILabel!
     @IBOutlet weak var userNameLB: UILabel!
     
-    @IBOutlet weak var commentTF: UITextField!
+    @IBOutlet weak var commentTV: UITextView!
     
     var communityView : CommunityView?
-    @IBOutlet weak var commentBar: UIView!
     
     var selectedBoardIdx : List?
     
@@ -51,7 +50,7 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         setNaviBar()
         setKeyboardSetting()
-        commmentBarShadow()
+        commentSendViewShadow()
 
         if let sboardIdx = selectedBoardIdx{
             print("selectedBoardIDX")
@@ -111,12 +110,12 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     @IBAction func registerComment(_ sender: UIButton) {
     
-        if (commentTF.text?.isEmpty)! == true{ simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.") }
+        if (commentTV.text?.isEmpty)! == true{ simpleAlert(title: "오류", message: "댓글을 입력하여 주십시오.") }
             
             let params : [String : Any] = [
                 "board_idx" : selectedBoardIdx!.boardIdx,
                 "user_idx" : UserDefaults.standard.string(forKey: "userIdx")!,
-                "cmt_content" : commentTF.text!
+                "cmt_content" : commentTV.text!
             ]
             print(params)
             CommunityCommentService.shareInstance.registercomment(url: self.url("/comment"), params: params) { [weak self] (result) in
@@ -134,18 +133,18 @@ class CommunityViewVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                 
             }
             self.tableview.reloadData()
-            self.commentTF.text = ""
+            self.commentTV.text = ""
             self.viewDidLoad()
             
      
     }
 
-    func commmentBarShadow(){
-        self.commentBar.layer.shadowColor = UIColor.black.cgColor
-        commentBar.layer.shadowOpacity = 0.3
-        commentBar.layer.shadowOffset = CGSize.zero
-        commentBar.layer.shadowRadius = 5
-        self.view.addSubview(commentBar)
+    func commentSendViewShadow(){
+        self.commentSendView.layer.shadowColor = UIColor.black.cgColor
+        commentSendView.layer.shadowOpacity = 0.3
+        commentSendView.layer.shadowOffset = CGSize.zero
+        commentSendView.layer.shadowRadius = 5
+        self.view.addSubview(commentSendView)
     }
 
     
