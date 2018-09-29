@@ -83,6 +83,7 @@
 		5064FD962159F17A00AC8A85 /* PostableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD952159F17A00AC8A85 /* PostableService.swift */; };
 		5064FD982159F1AE00AC8A85 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD972159F1AE00AC8A85 /* Enums.swift */; };
 		5064FD9A2159F1E200AC8A85 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064FD992159F1E200AC8A85 /* LoginService.swift */; };
+		5092A646215FD83600A4C880 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5092A645215FD83600A4C880 /* logo.gif */; };
 		50B0CAFE21463D9900CDA7C9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */; };
 		50B0CAFF21463D9900CDA7C9 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */; };
 		50B0CB0021463D9900CDA7C9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */; };
@@ -190,6 +191,7 @@
 		5064FD952159F17A00AC8A85 /* PostableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostableService.swift; sourceTree = "<group>"; };
 		5064FD972159F1AE00AC8A85 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5064FD992159F1E200AC8A85 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		5092A645215FD83600A4C880 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo.gif; sourceTree = "<group>"; };
 		50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
 		50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				50D0484F213EA82500380CFE /* Assets.xcassets */,
+				5092A645215FD83600A4C880 /* logo.gif */,
 				50D04854213EA82500380CFE /* Info.plist */,
 				50B0CAFD21463D9000CDA7C9 /* NotoSansCJKkr-Bold.otf */,
 				50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */,
@@ -674,6 +677,7 @@
 				3A00FC142157D0E9009CD296 /* Community.storyboard in Resources */,
 				3A58376F21541FE90074BCA9 /* List.storyboard in Resources */,
 				5050A83B215906E00066C433 /* Web.storyboard in Resources */,
+				5092A646215FD83600A4C880 /* logo.gif in Resources */,
 				3A58379D21577DA40074BCA9 /* Shop.storyboard in Resources */,
 				50D0484E213EA82300380CFE /* HomeUp.storyboard in Resources */,
 				50D04850213EA82500380CFE /* Assets.xcassets in Resources */,
