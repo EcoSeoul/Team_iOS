@@ -79,12 +79,14 @@ extension FAQVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableview.dequeueReusableCell(withIdentifier: "FAQTVC1") as! FAQTVC1
+            cell.selectionStyle = .none
             cell.questionLabel.text = sections[indexPath.section]
             return cell
         }
         else{
             let cell = tableview.dequeueReusableCell(withIdentifier: "FAQTVC2") as! FAQTVC2
             cell.answerLabel.text = cells[indexPath.section]
+            cell.selectionStyle = .none
            return cell
         }
         

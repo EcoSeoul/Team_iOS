@@ -22,9 +22,9 @@ class HomeDownVC: UIViewController {
     @IBOutlet weak var mileageLabel: UILabel!
     
     //총 3개의 이미지뷰 배열 생성 (배너광고)
-    lazy var bannerArray: [UIImageView] = {
+    lazy var bannerArray: [UIButton] = {
         let width = self.horizontalScroll.frame.width
-        var arr: [UIImageView] = []
+        var arr: [UIButton] = []
         for i in 0..<3 {
             arr.append(self.viewInstance(xPostion: width * CGFloat(i)))
         }
@@ -124,20 +124,51 @@ class HomeDownVC: UIViewController {
 //Horizontal ScrollView를 구성하는 작업
 extension HomeDownVC: UIScrollViewDelegate{
     
-    private func viewInstance(xPostion: CGFloat) -> UIImageView {
+    private func viewInstance(xPostion: CGFloat) -> UIButton {
         let scrollframe = CGRect(x: xPostion, y: 0, width: self.horizontalScroll.frame.width, height: self.horizontalScroll.frame.height)
-        return UIImageView(frame: scrollframe)
+        return UIButton(frame: scrollframe)
     }
 
     func makeBannerView(){
   
         for i in 0..<bannerArray.count {
             horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
-            if i  % 2 == 0 { bannerArray[i].image = #imageLiteral(resourceName: "main-banner-1") }
-            else { bannerArray[i].image = #imageLiteral(resourceName: "main_banner_2")}
+            
+            switch i {
+                case 0:
+                    bannerArray[i].setBackgroundImage(#imageLiteral(resourceName: "main-banner-1"), for: .normal)
+                    break
+                case 1:
+                    bannerArray[i].setBackgroundImage(#imageLiteral(resourceName: "main_banner_2"), for: .normal)
+                    break
+                case 2:
+                    bannerArray[i].setBackgroundImage(#imageLiteral(resourceName: "main-banner-3"), for: .normal)
+                    break
+                default: break
+            }
+   
             horizontalScroll.addSubview(bannerArray[i])
         }
+        bannerArray[0].addTarget(self, action: #selector(enterContent1VC), for: .touchUpInside)
+        bannerArray[1].addTarget(self, action: #selector(enterContent2VC), for: .touchUpInside)
+        bannerArray[2].addTarget(self, action: #selector(enterContent3VC), for: .touchUpInside)
         
+    }
+    
+    @objc func enterContent1VC(){
+        let ContentVC1 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content1VC")as! Content1VC
+        self.present(ContentVC1, animated: true, completion: nil)
+    }
+    
+    @objc func enterContent2VC(){
+        let ContentVC2 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content2VC")as! Content2VC
+        self.present(ContentVC2, animated: true, completion: nil)
+        
+    }
+    
+    @objc func enterContent3VC(){
+        let ContentVC3 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content3VC")as! Content3VC
+        self.present(ContentVC3, animated: true, completion: nil)
     }
     
     ////Page Control (위에 인덱싱 표시) 구현부 ////
@@ -257,9 +288,8 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         break
                     case 4:
                         //에코마일리지란? push 작업 구현부
-                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
-                        self.present(webVC, animated: true, completion: nil)
+                        let ContentVC1 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content1VC")as! Content1VC
+                        self.present(ContentVC1, animated: true, completion: nil)
                         break
                     default: break
                 }
@@ -294,9 +324,8 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
                         break
                     case 4:
                         //에코마일리지란? push 작업 구현부
-                        let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-                        webVC.address = "http://ecomileage.seoul.go.kr/home/infomation/whatIsEco.do?menuNo=1"
-                        self.present(webVC, animated: true, completion: nil)
+                        let ContentVC1 = UIStoryboard(name: "HomeDown", bundle: nil).instantiateViewController(withIdentifier: "Content1VC")as! Content1VC
+                        self.present(ContentVC1, animated: true, completion: nil)
                         break
                     default: break
                 }
@@ -314,6 +343,11 @@ extension HomeDownVC: UITableViewDataSource, UITableViewDelegate{
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "PointTVC1") as! PointTVC1
         let cell2 = tableView.dequeueReusableCell(withIdentifier: "PointTVC2") as! PointTVC2
         let cell3 = tableView.dequeueReusableCell(withIdentifier: "MenuTVC") as! MenuTVC
+        
+        cell0.selectionStyle = .none
+        cell1.selectionStyle = .none
+        cell2.selectionStyle = .none
+        cell3.selectionStyle = .none
         
         //1)Section이 펼쳐진 경우
         if expandCol{

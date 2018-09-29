@@ -62,7 +62,7 @@ extension DonationListTVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DonationListTVCell", for: indexPath) as! DonationListTVCell
         let row = indexPath.row
-        
+        cell.selectionStyle = .none
         if let donationArr = donationListDataArr {
             cell.orgNameLB.text = donationArr[row].orgName
             cell.mileageDateLB.text = donationArr[row].mileageDate

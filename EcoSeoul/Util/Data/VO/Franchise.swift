@@ -87,7 +87,7 @@ struct FranchiseDetailData: Codable {
     let frcLat: Double
     let frcLong: Double
     let frcAdd: String
-    let frcPhone: String
+    let frcPhone: String?
     let frcSale: Int
     let frcType: Int
     

@@ -14,6 +14,8 @@ class AffiliationVC: UIViewController, APIService {
 
     @IBOutlet weak var seoulMap: UIImageView!
     
+    var senderTag = 0
+    
     var backBtn: UIBarButtonItem = {
         let btn = UIBarButtonItem()
         btn.image = #imageLiteral(resourceName: "arrow-left-black")
@@ -38,7 +40,7 @@ class AffiliationVC: UIViewController, APIService {
     @IBAction func pressedBtn(_ sender: UIButton) {
         
         let tag = sender.tag
-        
+        senderTag = tag
         switch tag {
             
         case 1: seoulMap.image = #imageLiteral(resourceName: "a-gangbook"); break; //강북,도봉
@@ -76,9 +78,19 @@ class AffiliationVC: UIViewController, APIService {
             switch result {
             case .networkSuccess(let data):
                 self.setDB(data)
-                let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
-                affiliationDetailVC.frcIdxArr = self.frcIdxArray
-                self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
+                
+                if self.senderTag == 6 || self.senderTag == 9 || self.senderTag == 12 || self.senderTag == 16 {
+                    self.simpleAlert(title: "알림", message: "해당 지역은 가맹점이 없어요 ㅠ.ㅠ")
+                    self.seoulMap.image = #imageLiteral(resourceName: "affiliate-map")
+                    
+                }
+                
+                else {
+                    let affiliationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "AffiliationDetailVC") as! AffiliationDetailVC
+                    affiliationDetailVC.frcIdxArr = self.frcIdxArray
+                    self.navigationController?.pushViewController(affiliationDetailVC, animated: true)
+                }
+               
                 break
             case .networkFail :
                 self.simpleAlert(title: "network", message: "check")

@@ -77,7 +77,7 @@ extension MoneyTVC{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoneyTVCell", for: indexPath) as! MoneyTVCell
         let row = indexPath.row
-        
+        cell.selectionStyle = .none
         
         if let moneyArr = moneyListDataArr {
             

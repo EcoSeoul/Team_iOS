@@ -63,7 +63,7 @@ extension RequestListTVC{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestListTVCell", for: indexPath) as! RequestListTVCell
         let row = indexPath.row
-        
+        cell.selectionStyle = .none
         if let requestArr = requestListDataArr {
             //cell.requestImage.image =
             cell.requestTitle.text = requestArr[row].goodsName

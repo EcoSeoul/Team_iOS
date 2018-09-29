@@ -184,7 +184,7 @@ extension CommunityViewVC {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "CommunityViewTVCell") as! CommunityViewTVCell
-        
+        cell.selectionStyle = .none
         if let comment = communityView?.commentResult {
             cell.commentConfig(comment: comment[indexPath.row])
         }
