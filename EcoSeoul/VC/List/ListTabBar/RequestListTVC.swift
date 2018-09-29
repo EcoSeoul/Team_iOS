@@ -66,6 +66,29 @@ extension RequestListTVC{
         
         if let requestArr = requestListDataArr {
             //cell.requestImage.image =
+            switch requestArr[row].goodsName {
+            case "실내보온텐트(Sleep8 Single)":
+                //cell.requestImage.image = = #imageLiteral(resourceName: "shop-tent")
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-tent")
+            case "최고급 텀블러 (3개:3만마일리지)":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-tumbler")
+            case "LED 스탠드(WJK-151)":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-stand")
+            case "전통시장 온누리상품권":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-market-voucher")
+            case "모바일문화상품권":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-culture-voucher")
+            case "인공지능 자동절전 콘센트(SWE-203K)":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-socket")
+            case "아파트관리비":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-apti")
+            case "티머니(교통카드) 충전권":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-tmoney")
+            case "현금전환":
+                cell.requestImage.image = #imageLiteral(resourceName: "shop-cash")
+            default:
+                break
+            }
             cell.requestTitle.text = requestArr[row].goodsName
             cell.requestDate.text = requestArr[row].mileageDate
         }
