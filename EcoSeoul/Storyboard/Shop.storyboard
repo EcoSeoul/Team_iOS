@@ -219,8 +219,41 @@
             </objects>
             <point key="canvasLocation" x="913" y="175"/>
         </scene>
+        <!--registerShopVC-->
+        <scene sceneID="W7B-ec-mTe">
+            <objects>
+                <viewController storyboardIdentifier="registerShopVC" title="registerShopVC" id="g5Q-b4-D3a" customClass="registerShopVC" customModule="EcoSeoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e7m-rV-P2d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop-complete-character" translatesAutoresizingMaskIntoConstraints="NO" id="pbG-Sm-dbd">
+                                <rect key="frame" x="46.5" y="198" width="281" height="255"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신청이 완료되었습니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-tB-eaB">
+                                <rect key="frame" x="104" y="141" width="166" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7vR-tB-eaB" firstAttribute="centerX" secondItem="ItE-Cp-olr" secondAttribute="centerX" id="OgS-on-L4q"/>
+                            <constraint firstItem="pbG-Sm-dbd" firstAttribute="top" secondItem="7vR-tB-eaB" secondAttribute="bottom" constant="35" id="Tm5-HI-HCa"/>
+                            <constraint firstItem="7vR-tB-eaB" firstAttribute="top" secondItem="ItE-Cp-olr" secondAttribute="top" constant="121" id="g6N-TL-Vuj"/>
+                            <constraint firstItem="pbG-Sm-dbd" firstAttribute="centerX" secondItem="ItE-Cp-olr" secondAttribute="centerX" id="iTa-qR-F7d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ItE-Cp-olr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDf-ks-6fo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="211"/>
+        </scene>
     </scenes>
     <resources>
         <image name="shop-cash" width="185" height="175"/>
+        <image name="shop-complete-character" width="281" height="255"/>
     </resources>
 </document>
