@@ -13,6 +13,10 @@ class LoginVC: UIViewController, APIService {
     let userDefault = UserDefaults.standard
     @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var pwTF: UITextField!
+    @IBOutlet weak var logoGifView: UIImageView!
+    
+    var seconds = 5
+    var timer = Timer()
     
     let userId : String = "user_id"
     let userPwd : String = "user_pw"
@@ -21,6 +25,38 @@ class LoginVC: UIViewController, APIService {
         super.viewDidLoad()
         idTF.delegate = self;
         pwTF.delegate = self;
+        
+        self.runTime()
+        self.loadImage()
+    }
+    
+    
+    func runTime(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
+    }
+    
+    func loadImage(){
+        
+//        //    self.imageView.image = UIImage.gif(name: "logo")
+//        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
+//
+//        let image = UIImage.gif(data: imageData)
+//        imageView.animationImages = image?.images
+//        imageView.animationDuration = (image?.duration)! / 4
+//        imageView.startAnimating()
+//        self.imageView.image = image
+        
+        
+    }
+    
+    @objc func updateTime(){
+        
+        seconds -= 1
+        if seconds == 0 {
+            timer.invalidate()
+            logoGifView.isHidden = true
+        }
     }
 
     @IBAction func loginBtn(_ sender: Any) {

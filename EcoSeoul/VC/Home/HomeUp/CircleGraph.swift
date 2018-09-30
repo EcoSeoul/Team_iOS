@@ -190,7 +190,7 @@ class CircleGraph{
         }
         else {
             circleAnimation.toValue = percent * 5
-            circleAnimation.duration = percent //* 2 //* 5
+            circleAnimation.duration = percent * 2 //* 5
         }
     
         circleAnimation.fillMode = kCAFillModeForwards
