@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreenlogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-d5-d6k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-ios-2" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-d5-d6k">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreenlogo" width="375" height="667"/>
+        <image name="splash-ios-2" width="187" height="333"/>
     </resources>
 </document>

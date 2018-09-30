@@ -31,8 +31,8 @@ class MileageTVC: UITableViewController, APIService {
         currentMileage.text = String(userMileage)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         network()
         currentMileage.text = String(userMileage)
     }
