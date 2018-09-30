@@ -15,7 +15,7 @@ class LoginVC: UIViewController, APIService {
     @IBOutlet weak var pwTF: UITextField!
     @IBOutlet weak var logoGifView: UIImageView!
     
-    var seconds = 5
+    var seconds = 6
     var timer = Timer()
     
     let userId : String = "user_id"
@@ -28,36 +28,17 @@ class LoginVC: UIViewController, APIService {
         
         self.runTime()
         self.loadImage()
-    }
-    
-    
-    func runTime(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
     }
     
-    func loadImage(){
-        
-//        //    self.imageView.image = UIImage.gif(name: "logo")
-//        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
-//
-//        let image = UIImage.gif(data: imageData)
-//        imageView.animationImages = image?.images
-//        imageView.animationDuration = (image?.duration)! / 4
-//        imageView.startAnimating()
-//        self.imageView.image = image
-        
+    
+
+    
+    //반드시 이 코드를 입력(로그아웃을 하기 위함)
+    @IBAction func unwind(_ sender: UIStoryboardSegue){
         
     }
     
-    @objc func updateTime(){
-        
-        seconds -= 1
-        if seconds == 0 {
-            timer.invalidate()
-            logoGifView.isHidden = true
-        }
-    }
 
     @IBAction func loginBtn(_ sender: Any) {
         enterHome()
@@ -119,7 +100,42 @@ class LoginVC: UIViewController, APIService {
 }
 
 
+//런치스크린 GIF 작동을 하기 위함
+extension LoginVC {
+    
+    func runTime(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    func loadImage(){
+        
+        //    self.imageView.image = UIImage.gif(name: "logo")
+        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
+        
+        let image = UIImage.gif(data: imageData)
+        logoGifView.animationImages = image?.images
+        logoGifView.animationDuration = (image?.duration)! / 4
+        logoGifView.startAnimating()
+        
+        self.logoGifView.image = image
+    }
+    
+    @objc func updateTime(){
+        seconds -= 1
+        
+        if seconds == 0 {
+            timer.invalidate()
+            logoGifView.isHidden = true
+            logoGifView.stopAnimating()
+        }
+    }
+    
+    
+}
+
+
 extension LoginVC: UITextFieldDelegate {
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

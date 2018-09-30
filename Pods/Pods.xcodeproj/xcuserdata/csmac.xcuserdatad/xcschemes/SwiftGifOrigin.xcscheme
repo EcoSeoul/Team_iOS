@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "73E28E59F14CB2AAD26D679DC985CC36"
-               BlueprintName = "XLPagerTabStrip"
+               BlueprintIdentifier = "0129967A75468755FF0F0CC29A348D43"
+               BlueprintName = "SwiftGifOrigin"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "XLPagerTabStrip.framework">
+               BuildableName = "SwiftGifOrigin.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
