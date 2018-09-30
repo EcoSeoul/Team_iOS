@@ -581,7 +581,7 @@
                                                 <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="logoutPressed:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="2ty-4I-Ads"/>
+                                                <action selector="logoutBtn:" destination="SHq-Nb-uEe" eventType="touchUpInside" id="RKg-tt-RRO"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -649,9 +649,11 @@
                         <outlet property="mileageLB" destination="1HZ-wp-6KT" id="pp8-Rf-txq"/>
                         <outlet property="moneyLB" destination="ptn-v6-sdE" id="T2c-dZ-Ezu"/>
                         <outlet property="tableview" destination="IhL-aA-3u7" id="xdt-IF-lho"/>
+                        <segue destination="iet-uj-lcd" kind="unwind" identifier="GoToMain" unwindAction="unwind:" id="BHf-jS-90J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0V-io-zsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iet-uj-lcd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1261.5999999999999" y="1039.4302848575712"/>
         </scene>

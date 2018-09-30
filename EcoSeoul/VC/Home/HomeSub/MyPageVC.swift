@@ -90,6 +90,29 @@ class MyPageVC: UIViewController, APIService {
         
     }
     
+    @IBAction func logoutBtn(_ sender: Any) {
+        
+        
+        //performSegue(withIdentifier: "GoToMain", sender: self)
+        //Alert를 만들고
+        //거기서 확인버튼을 누르면 PerformASergu가 수행되게 유도
+        
+        let alert = UIAlertController(title: "로그아웃", message: "로그아웃을 하시겠습니까?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) {
+            _ in
+            self.performSegue(withIdentifier: "GoToMain", sender: self)
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
     
 }
 
