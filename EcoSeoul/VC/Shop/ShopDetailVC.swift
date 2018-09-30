@@ -38,6 +38,7 @@ class ShopDetailVC: UIViewController, APIService {
     
     @IBOutlet weak var nameLB: UILabel!
     @IBOutlet weak var companyLB: UILabel!
+    @IBOutlet weak var priceLB: UILabel!
     @IBOutlet weak var imageIMG: UIImageView!
     @IBOutlet weak var summeryLB: UILabel!
     @IBOutlet weak var contentLB: UILabel!
@@ -113,6 +114,7 @@ class ShopDetailVC: UIViewController, APIService {
     func showShopData(){
         if let shopresult = self.detailVew?.shopDetail {
             self.nameLB.text = shopresult[0].goodsName
+            self.priceLB.text = String(shopresult[0].goodsPrice)
             self.companyLB.text = shopresult[0].goodsCompany
             self.contentLB.text = shopresult[0].goodsContent
             self.summeryLB.text = shopresult[0].goodsSummery

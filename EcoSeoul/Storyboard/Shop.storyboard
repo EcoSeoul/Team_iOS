@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
@@ -116,7 +119,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(주)티모넷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybV-7Z-8kR">
                                                 <rect key="frame" x="152.5" y="59" width="71" height="24"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
-                                                <color key="textColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 상품은 1,000원부터 1,000원 단위로 90,000원까지 신청이 가능합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BN7-tW-KPD">
@@ -147,10 +150,22 @@
                                                     <constraint firstAttribute="width" secondItem="xbS-cj-5nb" secondAttribute="height" multiplier="1:1" id="k6d-KQ-TEb"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3W0-PY-gZT">
+                                                <rect key="frame" x="153" y="91" width="59" height="37"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="25"/>
+                                                <color key="textColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-mileage" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-HP-rBR">
+                                                <rect key="frame" x="220" y="100" width="18" height="18"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ybV-7Z-8kR" firstAttribute="top" secondItem="sCE-jH-KKv" secondAttribute="bottom" constant="1" id="2a8-QZ-5aH"/>
+                                            <constraint firstAttribute="trailing" secondItem="C0O-HP-rBR" secondAttribute="trailing" constant="137" id="4VC-4S-gHg"/>
+                                            <constraint firstItem="3W0-PY-gZT" firstAttribute="top" secondItem="ybV-7Z-8kR" secondAttribute="bottom" constant="8" id="6Qv-UH-fVY"/>
+                                            <constraint firstItem="C0O-HP-rBR" firstAttribute="leading" secondItem="3W0-PY-gZT" secondAttribute="trailing" constant="8" id="Cr7-8J-SND"/>
                                             <constraint firstItem="xbS-cj-5nb" firstAttribute="top" secondItem="RaC-38-OzV" secondAttribute="top" constant="109" id="Da2-gk-fhj"/>
                                             <constraint firstItem="xbS-cj-5nb" firstAttribute="top" secondItem="ybV-7Z-8kR" secondAttribute="bottom" constant="26" id="JyA-Ji-bN7"/>
                                             <constraint firstAttribute="bottom" secondItem="OLW-BN-2L0" secondAttribute="bottom" constant="920" id="MCa-6E-AS4"/>
@@ -164,6 +179,7 @@
                                             <constraint firstItem="xbS-cj-5nb" firstAttribute="centerX" secondItem="BN7-tW-KPD" secondAttribute="centerX" constant="-1" id="e3b-hz-iCG"/>
                                             <constraint firstItem="dAk-td-EQQ" firstAttribute="top" secondItem="OLW-BN-2L0" secondAttribute="bottom" constant="35" id="frh-yS-qSf"/>
                                             <constraint firstAttribute="trailing" secondItem="dAk-td-EQQ" secondAttribute="trailing" constant="38" id="hQC-f5-PW3"/>
+                                            <constraint firstItem="C0O-HP-rBR" firstAttribute="top" secondItem="ybV-7Z-8kR" secondAttribute="bottom" constant="17" id="r7Y-FQ-Zc6"/>
                                             <constraint firstItem="OLW-BN-2L0" firstAttribute="top" secondItem="RaC-38-OzV" secondAttribute="top" constant="512" id="wUG-CZ-xPA"/>
                                             <constraint firstItem="ybV-7Z-8kR" firstAttribute="centerX" secondItem="sCE-jH-KKv" secondAttribute="centerX" id="z8t-ZQ-UbY"/>
                                         </constraints>
@@ -212,6 +228,7 @@
                         <outlet property="contentLB" destination="dAk-td-EQQ" id="IDV-Nh-ll9"/>
                         <outlet property="imageIMG" destination="xbS-cj-5nb" id="tcy-YJ-GPy"/>
                         <outlet property="nameLB" destination="sCE-jH-KKv" id="EIv-qm-ErW"/>
+                        <outlet property="priceLB" destination="3W0-PY-gZT" id="nQI-FF-jQZ"/>
                         <outlet property="summeryLB" destination="BN7-tW-KPD" id="akc-nG-R2H"/>
                     </connections>
                 </viewController>
@@ -253,6 +270,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home-mileage" width="18" height="18"/>
         <image name="shop-cash" width="185" height="175"/>
         <image name="shop-complete-character" width="281" height="255"/>
     </resources>

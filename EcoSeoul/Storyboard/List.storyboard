@@ -147,17 +147,16 @@
                                             <outlet property="showBtn" destination="IhH-JZ-jhu" id="Ifg-fH-u2G"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQTVC2" rowHeight="104" id="9ph-Cn-xBu" customClass="FAQTVC2" customModule="EcoSeoul" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="165" width="375" height="104"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQTVC2" rowHeight="300" id="9ph-Cn-xBu" customClass="FAQTVC2" customModule="EcoSeoul" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="165" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ph-Cn-xBu" id="UKz-Ek-Sxs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문에 대한 답이 나오는 부분" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSp-EX-EGy">
-                                                    <rect key="frame" x="35" y="7" width="303" height="86"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문에 대한 답이 나오는 부분" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="iSp-EX-EGy">
+                                                    <rect key="frame" x="35" y="7" width="303" height="22.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="86" id="aWI-DP-sWY"/>
                                                         <constraint firstAttribute="width" constant="303" id="zhA-hb-he0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>

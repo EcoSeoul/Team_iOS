@@ -49,6 +49,7 @@ class HomeDownVC: UIViewController {
  
         makeBannerView()
         makePageControl()
+        makeBarcodeImage()
         pageControl.addTarget(self.horizontalScroll, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
     }
     
