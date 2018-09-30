@@ -18,12 +18,14 @@ class CardVC: UIViewController, APIService {
     
     let cardArray = ["우리은행", "SC제일", "NH농협", "IBK기업"]
     let pickerview = UIPickerView()
-   
+    let completeView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerTF.delegate = self;
         cardNumberTF.delegate = self;
         initPicker()
+//        self.completeView.isHidden = true
     }
 
     @IBAction func dismissBtn(_ sender: Any) {
@@ -34,7 +36,10 @@ class CardVC: UIViewController, APIService {
     @IBAction func makeCardBtn(_ sender: Any) {
         //self.dismiss(animated: true, completion: nil)
         //1. 카드 등록이 완료되었습니다 창 띄우기..(1~2초)
- 
+//        self.completeView.isHidden = false
+//        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+//            self.completeView.isHidden = true
+//        }
         //2.통신구현부
         network()
         
@@ -51,7 +56,7 @@ class CardVC: UIViewController, APIService {
             guard let `self` = self else { return }
             switch result {
             case .networkSuccess(let data):
-                self.simpleAlert(title: "카드 생성", message: "카드를 만들었습니다!")
+                self.registerCompleteView()
                 UserDefaults.standard.set(params["user_barcodenum"], forKey: "userBarcode")
                 print(data)
                 break
@@ -59,6 +64,15 @@ class CardVC: UIViewController, APIService {
             }
         })
         
+    }
+    func registerCompleteView() {
+        let registerCardVC = UIStoryboard(name: "Pay", bundle: nil).instantiateViewController(withIdentifier: "registerCardVC")as! registerCardVC
+        self.addChildViewController(registerCardVC)
+        
+        registerCardVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
+        self.view.addSubview(registerCardVC.view)
+        registerCardVC.didMove(toParentViewController: self)
     }
     
      //카드 신청하러 가기 버튼(웹으로 연결)

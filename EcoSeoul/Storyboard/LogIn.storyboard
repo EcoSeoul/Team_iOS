@@ -57,7 +57,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_id" translatesAutoresizingMaskIntoConstraints="NO" id="emc-l4-y2H">
                                 <rect key="frame" x="31" y="269.5" width="313" height="44"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4cB-T2-Okb">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디 : timi" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4cB-T2-Okb">
                                 <rect key="frame" x="54" y="276.5" width="268" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
@@ -83,7 +83,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_id" translatesAutoresizingMaskIntoConstraints="NO" id="ZB9-Re-NsZ">
                                 <rect key="frame" x="31" y="326.5" width="313" height="44"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="wRa-de-EX3">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호 : 123" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="wRa-de-EX3">
                                 <rect key="frame" x="54" y="334.5" width="268" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
@@ -102,7 +102,7 @@
                                 <rect key="frame" x="42" y="505.5" width="293" height="293"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJl-bB-Oh3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <viewLayoutGuide key="safeArea" id="SAl-eY-Wfx"/>
                             </imageView>
                         </subviews>
@@ -147,7 +147,6 @@
                             <constraint firstItem="ZB9-Re-NsZ" firstAttribute="width" secondItem="eQw-4r-x47" secondAttribute="width" multiplier="313:375" id="tbI-mj-EFD"/>
                             <constraint firstItem="vCG-nb-kSs" firstAttribute="top" secondItem="Yhz-oy-lRa" secondAttribute="bottom" id="uaq-Np-ibQ"/>
                             <constraint firstItem="GJl-bB-Oh3" firstAttribute="top" secondItem="eQw-4r-x47" secondAttribute="top" constant="20" id="vct-3R-GJr"/>
-                            <constraint firstItem="GJl-bB-Oh3" firstAttribute="top" secondItem="eQw-4r-x47" secondAttribute="top" id="vh5-AI-Tfb"/>
                             <constraint firstItem="4cB-T2-Okb" firstAttribute="top" secondItem="emc-l4-y2H" secondAttribute="bottom" constant="-37" id="vuz-zj-Kzv"/>
                             <constraint firstItem="Yhz-oy-lRa" firstAttribute="top" secondItem="4q0-7j-5cE" secondAttribute="bottom" id="wnc-8j-in7"/>
                             <constraint firstItem="4q0-7j-5cE" firstAttribute="height" secondItem="eQw-4r-x47" secondAttribute="height" multiplier="30:667" id="yzB-Hb-hb9"/>

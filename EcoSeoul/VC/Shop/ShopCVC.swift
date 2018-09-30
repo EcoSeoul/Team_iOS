@@ -67,6 +67,7 @@ class ShopCVC: UICollectionViewController, APIService{
         })
         
     }
+    
     func setNaviBar(){
         backBtn.target = self
         myPageBtn.target = self

@@ -71,6 +71,8 @@ class ShopDetailVC: UIViewController, APIService {
                 switch result {
                 case .networkSuccess(_):
                     print("왜 여기는 동작을 안할까?")
+                    
+                    self.registerCompleteView()
                 case .nullValue :
                     self.simpleAlert(title: "오류", message: "텍스트 비어있음")
                 case .networkFail :
@@ -140,6 +142,15 @@ class ShopDetailVC: UIViewController, APIService {
         }
     }
 
+    func registerCompleteView() {
+        let registerShopVC = UIStoryboard(name: "Shop", bundle: nil).instantiateViewController(withIdentifier: "registerShopVC")as! registerShopVC
+        self.addChildViewController(registerShopVC)
+        
+        registerShopVC.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
+        self.view.addSubview(registerShopVC.view)
+        registerShopVC.didMove(toParentViewController: self)
+    }
     
     func setNaviBar(){
         backBtn.target = self
