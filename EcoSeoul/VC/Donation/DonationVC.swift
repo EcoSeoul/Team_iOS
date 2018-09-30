@@ -130,12 +130,11 @@ extension DonationVC: UIScrollViewDelegate{
             guard let `self` = self else { return }
             switch result {
             case .networkSuccess(let data):
-                
-                print(data)
-                //기부를 했습니다. 창 띄우기
-                print("\(UserDefaults.standard.integer(forKey: "donateMileage")) M 기부완료!!!")
-                let newMileage = UserDefaults.standard.integer(forKey: "userMileage") - UserDefaults.standard.integer(forKey: "donateMileage")
-                UserDefaults.standard.set(newMileage, forKey: "userMileage")
+        
+                self.simpleAlert(title: "기부완료", message: "\(UserDefaults.standard.integer(forKey: "donateMileage")) M 기부완료!")
+                let Mileage = UserDefaults.standard.integer(forKey: "userMileage")
+                let donateMileage = UserDefaults.standard.integer(forKey: "donateMileage")
+                UserDefaults.standard.set(Mileage - donateMileage, forKey: "userMileage")
              
                 break
             case .nullValue :

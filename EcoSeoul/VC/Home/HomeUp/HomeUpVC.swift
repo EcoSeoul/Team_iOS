@@ -24,8 +24,8 @@ class HomeUpVC: UIViewController{
     var pastTotalCarbon: Int = 0
     
     //ELEC,WATER,GAS VALUE(Wave)
-    var preValue: [Double] = [0.55, 0.6, 0.7]   //작년 데이터(전기,수도,가스)
-    var curVlaue: [Double] = [0.47, 0.5, 0.45]  //올해 데이터(전기,수도,가스)
+    var preValue: [Double] = [0.44, 0.62, 0.53]   //작년 데이터(전기,수도,가스)
+    var curValue: [Double]? //올해 데이터(전기,수도,가스)
     
      
     //총 4개의 뷰 배열 생성(0:탄소,1:전기,2:수도,3:가스)
@@ -47,12 +47,26 @@ class HomeUpVC: UIViewController{
         super.viewDidLoad()
         horizontalScroll.delegate = self;
         initValue()
-        makeCircleView()
-        makeWaveView()
+       
         makePageControl()
         pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: UIControlEvents.valueChanged)
         self.view.addSubview(homeAllBtn)
+        setCurValue()
         
+        for i in 0..<3 {
+            curValue![i] = preValue[i] * (1 - curValue![i])
+        }
+        
+        makeCircleView()
+        makeWaveView()
+        
+    }
+    
+    func setCurValue(){
+        let elecP = Double(UserDefaults.standard.integer(forKey: "elecPercent")) / Double(100)
+        let wateP = Double(UserDefaults.standard.integer(forKey: "waterPercent")) / Double(100)
+        let gasP = Double(UserDefaults.standard.integer(forKey: "gasPercent")) / Double(100)
+        curValue = [elecP, wateP, gasP]
     }
         
 
@@ -61,6 +75,7 @@ class HomeUpVC: UIViewController{
         totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
         pastTotalCarbon = UserDefaults.standard.integer(forKey: "pastTotalCarbon")
         co2Percent = Double(pastTotalCarbon - totalCarbon) / Double(pastTotalCarbon)
+        
     }
     
     //홈 모아보기 버튼 클릭
@@ -102,7 +117,7 @@ extension HomeUpVC {
         for i in 1..<viewArray.count {
             horizontalScroll.contentSize.width = horizontalScroll.frame.width * CGFloat(i+1)
             horizontalScroll.addSubview(viewArray[i])
-            viewArray[i] = WaveView(self.horizontalScroll, preValue[i-1], curVlaue[i-1])
+            viewArray[i] = WaveView(self.horizontalScroll, preValue[i-1], curValue![i-1])
         }
     }
     
