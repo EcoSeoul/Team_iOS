@@ -213,7 +213,7 @@ class CircleGraph{
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
-        percentLabel.text = String(format: "% .f%%", percent * 100)
+        percentLabel.text = String(format: "% .f%%", percent * 100 / 5)
         
         if percent > 1 {
             displayLink.invalidate()

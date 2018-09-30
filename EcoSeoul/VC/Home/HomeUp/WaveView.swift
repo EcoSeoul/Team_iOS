@@ -130,14 +130,14 @@ class WaveView: UIView{
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "water" {
             titleLabel.text = "수도 사용량"
-            dataLbel.text = "\(waterData.present)kWh"
+            dataLbel.text = "\(waterData.present)M^3"
             percentLabel.text = "\(waterData.percent)%"
             setImgContent(waterData)
 
         }
         if parentView?.subviews.last?.accessibilityIdentifier ==  "gas" {
             titleLabel.text = "가스 사용량"
-            dataLbel.text = "\(gasData.present)kWh"
+            dataLbel.text = "\(gasData.present)M^3"
             percentLabel.text = "\(gasData.percent)%"
             setImgContent(gasData)
         }
