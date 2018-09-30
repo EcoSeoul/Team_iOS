@@ -38,14 +38,14 @@ class LoginVC: UIViewController, APIService {
     
     func loadImage(){
         
-//        //    self.imageView.image = UIImage.gif(name: "logo")
-//        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
-//
-//        let image = UIImage.gif(data: imageData)
-//        imageView.animationImages = image?.images
-//        imageView.animationDuration = (image?.duration)! / 4
-//        imageView.startAnimating()
-//        self.imageView.image = image
+        //    self.imageView.image = UIImage.gif(name: "logo")
+        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
+
+        let image = UIImage.gif(data: imageData)
+        logoGifView.animationImages = image?.images
+        logoGifView.animationDuration = (image?.duration)! / 4
+        logoGifView.startAnimating()
+        self.logoGifView.image = image
         
         
     }

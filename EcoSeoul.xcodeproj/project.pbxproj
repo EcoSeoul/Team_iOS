@@ -49,6 +49,7 @@
 		3A97AB492152683000507A9F /* MyPageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97AB482152683000507A9F /* MyPageTVC.swift */; };
 		3AB3A022215BC14100768B69 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3A021215BC14100768B69 /* Community.swift */; };
 		3AB3A024215BC4D100768B69 /* CommunityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3A023215BC4D100768B69 /* CommunityService.swift */; };
+		5010607D2160AFF700FAE958 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5010607C2160AFF700FAE958 /* UIImage+Gif.swift */; };
 		5019F05B215D5CB400DDB4B1 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019F05A215D5CB400DDB4B1 /* List.swift */; };
 		5019F05D215D5CEF00DDB4B1 /* RequestListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019F05C215D5CEF00DDB4B1 /* RequestListService.swift */; };
 		5019F05F215D5CFF00DDB4B1 /* DonationListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5019F05E215D5CFF00DDB4B1 /* DonationListService.swift */; };
@@ -160,6 +161,7 @@
 		3A97AB482152683000507A9F /* MyPageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTVC.swift; sourceTree = "<group>"; };
 		3AB3A021215BC14100768B69 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		3AB3A023215BC4D100768B69 /* CommunityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityService.swift; sourceTree = "<group>"; };
+		5010607C2160AFF700FAE958 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		5019F05A215D5CB400DDB4B1 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		5019F05C215D5CEF00DDB4B1 /* RequestListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListService.swift; sourceTree = "<group>"; };
 		5019F05E215D5CFF00DDB4B1 /* DonationListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListService.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				50B0CAFB21463D8F00CDA7C9 /* NotoSansCJKkr-Light.otf */,
 				50B0CAFC21463D8F00CDA7C9 /* NotoSansCJKkr-Medium.otf */,
 				50B0CAFA21463D8E00CDA7C9 /* NotoSansCJKkr-Regular.otf */,
+				5010607C2160AFF700FAE958 /* UIImage+Gif.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -749,12 +752,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EcoSeoul/Pods-EcoSeoul-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
@@ -818,6 +823,7 @@
 				509D14932160ABCC00C5C857 /* ShopApplyService.swift in Sources */,
 				3A00FC1F2157EC31009CD296 /* CommunityViewTVCell.swift in Sources */,
 				5027F864215D4DA000D9C643 /* MoneyListService.swift in Sources */,
+				5010607D2160AFF700FAE958 /* UIImage+Gif.swift in Sources */,
 				3A00FC172157EB96009CD296 /* CommunityVC.swift in Sources */,
 				3A58377F215421C20074BCA9 /* RequestListTVC.swift in Sources */,
 				5064FD9A2159F1E200AC8A85 /* LoginService.swift in Sources */,
