@@ -123,6 +123,9 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-all-dot" translatesAutoresizingMaskIntoConstraints="NO" id="2an-R2-I9C">
                                             <rect key="frame" x="26" y="52" width="14" height="85"/>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carbon-graph" translatesAutoresizingMaskIntoConstraints="NO" id="YNQ-c6-khi">
+                                            <rect key="frame" x="31" y="171" width="313" height="74"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -137,7 +140,9 @@
                                         <constraint firstItem="odj-Ac-Lr9" firstAttribute="top" secondItem="T7p-uM-yCn" secondAttribute="top" constant="20" id="OkL-ne-gKX"/>
                                         <constraint firstItem="sHm-Ib-Xh1" firstAttribute="leading" secondItem="GnP-P3-Yfo" secondAttribute="leading" id="Osj-bf-aRN"/>
                                         <constraint firstItem="uZz-Zw-HlN" firstAttribute="leading" secondItem="GnP-P3-Yfo" secondAttribute="trailing" constant="14.5" id="Ttl-ar-ALn"/>
+                                        <constraint firstItem="YNQ-c6-khi" firstAttribute="top" secondItem="MPU-YY-Pdk" secondAttribute="bottom" constant="22" id="YvY-Hy-RGs"/>
                                         <constraint firstItem="odj-Ac-Lr9" firstAttribute="leading" secondItem="T7p-uM-yCn" secondAttribute="leading" constant="18" id="alp-jJ-3vD"/>
+                                        <constraint firstItem="YNQ-c6-khi" firstAttribute="centerX" secondItem="T7p-uM-yCn" secondAttribute="centerX" id="c35-yl-Ng1"/>
                                         <constraint firstItem="lyi-Gd-lOB" firstAttribute="leading" secondItem="odj-Ac-Lr9" secondAttribute="trailing" constant="8" symbolic="YES" id="ck9-wS-3bE"/>
                                         <constraint firstItem="2an-R2-I9C" firstAttribute="leading" secondItem="T7p-uM-yCn" secondAttribute="leading" constant="26" id="cxd-96-iri"/>
                                         <constraint firstItem="MPU-YY-Pdk" firstAttribute="baseline" secondItem="ShY-Zw-fsR" secondAttribute="baseline" id="eme-c4-4Pu"/>
@@ -146,6 +151,8 @@
                                         <constraint firstItem="MPU-YY-Pdk" firstAttribute="top" secondItem="ShY-Zw-fsR" secondAttribute="top" id="lUP-Di-Tie"/>
                                         <constraint firstItem="lyi-Gd-lOB" firstAttribute="leading" secondItem="sHm-Ib-Xh1" secondAttribute="leading" id="lqj-WK-Est"/>
                                         <constraint firstItem="sHm-Ib-Xh1" firstAttribute="baseline" secondItem="B7o-bg-7dS" secondAttribute="baseline" id="pMu-d4-vhq"/>
+                                        <constraint firstItem="YNQ-c6-khi" firstAttribute="width" secondItem="T7p-uM-yCn" secondAttribute="width" multiplier="313:375" id="rQT-Yk-Hvz"/>
+                                        <constraint firstItem="YNQ-c6-khi" firstAttribute="height" secondItem="T7p-uM-yCn" secondAttribute="height" multiplier="74:275" id="x17-cm-Zgl"/>
                                         <constraint firstItem="sHm-Ib-Xh1" firstAttribute="top" secondItem="lyi-Gd-lOB" secondAttribute="bottom" constant="18" id="yBo-im-olJ"/>
                                         <constraint firstItem="odj-Ac-Lr9" firstAttribute="width" secondItem="T7p-uM-yCn" secondAttribute="height" multiplier="6:55" id="yig-bo-H8L"/>
                                         <constraint firstItem="GnP-P3-Yfo" firstAttribute="top" secondItem="sHm-Ib-Xh1" secondAttribute="bottom" constant="16" id="zbu-ZV-xQw"/>
@@ -660,6 +667,7 @@
     </scenes>
     <resources>
         <image name="arrow-right-black" width="48" height="48"/>
+        <image name="carbon-graph" width="313" height="111"/>
         <image name="home-all-dot" width="14" height="85"/>
         <image name="home-all-electric" width="30" height="30"/>
         <image name="home-all-graph" width="30" height="30"/>

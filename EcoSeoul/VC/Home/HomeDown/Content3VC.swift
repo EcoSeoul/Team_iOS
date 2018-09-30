@@ -21,17 +21,17 @@ class Content3VC: UIViewController {
     
     @IBAction func goReport1(_ sender: Any) {
         let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-        webVC.address = "http://topshop.bccard.com/app/topmall/m/main/main"
+        webVC.address = "https://m.news.naver.com/read.nhn?mode=LSD&mid=sec&sid1=102&oid=016&aid=0001445906"
         self.present(webVC, animated: true, completion: nil)
     }
     @IBAction func goReport2(_ sender: Any) {
         let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-        webVC.address = "http://topshop.bccard.com/app/topmall/m/main/main"
+        webVC.address = "http://m.tbs.seoul.kr/news/newsView.do?channelCode=CH_N&seq_800=10286332&idx_800=2306506&typ_800=R&grd_800=null"
         self.present(webVC, animated: true, completion: nil)
     }
     @IBAction func goReport3(_ sender: Any) {
         let webVC = UIStoryboard(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "WebVC")as! WebVC
-        webVC.address = "http://topshop.bccard.com/app/topmall/m/main/main"
+        webVC.address = "http://www.shinailbo.co.kr/news/articleView.html?idxno=1097422"
         self.present(webVC, animated: true, completion: nil)
     }
     
