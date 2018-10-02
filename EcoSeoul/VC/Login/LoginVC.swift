@@ -13,30 +13,18 @@ class LoginVC: UIViewController, APIService {
     let userDefault = UserDefaults.standard
     @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var pwTF: UITextField!
-    @IBOutlet weak var logoGifView: UIImageView!
     
+    //SPLAH SCREEN VARIABLE
+    @IBOutlet weak var logoGifView: UIImageView!
     var seconds = 6
     var timer = Timer()
     
-    let userId : String = "user_id"
-    let userPwd : String = "user_pw"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         idTF.delegate = self;
         pwTF.delegate = self;
         
-        self.runTime()
-        self.loadImage()
-        
-    }
-    
-    
-
-    
-    //반드시 이 코드를 입력(로그아웃을 하기 위함)
-    @IBAction func unwind(_ sender: UIStoryboardSegue){
-        
+        loadGifImage()
     }
     
 
@@ -47,6 +35,11 @@ class LoginVC: UIViewController, APIService {
     @IBAction func signupBtn(_ sender: Any) {
         print("회원가입 뷰전환을 구현해주세요!")
     }
+    
+    //로그아웃을 하면 LoginVC로 돌아올 수 있도록 하기 위함
+    @IBAction func unwind(_ sender: UIStoryboardSegue){
+        
+    }
 
     func enterHome() {
         
@@ -55,27 +48,23 @@ class LoginVC: UIViewController, APIService {
             return
         }
         
+        network()
+        
+    }
+    
+    func network(){
+        
         let params: [String:Any] = [
-            userId : gsno(idTF.text),
-            userPwd : gsno(pwTF.text)
+            "user_id" : gsno(idTF.text),
+            "user_pw" : gsno(pwTF.text)
         ]
-
+        
         LoginService.shareInstance.login(url: url("/mypage/login"), params: params, completion: { [weak self] (result) in
-            
             guard let `self` = self else { return }
-
+            
             switch result {
                 case .networkSuccess(let data):
-                    
-                    let datas = data as! Login
-                    self.userDefault.set(datas.userIdx, forKey: "userIdx")
-                    self.userDefault.set(datas.userId, forKey: "userId")
-                    self.userDefault.set(datas.userName, forKey: "userName")
-                    
-                    if let barcodeNum = datas.userBarcodeNum {
-                        self.userDefault.set(barcodeNum, forKey: "userBarcode")
-                    }
-                
+                    setDB(data)
                     let homeVC = UIStoryboard(name: "HomeUp", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                     self.navigationController?.pushViewController(homeVC, animated: true)
                     break
@@ -96,23 +85,31 @@ class LoginVC: UIViewController, APIService {
             }
         })
         
+        func setDB(_ data: LoginData){
+            guard let barcodeNum = data.userBarcodeNum else{return}
+            self.userDefault.set(barcodeNum, forKey: "userBarcode")
+            self.userDefault.set(data.userIdx, forKey: "userIdx")
+            self.userDefault.set(data.userId, forKey: "userId")
+            self.userDefault.set(data.userName, forKey: "userName")
+            self.userDefault.set(data.userMileage, forKey: "userMileage")
+            
+        }
+        
     }
 }
 
 
-//런치스크린 GIF 작동을 하기 위함
+//GIF SPLASH SCREEN
 extension LoginVC {
-    
-    func runTime(){
+
+    func loadGifImage(){
+        //set Timer to limit animation.
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-    }
-    
-    func loadImage(){
         
-        //    self.imageView.image = UIImage.gif(name: "logo")
+        //self.imageView.image = UIImage.gif(name: "logo")
         let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "logo", withExtension: "gif")!)
-        
         let image = UIImage.gif(data: imageData)
+        
         logoGifView.animationImages = image?.images
         logoGifView.animationDuration = (image?.duration)! / 4
         logoGifView.startAnimating()
@@ -121,6 +118,7 @@ extension LoginVC {
     }
     
     @objc func updateTime(){
+        
         seconds -= 1
         
         if seconds == 0 {
@@ -128,6 +126,7 @@ extension LoginVC {
             logoGifView.isHidden = true
             logoGifView.stopAnimating()
         }
+        
     }
     
     
@@ -136,7 +135,7 @@ extension LoginVC {
 
 extension LoginVC: UITextFieldDelegate {
 
-    
+    //화면 터치 또는 Return 클릭시 키보드가 내려감.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -164,6 +163,5 @@ extension LoginVC: UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
-    ///////////////////////////
-    
+ 
 }

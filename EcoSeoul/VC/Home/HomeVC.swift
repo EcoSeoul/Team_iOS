@@ -52,7 +52,7 @@ class HomeVC: UIViewController, APIService {
             guard let `self` = self else { return }
             switch result {
             case .networkSuccess(let data):
-                self.setDB(data as! MainData)
+                self.setDB(data)
                 break
             case .networkFail :
                 self.simpleAlert(title: "network", message: "네트워크상태를 확인해주세요 :)")
@@ -64,7 +64,7 @@ class HomeVC: UIViewController, APIService {
         
     }
     
-    func setDB(_ data: MainData){
+    func setDB(_ data: Main){
         //CircleView(Carbon)
         self.userDefault.set(data.term[0], forKey: "termStart")
         self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")

@@ -11,8 +11,8 @@ import UIKit
 
 class BarcodeVC: UIViewController {
     
-    let userName = UserDefaults.standard.string(forKey: "userName")!
-    let userMileage = UserDefaults.standard.string(forKey: "userMileage")!
+    let userName = UserDefaults.standard.string(forKey: "userName")
+    let userMileage = UserDefaults.standard.integer(forKey: "userMileage")
     
     //최상위 부모뷰
     @IBOutlet var superView: UIControl!
@@ -55,8 +55,9 @@ class BarcodeVC: UIViewController {
         if let image = generateBarcodeFromString(string: serial) {
             barcodeImage.image = image
             barcodeNumber.text = serial
-            titleLabel.text = userName + "님 에코머니"
-            moneyLabel.text = "\(userMileage)"
+            titleLabel.text = gsno(userName) + "님 에코머니"
+            let intMileage = gino(userMileage)
+            moneyLabel.text = "\(intMileage)"
         }
         
     }
