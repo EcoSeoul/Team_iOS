@@ -12,10 +12,10 @@ import SwiftyJSON
 
 struct LoginService: PostableService {
     
-    typealias NetworkData = LoginData
+    typealias NetworkData = Login
     static let shareInstance = LoginService()
     
-    func login(url : String, params : [String : Any], completion : @escaping (NetworkResult<Any>) -> Void){
+    func login(url : String, params : [String : Any], completion : @escaping (NetworkResult<LoginData>) -> Void){
         
         post(url, params: params) { (result) in
       

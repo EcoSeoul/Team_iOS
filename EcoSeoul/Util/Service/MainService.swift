@@ -12,10 +12,10 @@ import SwiftyJSON
 
 struct MainService: GettableService {
     
-    typealias NetworkData = MainData
+    typealias NetworkData = Main
     static let shareInstance = MainService()
     
-    func getMain(url : String, completion : @escaping (NetworkResult<Any>) -> Void){
+    func getMain(url : String, completion : @escaping (NetworkResult<Main>) -> Void){
         
         get(url) { (result) in
             switch result {

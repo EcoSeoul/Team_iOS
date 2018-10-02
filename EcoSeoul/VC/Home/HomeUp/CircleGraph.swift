@@ -14,7 +14,7 @@ import UIKit
 
 //CircleGraph의 클래스
 //CircleLayer(grayLayer,colorLayer로 구성)
-//durationLabel, percentageLabel, co2ValueLabel로 구성
+//durationLabel, percentLabel, co2Label로 구성
 //Animation: CircleLayer, co2ValueLabel
 
 class CircleGraph{
@@ -29,6 +29,9 @@ class CircleGraph{
     //두개의 레이어(배경테두리,색상테두리)
     let grayLayer = CAShapeLayer()
     let colorLayer = CAShapeLayer()
+    
+    //작은 원형 레이어
+    let smallLayer = [CAShapeLayer(),CAShapeLayer(),CAShapeLayer()]
     
     //CO2 VALUE
     let totalCarbon = UserDefaults.standard.integer(forKey: "totalCarbon")
@@ -107,31 +110,17 @@ class CircleGraph{
         
     }
 
-    
-    func updateValue(_ percent: Double){
-        self.percentage = percent
-        animateCircle()
-    }
-    
+
     func makeCircleLayer(){
     
         guard let percent = percentage else {return}
         
-        if percent > 0 {
-            updownImage.image = #imageLiteral(resourceName: "percentage-down")
-            percentLabel.textColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
-            colorLayer.strokeColor = #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1)
-        }
-        else {
-            updownImage.image = #imageLiteral(resourceName: "percentage-up")
-            percentLabel.textColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
-            colorLayer.strokeColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
-        }
-        
+        updownImage.image = percent > 0 ? #imageLiteral(resourceName: "percentage-down") : #imageLiteral(resourceName: "percentage-up")
+        percentLabel.textColor = percent > 0 ? #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1) : #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+        colorLayer.strokeColor = percent > 0 ? #colorLiteral(red: 0.1490196078, green: 0.8156862745, blue: 0.4862745098, alpha: 1) : #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
         
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 132.5, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         let centerPoint =  CGPoint(x:(parentView?.layer.bounds.midX)!, y: 269.5)
-        
         
         //1)create loading b.g. layer(color gray)
         grayLayer.path = circularPath.cgPath
@@ -139,9 +128,7 @@ class CircleGraph{
         grayLayer.lineWidth = 5
         grayLayer.fillColor = UIColor.clear.cgColor
         grayLayer.lineCap = kCALineCapRound //바가 조금더 라운디드 하게 만들어줌
-        
         grayLayer.position = centerPoint
-        
         parentView?.layer.addSublayer(grayLayer)
         
         //2)create loading layer(color red)
@@ -150,34 +137,25 @@ class CircleGraph{
         colorLayer.fillColor = UIColor.clear.cgColor
         colorLayer.lineCap = kCALineCapRound
         colorLayer.transform = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
-        
         colorLayer.position = centerPoint
         
         colorLayer.strokeEnd = 0
-        
         parentView?.layer.addSublayer(colorLayer)
         
         //3)create small circles
+        let smallPath = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
     
-        small1.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
-        small1.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+        for i in 0..<3 {
+            smallLayer[i].path = smallPath
+            smallLayer[i].fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+            if i == 0 {smallLayer[i].position = CGPoint(x:56.5 , y: 271.5)}
+            if i == 1{smallLayer[i].position = CGPoint(x:187.5 , y:404)}
+            if i == 2 {smallLayer[i].position = CGPoint(x:318.5, y:271.5)}
+            parentView?.layer.addSublayer(smallLayer[i])
         
-        small2.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
-        small2.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
-        
-        small3.path = UIBezierPath(arcCenter: .zero, radius: 8, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).cgPath
-        small3.fillColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
-        
-        small1.position = CGPoint(x:56.5 , y: 271.5)
-        small2.position = CGPoint(x:187.5 , y:404)
-        small3.position = CGPoint(x:318.5, y:271.5)
-        
-        parentView?.layer.addSublayer(small1)
-        parentView?.layer.addSublayer(small2)
-        parentView?.layer.addSublayer(small3)
-        
+        }
+    
     }
-    
     
     //animate Effect
     func animateCircle() {
@@ -206,10 +184,6 @@ class CircleGraph{
         
     }
     
-    let small1 = CAShapeLayer()
-    let small2 = CAShapeLayer()
-    let small3 = CAShapeLayer()
-    
     @objc func updateLabel(displayLink: CADisplayLink){
         
         let percent: CGFloat = colorLayer.presentation()?.value(forKeyPath: "strokeEnd") as? CGFloat ?? 0.0
@@ -223,14 +197,14 @@ class CircleGraph{
         guard let per = percentage else {return}
         
         if per >= 0 {
-            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
-            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
-            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+            if percent >= 0.25 {smallLayer[2].fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+            if percent >= 0.5  {smallLayer[1].fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
+            if percent >= 0.75 {smallLayer[0].fillColor = #colorLiteral(red: 0, green: 0.8392156863, blue: 0.5764705882, alpha: 1)}
         }
         if per < 0 {
-            if percent >= 0.25 {small3.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
-            if percent >= 0.5  {small2.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
-            if percent >= 0.75 {small1.fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
+            if percent >= 0.25 {smallLayer[2].fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
+            if percent >= 0.5  {smallLayer[1].fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
+            if percent >= 0.75 {smallLayer[0].fillColor = #colorLiteral(red: 1, green: 0.5333333333, blue: 0.5333333333, alpha: 1)}
         }
         
    

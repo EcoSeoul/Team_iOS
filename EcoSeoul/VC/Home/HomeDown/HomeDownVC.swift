@@ -151,7 +151,7 @@ extension HomeDownVC: UIScrollViewDelegate{
                     break
                 default: break
             }
-   
+            horizontalScroll.showsHorizontalScrollIndicator = false;
             horizontalScroll.addSubview(bannerArray[i])
         }
         bannerArray[0].addTarget(self, action: #selector(enterContent1VC), for: .touchUpInside)

@@ -6,9 +6,8 @@
 //  Copyright © 2018년 GGOMMI. All rights reserved.
 
 //HomeUpVC 와 HomeDownVC 를 관리하는 ScrollView(Vertical)
-//downBtn을 이곳에서 추가(VC1에서 VC2로 내려가는 제어가 필요해서)
+//downBtn을 이곳에서 추가(VC1->VC2로 내려가는 제어가 필요)
 //Animation: downBtn(Hovering)
-
 
 import UIKit
 
@@ -52,7 +51,7 @@ class HomeVC: UIViewController, APIService {
             guard let `self` = self else { return }
             switch result {
             case .networkSuccess(let data):
-                self.setDB(data as! MainData)
+                self.setDB(data)
                 break
             case .networkFail :
                 self.simpleAlert(title: "network", message: "네트워크상태를 확인해주세요 :)")
@@ -64,7 +63,7 @@ class HomeVC: UIViewController, APIService {
         
     }
     
-    func setDB(_ data: MainData){
+    func setDB(_ data: Main){
         //CircleView(Carbon)
         self.userDefault.set(data.term[0], forKey: "termStart")
         self.userDefault.set(data.usageData.carbonData.present, forKey: "totalCarbon")
@@ -103,8 +102,8 @@ extension HomeVC : UIScrollViewDelegate{
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.y / scrollView.frame.size.height)
-        print("현재 Vertical 인덱스 = \(Int(pageNumber))")
         userDefault.set(Int(pageNumber), forKey: "verticalIdx")
+        //print("현재 Vertical 인덱스 = \(Int(pageNumber))")
     }
 
 }
@@ -151,24 +150,20 @@ extension HomeVC {
         super.viewWillAppear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         setNaviBar(self)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
     }
-
 
     func setVC(){
         
-        //HomeDown(테이블뷰 부분)을 다른 스토리보드로 분리하겠음
         let homeDownStoryboard = UIStoryboard.init(name: "HomeDown", bundle: nil)
         
         if let vc1 = storyboard?.instantiateViewController(withIdentifier: "HomeUpVC") as? HomeUpVC,
-            let vc2 = homeDownStoryboard.instantiateViewController(withIdentifier: "HomeDownVC") as? HomeDownVC {
+           let vc2 = homeDownStoryboard.instantiateViewController(withIdentifier: "HomeDownVC") as? HomeDownVC {
             
             guard let v1 = vc1.view, let v2 = vc2.view else { return }
             

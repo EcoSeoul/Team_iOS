@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MainData: Codable {
+struct Main: Codable {
     let term: [Int]
     let carbon: [Int]
     let pastCarbon: [Int]

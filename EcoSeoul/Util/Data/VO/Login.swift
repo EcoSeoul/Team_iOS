@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct LoginData: Codable {
+struct Login: Codable {
     let message: String
-    let checkResult : [Login]
+    let checkResult : [LoginData]
     
     enum CodingKeys: String, CodingKey {
         case message = "message"
@@ -18,7 +18,7 @@ struct LoginData: Codable {
     }
 }
 
-struct Login: Codable {
+struct LoginData: Codable {
     let userIdx : Int
     let userId: String
     let userPw: String

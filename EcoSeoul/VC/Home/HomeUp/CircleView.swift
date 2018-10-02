@@ -9,9 +9,8 @@
 import UIKit
 
 //CircleGraph가 있는 뷰
-//titleLabel, circleGraph, contentLabel 으로 구성
+//titleLabel, circleGraph, contentLabel로 구성
 //*** contentLabel에 랜덤 문장 발생 시키기(사용자이름, 절약률 고려)
-
 
 class CircleView: UIView {
     
@@ -50,22 +49,22 @@ class CircleView: UIView {
     
    init(_ parentView: UIScrollView, _ percentage: Double){
         super.init(frame: parentView.frame)
-        self.parentView = parentView
-        self.percentage = percentage
+        self.parentView = parentView;
+        self.percentage = percentage;
         initContentLabel()
+        makeCircleGraph()
         parentView.subviews.last?.addSubview(titleLabel)
         parentView.subviews.last?.addSubview(contentLabel)
-        makeCircleGraph()
-
     }
     
     func initContentLabel(){
-        guard let percent = self.percentage else {return}
+        guard let percent_ = self.percentage else {return}
+        let percent = percent_ >= 0 ? percent_ : -percent_
         if percent >= 0 {
             contentLabel.text = "작년보다 \(Int(percent * 100))%를 \n절약한 당신! 최고에요! :)"
         }
-        else {
-            contentLabel.text = "작년보다 \(Int(-percent * 100))%를 \n더쓴 당신! 아쉬워요! :("
+        else{
+            contentLabel.text = "작년보다 \(Int(percent * 100))%를 \n더 쓴 당신! 아쉬워요! :("
         }
     }
     
