@@ -51,7 +51,6 @@ class CircleView: UIView {
         super.init(frame: parentView.frame)
         self.parentView = parentView;
         self.percentage = percentage;
-    
         initContentLabel()
         makeCircleGraph()
         parentView.subviews.last?.addSubview(titleLabel)

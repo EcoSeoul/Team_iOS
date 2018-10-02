@@ -43,9 +43,8 @@ extension PostableService {
                         completion(.success(data))
                         
                     }catch{
-                        
-                        print("")
-                        print("error: \(error)")
+                        print("\n<*******Postable Error 내용 *******>")
+                        print("\(error)")
                         completion(.error("error"))
                     }
                 }

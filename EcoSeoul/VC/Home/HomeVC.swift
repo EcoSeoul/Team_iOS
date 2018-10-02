@@ -102,8 +102,8 @@ extension HomeVC : UIScrollViewDelegate{
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.y / scrollView.frame.size.height)
-        print("현재 Vertical 인덱스 = \(Int(pageNumber))")
         userDefault.set(Int(pageNumber), forKey: "verticalIdx")
+        //print("현재 Vertical 인덱스 = \(Int(pageNumber))")
     }
 
 }
