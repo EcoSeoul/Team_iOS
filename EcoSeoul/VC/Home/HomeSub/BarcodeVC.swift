@@ -20,7 +20,7 @@ class BarcodeVC: UIViewController {
     @IBOutlet weak var barcodeView: UIControl!
     @IBOutlet weak var barcodeImage: UIImageView!
     @IBOutlet weak var barcodeNumber: UILabel!
-    @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var mileageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     var barcodeSerial: String?
@@ -28,7 +28,7 @@ class BarcodeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        moneyLabel.sizeToFit()
+        
         barcodeNumber.sizeToFit()
         self.showAnimate()
         makeBarcodeView()
@@ -37,11 +37,13 @@ class BarcodeVC: UIViewController {
     
     func makeBarcodeView(){
         
+        mileageLabel.adjustsFontSizeToFitWidth = true
+        
         //make corner rounded.
         self.barcodeView.layer.cornerRadius = 20;
         self.barcodeView.layer.masksToBounds = true;
         
-        //********이 부분을 수정예상********(모든곳이 터치가 안되는 근원)
+        //***HomeUp에선 모든곳이 터치가 안되는 부분(수정필요!)
         self.superView.addTarget(self, action: #selector(subViewTapped), for: .allTouchEvents)
         self.saveBarcodeData()
         
@@ -57,7 +59,7 @@ class BarcodeVC: UIViewController {
             barcodeNumber.text = serial
             titleLabel.text = gsno(userName) + "님 에코머니"
             let intMileage = gino(userMileage)
-            moneyLabel.text = "\(intMileage)"
+            mileageLabel.text = "\(intMileage)"
         }
         
     }
@@ -75,8 +77,8 @@ extension BarcodeVC {
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        
         self.view.alpha = 0.0;
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
